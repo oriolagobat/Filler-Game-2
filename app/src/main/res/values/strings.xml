@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Filler</string>
+
+    <!--    HOMEPAGE-->
+    <string name="homepage_header">Homepage</string>
+    <string name="homepage_subheader">Welcome to Filler!</string>
+    <string name="homepageHelpButton">Help</string>
+    <string name="homepageNewGameButton">New Game</string>
+    <string name="homepageQuitButton">Quit</string>
 </resources>

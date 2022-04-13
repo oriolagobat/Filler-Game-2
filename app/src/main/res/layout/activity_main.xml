@@ -4,15 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    tools:context=".InitialMenu">
+
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="409dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/homepageBody"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/homepageHeader"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center"
+            android:textSize="32sp"
+            android:text="@string/homepage_header" />
+
+        <TextView
+            android:id="@+id/homepageSubheader"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/homepage_subheader" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/homepageBody"
+        android:layout_width="409dp"
+        android:layout_height="645dp"
+        android:background="@drawable/background"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <Space
+            android:id="@+id/homepageMainSpace"
+            android:layout_width="match_parent"
+            android:layout_height="217dp" />
+
+        <LinearLayout
+            android:id="@+id/button1Layout"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:id="@+id/button1Space1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/helpButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/homepageHelpButton" />
+
+            <Space
+                android:id="@+id/button1Space2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button2Layout"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:id="@+id/button2Space1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/newGameButton"
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/homepageNewGameButton" />
+
+            <Space
+                android:id="@+id/button2Space2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button3Layout"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:id="@+id/button3Space1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/quitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/homepageQuitButton" />
+
+            <Space
+                android:id="@+id/button3Space2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
