@@ -25,16 +25,15 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         lateinit var intent: Intent
 
         when (v?.id) {
+            R.id.helpButton -> {intent = Intent(this, Help::class.java)}
             R.id.newGameButton -> {
                 TODO("To be implemented")
 //                intent = Intent(this, TODO(NewGame::class.java))
             }
             R.id.quitButton -> finish()
-            R.id.helpButton -> {
-                TODO("To be implemented")
-//                intent = Intent(this, Help::class.java)
-            }
             // FIXME: Put everything in one line once implemented
         }
+
+        startActivity(intent)
     }
 }

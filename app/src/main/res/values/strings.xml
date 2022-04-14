@@ -7,4 +7,29 @@
     <string name="homepageHelpButton">Help</string>
     <string name="homepageNewGameButton">New Game</string>
     <string name="homepageQuitButton">Quit</string>
+
+    <!--    HELP-->
+    <string name="help_header">Help</string>
+    <string name="help_subheader">How to play Filler</string>
+    <string name="help_rules">
+        <![CDATA[
+            <p>
+                <br>
+                <b>Rules:</b> <br>
+
+                1. Each player is assigned a corner at the beginning of the game. <br>
+                2. Players take turns filling their tiles with one of 6 colors in an attempt to capture adjacent tiles of the same color. <br>
+                3. You cannot change the color to yours or your opponent\'s. <br>
+                4. The game ends when there are no tiles left to capture. <br>
+            </p>
+            <p>
+                <br>
+                <b>Goal:</b> <br>
+
+                The goal of the game is to capture more tiles than your opponent, then you win. <br>
+            </p>
+        ]]>
+    </string>
+    <string name="help_sample_image_desc">Game sample image</string>
+    <string name="help_back_desc">Back button image</string>
 </resources>

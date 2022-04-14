@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/homepageHeader"
+            android:id="@+id/helpHeader"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:gravity="center"
@@ -30,7 +30,7 @@
             android:text="@string/homepage_header" />
 
         <TextView
-            android:id="@+id/homepageSubheader"
+            android:id="@+id/helpSubheader"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:gravity="center"
