@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Filler">
         <activity
-            android:name=".Help"
+            android:name=".gui.Help"
             android:exported="false" />
         <activity
-            android:name=".InitialMenu"
+            android:name=".gui.InitialMenu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,9 +1,9 @@
-package com.example.filler
+package com.example.filler.gui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Html
 import androidx.core.text.HtmlCompat
+import com.example.filler.R
 import com.example.filler.databinding.ActivityHelpBinding
 
 class Help : AppCompatActivity() {
