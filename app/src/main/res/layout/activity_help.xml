@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:gravity="center"
-            android:text="@null"
+            android:text="@string/help_subheader"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
@@ -59,12 +59,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
+            <!--            No text, it must be set from code as it has html in it-->
             <TextView
                 android:id="@+id/rulesText"
                 android:layout_width="309dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/help_rules" />
+                android:text="@null" />
 
             <Space
                 android:id="@+id/rulesSpace2"
