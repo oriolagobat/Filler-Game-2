@@ -32,4 +32,17 @@
     </string>
     <string name="help_sample_image_desc">Game sample image</string>
     <string name="help_back_desc">Back button image</string>
+
+    <!--    CONFIGURATION-->
+    <string name="configuration_header">Configuration</string>
+    <string name="configuration_subheader">Choose your game settings</string>
+    <string name="configuration_username">Enter your username</string>
+    <string name="configuration_username_hint">Enter your username here....</string>
+    <string name="configuration_colors">Pick the number of colors in the game</string>
+    <string name="configuration_grid">Pick the board dimension</string>
+    <string name="configuration_time">Choose if you want time control</string>
+
+    <string name="color_image_description">Color roulette</string>
+    <string name="board_image_description">Board icon</string>
+    <string name="clock_image_description">Clock icon</string>
 </resources>
