@@ -40,11 +40,9 @@
     <LinearLayout
         android:id="@+id/configurationBody"
         android:layout_width="409dp"
-        android:layout_height="645dp"
-        android:layout_marginTop="2dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/background"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerLayout">
@@ -263,6 +261,37 @@
                 android:layout_weight="1"
                 android:text="" />
 
+        </LinearLayout>
+
+        <Space
+            android:id="@+id/beforeButtonLayoutSpace"
+            android:layout_width="match_parent"
+            android:layout_height="31dp" />
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:id="@+id/beforeButtonSpace"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/newGameButton"
+                android:layout_width="128dp"
+                android:layout_height="61dp"
+                android:layout_weight="1"
+                android:text="@string/startNewGameButton" />
+
+            <Space
+                android:id="@+id/afterButtonSpace"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_weight="1" />
         </LinearLayout>
 
 

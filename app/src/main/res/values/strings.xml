@@ -41,6 +41,7 @@
     <string name="configuration_colors">Pick the number of colors in the game</string>
     <string name="configuration_grid">Pick the board dimension</string>
     <string name="configuration_time">Choose if you want time control</string>
+    <string name="startNewGameButton">Start new game</string>
 
     <string name="color_image_description">Color roulette</string>
     <string name="board_image_description">Board icon</string>
