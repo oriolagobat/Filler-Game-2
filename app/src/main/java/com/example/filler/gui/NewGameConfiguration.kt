@@ -96,7 +96,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
     }
 
     private fun manageNewGameButton() {
-        if (!::username.isInitialized) {
+        if (!::username.isInitialized || username.isEmpty()) {
             val errorMsg = "Please enter a username"
             Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
         } else if (!::difficulty.isInitialized) {
