@@ -5,7 +5,7 @@ import com.example.filler.constants.GameState
 
 data class GameResponse(
     val round: Int,
-    val boardColors: Array<Array<Cell>>,
+    val boardColors: Array<Array<Colors>>,
     val chooserColors: Array<Pair<Colors, Boolean>>,
     val state: GameState
 )

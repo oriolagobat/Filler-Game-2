@@ -9,18 +9,14 @@ import com.example.filler.logic.GameResponse
 
 class GameStub(boardWidth: Int, numColors: Int, difficulty: Difficulty) : GameInt {
 
-    private val redCell = Cell(Colors.RED)
-    private val greenCell = Cell(Colors.GREEN)
-    private val blueCell = Cell(Colors.BLUE)
-
     private val response = GameResponse(
         0,
         arrayOf(
-            arrayOf(redCell, greenCell, redCell),
-            arrayOf(greenCell, blueCell, greenCell),
-            arrayOf(blueCell, redCell, redCell)
+            arrayOf(Colors.RED, Colors.GREEN, Colors.BLUE),
+            arrayOf(Colors.GREEN, Colors.GREEN, Colors.RED),
+            arrayOf(Colors.RED, Colors.BLUE, Colors.BLUE)
         ),
-        arrayOf(Pair(Colors.RED, true), Pair(Colors.GREEN, true), Pair(Colors.BLUE, false)),
+        arrayOf(Pair(Colors.RED, true), Pair(Colors.GREEN, false), Pair(Colors.BLUE, true)),
         GameState.PLAYING
     )
 
