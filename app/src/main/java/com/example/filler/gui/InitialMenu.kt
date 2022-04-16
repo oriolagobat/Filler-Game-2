@@ -10,7 +10,6 @@ import com.example.filler.databinding.ActivityMainBinding
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         // Prepare the binding of the view
         val binding = ActivityMainBinding.inflate(layoutInflater)

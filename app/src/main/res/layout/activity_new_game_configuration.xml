@@ -8,9 +8,8 @@
 
     <LinearLayout
         android:id="@+id/headerLayout"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="84dp"
-        android:layout_marginBottom="1dp"
         android:background="@drawable/header_gradient"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/configurationBody"
@@ -39,7 +38,7 @@
 
     <LinearLayout
         android:id="@+id/configurationBody"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background"
         android:orientation="vertical"
@@ -154,6 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:prompt="@string/configuration_colors"
                 android:entries="@array/colors_options_array"
                 android:spinnerMode="dialog" />
 
@@ -207,6 +207,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:prompt="@string/configuration_grid"
                 android:entries="@array/board_options_array"
                 android:spinnerMode="dialog" />
 
@@ -263,10 +264,69 @@
 
         </LinearLayout>
 
-        <Space
-            android:id="@+id/beforeButtonLayoutSpace"
+        <LinearLayout
+            android:id="@+id/dificultyIntroLayout"
             android:layout_width="match_parent"
-            android:layout_height="31dp" />
+            android:layout_height="31dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:id="@+id/beforeDifficultyIntroSpace"
+                android:layout_width="1dp"
+                android:layout_height="29dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/difficultyIntro"
+                android:layout_width="376dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="@string/configuration_dificulty_choose"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/difficultyInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:id="@+id/beforeDifficultyInputSpace"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <RadioGroup
+                android:id="@+id/difficultyRadioGroup"
+                android:layout_width="374dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/difficultyEasy"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/configuration_dificulty_easy" />
+
+                <RadioButton
+                    android:id="@+id/difficultyMedium"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/configuration_dificulty_medium" />
+
+                <RadioButton
+                    android:id="@+id/difficultyHard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/configuration_dificulty_hard" />
+            </RadioGroup>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/buttonLayout"

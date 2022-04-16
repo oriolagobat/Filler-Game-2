@@ -9,7 +9,6 @@ import com.example.filler.databinding.ActivityHelpBinding
 class Help : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_help)
 
         // Set this activity's binding
         val binding = ActivityHelpBinding.inflate(layoutInflater)

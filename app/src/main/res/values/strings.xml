@@ -41,6 +41,10 @@
     <string name="configuration_colors">Pick the number of colors in the game</string>
     <string name="configuration_grid">Pick the board dimension</string>
     <string name="configuration_time">Choose if you want time control</string>
+    <string name="configuration_dificulty_choose">Choose the game difficulty</string>
+    <string name="configuration_dificulty_easy">Easy</string>
+    <string name="configuration_dificulty_medium">Medium</string>
+    <string name="configuration_dificulty_hard">Hard</string>
     <string name="startNewGameButton">Start new game</string>
 
     <string name="color_image_description">Color roulette</string>
