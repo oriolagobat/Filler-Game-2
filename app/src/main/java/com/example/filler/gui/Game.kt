@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
+import com.example.filler.constants.Difficulty
 
 class Game : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +15,8 @@ class Game : AppCompatActivity() {
         val colorNum = intent.getStringExtra("colorNum")
         val gridNum = intent.getStringExtra("gridNum")
         val timeControl = intent.getBooleanExtra("timeControl", false)
-        val difficulty = intent.getStringExtra("difficulty")
+        val difficultyString = intent.getStringExtra("difficulty")
+        val difficulty = Difficulty.valueOf(difficultyString!!.uppercase())
 
         val message =
             "Username: $username\n" +

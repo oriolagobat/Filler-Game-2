@@ -11,6 +11,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.filler.R
+import com.example.filler.constants.Difficulty
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
 
 class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedListener,
