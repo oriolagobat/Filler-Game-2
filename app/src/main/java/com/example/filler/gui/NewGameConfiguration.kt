@@ -1,9 +1,11 @@
 package com.example.filler.gui
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -76,6 +78,17 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         } else {
             username = binding.usernameInput.text.toString()
         }
+        closeKeyboardClearFocus()
+    }
+
+    private fun closeKeyboardClearFocus() {
+        val focused: View? = currentFocus
+        focused?.let {
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(focused.windowToken, 0)
+        }
+        // Clear the EditText focus
+        binding.usernameInput.clearFocus()
     }
 
     private fun manageTimeCheckBox() {
