@@ -16,6 +16,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
     private lateinit var binding: ActivityNewGameConfigurationBinding
 
     private lateinit var username: String
+    private lateinit var usernameInput: NewUsernameInput
     private lateinit var colorNum: String
     private lateinit var gridNum: String
     private var timeControl = false
@@ -30,6 +31,9 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
         // Set this class listeners
         ConfigurationListenersSetUp(this, binding)
+
+        // Set a new username input instance
+        usernameInput = NewUsernameInput(this, binding)
     }
 
     //  Manages spinner selections
@@ -54,11 +58,17 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
     // Manages clicks on the editText, checkBox and button
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.usernameInput -> NewUsernameInput(this, binding).get()
+            R.id.usernameInput -> manageUsernameInput()
             R.id.timeCheckBox -> manageTimeCheckBox()
             R.id.newGameButton -> manageNewGameButton()
         }
     }
+
+    // Manages the username input EditText
+    private fun manageUsernameInput() {
+        username = usernameInput.get()
+    }
+
 
     // Manages time checkBox
     private fun manageTimeCheckBox() {

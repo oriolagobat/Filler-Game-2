@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Filler">
         <activity
+            android:name=".Results"
+            android:exported="false" />
+        <activity
             android:name=".gui.Game"
             android:exported="false" />
         <activity

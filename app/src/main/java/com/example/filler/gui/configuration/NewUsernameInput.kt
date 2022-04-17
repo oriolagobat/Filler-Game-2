@@ -11,15 +11,6 @@ class NewUsernameInput(
 ) {
     private var usernameInput: String? = null
 
-    init {
-        if (binding.usernameInput.text.isEmpty()) {
-            binding.usernameInput.error = "Please enter a username"
-        } else {
-            usernameInput = binding.usernameInput.text.toString()
-        }
-        closeKeyboardClearFocus()
-    }
-
     private fun closeKeyboardClearFocus() {
         val focused: View? = context.currentFocus
         focused?.let {
@@ -32,6 +23,13 @@ class NewUsernameInput(
     }
 
     fun get(): String {
+        if (binding.usernameInput.text.isEmpty()) {
+            binding.usernameInput.error = "Please enter a username"
+        } else {
+            usernameInput = binding.usernameInput.text.toString()
+        }
+        closeKeyboardClearFocus()
+
         // If the username is empty, return an empty username
         return usernameInput ?: ""
     }
