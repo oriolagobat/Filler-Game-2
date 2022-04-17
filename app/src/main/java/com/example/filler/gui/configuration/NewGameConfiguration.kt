@@ -1,17 +1,13 @@
-package com.example.filler.gui
+package com.example.filler.gui.configuration
 
-import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
-import com.example.filler.constants.Difficulty
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
 
 class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedListener,
@@ -32,17 +28,8 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         binding = ActivityNewGameConfigurationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set the onClickListener for the editText, checkBox and button
-        binding.usernameInput.setOnClickListener(this)
-        binding.timeCheckBox.setOnClickListener(this)
-        binding.newGameButton.setOnClickListener(this)
-
-        // Set the spinners onItemSelectedListener's
-        binding.colorSpinner.onItemSelectedListener = this
-        binding.gridSpinner.onItemSelectedListener = this
-
-        // Set radioGroup's onCheckedChangeListener
-        binding.difficultyRadioGroup.setOnCheckedChangeListener(this)
+        // Set this class listeners
+        ConfigurationListenersSetUp(this, binding)
     }
 
     //  Manages spinner selections
@@ -67,51 +54,30 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
     // Manages clicks on the editText, checkBox and button
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.usernameInput -> manageUsernameInput()
+            R.id.usernameInput -> NewUsernameInput(this, binding).get()
             R.id.timeCheckBox -> manageTimeCheckBox()
             R.id.newGameButton -> manageNewGameButton()
         }
     }
 
-    private fun manageUsernameInput() {
-        if (binding.usernameInput.text.isEmpty()) {
-            binding.usernameInput.error = "Please enter a username"
-        } else {
-            username = binding.usernameInput.text.toString()
-        }
-        closeKeyboardClearFocus()
-    }
-
-    private fun closeKeyboardClearFocus() {
-        val focused: View? = currentFocus
-        focused?.let {
-            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(focused.windowToken, 0)
-        }
-        // Clear the EditText focus
-        binding.usernameInput.clearFocus()
-    }
-
+    // Manages time checkBox
     private fun manageTimeCheckBox() {
         timeControl = binding.timeCheckBox.isChecked
     }
 
+    // Manages new game button
     private fun manageNewGameButton() {
-        if (!::username.isInitialized || username.isEmpty()) {
-            val errorMsg = "Please enter a username"
-            Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
-        } else if (!::difficulty.isInitialized) {
-            val errorMsg = "Please select a difficulty"
+        val errorMsg: String? = when {
+            // Check possible variables that don't have a default value
+            (!::username.isInitialized) -> "Enter a username"
+            (!::difficulty.isInitialized) -> "Select a difficulty"
+            else -> null
+        }
+
+        if (errorMsg != null) {
             Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
         } else {
-            val intent = Intent(this, Game::class.java)
-            intent.putExtra("username", username)
-            intent.putExtra("colorNum", colorNum)
-            intent.putExtra("gridNum", gridNum)
-            intent.putExtra("timeControl", timeControl)
-            intent.putExtra("difficulty", difficulty)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
+            StartNewGame(this, username, colorNum, gridNum, timeControl, difficulty)
         }
     }
 

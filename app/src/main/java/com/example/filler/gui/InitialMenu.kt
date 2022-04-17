@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
+import com.example.filler.gui.configuration.NewGameConfiguration
 
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -13,7 +13,7 @@
             android:name=".gui.Game"
             android:exported="false" />
         <activity
-            android:name=".gui.NewGameConfiguration"
+            android:name=".gui.configuration.NewGameConfiguration"
             android:exported="false" />
         <activity
             android:name=".gui.Help"
