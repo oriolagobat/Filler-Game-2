@@ -8,9 +8,14 @@ class Board(
     private val colors: Array<Colors>,
 ) : BoardInt {
 
-    private var cells: Array<Array<Cell>> = Array(size) { Array(size) { Cell(Colors.RED, 0, 0) } }
+    private var cells: Array<Array<Cell>> =
+        Array(size) {
+            Array(size) {
+                Cell(Colors.RED, 0, 0)
+            }
+        }
 
-    // Initialize the board with random colors
+    // Initialize the board's cells with random colors
     init {
         for (x in 0 until size) {
             for (y in 0 until size) {

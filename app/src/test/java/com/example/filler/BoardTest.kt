@@ -7,18 +7,17 @@ import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Before
 
-const val BOARD_SIZE = 3
 
 
 class BoardTest {
-
+    private val boardSize = 3
     private lateinit var board: Board
     private lateinit var colors: Array<Colors>
 
     @Before
     fun initBoard() {
         colors = arrayOf(Colors.RED, Colors.GREEN, Colors.BLUE)
-        board = Board(BOARD_SIZE, colors)
+        board = Board(boardSize, colors)
     }
 
     @Test
@@ -31,8 +30,8 @@ class BoardTest {
 
     @Test
     fun boardGetColors() {
-        for (i in 0 until BOARD_SIZE) {
-            for (j in 0 until BOARD_SIZE) {
+        for (i in 0 until boardSize) {
+            for (j in 0 until boardSize) {
                 val color = board.getColor(i, j)
                 assertTrue(color in colors)
             }
@@ -47,5 +46,4 @@ class BoardTest {
             assertTrue(color in colors)
         }
     }
-
 }
