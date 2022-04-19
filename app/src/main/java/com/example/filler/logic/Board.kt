@@ -8,25 +8,7 @@ class Board(
     private val colors: Array<Colors>,
 ) : BoardInt {
 
-    private var cells: Array<Array<Cell>> =
-        Array(size) {
-            Array(size) {
-                Cell(Colors.RED, 0, 0)
-            }
-        }
-
-    // Initialize the board's cells with random colors
-    init {
-        for (x in 0 until size) {
-            for (y in 0 until size) {
-                cells[x][y] = Cell(getRandomColor(), x, y)
-            }
-        }
-    }
-
-    override fun getRandomColor(): Colors {
-        return colors[(colors.indices).random()]
-    }
+    private var cells = RandomFiller(size, colors).fill()
 
     override fun getP1Color(): Colors {
         return cells[0][0].color
@@ -36,7 +18,7 @@ class Board(
         return cells[size - 1][size - 1].color
     }
 
-    override fun getColor(x: Int, y: Int): Colors {
-        return cells[x][y].color
+    override fun getColor(position: Position): Colors {
+        return cells[position.x][position.y].color
     }
 }

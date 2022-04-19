@@ -2,6 +2,7 @@ package com.example.filler
 
 import com.example.filler.constants.Colors
 import com.example.filler.logic.Board
+import com.example.filler.logic.Position
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -32,18 +33,9 @@ class BoardTest {
     fun boardGetColors() {
         for (i in 0 until boardSize) {
             for (j in 0 until boardSize) {
-                val color = board.getColor(i, j)
+                val color = board.getColor(Position(i, j))
                 assertTrue(color in colors)
             }
-        }
-    }
-
-    @Test
-    fun getRandomColor() {
-        val size = 20
-        val randomColors = Array(size) { board.getRandomColor() }
-        for (color in randomColors) {
-            assertTrue(color in colors)
         }
     }
 }
