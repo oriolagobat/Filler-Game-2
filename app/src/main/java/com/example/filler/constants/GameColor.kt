@@ -1,6 +1,7 @@
 package com.example.filler.constants
 
-enum class Colors {
+enum class GameColor {
+    NULL,
     RED,
     BLUE,
     GREEN,

@@ -1,4 +1,3 @@
 package com.example.filler.logic
 
-class Round {
-}
+data class Round (val round: Int)
