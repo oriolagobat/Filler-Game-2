@@ -54,7 +54,7 @@
             android:orientation="horizontal">
 
             <Space
-                android:id="@+id/rulesSpace1"
+                android:id="@+id/leftVerticalSpace"
                 android:layout_width="11dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />

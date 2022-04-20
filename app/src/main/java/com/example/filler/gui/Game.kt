@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.constants.Difficulty
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.logic.stub.GameStub
 
 class Game : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +32,9 @@ class Game : AppCompatActivity() {
                     "Difficulty: $difficulty"
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
-        binding.button.setOnClickListener() {
-            finish()
-        }
+        // This is how it will be
+//        binding.gameGridView.numColumns = gridNum
+        binding.gameGridView.numColumns = 3
+        val gameStub: GameStub = GameStub(3, 3, difficulty)
     }
 }
