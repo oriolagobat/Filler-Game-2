@@ -1,7 +1,7 @@
 package com.example.filler.logic.stub
 
-import com.example.filler.constants.GameColor
 import com.example.filler.constants.Difficulty
+import com.example.filler.constants.GameColor
 import com.example.filler.constants.GameState
 import com.example.filler.logic.Game
 import com.example.filler.logic.GameResponse
@@ -11,11 +11,15 @@ class GameStub(boardWidth: Int, numColors: Int, difficulty: Difficulty) : Game {
     private val response = GameResponse(
         0,
         arrayOf(
-            arrayOf(GameColor.RED, GameColor.GREEN, GameColor.BLUE),
-            arrayOf(GameColor.GREEN, GameColor.GREEN, GameColor.RED),
-            arrayOf(GameColor.RED, GameColor.BLUE, GameColor.BLUE)
+            arrayOf(GameColor.CYAN, GameColor.GREEN, GameColor.BLUE),
+            arrayOf(GameColor.GREEN, GameColor.GREEN, GameColor.BLACK),
+            arrayOf(GameColor.YELLOW, GameColor.BLUE, GameColor.BLUE)
         ),
-        arrayOf(Pair(GameColor.RED, true), Pair(GameColor.GREEN, false), Pair(GameColor.BLUE, true)),
+        arrayOf(
+            Pair(GameColor.YELLOW, true),
+            Pair(GameColor.GREEN, false),
+            Pair(GameColor.BLUE, true)
+        ),
         GameState.PLAYING
     )
 

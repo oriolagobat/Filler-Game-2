@@ -2,7 +2,7 @@ package com.example.filler.gui.configuration
 
 import android.content.Intent
 import android.widget.Toast
-import com.example.filler.gui.Game
+import com.example.filler.gui.game.Game
 
 class StartNewGame(
     private val context: NewGameConfiguration,

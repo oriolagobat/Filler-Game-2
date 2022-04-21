@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    Add 8 different colors-->
+    <color name="game_pink">#FFF06292</color>
+    <color name="game_orange">#FFFF6E40</color>
+    <color name="game_yellow">#FFF9A825</color>
+    <color name="game_green">#4CAF50</color>
+    <color name="game_blue">#0D84FA</color>
+    <color name="game_purple">#673AB7</color>
+    <color name="game_cyan">#FF4DD0E1</color>
+    <color name="game_black">#FF212121</color>
+
 </resources>
