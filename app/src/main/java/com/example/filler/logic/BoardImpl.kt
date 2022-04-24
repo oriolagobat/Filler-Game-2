@@ -10,11 +10,11 @@ class BoardImpl(
     private val colors = Array(size) { Array(size) { GameColor.NULL } }
 
     override fun getP1Home(): Position {
-        return Position(0, size -1)
+        return Position(size - 1, 0)
     }
 
     override fun getP2Home(): Position {
-        return Position(size -1, 0)
+        return Position(0, size - 1)
     }
 
     override fun getColor(position: Position): GameColor {
