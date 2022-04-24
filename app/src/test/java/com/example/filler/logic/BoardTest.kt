@@ -35,8 +35,8 @@ class BoardTest {
 
     @Test
     fun `Initial player positions correspond to lower left and upper righ positions`() {
-        val p1Home = Position(0, boardSize - 1)
-        val p2Home = Position(boardSize - 1, 0)
+        val p1Home = Position(boardSize - 1, 0)
+        val p2Home = Position(0, boardSize - 1)
         assertEquals(p1Home, board.getP1Home())
         assertEquals(p2Home, board.getP2Home())
     }
