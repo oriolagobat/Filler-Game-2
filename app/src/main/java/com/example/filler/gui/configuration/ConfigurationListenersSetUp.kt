@@ -1,3 +1,4 @@
+/*
 package com.example.filler.gui.configuration
 
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
@@ -20,3 +21,4 @@ class ConfigurationListenersSetUp(
         binding.difficultyRadioGroup.setOnCheckedChangeListener(context)
     }
 }
+*/

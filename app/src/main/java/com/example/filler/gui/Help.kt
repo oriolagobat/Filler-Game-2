@@ -1,3 +1,4 @@
+/*
 package com.example.filler.gui
 
 import androidx.appcompat.app.AppCompatActivity
@@ -24,4 +25,4 @@ class Help : AppCompatActivity() {
             finish()
         }
     }
-}
+}*/

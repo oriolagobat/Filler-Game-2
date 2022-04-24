@@ -99,7 +99,7 @@
                 android:layout_weight="1" />
 
             <ImageButton
-                android:id="@+id/helpButton"
+                android:id="@+id/backButton"
                 android:layout_width="150dp"
                 android:layout_height="98dp"
                 android:background="@null"

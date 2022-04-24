@@ -341,7 +341,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/newGameButton"
+                android:id="@+id/startNewGameButton"
                 android:layout_width="128dp"
                 android:layout_height="61dp"
                 android:layout_weight="1"

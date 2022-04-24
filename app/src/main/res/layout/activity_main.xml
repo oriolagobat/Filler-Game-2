@@ -7,132 +7,83 @@
 
     tools:context=".gui.InitialMenu">
 
-
-    <LinearLayout
-        android:id="@+id/headerLayout"
-        android:layout_width="409dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerConstraint"
+        android:layout_width="411dp"
         android:layout_height="84dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="vertical"
         android:background="@drawable/header_gradient"
-        app:layout_constraintBottom_toTopOf="@+id/homepageBody"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/helpHeader"
+            android:id="@+id/mainHeader"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:gravity="center"
-            android:textSize="32sp"
+            android:text="@string/homepage_header"
             android:textColor="@color/white"
-            android:text="@string/homepage_header" />
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/helpSubheader"
+            android:id="@+id/mainSubHeader"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:gravity="center"
-            android:textSize="20sp"
+            android:text="@string/homepage_subheader"
             android:textColor="@color/white"
-            android:text="@string/homepage_subheader" />
-    </LinearLayout>
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHeader" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/homepageBody"
-        android:layout_width="409dp"
-        android:layout_height="645dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainContentConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:background="@drawable/background"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerConstraint"
+        app:layout_constraintVertical_bias="1.0">
 
+        <Button
+            android:id="@+id/helpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/homepageHelpButton"
+            app:layout_constraintBottom_toTopOf="@+id/newGameButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-        <Space
-            android:id="@+id/homepageMainSpace"
-            android:layout_width="match_parent"
-            android:layout_height="217dp" />
+        <Button
+            android:id="@+id/newGameButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/homepageNewGameButton"
+            app:layout_constraintBottom_toTopOf="@+id/quitButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/helpButton" />
 
-        <LinearLayout
-            android:id="@+id/button1Layout"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/quitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/homepageQuitButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newGameButton" />
 
-            <Space
-                android:id="@+id/button1Space1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/helpButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/homepageHelpButton" />
-
-            <Space
-                android:id="@+id/button1Space2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/button2Layout"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:id="@+id/button2Space1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/newGameButton"
-                android:layout_width="88dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/homepageNewGameButton" />
-
-            <Space
-                android:id="@+id/button2Space2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/button3Layout"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:id="@+id/button3Space1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/quitButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/homepageQuitButton" />
-
-            <Space
-                android:id="@+id/button3Space2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-    </LinearLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

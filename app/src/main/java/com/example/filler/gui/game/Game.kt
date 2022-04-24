@@ -1,3 +1,4 @@
+/*
 package com.example.filler.gui.game
 
 import android.os.Bundle
@@ -37,4 +38,4 @@ class Game : AppCompatActivity() {
         val gameStub: GameStub = GameStub(3, 3, difficulty)
         binding.gameGridView.adapter = GridAdapter(this, gameStub.initGame().boardColors)
     }
-}
+}*/

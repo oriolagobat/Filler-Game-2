@@ -1,9 +1,9 @@
 package com.example.filler.gui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
@@ -26,7 +26,7 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         lateinit var intent: Intent
 
         when (v?.id) {
-            R.id.helpButton -> intent = Intent(this, Help::class.java)
+//            R.id.helpButton -> intent = Intent(this, Help::class.java)
             R.id.newGameButton -> intent = Intent(this, NewGameConfiguration::class.java)
             R.id.quitButton -> finish()
         }

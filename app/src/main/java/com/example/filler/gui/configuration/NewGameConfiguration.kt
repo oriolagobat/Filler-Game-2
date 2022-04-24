@@ -16,7 +16,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
     private lateinit var binding: ActivityNewGameConfigurationBinding
 
     private lateinit var username: String
-    private lateinit var usernameInput: NewUsernameInput
+//    private lateinit var usernameInput: NewUsernameInput
     private lateinit var colorNum: String
     private lateinit var gridNum: String
     private var timeControl = false
@@ -30,10 +30,10 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         setContentView(binding.root)
 
         // Set this class listeners
-        ConfigurationListenersSetUp(this, binding)
+//        ConfigurationListenersSetUp(this, binding)
 
         // Set a new username input instance
-        usernameInput = NewUsernameInput(this, binding)
+//        usernameInput = NewUsernameInput(this, binding)
     }
 
     //  Manages spinner selections
@@ -66,7 +66,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     // Manages the username input EditText
     private fun manageUsernameInput() {
-        username = usernameInput.get()
+//        username = usernameInput.get()
     }
 
 
@@ -87,7 +87,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         if (errorMsg != null) {
             Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
         } else {
-            StartNewGame(this, username, colorNum, gridNum, timeControl, difficulty)
+//            StartNewGame(this, username, colorNum, gridNum, timeControl, difficulty)
         }
     }
 
