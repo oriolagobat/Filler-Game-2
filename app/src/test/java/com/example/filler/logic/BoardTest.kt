@@ -10,40 +10,49 @@ import kotlin.collections.ArrayList
 
 class BoardTest {
     private val boardSize = 3
-    private lateinit var board: BoardImp
+    private lateinit var board: Board
+    private val colorArray = arrayOf(
+        GameColor.RED,
+        GameColor.RED,
+        GameColor.RED,
+        GameColor.YELLOW,
+        GameColor.YELLOW,
+        GameColor.YELLOW,
+        GameColor.GREEN,
+        GameColor.GREEN,
+        GameColor.GREEN
+    )
 
     @Before
     fun init() {
-        board = BoardImp(boardSize)
-        for (i in 0 until boardSize) {
-            for (j in 0 until boardSize) {
-                board.setColor(Position(i, j), GameColor.YELLOW)
+        board = BoardImpl(boardSize)
+        for (row in 0 until boardSize) {
+            for (col in 0 until boardSize) {
+                board.setColor(Position(row, col), colorArray[row * boardSize + col])
             }
         }
     }
 
     @Test
-    fun `Initial player colors correspond to lower left and upper right corners' colors`() {
-        val p1HomeColor = GameColor.RED
-        val p2HomeColor = GameColor.BLUE
-        board.setColor(Position(boardSize - 1, 0), p1HomeColor)
-        board.setColor(Position(0, boardSize - 1), p2HomeColor)
-        assertEquals(p1HomeColor, board.getP1HomeColor())
-        assertEquals(p2HomeColor, board.getP2HomeColor())
+    fun `Initial player positions correspond to lower left and upper righ positions`() {
+        val p1Home = Position(0, boardSize - 1)
+        val p2Home = Position(boardSize - 1, 0)
+        assertEquals(p1Home, board.getP1Home())
+        assertEquals(p2Home, board.getP2Home())
     }
 
     @Test
     fun `Board returns setted color when asking for any position's color`() {
-        for (i in 0 until boardSize) {
-            for (j in 0 until boardSize) {
-                val color = board.getColor(Position(i, j))
-                assertEquals(color, GameColor.YELLOW)
+        for (row in 0 until boardSize) {
+            for (col in 0 until boardSize) {
+                val color = board.getColor(Position(row, col))
+                assertEquals(color, colorArray[row * boardSize + col])
             }
         }
     }
 
     @Test
-    fun `Surrounding cells' position of a given position should be correct`() {
+    fun `Surrounding cells' position of a given position are correct`() {
         val pos = Position(1, 1)
         val surroundingPositions = ArrayList<GameColor>()
         surroundingPositions.add(board.getColor(Position(0, 1)))
@@ -51,5 +60,10 @@ class BoardTest {
         surroundingPositions.add(board.getColor(Position(1, 0)))
         surroundingPositions.add(board.getColor(Position(1, 2)))
         assertEquals(board.getSurroundingColors(pos), surroundingPositions)
+    }
+
+    @Test
+    fun `Board array retured equals colorArray`() {
+        assertArrayEquals(board.getBoardAsColorArray(), colorArray)
     }
 }
