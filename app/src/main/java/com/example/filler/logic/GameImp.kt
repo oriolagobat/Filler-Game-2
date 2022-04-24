@@ -2,7 +2,7 @@ package com.example.filler.logic
 
 import com.example.filler.constants.GameColor
 
-class GameImp: Game {
+class GameImp : Game {
     override fun initGame(): GameResponse {
         TODO("Not yet implemented")
     }

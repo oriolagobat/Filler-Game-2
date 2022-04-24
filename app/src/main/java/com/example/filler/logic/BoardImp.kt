@@ -42,7 +42,7 @@ class BoardImp(
         }
     }
 
-    private fun getBelowColor (position: Position): GameColor {
+    private fun getBelowColor(position: Position): GameColor {
         return if (position.row == size - 1) {
             GameColor.NULL
         } else {
@@ -50,7 +50,7 @@ class BoardImp(
         }
     }
 
-    private fun getLeftColor (position: Position): GameColor {
+    private fun getLeftColor(position: Position): GameColor {
         return if (position.col == 0) {
             GameColor.NULL
         } else {
@@ -58,7 +58,7 @@ class BoardImp(
         }
     }
 
-    private fun getRightColor (position: Position): GameColor {
+    private fun getRightColor(position: Position): GameColor {
         return if (position.col == size - 1) {
             GameColor.NULL
         } else {

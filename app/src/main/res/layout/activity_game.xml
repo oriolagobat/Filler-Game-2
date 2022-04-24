@@ -6,77 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".gui.game.Game">
 
-    <LinearLayout
-        android:id="@+id/headerLayout"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameHeaderConstraint"
+        android:layout_width="411dp"
         android:layout_height="84dp"
         android:background="@drawable/header_gradient"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/gameBodyLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/gameHeader"
+            android:id="@+id/mainGameHeader"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:gravity="center"
             android:text="@string/game_header"
             android:textColor="@color/white"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/gameSubheader"
+            android:id="@+id/mainGameSubHeader"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:gravity="center"
             android:text="@string/game_sub_header"
             android:textColor="@color/white"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainGameHeader" />
 
-    <LinearLayout
-        android:id="@+id/gameBodyLayout"
-        android:layout_width="409dp"
-        android:layout_height="645dp"
-        android:orientation="vertical"
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/helpContentConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Space
-            android:id="@+id/beforeVerticalSpace"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:id="@+id/horizontalGameBodyLayout"
-            android:layout_width="match_parent"
-            android:layout_height="612dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:id="@+id/leftVerticalSpace"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameHeaderConstraint"
+        app:layout_constraintVertical_bias="1.0">
 
 
-            <GridView
-                android:id="@+id/gameGridView"
-                android:layout_width="240dp"
-                android:layout_height="459dp"
-                android:layout_weight="1" />
-
-            <Space
-                android:id="@+id/rightVerticalSpace"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-        </LinearLayout>
-    </LinearLayout>
+        <GridView
+            android:id="@+id/gameGridView"
+            android:layout_width="409dp"
+            android:layout_height="645dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
