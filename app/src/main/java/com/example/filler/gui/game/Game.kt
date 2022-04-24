@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
 import com.example.filler.logic.stub.GameStub
 
@@ -37,6 +38,9 @@ class Game : AppCompatActivity() {
         binding.gameGridView.numColumns = 3
         val settings = GameSettings(3, 3, difficulty)
         val gameStub: GameStub = GameStub(settings)
-//        binding.gameGridView.adapter = GridAdapter(this, gameStub.initGame().boardColors)
+
+        val initialResponse: GameResponse = gameStub.initGame()
+        binding.gameGridView.adapter =
+            GridAdapter(this, initialResponse.board.getBoardAsColorArray())
     }
 }
