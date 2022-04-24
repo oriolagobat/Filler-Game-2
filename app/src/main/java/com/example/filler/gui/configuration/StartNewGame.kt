@@ -1,4 +1,3 @@
-/*
 package com.example.filler.gui.configuration
 
 import android.content.Intent
@@ -48,4 +47,4 @@ class StartNewGame(
     // As it's square, we only neeed the first one
         // 3 X 3 -> 3
         gridNum.first().digitToInt()
-}*/
+}

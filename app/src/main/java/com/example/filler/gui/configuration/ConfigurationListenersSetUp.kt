@@ -1,4 +1,3 @@
-/*
 package com.example.filler.gui.configuration
 
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
@@ -11,7 +10,7 @@ class ConfigurationListenersSetUp(
         // Set the onClickListener for the editText, checkBox and button
         binding.usernameInput.setOnClickListener(context)
         binding.timeCheckBox.setOnClickListener(context)
-        binding.newGameButton.setOnClickListener(context)
+        binding.startNewGameButton.setOnClickListener(context)
 
         // Set the spinners onItemSelectedListener's
         binding.colorSpinner.onItemSelectedListener = context
@@ -21,4 +20,3 @@ class ConfigurationListenersSetUp(
         binding.difficultyRadioGroup.setOnCheckedChangeListener(context)
     }
 }
-*/

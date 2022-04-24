@@ -1,4 +1,3 @@
-/*
 package com.example.filler.gui.configuration
 
 import android.content.Context
@@ -35,4 +34,3 @@ class NewUsernameInput(
         return usernameInput ?: ""
     }
 }
-*/

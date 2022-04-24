@@ -1,4 +1,3 @@
-/*
 package com.example.filler.gui.game
 
 import android.os.Bundle
@@ -36,6 +35,6 @@ class Game : AppCompatActivity() {
 //        binding.gameGridView.numColumns = gridNum
         binding.gameGridView.numColumns = 3
         val gameStub: GameStub = GameStub(3, 3, difficulty)
-        binding.gameGridView.adapter = GridAdapter(this, gameStub.initGame().boardColors)
+//        binding.gameGridView.adapter = GridAdapter(this, gameStub.initGame().boardColors)
     }
-}*/
+}
