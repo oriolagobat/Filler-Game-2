@@ -3,25 +3,41 @@ package com.example.filler.logic.stub
 import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameColor
 import com.example.filler.constants.GameState
-import com.example.filler.logic.Game
-import com.example.filler.logic.GameResponse
+import com.example.filler.logic.*
 
-class GameStub(boardWidth: Int, numColors: Int, difficulty: Difficulty) : Game {
+class GameStub(private val settings: GameSettings) : Game {
 
+    private val boardSize = 3
+    private var board: Board = BoardImpl(boardSize)
     private val response = GameResponse(
         0,
+        board,
         arrayOf(
-            arrayOf(GameColor.CYAN, GameColor.GREEN, GameColor.BLUE),
-            arrayOf(GameColor.GREEN, GameColor.GREEN, GameColor.BLACK),
-            arrayOf(GameColor.YELLOW, GameColor.BLUE, GameColor.BLUE)
+            Pair(GameColor.ORANGE, true),
+            Pair(GameColor.YELLOW, false),
+            Pair(GameColor.GREEN, true),
         ),
-        arrayOf(
-            Pair(GameColor.YELLOW, true),
-            Pair(GameColor.GREEN, false),
-            Pair(GameColor.BLUE, true)
-        ),
-        GameState.PLAYING
+        GameState.P1_TURN
     )
+    private val colorArray = arrayOf(
+        GameColor.ORANGE,
+        GameColor.ORANGE,
+        GameColor.ORANGE,
+        GameColor.YELLOW,
+        GameColor.YELLOW,
+        GameColor.YELLOW,
+        GameColor.GREEN,
+        GameColor.GREEN,
+        GameColor.GREEN
+    )
+
+    init {
+        for (row in 0 until boardSize) {
+            for (col in 0 until boardSize) {
+                board.setColor(Position(row, col), colorArray[row * boardSize + col])
+            }
+        }
+    }
 
     override fun initGame(): GameResponse {
         return response
