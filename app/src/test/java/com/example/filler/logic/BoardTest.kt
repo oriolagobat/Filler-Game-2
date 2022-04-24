@@ -12,9 +12,9 @@ class BoardTest {
     private val boardSize = 3
     private lateinit var board: Board
     private val colorArray = arrayOf(
-        GameColor.RED,
-        GameColor.RED,
-        GameColor.RED,
+        GameColor.ORANGE,
+        GameColor.ORANGE,
+        GameColor.ORANGE,
         GameColor.YELLOW,
         GameColor.YELLOW,
         GameColor.YELLOW,
