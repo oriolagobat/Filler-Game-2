@@ -35,6 +35,7 @@ class PlayerAreaImplTest {
         assertEquals(area, playerArea.area)
     }
 
+    //TODO: test fringe
     @Test
     fun `Fringe returned when a cell has been added is correct`() {
         val newPosition = Position(0, boardSize - 2)
