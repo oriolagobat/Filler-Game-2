@@ -26,7 +26,7 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         lateinit var intent: Intent
 
         when (v?.id) {
-//            R.id.helpButton -> intent = Intent(this, Help::class.java)
+            R.id.helpButton -> intent = Intent(this, Help::class.java)
             R.id.newGameButton -> intent = Intent(this, NewGameConfiguration::class.java)
             R.id.quitButton -> finish()
         }

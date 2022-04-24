@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:gravity="center"
-            android:text="@string/configuration_subheader"
+            android:text="@string/configuration_sub_header"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
@@ -281,7 +281,7 @@
                 android:layout_width="376dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:text="@string/configuration_dificulty_choose"
+                android:text="@string/configuration_difficulty_choose"
                 android:textSize="17sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -309,21 +309,21 @@
                     android:id="@+id/difficultyEasy"
                     android:layout_width="135dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/configuration_dificulty_easy" />
+                    android:text="@string/configuration_difficulty_easy" />
 
                 <RadioButton
                     android:id="@+id/difficultyMedium"
                     android:layout_width="65dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/configuration_dificulty_medium" />
+                    android:text="@string/configuration_difficulty_medium" />
 
                 <RadioButton
                     android:id="@+id/difficultyHard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/configuration_dificulty_hard" />
+                    android:text="@string/configuration_difficulty_hard" />
             </RadioGroup>
 
         </LinearLayout>

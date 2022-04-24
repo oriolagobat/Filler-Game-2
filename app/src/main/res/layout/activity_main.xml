@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/mainHeader"
+            android:id="@+id/mainHelpHeader"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:gravity="center"
@@ -29,21 +29,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/mainSubHeader"
+            android:id="@+id/mainHelpSubHeader"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:gravity="center"
-            android:text="@string/homepage_subheader"
+            android:text="@string/homepage_sub_header"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainHeader" />
+            app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mainContentConstraint"
+        android:id="@+id/helpContentConstraint"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/background"

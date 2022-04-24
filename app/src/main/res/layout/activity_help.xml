@@ -6,115 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".gui.Help">
 
-    <LinearLayout
-        android:id="@+id/headerLayout"
-        android:layout_width="409dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/helpHeaderConstraint"
+        android:layout_width="411dp"
         android:layout_height="84dp"
         android:background="@drawable/header_gradient"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/helpBodyLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/helpHeader"
+            android:id="@+id/mainHelpHeader"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:gravity="center"
             android:text="@string/help_header"
             android:textColor="@color/white"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/helpSubheader"
+            android:id="@+id/mainHelpSubHeader"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:gravity="center"
-            android:text="@string/help_subheader"
+            android:text="@string/help_sub_header"
             android:textColor="@color/white"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
 
-    <LinearLayout
-        android:id="@+id/helpBodyLayout"
-        android:layout_width="409dp"
-        android:layout_height="645dp"
-        android:layout_marginTop="1dp"
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/helpContentConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:background="@drawable/background"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpHeaderConstraint"
+        app:layout_constraintVertical_bias="1.0">
 
-        <LinearLayout
-            android:id="@+id/rulesLayout"
-            android:layout_width="match_parent"
-            android:layout_height="371dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:id="@+id/leftVerticalSpace"
-                android:layout_width="11dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <!--            No text, it must be set from code as it has html in it-->
-            <TextView
-                android:id="@+id/rulesText"
-                android:layout_width="309dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@null" />
-
-            <Space
-                android:id="@+id/rulesSpace2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-        </LinearLayout>
+        <!--            No text, it must be set from code as it has html in it-->
+        <TextView
+            android:id="@+id/rulesText"
+            android:layout_width="349dp"
+            android:layout_height="317dp"
+            android:text="@null"
+            app:layout_constraintBottom_toTopOf="@+id/helpSampleImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/mainHelpImage"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:id="@+id/helpSampleImage"
+            android:layout_width="126dp"
+            android:layout_height="114dp"
             android:contentDescription="@string/help_sample_image_desc"
             android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/backHomeButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rulesText"
             android:src="@drawable/sample_game_image" />
 
-        <Space
-            android:id="@+id/middleSpace"
-            android:layout_width="match_parent"
-            android:layout_height="19dp" />
-
-        <LinearLayout
-            android:id="@+id/helpButtonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="98dp">
-
-            <Space
-                android:id="@+id/leftSpace"
-                android:layout_width="127dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="150dp"
-                android:layout_height="98dp"
-                android:background="@null"
-                android:contentDescription="@string/help_back_desc"
-                android:scaleType="fitCenter"
-                android:src="@drawable/back_button" />
-
-            <Space
-                android:id="@+id/rightSpace"
-                android:layout_width="127dp"
-                android:layout_height="98dp"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
+        <ImageButton
+            android:id="@+id/backHomeButton"
+            android:layout_width="71dp"
+            android:layout_height="73dp"
+            android:background="@null"
+            android:contentDescription="@string/help_back_desc"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/helpSampleImage"
+            app:srcCompat="@drawable/back_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
