@@ -10,14 +10,14 @@ import androidx.appcompat.content.res.AppCompatResources
 import com.example.filler.R
 import com.example.filler.constants.GameColor
 
-class GridAdapter(private val context: Context, private val itemList: Array<GameColor>) :
+class GridAdapter(private val context: Context, private val colorsList: Array<GameColor>) :
     BaseAdapter() {
     override fun getCount(): Int {
-        return itemList.size
+        return colorsList.size
     }
 
     override fun getItem(position: Int): GameColor {
-        return itemList[position]
+        return colorsList[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -28,7 +28,7 @@ class GridAdapter(private val context: Context, private val itemList: Array<Game
         // Inflate the layout if it is not already inflated
         val view: View = convertView ?: View.inflate(context, R.layout.grid_item, null)
         // Get the textview from the layout
-        val textView = view.findViewById<TextView>(R.id.gridItem)
+        val textView = view.findViewById<TextView>(R.id.boardItem)
 
         // Get the background color from the corresponding array position and set it
         val drawableColorId = getColorFromGameColor(getItem(position))
@@ -37,7 +37,6 @@ class GridAdapter(private val context: Context, private val itemList: Array<Game
 
         return view
     }
-
 
     private fun getColorFromGameColor(gameColor: GameColor): Int {
         return when (gameColor) {

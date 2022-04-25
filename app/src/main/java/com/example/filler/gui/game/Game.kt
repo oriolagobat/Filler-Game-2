@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
+import com.example.filler.constants.GameColor
 import com.example.filler.databinding.ActivityGameBinding
 <<<<<<< HEAD
 =======
@@ -13,11 +14,13 @@ import com.example.filler.logic.GameSettings
 import com.example.filler.logic.stub.GameStub
 
 class Game : AppCompatActivity() {
+    private lateinit var binding: ActivityGameBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Set this activity binding
-        val binding = ActivityGameBinding.inflate(layoutInflater)
+        binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val username = intent.getStringExtra("username")
@@ -37,15 +40,37 @@ class Game : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
         // This is how it will be
-//        val settings = GameSettings(gridNum, colorNum, difficulty)
-//        binding.gameGridView.numColumns = gridNum
-        // This is for now, by working with the game stub
-        binding.gameGridView.numColumns = 3
-        val settings = GameSettings(3, 3, difficulty)
-        val gameStub = GameStub(settings)
+        val settings = GameSettings(gridNum, colorNum, difficulty)
+        // This is for now, working with stub
+//        val settings = GameSettings(3, 3, difficulty)
+
+        // Initialize board
+        setUpGameBoard(settings)
+
+        // Initialize chooser bar
+        setUpChooserBar(settings)
+    }
+
+    private fun setUpGameBoard(settings: GameSettings) {
+        // This is how it will be
+//        binding.boardGridView.numColumns = settings.boardSize
+        // This is for now, in orer to work  with the game stub
+        binding.boardGridView.numColumns = 3
+        val gameStub = GameStub(settings)  //  Game initialization
 
         val initialResponse: GameResponse = gameStub.initGame()
-        binding.gameGridView.adapter =
+        binding.boardGridView.adapter =
             GridAdapter(this, initialResponse.board.getBoardAsColorArray())
+    }
+
+    private fun setUpChooserBar(settings: GameSettings) {
+        // This is how it will be
+//        binding.chooserBarGridView.numColumns = settings.nColors
+        // This is for now, in order to work with the game stub
+        binding.chooserBarGridView.numColumns = 3
+
+        val stubSelectorArray = arrayOf(GameColor.CYAN, GameColor.PURPLE, GameColor.GREEN)
+        binding.chooserBarGridView.adapter =
+            GridAdapter(this, stubSelectorArray)
     }
 }
