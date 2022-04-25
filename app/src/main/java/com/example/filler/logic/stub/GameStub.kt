@@ -20,15 +20,15 @@ class GameStub(private val settings: GameSettings) : Game {
         GameState.P1_TURN
     )
     private val colorArray = arrayOf(
+        GameColor.PINK,
         GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
         GameColor.YELLOW,
         GameColor.GREEN,
-        GameColor.GREEN,
-        GameColor.GREEN
+        GameColor.BLUE,
+        GameColor.PURPLE,
+        GameColor.CYAN,
+        GameColor.BLACK,
+        GameColor.CYAN
     )
 
     init {

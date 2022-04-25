@@ -5,6 +5,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
 import com.example.filler.databinding.ActivityGameBinding
+<<<<<<< HEAD
+=======
+import com.example.filler.logic.GameResponse
+>>>>>>> feat-game-grid
 import com.example.filler.logic.GameSettings
 import com.example.filler.logic.stub.GameStub
 
@@ -21,7 +25,7 @@ class Game : AppCompatActivity() {
         val gridNum = intent.getIntExtra("gridNum", 0)
         val timeControl = intent.getBooleanExtra("timeControl", false)
         val difficultyString = intent.getStringExtra("difficulty")
-        // Pase difficulty to contant value
+        // Parse difficulty to constant value
         val difficulty = Difficulty.valueOf(difficultyString!!.uppercase())
 
         val message =
@@ -33,10 +37,15 @@ class Game : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
         // This is how it will be
+//        val settings = GameSettings(gridNum, colorNum, difficulty)
 //        binding.gameGridView.numColumns = gridNum
+        // This is for now, by working with the game stub
         binding.gameGridView.numColumns = 3
         val settings = GameSettings(3, 3, difficulty)
-        val gameStub: GameStub = GameStub(settings)
-//        binding.gameGridView.adapter = GridAdapter(this, gameStub.initGame().boardColors)
+        val gameStub = GameStub(settings)
+
+        val initialResponse: GameResponse = gameStub.initGame()
+        binding.gameGridView.adapter =
+            GridAdapter(this, initialResponse.board.getBoardAsColorArray())
     }
 }
