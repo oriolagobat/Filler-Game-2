@@ -10,11 +10,6 @@ class PlayerAreaImplTest {
     private val p1HomePosition = Position(boardSize - 1, 0)
     private val playerArea: PlayerArea = PlayerAreaImpl(p1HomePosition, boardSize)
 
-    @Before
-    fun setUp() {
-
-    }
-
     @Test
     fun `Fringe returned when no cell added has only p1 home position`() {
         val fringe = mutableListOf(p1HomePosition)

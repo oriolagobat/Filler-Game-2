@@ -25,7 +25,7 @@ class BoardImpl(
         colors[position.row][position.col] = color
     }
 
-    override fun getBoardAsColorArray(): Array<GameColor> {
+    override fun toArray(): Array<GameColor> {
         val colorArray = Array(size * size) { GameColor.NULL }
         for (row in 0 until size) {
             for (col in 0 until size) {
@@ -35,45 +35,8 @@ class BoardImpl(
         return colorArray
     }
 
-    override fun getSurroundingColors(position: Position): ArrayList<GameColor> {
-        val surroundingColors = ArrayList<GameColor>()
-        surroundingColors.add(getAboveColor(position))
-        surroundingColors.add(getBelowColor(position))
-        surroundingColors.add(getLeftColor(position))
-        surroundingColors.add(getRightColor(position))
-        return surroundingColors
-    }
-
-
-    private fun getAboveColor(position: Position): GameColor {
-        return if (position.row == 0) {
-            GameColor.NULL
-        } else {
-            colors[position.row - 1][position.col]
-        }
-    }
-
-    private fun getBelowColor(position: Position): GameColor {
-        return if (position.row == size - 1) {
-            GameColor.NULL
-        } else {
-            colors[position.row + 1][position.col]
-        }
-    }
-
-    private fun getLeftColor(position: Position): GameColor {
-        return if (position.col == 0) {
-            GameColor.NULL
-        } else {
-            colors[position.row][position.col - 1]
-        }
-    }
-
-    private fun getRightColor(position: Position): GameColor {
-        return if (position.col == size - 1) {
-            GameColor.NULL
-        } else {
-            colors[position.row][position.col + 1]
-        }
+    override fun hasPosition(position: Position): Boolean {
+        return position.row < size
+                && position.col < size
     }
 }

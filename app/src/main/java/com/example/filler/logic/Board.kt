@@ -7,6 +7,6 @@ interface Board {
     fun getP2Home (): Position
     fun getColor(position: Position): GameColor
     fun setColor(position: Position, color: GameColor)
-    fun getSurroundingColors(position: Position): List<GameColor>
-    fun getBoardAsColorArray(): Array<GameColor>
+    fun toArray(): Array<GameColor>
+    fun hasPosition(position: Position): Boolean
 }

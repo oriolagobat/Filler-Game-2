@@ -5,7 +5,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.Before
-import kotlin.collections.ArrayList
 
 
 class BoardTest {
@@ -51,19 +50,15 @@ class BoardTest {
         }
     }
 
-    @Test
-    fun `Surrounding cells' position of a given position are correct`() {
-        val pos = Position(1, 1)
-        val surroundingPositions = ArrayList<GameColor>()
-        surroundingPositions.add(board.getColor(Position(0, 1)))
-        surroundingPositions.add(board.getColor(Position(2, 1)))
-        surroundingPositions.add(board.getColor(Position(1, 0)))
-        surroundingPositions.add(board.getColor(Position(1, 2)))
-        assertEquals(board.getSurroundingColors(pos), surroundingPositions)
-    }
 
     @Test
     fun `Board array retured equals colorArray`() {
-        assertArrayEquals(board.getBoardAsColorArray(), colorArray)
+        assertArrayEquals(board.toArray(), colorArray)
+    }
+
+    @Test
+    fun `hasPosition() returns false when asking for a position outside the board`(){
+        val outsidePosition = Position(boardSize, 0)
+        assertFalse(board.hasPosition(outsidePosition))
     }
 }
