@@ -4,6 +4,7 @@ import com.example.filler.constants.GameColor
 import com.example.filler.logic.Position
 
 interface Board {
+    val size: Int
     fun getP1Home(): Position
     fun getP2Home (): Position
     fun getColor(position: Position): GameColor

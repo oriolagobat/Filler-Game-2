@@ -5,7 +5,7 @@ import com.example.filler.logic.interfaces.Board
 
 
 class BoardImpl(
-    private val size: Int,
+    override val size: Int,
 ) : Board {
 
     private val colors = Array(size) { Array(size) { GameColor.NULL } }
@@ -37,7 +37,7 @@ class BoardImpl(
     }
 
     override fun hasPosition(position: Position): Boolean {
-        return position.row < size
-                && position.col < size
+        return position.row < size && position.col < size
+                && position.row >= 0 && position.col >= 0
     }
 }

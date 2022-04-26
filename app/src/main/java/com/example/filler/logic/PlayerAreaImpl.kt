@@ -1,11 +1,15 @@
 package com.example.filler.logic
 
+import com.example.filler.logic.interfaces.Board
 import com.example.filler.logic.interfaces.PlayerArea
 
-class PlayerAreaImpl(initialPosition: Position, private val boardSize: Int) : PlayerArea {
+class PlayerAreaImpl(
+    initialPosition: Position,
+    private val board: Board
+) : PlayerArea {
 
-    override val fringe = mutableListOf(initialPosition)
-    override val area = mutableListOf(initialPosition)
+    override val fringe = mutableSetOf(initialPosition)
+    override val area = mutableSetOf(initialPosition)
 
     override fun addPosition(position: Position) {
         updateArea(position)
@@ -18,24 +22,13 @@ class PlayerAreaImpl(initialPosition: Position, private val boardSize: Int) : Pl
 
     private fun updateFringe(newPosition: Position) {
         fringe.add(newPosition)
-        for (position: Position in fringe)
-            if (!isFringePosition(position))
-                fringe.remove(position)
+        val positionsToRemove = fringe.filter { !isFringePosition(it) }.toMutableList()
+        fringe.removeAll(positionsToRemove)
     }
 
     private fun isFringePosition(position: Position): Boolean {
-        return (!positionInAreaOrOutsideBoard(position.getAbovePosition())
-                && !positionInAreaOrOutsideBoard(position.getBelowPosition())
-                && !positionInAreaOrOutsideBoard(position.getLeftPosition())
-                && !positionInAreaOrOutsideBoard(position.getRightPosition()))
-    }
-
-    private fun positionInAreaOrOutsideBoard(position: Position): Boolean {
-        return isOutsideBoard(position) || area.contains(position)
-    }
-
-    private fun isOutsideBoard(position: Position): Boolean {
-        return position.row >= boardSize || position.col >= boardSize
+        val surroundingPositions = position.getSurroundingPositions()
+        return surroundingPositions.any { !this.hasPosition(it) && board.hasPosition(it) }
     }
 
     override fun hasPosition(position: Position): Boolean {

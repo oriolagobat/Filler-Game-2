@@ -11,19 +11,11 @@ data class Position(val row: Int, val col: Int) {
         return surroundingPositions
     }
 
-    fun getAbovePosition(): Position {
-        return Position(row - 1, col)
-    }
+    fun getAbovePosition() = Position(row - 1, col)
 
-    fun getBelowPosition(): Position {
-        return Position(row + 1, col)
-    }
+    fun getBelowPosition() = Position(row + 1, col)
 
-    fun getLeftPosition(): Position {
-        return Position(row, col - 1)
-    }
+    fun getLeftPosition() = Position(row, col - 1)
 
-    fun getRightPosition(): Position {
-        return Position(row, col + 1)
-    }
+    fun getRightPosition() = Position(row, col + 1)
 }

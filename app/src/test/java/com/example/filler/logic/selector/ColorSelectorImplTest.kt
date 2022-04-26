@@ -1,11 +1,8 @@
-package com.example.filler.logic
+package com.example.filler.logic.selector
 
-import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameColor
+import com.example.filler.logic.ColorSelectorImpl
 import com.example.filler.logic.interfaces.ColorSelector
-import com.example.filler.logic.stub.GameStub9x9
-import org.junit.Assert.*
-import org.junit.Before
 
 import org.junit.Test
 

@@ -1,6 +1,8 @@
-package com.example.filler.logic
+package com.example.filler.logic.board
 
 import com.example.filler.constants.GameColor
+import com.example.filler.logic.BoardImpl
+import com.example.filler.logic.Position
 import com.example.filler.logic.interfaces.Board
 import org.junit.Test
 

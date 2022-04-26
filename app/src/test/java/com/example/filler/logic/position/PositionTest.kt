@@ -1,24 +1,22 @@
-package com.example.filler.logic
+package com.example.filler.logic.position
 
-import com.example.filler.constants.GameColor
+import com.example.filler.logic.Position
 import org.junit.Assert.*
-import org.junit.Before
 
 import org.junit.Test
 
 class PositionTest {
 
-    private val position = Position(1, 1)
+   private val position = Position(1, 1)
 
     @Test
     fun getSurroundingPositions() {
-        val pos = Position(1, 1)
         val surroundingPositions = mutableListOf<Position>()
         surroundingPositions.add(Position(0, 1))
         surroundingPositions.add(Position(2, 1))
         surroundingPositions.add(Position(1, 0))
         surroundingPositions.add(Position(1, 2))
-        assertEquals(pos.getSurroundingPositions(), surroundingPositions)
+        assertEquals(position.getSurroundingPositions(), surroundingPositions)
     }
 
     @Test
