@@ -9,6 +9,7 @@ import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
 import com.example.filler.logic.stub.GameStub3x3
+import com.example.filler.logic.stub.GameStub9x9
 
 class Game : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
@@ -59,8 +60,10 @@ class Game : AppCompatActivity() {
         // This is how it will be
 //        binding.boardGridView.numColumns = settings.boardSize
         // This is for now, in order to work  with the game stub
-        binding.boardGridView.numColumns = 3
-        val gameStub = GameStub3x3(settings)  //  Game initialization
+//        binding.boardGridView.numColumns = 3
+        binding.boardGridView.numColumns = 9
+//        val gameStub = GameStub3x3(settings)  //  Game initialization
+        val gameStub = GameStub9x9(settings)  //  Game initialization
 
         val initialResponse: GameResponse = gameStub.initGame()
         binding.boardGridView.adapter =
@@ -74,8 +77,7 @@ class Game : AppCompatActivity() {
         binding.chooserBarGridView.numColumns = 3
 
         val stubSelectorArray = arrayOf(GameColor.CYAN, GameColor.PURPLE, GameColor.GREEN)
-        val squareSize = 30
         binding.chooserBarGridView.adapter =
-            GridAdapter(this, stubSelectorArray, squareSize)
+            GridAdapter(this, stubSelectorArray)
     }
 }
