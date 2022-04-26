@@ -1,6 +1,7 @@
 package com.example.filler.gui.game
 
 import android.os.Bundle
+import android.widget.GridView.STRETCH_COLUMN_WIDTH
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
@@ -62,6 +63,7 @@ class Game : AppCompatActivity() {
         // This is for now, in order to work  with the game stub
 //        binding.boardGridView.numColumns = 3
         binding.boardGridView.numColumns = 9
+        binding.boardGridView.stretchMode = STRETCH_COLUMN_WIDTH
 //        val gameStub = GameStub3x3(settings)  //  Game initialization
         val gameStub = GameStub9x9(settings)  //  Game initialization
 

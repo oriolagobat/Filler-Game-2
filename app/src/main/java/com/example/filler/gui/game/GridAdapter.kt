@@ -1,14 +1,11 @@
 package com.example.filler.gui.game
 
-import android.app.ActionBar
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.GridView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.filler.R
 import com.example.filler.constants.GameColor
@@ -17,7 +14,6 @@ import kotlin.math.sqrt
 
 class GridAdapter(private val context: Context, private val colorsList: Array<GameColor>, private val binding: ActivityGameBinding) :
     BaseAdapter() {
-    private var squareSize: Int = setSquareSizeFromTotalNumber()
     override fun getCount(): Int {
         return colorsList.size
     }
@@ -36,34 +32,13 @@ class GridAdapter(private val context: Context, private val colorsList: Array<Ga
         // Get the textview from the layout
         val textView = view.findViewById<TextView>(R.id.gridItem)
 
-        binding.boardGridView.layoutParams.width = 900
-        binding.boardGridView.layoutParams.height = 900
-
-        // Set the textView size
-        setSize(textView)
-
         // Get the background color from the corresponding array position and set it
         val drawableColorId = getColorFromGameColor(getItem(position))
         val background: Drawable = AppCompatResources.getDrawable(context, drawableColorId)!!
         textView.background = background
+        textView.layoutParams.height = binding.boardGridView.height / getSquarePerRow()
 
         return view
-    }
-
-    private fun setSquareSizeFromTotalNumber(): Int {
-        val totalNumber = colorsList.size
-        val squaresPerLine = sqrt(totalNumber.toDouble()).toInt()
-        // Perfect relation is 3:100, so we just apply this relation to the number of squares
-        return (3 * 100) / squaresPerLine
-    }
-
-    private fun setSize(textView: TextView) {
-        // FIXME: Developing
-//        val layoutParams = LinearLayout.LayoutParams(squareSize, squareSize)
-
-//        textView.layoutParams = layoutParams
-        textView.width = squareSize * 3
-        textView.height = squareSize * 3
     }
 
     private fun getColorFromGameColor(gameColor: GameColor): Int {
@@ -79,4 +54,6 @@ class GridAdapter(private val context: Context, private val colorsList: Array<Ga
             else -> throw UnsupportedOperationException("No more colors...")
         }
     }
+
+    private fun getSquarePerRow(): Int = sqrt(colorsList.size.toDouble()).toInt()
 }

@@ -10,7 +10,7 @@ import com.example.filler.logic.interfaces.Game
 class GameStub9x9(private val settings: GameSettings) : Game {
     private val boardSize = 9
     private val colorArray = arrayListOf(
-        GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE,
+        GameColor.ORANGE, GameColor.BLACK, GameColor.CYAN, GameColor.YELLOW, GameColor.BLUE, GameColor.BLACK, GameColor.PINK, GameColor.GREEN, GameColor.PURPLE,
         GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK,
         GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN,
         GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW,
