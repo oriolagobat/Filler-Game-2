@@ -7,13 +7,16 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.GridView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.filler.R
 import com.example.filler.constants.GameColor
 import kotlin.math.sqrt
 
-class GridAdapter(private val context: Context, private val colorsList: Array<GameColor>, private val grid: GridView) :
+class GridAdapter(
+    private val context: Context,
+    private val colorsList: Array<GameColor>,
+    private val grid: GridView
+) :
     BaseAdapter() {
     override fun getCount(): Int {
         return colorsList.size
@@ -55,7 +58,6 @@ class GridAdapter(private val context: Context, private val colorsList: Array<Ga
             else -> throw UnsupportedOperationException("No more colors...")
         }
     }
-
 
 
     private fun getSquarePerRow(): Int = sqrt(colorsList.size.toDouble()).toInt()

@@ -1,7 +1,6 @@
 package com.example.filler.gui.game
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameColor
@@ -28,14 +27,6 @@ class Game : AppCompatActivity() {
         val difficultyString = intent.getStringExtra("difficulty")
         // Parse difficulty to constant value
         val difficulty = Difficulty.valueOf(difficultyString!!.uppercase())
-
-        val message =
-            "Username: $username\n" +
-                    "Color: $colorNum\n" +
-                    "Grid: $gridNum\n" +
-                    "Time Control: $timeControl\n" +
-                    "Difficulty: $difficulty"
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
         // This is how it will be
         val settings = GameSettings(gridNum, colorNum, difficulty)
@@ -68,12 +59,13 @@ class Game : AppCompatActivity() {
         binding.boardGridView.adapter =
             GridAdapter(this, stubBoard.board.toArray(), binding.boardGridView)
     }
+
     private fun setUpChooserBar(settings: GameSettings) {
         // This is how it will be
-//        binding.boardGridView.numColumns = settings.boardSize
+//        binding.boardGridView.numColumns = settings.nColors
         // This is for now, in order to work  with the game stub
 //        binding.selectorGridView.numColumns = 3
-        binding.selectorGridView.numColumns = 9
+        binding.selectorGridView.numColumns = 8
 //        val gameStub = GameStub3x3(settings)  //  Game initialization
         val gameStub = GameStub9x9(settings)  //  Game initialization
 
@@ -86,8 +78,6 @@ class Game : AppCompatActivity() {
     private fun unpackArray(array: Array<Pair<GameColor, Boolean>>): Pair<Array<GameColor>, Array<Boolean>> {
         val colors = array.map { it.first }.toTypedArray()
         val selected = array.map { it.second }.toTypedArray()
-        print("Colors: ${colors.contentToString()}")
-        print("Selected: ${selected.contentToString()}")
         return Pair(colors, selected)
     }
 }
