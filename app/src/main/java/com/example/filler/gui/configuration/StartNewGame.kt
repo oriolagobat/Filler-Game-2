@@ -44,7 +44,7 @@ class StartNewGame(
 
     private fun getIntGridNum(gridNum: String): Int =
     // Return an integer of the first number
-    // As it's square, we only neeed the first one
+    // As it's square, we only needed the first one
         // 3 X 3 -> 3
         gridNum.first().digitToInt()
 }

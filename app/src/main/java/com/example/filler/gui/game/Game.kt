@@ -44,6 +44,9 @@ class Game : AppCompatActivity() {
         // This is for now, working with stub
 //        val settings = GameSettings(3, 3, difficulty)
 
+        // Initialize usernames and timer
+        setUpTimersAndUsernames(username!!)
+
         // Initialize board
         setUpGameBoard(settings)
 
@@ -51,10 +54,14 @@ class Game : AppCompatActivity() {
         setUpChooserBar(settings)
     }
 
+    private fun setUpTimersAndUsernames(username: String) {
+        binding.playerName.text = username
+    }
+
     private fun setUpGameBoard(settings: GameSettings) {
         // This is how it will be
 //        binding.boardGridView.numColumns = settings.boardSize
-        // This is for now, in orer to work  with the game stub
+        // This is for now, in order to work  with the game stub
         binding.boardGridView.numColumns = 3
         val gameStub = GameStub(settings)  //  Game initialization
 

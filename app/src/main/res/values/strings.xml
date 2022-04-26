@@ -55,4 +55,9 @@
     <!--    GAME-->
     <string name="game_header">Game</string>
     <string name="game_sub_header">Have fun!</string>
+    <string name="game_user_profile_image_description">Username profile picture</string>
+    <string name="game_username_default">Username will go here</string>
+    <string name="game_ia_profile_image_description">AI profile picture</string>
+    <string name="game_ia_default">AI</string>
+    <string name="game_timer_default">00:00</string>
 </resources>
