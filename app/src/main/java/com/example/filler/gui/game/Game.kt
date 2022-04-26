@@ -8,6 +8,7 @@ import com.example.filler.constants.GameColor
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
+import com.example.filler.logic.stub.GameStub3x3
 import com.example.filler.logic.stub.GameStub9x9
 
 class Game : AppCompatActivity() {
@@ -71,7 +72,7 @@ class Game : AppCompatActivity() {
         // This is how it will be
 //        binding.boardGridView.numColumns = settings.boardSize
         // This is for now, in order to work  with the game stub
-        binding.selectorGridView.numColumns = 3
+//        binding.selectorGridView.numColumns = 3
         binding.selectorGridView.numColumns = 9
 //        val gameStub = GameStub3x3(settings)  //  Game initialization
         val gameStub = GameStub9x9(settings)  //  Game initialization
