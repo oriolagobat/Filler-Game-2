@@ -5,14 +5,14 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.GridView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.filler.R
 import com.example.filler.constants.GameColor
-import com.example.filler.databinding.ActivityGameBinding
 import kotlin.math.sqrt
 
-class GridAdapter(private val context: Context, private val colorsList: Array<GameColor>, private val binding: ActivityGameBinding) :
+class GridAdapter(private val context: Context, private val colorsList: Array<GameColor>, private val grid: GridView) :
     BaseAdapter() {
     override fun getCount(): Int {
         return colorsList.size
@@ -36,7 +36,7 @@ class GridAdapter(private val context: Context, private val colorsList: Array<Ga
         val drawableColorId = getColorFromGameColor(getItem(position))
         val background: Drawable = AppCompatResources.getDrawable(context, drawableColorId)!!
         textView.background = background
-        textView.layoutParams.height = binding.boardGridView.height / getSquarePerRow()
+        textView.layoutParams.height = grid.height / getSquarePerRow()
 
         return view
     }
@@ -54,6 +54,8 @@ class GridAdapter(private val context: Context, private val colorsList: Array<Ga
             else -> throw UnsupportedOperationException("No more colors...")
         }
     }
+
+
 
     private fun getSquarePerRow(): Int = sqrt(colorsList.size.toDouble()).toInt()
 }

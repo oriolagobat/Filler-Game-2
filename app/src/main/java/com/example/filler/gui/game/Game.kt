@@ -9,7 +9,6 @@ import com.example.filler.constants.GameColor
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
-import com.example.filler.logic.stub.GameStub3x3
 import com.example.filler.logic.stub.GameStub9x9
 
 class Game : AppCompatActivity() {
@@ -69,17 +68,17 @@ class Game : AppCompatActivity() {
 
         val initialResponse: GameResponse = gameStub.initGame()
         binding.boardGridView.adapter =
-            GridAdapter(this, initialResponse.board.toArray(), binding)
+            GridAdapter(this, initialResponse.board.toArray(), binding.boardGridView)
     }
 
     private fun setUpChooserBar(settings: GameSettings) {
         // This is how it will be
 //        binding.chooserBarGridView.numColumns = settings.nColors
         // This is for now, in order to work with the game stub
-        binding.chooserBarGridView.numColumns = 3
+        binding.selectorGridView.numColumns = 3
 
         val stubSelectorArray = arrayOf(GameColor.CYAN, GameColor.PURPLE, GameColor.GREEN)
-        binding.chooserBarGridView.adapter =
-            GridAdapter(this, stubSelectorArray, binding)
+        binding.selectorGridView.adapter =
+            GridAdapter(this, stubSelectorArray, binding.selectorGridView)
     }
 }
