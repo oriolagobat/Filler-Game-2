@@ -1,8 +1,8 @@
 package com.example.filler.logic
 
-import com.example.filler.constants.GameColor
 import com.example.filler.constants.GameState
-import java.nio.channels.SelectableChannel
+import com.example.filler.logic.interfaces.Board
+import com.example.filler.logic.interfaces.ColorSelector
 
 data class GameResponse(
     val round: Int,

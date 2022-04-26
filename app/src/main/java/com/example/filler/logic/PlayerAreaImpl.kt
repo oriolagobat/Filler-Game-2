@@ -1,5 +1,7 @@
 package com.example.filler.logic
 
+import com.example.filler.logic.interfaces.PlayerArea
+
 class PlayerAreaImpl(initialPosition: Position, private val boardSize: Int) : PlayerArea {
 
     override val fringe = mutableListOf(initialPosition)

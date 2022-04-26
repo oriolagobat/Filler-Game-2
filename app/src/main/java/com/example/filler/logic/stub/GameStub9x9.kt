@@ -1,9 +1,11 @@
 package com.example.filler.logic.stub
 
-import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameColor
 import com.example.filler.constants.GameState
 import com.example.filler.logic.*
+import com.example.filler.logic.interfaces.Board
+import com.example.filler.logic.interfaces.ColorSelector
+import com.example.filler.logic.interfaces.Game
 
 class GameStub9x9(private val settings: GameSettings) : Game {
     private val boardSize = 9
@@ -20,11 +22,7 @@ class GameStub9x9(private val settings: GameSettings) : Game {
     )
 
     private val board: Board = BoardImpl(boardSize)
-    private val selector: ColorSelector = ColorSelectorImpl(
-        colorArray,
-        board.getColor(board.getP1Home()),
-        board.getColor(board.getP2Home())
-    )
+    private val selector: ColorSelector = ColorSelectorImpl(colorArray)
 
     private val response = GameResponse(
         0,
@@ -39,6 +37,8 @@ class GameStub9x9(private val settings: GameSettings) : Game {
                 board.setColor(Position(row, col), colorArray[row * boardSize + col])
             }
         }
+        selector.select(GameColor.PURPLE)
+        selector.select(GameColor.ORANGE)
     }
 
     override fun initGame(): GameResponse {

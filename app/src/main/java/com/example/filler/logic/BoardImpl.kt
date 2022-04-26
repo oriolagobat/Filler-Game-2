@@ -1,6 +1,7 @@
 package com.example.filler.logic
 
 import com.example.filler.constants.GameColor
+import com.example.filler.logic.interfaces.Board
 
 
 class BoardImpl(

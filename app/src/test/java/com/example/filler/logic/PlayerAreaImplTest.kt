@@ -1,8 +1,8 @@
 package com.example.filler.logic
 
+import com.example.filler.logic.interfaces.PlayerArea
 import org.junit.Assert.*
 
-import org.junit.Before
 import org.junit.Test
 
 class PlayerAreaImplTest {

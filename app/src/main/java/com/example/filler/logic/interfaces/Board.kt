@@ -1,6 +1,7 @@
-package com.example.filler.logic
+package com.example.filler.logic.interfaces
 
 import com.example.filler.constants.GameColor
+import com.example.filler.logic.Position
 
 interface Board {
     fun getP1Home(): Position
