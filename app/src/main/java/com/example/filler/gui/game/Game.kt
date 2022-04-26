@@ -1,7 +1,6 @@
 package com.example.filler.gui.game
 
 import android.os.Bundle
-import android.widget.GridView.STRETCH_COLUMN_WIDTH
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
@@ -39,8 +38,6 @@ class Game : AppCompatActivity() {
 
         // This is how it will be
         val settings = GameSettings(gridNum, colorNum, difficulty)
-        // This is for now, working with stub
-//        val settings = GameSettings(3, 3, difficulty)
 
         // Initialize usernames and timer
         setUpTimersAndUsernames(username!!)
@@ -56,29 +53,40 @@ class Game : AppCompatActivity() {
         binding.playerName.text = username
     }
 
+    // FIXME: Remove stub functionality and replace with actual game logic
     private fun setUpGameBoard(settings: GameSettings) {
         // This is how it will be
 //        binding.boardGridView.numColumns = settings.boardSize
         // This is for now, in order to work  with the game stub
 //        binding.boardGridView.numColumns = 3
         binding.boardGridView.numColumns = 9
-        binding.boardGridView.stretchMode = STRETCH_COLUMN_WIDTH
 //        val gameStub = GameStub3x3(settings)  //  Game initialization
         val gameStub = GameStub9x9(settings)  //  Game initialization
 
-        val initialResponse: GameResponse = gameStub.initGame()
+        val stubBoard: GameResponse = gameStub.initGame()
         binding.boardGridView.adapter =
-            GridAdapter(this, initialResponse.board.toArray(), binding.boardGridView)
+            GridAdapter(this, stubBoard.board.toArray(), binding.boardGridView)
     }
-
     private fun setUpChooserBar(settings: GameSettings) {
         // This is how it will be
-//        binding.chooserBarGridView.numColumns = settings.nColors
-        // This is for now, in order to work with the game stub
+//        binding.boardGridView.numColumns = settings.boardSize
+        // This is for now, in order to work  with the game stub
         binding.selectorGridView.numColumns = 3
+        binding.selectorGridView.numColumns = 9
+//        val gameStub = GameStub3x3(settings)  //  Game initialization
+        val gameStub = GameStub9x9(settings)  //  Game initialization
 
-        val stubSelectorArray = arrayOf(GameColor.CYAN, GameColor.PURPLE, GameColor.GREEN)
+        val stubSelector: GameResponse = gameStub.initGame()
+        val (colors, selected) = unpackArray(stubSelector.selector.toArray())
         binding.selectorGridView.adapter =
-            GridAdapter(this, stubSelectorArray, binding.selectorGridView)
+            GridAdapter(this, colors, binding.selectorGridView)
+    }
+
+    private fun unpackArray(array: Array<Pair<GameColor, Boolean>>): Pair<Array<GameColor>, Array<Boolean>> {
+        val colors = array.map { it.first }.toTypedArray()
+        val selected = array.map { it.second }.toTypedArray()
+        print("Colors: ${colors.contentToString()}")
+        print("Selected: ${selected.contentToString()}")
+        return Pair(colors, selected)
     }
 }

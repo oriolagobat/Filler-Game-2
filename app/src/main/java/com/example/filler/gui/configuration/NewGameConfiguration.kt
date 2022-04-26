@@ -34,6 +34,11 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
         // Set a new username input instance
         usernameInput = NewUsernameInput(this, binding)
+
+        // FIXME: Remove this when releasing final version
+        binding.usernameInput.setText("John Doe")
+        binding.usernameInput.performClick()
+        binding.difficultyRadioGroup.check(R.id.difficultyMedium)
     }
 
     //  Manages spinner selections
