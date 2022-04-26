@@ -8,33 +8,15 @@ import com.example.filler.logic.*
 class GameStub9x9(private val settings: GameSettings) : Game {
     private val boardSize = 9
     private val colorArray = arrayListOf(
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.ORANGE,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
-        GameColor.YELLOW,
-        GameColor.GREEN,
-        GameColor.GREEN,
-        GameColor.GREEN,
-        GameColor.GREEN,
-        GameColor.GREEN,
-        GameColor.GREEN,
-        GameColor.GREEN,
-        GameColor.GREEN,
-        GameColor.GREEN
+        GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE, GameColor.ORANGE,
+        GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK,
+        GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN, GameColor.CYAN,
+        GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW, GameColor.YELLOW,
+        GameColor.BLUE, GameColor.BLUE, GameColor.BLUE, GameColor.BLUE, GameColor.BLUE, GameColor.BLUE, GameColor.BLUE, GameColor.BLUE, GameColor.BLUE,
+        GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK, GameColor.BLACK,
+        GameColor.PINK, GameColor.PINK, GameColor.PINK, GameColor.PINK, GameColor.PINK, GameColor.PINK, GameColor.PINK, GameColor.PINK, GameColor.PINK,
+        GameColor.GREEN, GameColor.GREEN, GameColor.GREEN, GameColor.GREEN, GameColor.GREEN, GameColor.GREEN, GameColor.GREEN, GameColor.GREEN, GameColor.GREEN,
+        GameColor.PURPLE, GameColor.PURPLE, GameColor.PURPLE, GameColor.PURPLE, GameColor.PURPLE, GameColor.PURPLE, GameColor.PURPLE, GameColor.PURPLE, GameColor.PURPLE,
     )
 
     private val board: Board = BoardImpl(boardSize)
