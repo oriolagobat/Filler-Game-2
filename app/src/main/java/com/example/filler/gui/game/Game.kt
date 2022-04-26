@@ -74,7 +74,8 @@ class Game : AppCompatActivity() {
         binding.chooserBarGridView.numColumns = 3
 
         val stubSelectorArray = arrayOf(GameColor.CYAN, GameColor.PURPLE, GameColor.GREEN)
+        val squareSize = 30
         binding.chooserBarGridView.adapter =
-            GridAdapter(this, stubSelectorArray)
+            GridAdapter(this, stubSelectorArray, squareSize)
     }
 }
