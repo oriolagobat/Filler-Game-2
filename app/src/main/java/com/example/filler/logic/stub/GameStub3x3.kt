@@ -5,30 +5,32 @@ import com.example.filler.constants.GameColor
 import com.example.filler.constants.GameState
 import com.example.filler.logic.*
 
-class GameStub(private val settings: GameSettings) : Game {
-
+class GameStub3x3(private val settings: GameSettings) : Game {
     private val boardSize = 3
-    private var board: Board = BoardImpl(boardSize)
+    private val colorArray = arrayListOf(
+        GameColor.ORANGE,
+        GameColor.ORANGE,
+        GameColor.ORANGE,
+        GameColor.YELLOW,
+        GameColor.YELLOW,
+        GameColor.YELLOW,
+        GameColor.GREEN,
+        GameColor.GREEN,
+        GameColor.GREEN
+    )
+
+    private val board: Board = BoardImpl(boardSize)
+    private val selector: ColorSelector = ColorSelectorImpl(
+        colorArray,
+        board.getColor(board.getP1Home()),
+        board.getColor(board.getP2Home())
+    )
+
     private val response = GameResponse(
         0,
         board,
-        arrayOf(
-            Pair(GameColor.ORANGE, true),
-            Pair(GameColor.YELLOW, false),
-            Pair(GameColor.GREEN, true),
-        ),
+        selector,
         GameState.P1_TURN
-    )
-    private val colorArray = arrayOf(
-        GameColor.PINK,
-        GameColor.ORANGE,
-        GameColor.YELLOW,
-        GameColor.GREEN,
-        GameColor.BLUE,
-        GameColor.PURPLE,
-        GameColor.CYAN,
-        GameColor.BLACK,
-        GameColor.CYAN
     )
 
     init {

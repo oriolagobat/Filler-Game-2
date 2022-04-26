@@ -6,12 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameColor
 import com.example.filler.databinding.ActivityGameBinding
-<<<<<<< HEAD
-=======
 import com.example.filler.logic.GameResponse
->>>>>>> feat-game-grid
 import com.example.filler.logic.GameSettings
-import com.example.filler.logic.stub.GameStub
+import com.example.filler.logic.stub.GameStub3x3
 
 class Game : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
@@ -63,11 +60,11 @@ class Game : AppCompatActivity() {
 //        binding.boardGridView.numColumns = settings.boardSize
         // This is for now, in order to work  with the game stub
         binding.boardGridView.numColumns = 3
-        val gameStub = GameStub(settings)  //  Game initialization
+        val gameStub = GameStub3x3(settings)  //  Game initialization
 
         val initialResponse: GameResponse = gameStub.initGame()
         binding.boardGridView.adapter =
-            GridAdapter(this, initialResponse.board.getBoardAsColorArray())
+            GridAdapter(this, initialResponse.board.toArray())
     }
 
     private fun setUpChooserBar(settings: GameSettings) {
