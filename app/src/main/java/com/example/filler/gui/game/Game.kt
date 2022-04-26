@@ -67,7 +67,7 @@ class Game : AppCompatActivity() {
 
         val initialResponse: GameResponse = gameStub.initGame()
         binding.boardGridView.adapter =
-            GridAdapter(this, initialResponse.board.toArray())
+            GridAdapter(this, initialResponse.board.toArray(), binding)
     }
 
     private fun setUpChooserBar(settings: GameSettings) {
@@ -78,6 +78,6 @@ class Game : AppCompatActivity() {
 
         val stubSelectorArray = arrayOf(GameColor.CYAN, GameColor.PURPLE, GameColor.GREEN)
         binding.chooserBarGridView.adapter =
-            GridAdapter(this, stubSelectorArray)
+            GridAdapter(this, stubSelectorArray, binding)
     }
 }

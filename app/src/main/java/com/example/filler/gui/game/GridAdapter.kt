@@ -1,19 +1,21 @@
 package com.example.filler.gui.game
 
+import android.app.ActionBar
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.LinearLayout
+import android.widget.GridView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.constraintlayout.widget.ConstraintSet
 import com.example.filler.R
 import com.example.filler.constants.GameColor
+import com.example.filler.databinding.ActivityGameBinding
 import kotlin.math.sqrt
 
-class GridAdapter(private val context: Context, private val colorsList: Array<GameColor>) :
+class GridAdapter(private val context: Context, private val colorsList: Array<GameColor>, private val binding: ActivityGameBinding) :
     BaseAdapter() {
     private var squareSize: Int = setSquareSizeFromTotalNumber()
     override fun getCount(): Int {
@@ -34,16 +36,11 @@ class GridAdapter(private val context: Context, private val colorsList: Array<Ga
         // Get the textview from the layout
         val textView = view.findViewById<TextView>(R.id.gridItem)
 
-        // FIXME: Developing
-        val layout = view.findViewById<View>(R.id.gridLayout)
+        binding.boardGridView.layoutParams.width = 900
+        binding.boardGridView.layoutParams.height = 900
 
         // Set the textView size
-        setSquareSizeFromTotalNumber()
         setSize(textView)
-
-        // FIXME: Developing
-        layout.layoutParams.height = squareSize * 9
-        layout.layoutParams.width = squareSize * 9
 
         // Get the background color from the corresponding array position and set it
         val drawableColorId = getColorFromGameColor(getItem(position))
@@ -63,10 +60,10 @@ class GridAdapter(private val context: Context, private val colorsList: Array<Ga
     private fun setSize(textView: TextView) {
         // FIXME: Developing
 //        val layoutParams = LinearLayout.LayoutParams(squareSize, squareSize)
-//
+
 //        textView.layoutParams = layoutParams
-        textView.width = squareSize
-        textView.height = squareSize
+        textView.width = squareSize * 3
+        textView.height = squareSize * 3
     }
 
     private fun getColorFromGameColor(gameColor: GameColor): Int {
