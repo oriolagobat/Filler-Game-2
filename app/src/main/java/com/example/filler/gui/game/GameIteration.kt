@@ -3,11 +3,11 @@ package com.example.filler.gui.game
 import android.content.Context
 import android.widget.Toast
 import com.example.filler.constants.GameColor
-import com.example.filler.constants.GridType
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
 import com.example.filler.logic.stub.GameStub3x3
+import com.example.filler.logic.stub.GameStub9x9
 
 class GameIteration(
     private val context: Context,
@@ -33,7 +33,7 @@ class GameIteration(
 
         val stubBoard: GameResponse = gameStub.initGame()
         binding.boardGridView.adapter =
-            GridAdapter(context, stubBoard.board.toArray(), binding.boardGridView, GridType.BOARD)
+            BoardAdapter(context, stubBoard.board.toArray(), binding.boardGridView)
     }
 
     // Set's up the chooser bar, with its adapter
@@ -41,15 +41,15 @@ class GameIteration(
         // This is how it will be
 //        binding.boardGridView.numColumns = settings.nColors
         // This is for now, in order to work  with the game stub
-        binding.selectorGridView.numColumns = 3
-//        binding.selectorGridView.numColumns = 8
-        val gameStub = GameStub3x3(gameSettings)  //  Game initialization
-//        val gameStub = GameStub9x9(gameSettings)  //  Game initialization
+//        binding.selectorGridView.numColumns = 3
+        binding.selectorGridView.numColumns = 8
+//        val gameStub = GameStub3x3(gameSettings)  //  Game initialization
+        val gameStub = GameStub9x9(gameSettings)  //  Game initialization
 
         val stubSelector: GameResponse = gameStub.initGame()
         val colors = getArrayColors(stubSelector.selector.toArray())
         binding.selectorGridView.adapter =
-            GridAdapter(context, colors, binding.selectorGridView, GridType.SELECTOR)
+            SelectorAdapter(context, stubSelector.selector.toArray(), binding.selectorGridView)
         manageSelectorListeners(stubSelector, colors)
     }
 

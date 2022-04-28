@@ -60,4 +60,5 @@
     <string name="game_ia_profile_image_description">AI profile picture</string>
     <string name="game_ia_default">AI</string>
     <string name="game_timer_default">00:00</string>
+    <string name="game_selector_choice_desc">Represents a choice of image for the user</string>
 </resources>
