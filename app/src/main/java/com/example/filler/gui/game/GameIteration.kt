@@ -60,7 +60,7 @@ class GameIteration(
             // Get the color that was clicked
             val color = colors[position]
             if (colorUnClickable(response.selector.toArray(), color)) {
-                // If the color is unclickable, do nothing
+                // If the color is un clickable, do nothing
                 return@setOnItemClickListener
             } else {
                 // TODO: Pick game color

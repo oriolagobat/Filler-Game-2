@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.filler.ChooseResults
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
@@ -20,6 +21,8 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         binding.helpButton.setOnClickListener(this)
         binding.newGameButton.setOnClickListener(this)
         binding.quitButton.setOnClickListener(this)
+        // FIXME: Stub to test the result functionality
+        binding.resultsStubButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -29,6 +32,8 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
             R.id.helpButton -> intent = Intent(this, Help::class.java)
             R.id.newGameButton -> intent = Intent(this, NewGameConfiguration::class.java)
             R.id.quitButton -> finish()
+            // FIXME: Stub to test the result functionality
+            R.id.resultsStubButton -> intent = Intent(this, ChooseResults::class.java)
         }
 
         startActivity(intent)
