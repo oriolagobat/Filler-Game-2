@@ -1,6 +1,7 @@
 package com.example.filler.gui.game
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameColor
@@ -8,7 +9,6 @@ import com.example.filler.constants.GridType
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
-import com.example.filler.logic.stub.GameStub3x3
 import com.example.filler.logic.stub.GameStub9x9
 
 class Game : AppCompatActivity() {
@@ -71,14 +71,39 @@ class Game : AppCompatActivity() {
         val gameStub = GameStub9x9(settings)  //  Game initialization
 
         val stubSelector: GameResponse = gameStub.initGame()
-        val (colors, selected) = unpackArray(stubSelector.selector.toArray())
+        val colors = getArrayColors(stubSelector.selector.toArray())
         binding.selectorGridView.adapter =
             GridAdapter(this, colors, binding.selectorGridView, GridType.SELECTOR)
+        manageSelectorListeners(stubSelector, colors)
     }
 
-    private fun unpackArray(array: Array<Pair<GameColor, Boolean>>): Pair<Array<GameColor>, Array<Boolean>> {
-        val colors = array.map { it.first }.toTypedArray()
-        val selected = array.map { it.second }.toTypedArray()
-        return Pair(colors, selected)
+    private fun manageSelectorListeners(response: GameResponse, colors: Array<GameColor>) {
+        // Set on click listener for the selector grid
+        binding.selectorGridView.setOnItemClickListener { _, _, position, _ ->
+            // Get the color that was clicked
+            val color = colors[position]
+            if (colorUnclickable(response.selector.toArray(), color)) {
+                // If the color is unclickable, do nothing
+                return@setOnItemClickListener
+            } else {
+                Toast.makeText(this, "You selected color $color", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun getArrayColors(array: Array<Pair<GameColor, Boolean>>): Array<GameColor> {
+        return array.map { it.first }.toTypedArray()
+    }
+
+    private fun colorUnclickable(
+        array: Array<Pair<GameColor, Boolean>>,
+        chosenColor: GameColor
+    ): Boolean {
+        for (pair in array) {
+            if (pair.first == chosenColor && pair.second) {
+                return true
+            }
+        }
+        return false
     }
 }
