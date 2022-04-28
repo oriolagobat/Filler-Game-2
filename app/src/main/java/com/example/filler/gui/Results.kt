@@ -4,20 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
-import com.example.filler.databinding.ActivityResultsDrawBinding
-import com.example.filler.databinding.ActivityResultsLoseBinding
-import com.example.filler.databinding.ActivityResultsWinBinding
+import com.example.filler.databinding.ActivityResultsBinding
 
 class Results : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val binding: ActivityResultsBinding = ActivityResultsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val resultType = intent.getStringExtra("resultType")
 
-        // Inflate the view corresponding to the outcome of the game
-        val binding = when (resultType) {
-            "win" -> ActivityResultsWinBinding.inflate(layoutInflater)
-            "loose" -> ActivityResultsLoseBinding.inflate(layoutInflater)
-            "draw" -> ActivityResultsDrawBinding.inflate(layoutInflater)
+        when (resultType) {
+            "win" -> binding.textView.text = "win"
+            "loose" -> binding.textView.text = "lose"
+            "draw" -> binding.textView.text = "draw"
             else -> throw IllegalArgumentException("No more possible results")
         }
         setContentView(binding.root)
