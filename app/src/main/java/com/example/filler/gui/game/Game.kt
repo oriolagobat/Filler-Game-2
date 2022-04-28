@@ -1,15 +1,10 @@
 package com.example.filler.gui.game
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
-import com.example.filler.constants.GameColor
-import com.example.filler.constants.GridType
 import com.example.filler.databinding.ActivityGameBinding
-import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
-import com.example.filler.logic.stub.GameStub9x9
 
 class Game : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding

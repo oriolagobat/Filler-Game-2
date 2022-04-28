@@ -1,13 +1,12 @@
 package com.example.filler.logic.position
 
 import com.example.filler.logic.Position
-import org.junit.Assert.*
-
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class PositionTest {
 
-   private val position = Position(1, 1)
+    private val position = Position(1, 1)
 
     @Test
     fun getSurroundingPositions() {

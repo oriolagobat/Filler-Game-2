@@ -7,7 +7,7 @@ fun getArrayColors(array: Array<Pair<GameColor, Boolean>>): Array<GameColor> {
     return array.map { it.first }.toTypedArray()
 }
 
-fun colorUnclickable(
+fun colorUnClickable(
     array: Array<Pair<GameColor, Boolean>>,
     chosenColor: GameColor
 ): Boolean {

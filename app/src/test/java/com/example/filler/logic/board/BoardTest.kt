@@ -4,10 +4,9 @@ import com.example.filler.constants.GameColor
 import com.example.filler.logic.BoardImpl
 import com.example.filler.logic.Position
 import com.example.filler.logic.interfaces.Board
-import org.junit.Test
-
 import org.junit.Assert.*
 import org.junit.Before
+import org.junit.Test
 
 
 class BoardTest {
@@ -36,7 +35,7 @@ class BoardTest {
     }
 
     @Test
-    fun `Initial player positions correspond to lower left and upper righ positions`() {
+    fun `Initial player positions correspond to lower left and upper right positions`() {
         val p1Home = Position(boardSize - 1, 0)
         val p2Home = Position(0, boardSize - 1)
         assertEquals(p1Home, board.getP1Home())
@@ -44,7 +43,7 @@ class BoardTest {
     }
 
     @Test
-    fun `Board returns setted color when asking for any position's color`() {
+    fun `Board returns set color when asking for any position's color`() {
         for (row in 0 until boardSize) {
             for (col in 0 until boardSize) {
                 val color = board.getColor(Position(row, col))
@@ -55,12 +54,12 @@ class BoardTest {
 
 
     @Test
-    fun `Board array retured equals colorArray`() {
+    fun `Board array returned equals colorArray`() {
         assertArrayEquals(board.toArray(), colorArray)
     }
 
     @Test
-    fun `hasPosition() returns false when asking for a position outside the board`(){
+    fun `hasPosition() returns false when asking for a position outside the board`() {
         val outsidePosition = Position(boardSize, 0)
         assertFalse(board.hasPosition(outsidePosition))
     }

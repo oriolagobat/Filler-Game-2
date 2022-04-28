@@ -43,9 +43,9 @@ class PlayerAreaImplTest {
     }
 
     @Test
-    fun `Home position is no longer in fringe when surronded by area positions`() {
+    fun `Home position is no longer in fringe when surrounded by area positions`() {
         val aboveHomePosition = Position(board.size - 2, 0)
-        val rightOfHomePosition = Position(board.size  - 1, 1)
+        val rightOfHomePosition = Position(board.size - 1, 1)
         playerArea.addPosition(aboveHomePosition)
         playerArea.addPosition(rightOfHomePosition)
         assertFalse(playerArea.fringe.contains(p1HomePosition))
