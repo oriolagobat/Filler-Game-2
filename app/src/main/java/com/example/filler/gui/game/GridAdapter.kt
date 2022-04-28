@@ -10,12 +10,14 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.filler.R
 import com.example.filler.constants.GameColor
+import com.example.filler.constants.GridType
 import kotlin.math.sqrt
 
 class GridAdapter(
     private val context: Context,
     private val colorsList: Array<GameColor>,
-    private val grid: GridView
+    private val grid: GridView,
+    private val gridType: GridType
 ) :
     BaseAdapter() {
     override fun getCount(): Int {
@@ -40,7 +42,7 @@ class GridAdapter(
         val drawableColorId = getColorFromGameColor(getItem(position))
         val background: Drawable = AppCompatResources.getDrawable(context, drawableColorId)!!
         textView.background = background
-        textView.layoutParams.height = grid.height / getSquarePerRow()
+        setTextViewHeight(textView)
 
         return view
     }
@@ -59,6 +61,22 @@ class GridAdapter(
         }
     }
 
+    // If we're dealing with the board, the textview height should be the total size of the grid divided by the number of rows (square per row)
+    // If we're dealing with the selector, the textview height should be the total grid's width divided by the number of columns (square per row)
+    private fun setTextViewHeight(textView: TextView) {
+        when (gridType) {
+            GridType.BOARD -> textView.layoutParams.height = grid.height / getSquarePerRow()
+            GridType.SELECTOR -> textView.layoutParams.height = grid.width / getSquarePerRow()
+        }
+    }
 
-    private fun getSquarePerRow(): Int = sqrt(colorsList.size.toDouble()).toInt()
+
+    // If we're dealing with the board, we'll have as many squares in a row as the square root of the number of squares.
+    // If we're dealing with the selector, we'll have as many squares in a row as the total number of squares.
+    private fun getSquarePerRow(): Int {
+        return when (gridType) {
+            GridType.BOARD -> sqrt(colorsList.size.toDouble()).toInt()
+            GridType.SELECTOR -> colorsList.size
+        }
+    }
 }

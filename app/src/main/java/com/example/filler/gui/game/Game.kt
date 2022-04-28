@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameColor
+import com.example.filler.constants.GridType
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
@@ -57,7 +58,7 @@ class Game : AppCompatActivity() {
 
         val stubBoard: GameResponse = gameStub.initGame()
         binding.boardGridView.adapter =
-            GridAdapter(this, stubBoard.board.toArray(), binding.boardGridView)
+            GridAdapter(this, stubBoard.board.toArray(), binding.boardGridView, GridType.BOARD)
     }
 
     private fun setUpChooserBar(settings: GameSettings) {
@@ -72,7 +73,7 @@ class Game : AppCompatActivity() {
         val stubSelector: GameResponse = gameStub.initGame()
         val (colors, selected) = unpackArray(stubSelector.selector.toArray())
         binding.selectorGridView.adapter =
-            GridAdapter(this, colors, binding.selectorGridView)
+            GridAdapter(this, colors, binding.selectorGridView, GridType.SELECTOR)
     }
 
     private fun unpackArray(array: Array<Pair<GameColor, Boolean>>): Pair<Array<GameColor>, Array<Boolean>> {
