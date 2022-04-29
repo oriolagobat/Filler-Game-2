@@ -1,4 +1,4 @@
-package com.example.filler.gui
+package com.example.filler.gui.results
 
 import android.app.Service
 import android.content.Intent

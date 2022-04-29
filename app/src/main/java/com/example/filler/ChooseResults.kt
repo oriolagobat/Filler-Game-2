@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.filler.databinding.ActivityChooseResultsBinding
-import com.example.filler.gui.Results
-import com.example.filler.gui.configuration.NewGameConfiguration
-import com.example.filler.gui.game.Game
+import com.example.filler.gui.results.Results
 
 class ChooseResults : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

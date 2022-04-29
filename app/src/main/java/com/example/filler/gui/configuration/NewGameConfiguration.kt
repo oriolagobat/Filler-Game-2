@@ -33,7 +33,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         ConfigurationListenersSetUp(this, binding)
 
         // Set a new username input instance
-        usernameInput = NewUsernameInput(this, binding)
+        usernameInput = NewUsernameInput(this, binding.usernameInput)
 
         // FIXME: Remove this when releasing final version
         binding.usernameInput.setText("John Doe")
