@@ -3,16 +3,21 @@ package com.example.filler.logic
 import com.example.filler.constants.GameColor
 import com.example.filler.logic.interfaces.Game
 
-class GameImp : Game {
+class GameImpl(private val settings: GameSettings) : Game {
+
     override fun initGame(): GameResponse {
         TODO("Not yet implemented")
     }
 
-    override fun startGame() {
+    override fun pickP1Color(color: GameColor): GameResponse {
         TODO("Not yet implemented")
     }
 
-    override fun pickColor(color: GameColor): GameResponse {
+    override fun pickP2Color(color: GameColor): GameResponse {
+        TODO("Not yet implemented")
+    }
+
+    override fun pickP2ColorThroughAI(): GameResponse {
         TODO("Not yet implemented")
     }
 

@@ -22,13 +22,16 @@ class PlayerAreaImpl(
 
     private fun updateFringe(newPosition: Position) {
         fringe.add(newPosition)
-        val positionsToRemove = fringe.filter { !isFringePosition(it) }.toMutableList()
+        val positionsToRemove = fringe
+            .filter { !isFringePosition(it) }
+            .toMutableList()
         fringe.removeAll(positionsToRemove)
     }
 
     private fun isFringePosition(position: Position): Boolean {
         val surroundingPositions = position.getSurroundingPositions()
-        return surroundingPositions.any { !this.hasPosition(it) && board.hasPosition(it) }
+        return surroundingPositions
+            .any { !this.hasPosition(it) && board.hasPosition(it) }
     }
 
     override fun hasPosition(position: Position): Boolean {

@@ -49,7 +49,7 @@ class GameStub3x3(private val settings: GameSettings) : Game {
         print("Game started")
     }
 
-    override fun pickColor(color: GameColor): GameResponse {
+    override fun pickP1Color(color: GameColor): GameResponse {
         return response
     }
 }
