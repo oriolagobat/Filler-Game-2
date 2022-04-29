@@ -3,6 +3,7 @@ package com.example.filler.gui
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
@@ -18,6 +19,7 @@ class Results : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.logOutput.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
         val resultType = intent.getStringExtra("resultType")
 
         // Start the media player with the sound corresponding to the outcome of the game

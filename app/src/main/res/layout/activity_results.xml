@@ -66,6 +66,7 @@
         android:layout_height="39dp"
         android:layout_marginTop="17dp"
         android:layout_marginBottom="17dp"
+        android:scrollbars="vertical"
         android:text="@string/results_default_log"
         app:layout_constraintBottom_toTopOf="@+id/emailHeader"
         app:layout_constraintEnd_toEndOf="parent"
