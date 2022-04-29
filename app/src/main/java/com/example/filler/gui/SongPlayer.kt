@@ -30,14 +30,12 @@ class SongPlayer : Service() {
     private fun manageSoundPlayer(song: Int) {
         if (!::player.isInitialized || player.isPlaying) {  // First execution
             player = MediaPlayer.create(applicationContext, song)
-            player.isLooping = true  // FIXME: Remove, for testing only
             player.start()
         } else {  // Other executions, stop and re-set taskGPlayer
             player.stop()
             player.reset()
             player.release()
             player = MediaPlayer.create(applicationContext, song)
-            player.isLooping = true  // FIXME: Remove, for testing only
             player.start()
         }
     }

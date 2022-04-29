@@ -1,13 +1,19 @@
 package com.example.filler.gui
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityResultsBinding
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class Results : AppCompatActivity() {
     private lateinit var binding: ActivityResultsBinding
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultsBinding.inflate(layoutInflater)
@@ -25,6 +31,9 @@ class Results : AppCompatActivity() {
             "draw" -> manageDrawOutcome()
             else -> throw IllegalArgumentException("No more possible results")
         }
+
+        setCurrentDate()
+        setLog()
     }
 
     private fun manageSongPlayer() {
@@ -51,5 +60,21 @@ class Results : AppCompatActivity() {
     private fun manageDrawOutcome() {
         binding.outcomeImage.setImageResource(R.drawable.result_draw)
         binding.outcomeHeader.text = getString(R.string.results_draw_header)
+    }
+
+    // TODO: Should this be my job or the logic one?
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setCurrentDate() {
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")
+        val date = current.format(formatter)
+        binding.dateTimeOutput.text = date
+    }
+
+    private fun setLog() {
+        // TODO: Get the log
+        // FIXME: Stub functionality
+        val log = getString(R.string.stub_log)
+        binding.logOutput.text = log
     }
 }
