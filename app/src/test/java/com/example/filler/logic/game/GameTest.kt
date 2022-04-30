@@ -2,12 +2,11 @@ package com.example.filler.logic.game
 
 import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameState
-import com.example.filler.logic.BoardImpl
 import com.example.filler.logic.GameImpl
-import com.example.filler.logic.GameResponse
 import com.example.filler.logic.GameSettings
 import com.example.filler.logic.interfaces.Game
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class GameTest {
@@ -22,10 +21,4 @@ class GameTest {
         assertEquals(GameState.INITIALIZING, response.state)
     }
 
-    @Test
-    fun `Initializing game returns a response with initial values`() {
-        val response = game.initGame()
-        assertEquals(0, response.round)
-        assertEquals(GameState.P1_TURN, response.state)
-    }
 }
