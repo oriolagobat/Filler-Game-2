@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<FrameLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    tools:context=".gui.InitialMenu">
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/possiblefons3"
+        android:scaleType="centerCrop"
+        android:layout_height="match_parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/headerConstraint"
-        android:layout_width="411dp"
-        android:layout_height="84dp"
-        android:background="@drawable/header_gradient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".gui.InitialMenu">
+
 
         <TextView
             android:id="@+id/mainHelpHeader"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:gravity="center"
+            android:layout_marginTop="160dp"
             android:fontFamily="@font/zebulon_wx_rn"
-            android:text="@string/homepage_header"
+            android:gravity="center"
             android:textColor="@color/white"
+            android:text="@string/homepage_header"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,86 +33,72 @@
 
         <TextView
             android:id="@+id/mainHelpSubHeader"
-            android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:gravity="center"
+            android:layout_width="355dp"
+            android:layout_height="27dp"
+            android:layout_marginBottom="160dp"
             android:fontFamily="@font/zebulon_wx_rn"
+            android:gravity="center"
+            android:textColor="@color/purple_500"
             android:text="@string/homepage_sub_header"
-            android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/helpContentConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerConstraint"
-        app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/helpButton"
             style="@style/Widget.Material3.Button.Icon"
-            app:icon="@drawable/question_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/niagaraphobia_bro3"
             android:text="@string/homepageHelpButton"
             android:textSize="20sp"
-            android:fontFamily="@font/niagaraphobia_bro3"
+            app:icon="@drawable/question_icon"
             app:layout_constraintBottom_toTopOf="@+id/newGameButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <Button
             android:id="@+id/newGameButton"
-            android:layout_width="wrap_content"
             style="@style/Widget.Material3.Button.Icon"
-            app:icon="@drawable/new_game_icon"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/niagaraphobia_bro3"
             android:text="@string/homepageNewGameButton"
             android:textSize="20sp"
-            android:fontFamily="@font/niagaraphobia_bro3"
+            app:icon="@drawable/new_game_icon"
             app:layout_constraintBottom_toTopOf="@+id/quitButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/helpButton" />
 
+
+        <!--        FIXME: Stub button to go to results, remove-->
         <Button
             android:id="@+id/quitButton"
             style="@style/Widget.Material3.Button.Icon"
-            app:icon="@drawable/close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/niagaraphobia_bro3"
             android:text="@string/homepageQuitButton"
             android:textSize="20sp"
-            android:fontFamily="@font/niagaraphobia_bro3"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/close"
+            app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/newGameButton" />
 
-
-
-        <!--        FIXME: Stub button to go to results, remove-->
         <Button
             android:id="@+id/resultsStubButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Results"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+

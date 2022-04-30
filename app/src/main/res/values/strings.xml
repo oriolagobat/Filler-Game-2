@@ -3,7 +3,7 @@
 
     <!--    HOMEPAGE-->
     <string name="homepage_header">Homepage</string>
-    <string name="homepage_sub_header">Welcome to Filler!</string>
+    <string name="homepage_sub_header">Welcome to Filler !</string>
     <string name="homepageHelpButton">Help</string>
     <string name="homepageNewGameButton">New Game</string>
     <string name="homepageQuitButton">Quit</string>
