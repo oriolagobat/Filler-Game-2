@@ -1,10 +1,10 @@
 package com.example.filler.logic.playerarea
 
-import com.example.filler.logic.BoardImpl
-import com.example.filler.logic.PlayerAreaImpl
-import com.example.filler.logic.Position
-import com.example.filler.logic.interfaces.Board
-import com.example.filler.logic.interfaces.PlayerArea
+import com.example.filler.logic.board.BoardImpl
+import com.example.filler.logic.player.PlayerAreaImpl
+import com.example.filler.logic.game.Position
+import com.example.filler.logic.board.Board
+import com.example.filler.logic.player.PlayerArea
 import org.junit.Assert.*
 import org.junit.Before
 

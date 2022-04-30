@@ -1,4 +1,4 @@
-package com.example.filler.logic
+package com.example.filler.logic.game
 
 import com.example.filler.constants.Difficulty
 

@@ -1,7 +1,6 @@
-package com.example.filler.logic
+package com.example.filler.logic.colors
 
 import com.example.filler.constants.GameColor
-import com.example.filler.logic.interfaces.ColorSelector
 
 class ColorSelectorImpl(
     inputColors: List<GameColor>

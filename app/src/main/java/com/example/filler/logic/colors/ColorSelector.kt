@@ -1,4 +1,4 @@
-package com.example.filler.logic.interfaces
+package com.example.filler.logic.colors
 
 import com.example.filler.constants.GameColor
 

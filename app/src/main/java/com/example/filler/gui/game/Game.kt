@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
 import com.example.filler.databinding.ActivityGameBinding
-import com.example.filler.logic.GameSettings
+import com.example.filler.logic.game.GameSettings
 
 class Game : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding

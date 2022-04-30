@@ -1,7 +1,7 @@
-package com.example.filler.logic
+package com.example.filler.logic.board
 
 import com.example.filler.constants.GameColor
-import com.example.filler.logic.interfaces.Board
+import com.example.filler.logic.game.Position
 
 
 class BoardImpl(

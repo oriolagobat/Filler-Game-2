@@ -1,14 +1,19 @@
-package com.example.filler.logic
+package com.example.filler.logic.game
 
 import com.example.filler.constants.GameColor
 import com.example.filler.constants.GameConstants
 import com.example.filler.constants.GameState
 import com.example.filler.logic.ai.AIColorGeneratorFactoryImpl
 import com.example.filler.logic.ai.AIGeneratorSettings
-import com.example.filler.logic.interfaces.Board
-import com.example.filler.logic.interfaces.ColorSelector
-import com.example.filler.logic.interfaces.Game
-import com.example.filler.logic.interfaces.Generator
+import com.example.filler.logic.board.Board
+import com.example.filler.logic.board.BoardColorInitializer
+import com.example.filler.logic.board.BoardImpl
+import com.example.filler.logic.colors.ColorSelector
+import com.example.filler.logic.colors.ColorSelectorImpl
+import com.example.filler.logic.player.AreaExpander
+import com.example.filler.logic.player.AreaExpanderImpl
+import com.example.filler.logic.player.Player
+import com.example.filler.logic.player.PlayerAreaImpl
 
 class GameImpl(private val settings: GameSettings) : Game {
     private val availableColors: List<GameColor> = GameColor.values().toList().take(settings.nColors)
@@ -17,14 +22,15 @@ class GameImpl(private val settings: GameSettings) : Game {
     private var state = GameState.INITIALIZING
     private var round = 0
     private lateinit var smartColorGenerator: Generator
+    private lateinit var areaExpander: AreaExpander
+    private lateinit var checker: Checker
     private lateinit var player1: Player
     private lateinit var player2: Player
 
     override fun initGame(): GameResponse {
         fillBoard()
-        initPlayers()
-        initAI()
-        state = GameState.P1_TURN
+        initPlayerLogic()
+        initStateLogic()
         return getGameInfo()
     }
 
@@ -33,9 +39,10 @@ class GameImpl(private val settings: GameSettings) : Game {
         boardInitializer.initialize()
     }
 
-    private fun initPlayers() {
+    private fun initPlayerLogic() {
         assignAreas()
         selectInitialColors()
+        initP2AI()
     }
 
     private fun assignAreas() {
@@ -50,23 +57,24 @@ class GameImpl(private val settings: GameSettings) : Game {
         selector.select(board.getColor(board.getP2Home()))
     }
 
-    private fun initAI() {
+    private fun initP2AI() {
         val settingsForAI = AIGeneratorSettings(board, player2.area, availableColors)
         smartColorGenerator = AIColorGeneratorFactoryImpl()
             .makeGenerator(this.settings.difficulty, settingsForAI)
+    }
+
+    private fun initStateLogic() {
+        areaExpander = AreaExpanderImpl(player1, player2, board)
+        checker = CheckerImpl(player1, player2, board)
+        state = GameState.P1_TURN
     }
 
     override fun getGameInfo(): GameResponse {
         return GameResponse(round, board, selector, state)
     }
 
-    override fun pickP1Color(color: GameColor): GameResponse {
-        applyColorPick(color, player1)
-        return getGameInfo()
-    }
-
-    override fun pickP2Color(color: GameColor): GameResponse {
-        applyColorPick(color, player2)
+    override fun pickPlayerColor(player: Player, color: GameColor): GameResponse {
+        applyColorPick(color, player)
         return getGameInfo()
     }
 
@@ -76,7 +84,8 @@ class GameImpl(private val settings: GameSettings) : Game {
         return getGameInfo()
     }
 
-    private fun updateState() {
-        TODO("Aqui comproves l'estat de les arees de cada jugador i tal")
+    private fun applyColorPick(color: GameColor, player: Player) {
+        areaExpander.updatePlayerArea(player, color)
+        checker.updateState(state)
     }
 }

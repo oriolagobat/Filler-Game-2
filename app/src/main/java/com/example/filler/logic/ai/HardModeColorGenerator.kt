@@ -1,9 +1,7 @@
 package com.example.filler.logic.ai
 
 import com.example.filler.constants.GameColor
-import com.example.filler.logic.interfaces.Board
-import com.example.filler.logic.interfaces.Generator
-import com.example.filler.logic.interfaces.PlayerArea
+import com.example.filler.logic.game.Generator
 
 class HardModeColorGenerator(settings: AIGeneratorSettings): Generator {
 

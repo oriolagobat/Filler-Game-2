@@ -1,8 +1,8 @@
 package com.example.filler.logic.boardfiller
 
 import com.example.filler.constants.GameColor
-import com.example.filler.logic.BoardColorInitializer
-import com.example.filler.logic.BoardImpl
+import com.example.filler.logic.board.BoardColorInitializer
+import com.example.filler.logic.board.BoardImpl
 import org.junit.Assert.*
 
 import org.junit.Before

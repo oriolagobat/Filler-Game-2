@@ -2,10 +2,14 @@ package com.example.filler.logic.stub
 
 import com.example.filler.constants.GameColor
 import com.example.filler.constants.GameState
-import com.example.filler.logic.*
-import com.example.filler.logic.interfaces.Board
-import com.example.filler.logic.interfaces.ColorSelector
-import com.example.filler.logic.interfaces.Game
+import com.example.filler.logic.board.Board
+import com.example.filler.logic.board.BoardImpl
+import com.example.filler.logic.game.GameResponse
+import com.example.filler.logic.game.GameSettings
+import com.example.filler.logic.colors.ColorSelector
+import com.example.filler.logic.colors.ColorSelectorImpl
+import com.example.filler.logic.game.Game
+import com.example.filler.logic.game.Position
 
 class GameStub9x9(private val settings: GameSettings) : Game {
     var round = 0

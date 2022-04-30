@@ -1,7 +1,7 @@
-package com.example.filler.logic
+package com.example.filler.logic.player
 
-import com.example.filler.logic.interfaces.Board
-import com.example.filler.logic.interfaces.PlayerArea
+import com.example.filler.logic.game.Position
+import com.example.filler.logic.board.Board
 
 class PlayerAreaImpl(
     initialPosition: Position,

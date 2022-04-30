@@ -4,8 +4,8 @@ import android.content.Context
 import android.widget.Toast
 import com.example.filler.constants.GameColor
 import com.example.filler.databinding.ActivityGameBinding
-import com.example.filler.logic.GameResponse
-import com.example.filler.logic.GameSettings
+import com.example.filler.logic.game.GameResponse
+import com.example.filler.logic.game.GameSettings
 import com.example.filler.logic.stub.GameStub3x3
 import com.example.filler.logic.stub.GameStub9x9
 

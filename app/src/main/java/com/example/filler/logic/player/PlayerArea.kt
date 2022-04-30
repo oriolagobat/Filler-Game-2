@@ -1,6 +1,6 @@
-package com.example.filler.logic.interfaces
+package com.example.filler.logic.player
 
-import com.example.filler.logic.Position
+import com.example.filler.logic.game.Position
 
 interface PlayerArea {
     val fringe: MutableSet<Position>
