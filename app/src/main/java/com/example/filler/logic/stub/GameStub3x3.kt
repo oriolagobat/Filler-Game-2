@@ -45,11 +45,15 @@ class GameStub3x3(private val settings: GameSettings) : Game {
         return response
     }
 
-    override fun startGame() {
-        print("Game started")
+    override fun pickP1Color(color: GameColor): GameResponse {
+        return response
     }
 
-    override fun pickP1Color(color: GameColor): GameResponse {
+    override fun pickP2Color(color: GameColor): GameResponse {
+        return response
+    }
+
+    override fun pickP2ColorThroughAI(): GameResponse {
         return response
     }
 }

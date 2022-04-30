@@ -1,7 +1,6 @@
 package com.example.filler.constants
 
 enum class GameColor {
-    NULL,
     PINK,
     ORANGE,
     YELLOW,
@@ -9,5 +8,6 @@ enum class GameColor {
     BLUE,
     PURPLE,
     CYAN,
-    BLACK
+    BLACK,
+    UNCOLORED
 }

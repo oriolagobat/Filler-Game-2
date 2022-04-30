@@ -22,12 +22,13 @@ class GameImpl(private val settings: GameSettings) : Game {
     override fun initGame(): GameResponse {
         defineColors()
         fillBoard()
+        //TODO: També s'ha d'iniciar el selector.
         initPlayers()
         return generateResponse()
     }
 
     private fun defineColors() {
-        TODO("Not yet implemented")
+        colors = GameColor.values().toList().take(settings.nColors)
     }
 
     private fun fillBoard() {

@@ -5,39 +5,39 @@ import com.example.filler.logic.interfaces.Board
 
 
 class BoardImpl(
-    override val size: Int,
+    override val width: Int,
 ) : Board {
 
-    private val colors = Array(size) { Array(size) { GameColor.NULL } }
+    private val colors = MutableList(width * width) { GameColor.UNCOLORED }
 
     override fun getP1Home(): Position {
-        return Position(size - 1, 0)
+        return Position(width - 1, 0)
     }
 
     override fun getP2Home(): Position {
-        return Position(0, size - 1)
+        return Position(0, width - 1)
     }
 
     override fun getColor(position: Position): GameColor {
-        return colors[position.row][position.col]
+        val index = positionToIndex(position)
+        return colors[index]
     }
 
     override fun setColor(position: Position, color: GameColor) {
-        colors[position.row][position.col] = color
+        val index = positionToIndex(position)
+        colors[index] = color
+    }
+
+    private fun positionToIndex(position: Position): Int {
+        return position.row * width + position.col
     }
 
     override fun toArray(): Array<GameColor> {
-        val colorArray = Array(size * size) { GameColor.NULL }
-        for (row in 0 until size) {
-            for (col in 0 until size) {
-                colorArray[row * size + col] = colors[row][col]
-            }
-        }
-        return colorArray
+        return colors.toTypedArray()
     }
 
     override fun hasPosition(position: Position): Boolean {
-        return position.row < size && position.col < size
-                && position.row >= 0 && position.col >= 0
+        val index = positionToIndex(position)
+        return index < colors.size
     }
 }
