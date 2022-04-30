@@ -8,10 +8,14 @@ import com.example.filler.ChooseResults
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
+import com.google.android.material.color.DynamicColors
 
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Set the dynamic colors
+        DynamicColors.applyToActivitiesIfAvailable(application)
 
         // Prepare the binding of the view
         val binding = ActivityMainBinding.inflate(layoutInflater)
