@@ -52,15 +52,22 @@ class BoardTest {
         }
     }
 
-
     @Test
     fun `Board array returned equals colorArray`() {
         assertArrayEquals(board.toArray(), colorArray)
     }
 
     @Test
-    fun `hasPosition() returns false when asking for a position outside the board`() {
+    fun `Returns false when asking if it contains a position outside the board`() {
         val outsidePosition = Position(boardSize, 0)
         assertFalse(board.hasPosition(outsidePosition))
+    }
+
+    @Test
+    fun `Returns false when asking for a position with negative row or column`() {
+        val negativeRowPosition = Position(-1, 0)
+        assertFalse(board.hasPosition(negativeRowPosition))
+        val negativeColPosition = Position(0, -1)
+        assertFalse(board.hasPosition(negativeColPosition))
     }
 }

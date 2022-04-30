@@ -9,7 +9,7 @@ class PlayerAreaImpl(
 ) : PlayerArea {
 
     override val fringe = mutableSetOf(initialPosition)
-    override val area = mutableSetOf(initialPosition)
+    override val totalArea = mutableSetOf(initialPosition)
 
     override fun addPosition(position: Position) {
         updateArea(position)
@@ -17,7 +17,7 @@ class PlayerAreaImpl(
     }
 
     private fun updateArea(position: Position) {
-        area.add(position)
+        totalArea.add(position)
     }
 
     private fun updateFringe(newPosition: Position) {
@@ -30,12 +30,11 @@ class PlayerAreaImpl(
 
     private fun isFringePosition(position: Position): Boolean {
         val surroundingPositions = position.getSurroundingPositions()
-        return surroundingPositions
-            .any { !this.hasPosition(it) && board.hasPosition(it) }
+        return surroundingPositions.any { !this.hasPosition(it) && board.hasPosition(it) }
     }
 
     override fun hasPosition(position: Position): Boolean {
-        return area.contains(position)
+        return totalArea.contains(position)
     }
 
 }

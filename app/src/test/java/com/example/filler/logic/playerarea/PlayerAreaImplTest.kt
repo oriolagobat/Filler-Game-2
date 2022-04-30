@@ -3,15 +3,24 @@ package com.example.filler.logic.playerarea
 import com.example.filler.logic.BoardImpl
 import com.example.filler.logic.PlayerAreaImpl
 import com.example.filler.logic.Position
+import com.example.filler.logic.interfaces.Board
 import com.example.filler.logic.interfaces.PlayerArea
 import org.junit.Assert.*
+import org.junit.Before
 
 import org.junit.Test
 
 class PlayerAreaImplTest {
-    private val board = BoardImpl(3)
-    private val p1HomePosition = board.getP1Home()
-    private val playerArea: PlayerArea = PlayerAreaImpl(p1HomePosition, board)
+    private lateinit var board: Board
+    private lateinit var playerArea: PlayerArea
+    private lateinit var p1HomePosition: Position
+
+    @Before
+    fun setUp(){
+        board = BoardImpl(3)
+        p1HomePosition = board.getP1Home()
+        playerArea = PlayerAreaImpl(p1HomePosition, board)
+    }
 
     @Test
     fun `Fringe returned when no cell added has only p1 home position`() {
@@ -22,7 +31,7 @@ class PlayerAreaImplTest {
     @Test
     fun `Area returned when no cell added has only p1 home position`() {
         val area = mutableSetOf(p1HomePosition)
-        assertEquals(area, playerArea.area)
+        assertEquals(area, playerArea.totalArea)
     }
 
     @Test
@@ -30,7 +39,7 @@ class PlayerAreaImplTest {
         val newPosition = Position(0, board.width - 2)
         playerArea.addPosition(newPosition)
         val area = mutableSetOf(p1HomePosition, newPosition)
-        assertEquals(area, playerArea.area)
+        assertEquals(area, playerArea.totalArea)
     }
 
     //TODO: test fringe

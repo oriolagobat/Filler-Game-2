@@ -12,7 +12,7 @@ import com.example.filler.logic.interfaces.Generator
 
 class GameImpl(private val settings: GameSettings) : Game {
     private val availableColors: List<GameColor> = GameColor.values().toList().take(settings.nColors)
-    private var selector: ColorSelector = ColorSelectorImpl(availableColors)
+    private val selector: ColorSelector = ColorSelectorImpl(availableColors)
     private val board: Board = BoardImpl(settings.boardSize)
     private var state = GameState.INITIALIZING
     private var round = 0
@@ -45,17 +45,16 @@ class GameImpl(private val settings: GameSettings) : Game {
         player2 = Player(GameConstants.INITIAL_SCORE, player2Area)
     }
 
-    private fun initAI() {
-        val settingsForAI = AIGeneratorSettings(board, player2.area, availableColors)
-        smartColorGenerator = AIColorGeneratorFactoryImpl()
-            .makeGenerator(this.settings.difficulty, settingsForAI)
-    }
-
     private fun selectInitialColors() {
         selector.select(board.getColor(board.getP1Home()))
         selector.select(board.getColor(board.getP2Home()))
     }
 
+    private fun initAI() {
+        val settingsForAI = AIGeneratorSettings(board, player2.area, availableColors)
+        smartColorGenerator = AIColorGeneratorFactoryImpl()
+            .makeGenerator(this.settings.difficulty, settingsForAI)
+    }
 
     private fun generateResponse(): GameResponse {
         return GameResponse(round, board, selector, state)

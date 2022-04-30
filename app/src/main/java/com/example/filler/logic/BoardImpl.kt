@@ -38,6 +38,6 @@ class BoardImpl(
 
     override fun hasPosition(position: Position): Boolean {
         val index = positionToIndex(position)
-        return index < colors.size
+        return position.row > 0 && position.col > 0 && index < colors.size
     }
 }
