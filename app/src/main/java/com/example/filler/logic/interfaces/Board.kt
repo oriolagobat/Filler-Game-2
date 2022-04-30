@@ -5,6 +5,7 @@ import com.example.filler.logic.Position
 
 interface Board {
     val width: Int
+    val colors: MutableList<GameColor>
     fun getP1Home(): Position
     fun getP2Home(): Position
     fun getColor(position: Position): GameColor

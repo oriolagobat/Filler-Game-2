@@ -8,7 +8,7 @@ class BoardImpl(
     override val width: Int,
 ) : Board {
 
-    private val colors = MutableList(width * width) { GameColor.UNCOLORED }
+    override val colors = MutableList(width * width) { GameColor.UNCOLORED }
 
     override fun getP1Home(): Position {
         return Position(width - 1, 0)

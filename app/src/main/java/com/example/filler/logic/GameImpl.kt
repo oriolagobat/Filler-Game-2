@@ -1,47 +1,67 @@
 package com.example.filler.logic
 
 import com.example.filler.constants.GameColor
+import com.example.filler.constants.GameConstants
 import com.example.filler.constants.GameState
+import com.example.filler.logic.ai.AIColorGeneratorFactoryImpl
+import com.example.filler.logic.ai.AIGeneratorSettings
 import com.example.filler.logic.interfaces.Board
 import com.example.filler.logic.interfaces.ColorSelector
 import com.example.filler.logic.interfaces.Game
 import com.example.filler.logic.interfaces.Generator
 
 class GameImpl(private val settings: GameSettings) : Game {
-
+    private val availableColors: List<GameColor> = GameColor.values().toList().take(settings.nColors)
+    private var selector: ColorSelector = ColorSelectorImpl(availableColors)
     private val board: Board = BoardImpl(settings.boardSize)
-    private val round = 0
-    private val state = GameState.INITIALISING
-    private lateinit var randomColorGenerator: Generator
-    private lateinit var AIColorGenerator: Generator
-    private lateinit var colors: List<GameColor>
-    private lateinit var selector: ColorSelector
+    private var state = GameState.INITIALIZING
+    private var round = 0
+    private lateinit var smartColorGenerator: Generator
     private lateinit var player1: Player
     private lateinit var player2: Player
 
     override fun initGame(): GameResponse {
-        defineColors()
         fillBoard()
-        //TODO: També s'ha d'iniciar el selector.
         initPlayers()
+        initAI()
+        state = GameState.P1_TURN
         return generateResponse()
     }
 
-    private fun defineColors() {
-        colors = GameColor.values().toList().take(settings.nColors)
-    }
-
     private fun fillBoard() {
-        TODO("Not yet implemented")
+        val boardInitializer = BoardColorInitializer(availableColors, board)
+        boardInitializer.initialize()
     }
 
     private fun initPlayers() {
-        TODO("Not yet implemented")
+        assignAreas()
+        selectInitialColors()
     }
 
-    private fun generateResponse(): GameResponse {
-        TODO("Not yet implemented")
+    private fun assignAreas() {
+        val player1Area = PlayerAreaImpl(board.getP1Home(), board)
+        val player2Area = PlayerAreaImpl(board.getP2Home(), board)
+        player1 = Player(GameConstants.INITIAL_SCORE, player1Area)
+        player2 = Player(GameConstants.INITIAL_SCORE, player2Area)
     }
+
+    private fun initAI() {
+        val settingsForAI = AIGeneratorSettings(board, player2.area, availableColors)
+        smartColorGenerator = AIColorGeneratorFactoryImpl()
+            .makeGenerator(this.settings.difficulty, settingsForAI)
+    }
+
+    private fun selectInitialColors() {
+        selector.select(board.getColor(board.getP1Home()))
+        selector.select(board.getColor(board.getP2Home()))
+    }
+
+
+    private fun generateResponse(): GameResponse {
+        return GameResponse(round, board, selector, state)
+    }
+
+    override fun getGameInfo() = generateResponse()
 
     override fun pickP1Color(color: GameColor): GameResponse {
         TODO("Not yet implemented")

@@ -8,6 +8,8 @@ import com.example.filler.logic.interfaces.ColorSelector
 import com.example.filler.logic.interfaces.Game
 
 class GameStub3x3(private val settings: GameSettings) : Game {
+    var round = 0
+    val state = GameState.INITIALIZING
     private val boardSize = 3
     private val colorArray = arrayListOf(
         GameColor.ORANGE,
@@ -21,8 +23,8 @@ class GameStub3x3(private val settings: GameSettings) : Game {
         GameColor.GREEN
     )
 
-    private val board: Board = BoardImpl(boardSize)
-    private val selector: ColorSelector = ColorSelectorImpl(colorArray)
+    val board: Board = BoardImpl(boardSize)
+    var selector: ColorSelector = ColorSelectorImpl(colorArray)
 
     private val response = GameResponse(
         0,
@@ -54,6 +56,10 @@ class GameStub3x3(private val settings: GameSettings) : Game {
     }
 
     override fun pickP2ColorThroughAI(): GameResponse {
+        return response
+    }
+
+    override fun getGameInfo(): GameResponse {
         return response
     }
 }

@@ -17,7 +17,6 @@ class ColorSelectorImpl(
         }
     }
 
-
     override fun select(selectedColor: GameColor) {
         if (countSelectedColors() < 2)
             selectInitialColor(selectedColor)
@@ -25,14 +24,22 @@ class ColorSelectorImpl(
             update(selectedColor)
     }
 
+    override fun getAvailableColors(): List<GameColor> {
+       return colors
+           .filter { entry -> entry.value }
+           .flatMap { entry -> listOf(entry.key) }
+    }
+
+    override fun getSelectedColors(): List<GameColor> {
+        return colors
+            .filter { entry -> !entry.value }
+            .flatMap { entry -> listOf(entry.key) }
+    }
+
     private fun countSelectedColors(): Int {
-        var selectedColors = 0
-        colors.forEach {
-            if (it.value) {
-                selectedColors++
-            }
-        }
-        return selectedColors
+        return colors
+            .filter { entry -> entry.value }
+            .count()
     }
 
     private fun selectInitialColor(selectedColor: GameColor) {
@@ -49,10 +56,6 @@ class ColorSelectorImpl(
     }
 
     override fun toArray(): Array<Pair<GameColor, Boolean>> {
-        var colorArray = arrayOf<Pair<GameColor, Boolean>>()
-        colors.forEach {
-            colorArray += (Pair(it.key, it.value))
-        }
-        return colorArray
+        return colors.toList().toTypedArray()
     }
 }
