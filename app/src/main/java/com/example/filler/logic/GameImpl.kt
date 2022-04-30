@@ -25,7 +25,7 @@ class GameImpl(private val settings: GameSettings) : Game {
         initPlayers()
         initAI()
         state = GameState.P1_TURN
-        return generateResponse()
+        return getGameInfo()
     }
 
     private fun fillBoard() {
@@ -56,22 +56,27 @@ class GameImpl(private val settings: GameSettings) : Game {
             .makeGenerator(this.settings.difficulty, settingsForAI)
     }
 
-    private fun generateResponse(): GameResponse {
+    override fun getGameInfo(): GameResponse {
         return GameResponse(round, board, selector, state)
     }
 
-    override fun getGameInfo() = generateResponse()
-
     override fun pickP1Color(color: GameColor): GameResponse {
-        TODO("Not yet implemented")
+        applyColorPick(color, player1)
+        return getGameInfo()
     }
 
     override fun pickP2Color(color: GameColor): GameResponse {
-        TODO("Not yet implemented")
+        applyColorPick(color, player2)
+        return getGameInfo()
     }
 
     override fun pickP2ColorThroughAI(): GameResponse {
-        TODO("Not yet implemented")
+        val color = smartColorGenerator.generate()
+        applyColorPick(color, player2)
+        return getGameInfo()
     }
 
+    private fun updateState() {
+        TODO("Aqui comproves l'estat de les arees de cada jugador i tal")
+    }
 }
