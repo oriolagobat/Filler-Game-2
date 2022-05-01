@@ -22,15 +22,9 @@ class ScoreCalculatorImpl(
     }
 
     private fun addValidPositions(){
-        getFringeSurroundingPositions()
+        currentArea.fringe.flatMap { position -> position.getSurroundingPositions() }
             .filter { position -> isValid(position) }
             .forEach { position -> currentArea.addPosition(position) }
-    }
-
-    private fun getFringeSurroundingPositions(): List<Position> {
-        val positions = mutableListOf<Position>()
-        currentArea.fringe.forEach { position -> positions.addAll(position.getSurroundingPositions()) }
-        return positions
     }
 
     private fun isValid(pos: Position) =
