@@ -1,265 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".gui.configuration.NewGameConfiguration">
+    android:layout_height="match_parent">
 
-
-    <!--            Attribute android:autofillHints cannot be passed from strings.xml-->
-    <!--            That's why it's hardcoded-->
-
-
-    <TextView
-        android:id="@+id/mainConfigurationHeader"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/title_font"
-        android:gravity="center"
-        android:text="@string/configuration_header"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:alpha="0.6"
+        android:contentDescription="@string/conf_background_desc"
+        android:scaleType="centerCrop"
+        android:src="@drawable/conf_background5" />
 
-    <TextView
-        android:id="@+id/mainConfigurationSubHeader"
-        android:layout_width="357dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/title_font"
-        android:gravity="center"
-        android:text="@string/configuration_sub_header"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".gui.configuration.NewGameConfiguration">
 
-    <TextView
-        android:id="@+id/usernameIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_username"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/usernameInputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameInputLayout"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/colorsIntro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.416"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameIntro">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usernameInput"
+        <TextView
+            android:id="@+id/mainConfigurationHeader"
             android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/title_font"
+            android:gravity="center"
+            android:text="@string/configuration_header"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mainConfigurationSubHeader"
+            android:layout_width="357dp"
             android:layout_height="wrap_content"
-            android:autofillHints="Game username"
-            android:ems="10"
-            android:fontFamily="@font/main_font"
-            android:hint="@string/configuration_username_hint"
-            android:inputType="textPersonName"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/title_font"
+            android:gravity="center"
+            android:text="@string/configuration_sub_header"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            android:textSize="12sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/colorsIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_colors"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/colorSample"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout" />
-
-    <ImageView
-        android:id="@+id/colorSample"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:contentDescription="@string/color_image_description"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/gridIntro"
-        app:layout_constraintEnd_toStartOf="@+id/colorSpinner"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorsIntro"
-        app:srcCompat="@drawable/colors" />
-
-    <Spinner
-        android:id="@+id/colorSpinner"
-        android:layout_width="238dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:entries="@array/colors_options_array"
-        android:fontFamily="@font/main_font"
-        android:prompt="@string/configuration_colors"
-        android:spinnerMode="dialog"
-        app:layout_constraintBottom_toTopOf="@+id/gridIntro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/colorSample"
-        app:layout_constraintTop_toBottomOf="@+id/colorsIntro" />
-
-    <Spinner
-        android:id="@+id/gridSpinner"
-        android:layout_width="238dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:entries="@array/board_options_array"
-        android:fontFamily="@font/main_font"
-        android:prompt="@string/configuration_grid"
-        android:spinnerMode="dialog"
-        app:layout_constraintBottom_toTopOf="@+id/timeIntro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/gridSample"
-        app:layout_constraintTop_toBottomOf="@+id/gridIntro" />
-
-    <ImageView
-        android:id="@+id/gridSample"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:contentDescription="@string/board_image_description"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/timeIntro"
-        app:layout_constraintEnd_toStartOf="@+id/gridSpinner"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridIntro"
-        app:srcCompat="@drawable/board" />
-
-    <TextView
-        android:id="@+id/gridIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_grid"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/gridSample"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorSample" />
-
-    <TextView
-        android:id="@+id/timeIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_time"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/timeSample"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.223"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridSample" />
-
-    <TextView
-        android:id="@+id/difficultyIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_difficulty_choose"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/difficultyRadioGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeSample" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/timeCheckBox"
-        android:layout_width="50dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="21dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/difficultyIntro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/timeSample"
-        app:layout_constraintTop_toBottomOf="@+id/timeIntro" />
-
-    <ImageView
-        android:id="@+id/timeSample"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:contentDescription="@string/clock_image_description"
-        app:layout_constraintBottom_toTopOf="@+id/difficultyIntro"
-        app:layout_constraintEnd_toStartOf="@+id/timeCheckBox"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeIntro"
-        app:srcCompat="@drawable/clock" />
-
-    <RadioGroup
-        android:id="@+id/difficultyRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/startNewGameButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyIntro">
-
-        <RadioButton
-            android:id="@+id/difficultyEasy"
+        <TextView
+            android:id="@+id/usernameIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
-            android:text="@string/configuration_difficulty_easy" />
+            android:text="@string/configuration_username"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/usernameInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.175"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
 
-        <RadioButton
-            android:id="@+id/difficultyMedium"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameInputLayout"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/colorsIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.416"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameIntro">
+
+
+            <!--            Attribute android:autofillHints cannot be passed from strings.xml-->
+            <!--            That's why it's hardcoded-->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="Game username"
+                android:ems="10"
+                android:fontFamily="@font/main_font"
+                android:hint="@string/configuration_username_hint"
+                android:inputType="textPersonName"
+
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/colorsIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
-            android:text="@string/configuration_difficulty_medium" />
+            android:text="@string/configuration_colors"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/colorSample"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.258"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout" />
 
-        <RadioButton
-            android:id="@+id/difficultyHard"
+        <ImageView
+            android:id="@+id/colorSample"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/color_image_description"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/gridIntro"
+            app:layout_constraintEnd_toStartOf="@+id/colorSpinner"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colorsIntro"
+            app:srcCompat="@drawable/colors" />
+
+        <Spinner
+            android:id="@+id/colorSpinner"
+            android:layout_width="238dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:entries="@array/colors_options_array"
+            android:fontFamily="@font/main_font"
+            android:prompt="@string/configuration_colors"
+            android:spinnerMode="dialog"
+            app:layout_constraintBottom_toTopOf="@+id/gridIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/colorSample"
+            app:layout_constraintTop_toBottomOf="@+id/colorsIntro" />
+
+        <Spinner
+            android:id="@+id/gridSpinner"
+            android:layout_width="238dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:entries="@array/board_options_array"
+            android:fontFamily="@font/main_font"
+            android:prompt="@string/configuration_grid"
+            android:spinnerMode="dialog"
+            app:layout_constraintBottom_toTopOf="@+id/timeIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/gridSample"
+            app:layout_constraintTop_toBottomOf="@+id/gridIntro" />
+
+        <ImageView
+            android:id="@+id/gridSample"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/board_image_description"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/timeIntro"
+            app:layout_constraintEnd_toStartOf="@+id/gridSpinner"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridIntro"
+            app:srcCompat="@drawable/board" />
+
+        <TextView
+            android:id="@+id/gridIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
-            android:text="@string/configuration_difficulty_hard" />
-    </RadioGroup>
+            android:text="@string/configuration_grid"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/gridSample"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.187"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colorSample" />
 
-    <Button
-        android:id="@+id/startNewGameButton"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/startNewGameButton"
-        app:icon="@drawable/new_game_icon"
-        app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyRadioGroup" />
+        <TextView
+            android:id="@+id/timeIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/configuration_time"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/timeSample"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridSample" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/difficultyIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/configuration_difficulty_choose"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/difficultyRadioGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.198"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timeSample" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/timeCheckBox"
+            android:layout_width="50dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="21dp"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@+id/difficultyIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/timeSample"
+            app:layout_constraintTop_toBottomOf="@+id/timeIntro" />
+
+        <ImageView
+            android:id="@+id/timeSample"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/clock_image_description"
+            app:layout_constraintBottom_toTopOf="@+id/difficultyIntro"
+            app:layout_constraintEnd_toStartOf="@+id/timeCheckBox"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timeIntro"
+            app:srcCompat="@drawable/clock" />
+
+        <RadioGroup
+            android:id="@+id/difficultyRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/startNewGameButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/difficultyIntro">
+
+            <RadioButton
+                android:id="@+id/difficultyEasy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font"
+                android:text="@string/configuration_difficulty_easy" />
+
+            <RadioButton
+                android:id="@+id/difficultyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font"
+                android:text="@string/configuration_difficulty_medium" />
+
+            <RadioButton
+                android:id="@+id/difficultyHard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font"
+                android:text="@string/configuration_difficulty_hard" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/startNewGameButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/startNewGameButton"
+            app:icon="@drawable/new_game_icon"
+            app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/difficultyRadioGroup" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
