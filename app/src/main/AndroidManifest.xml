@@ -22,10 +22,10 @@
             android:name=".gui.configuration.NewGameConfiguration"
             android:exported="false" />
         <activity
-            android:name=".gui.Help"
+            android:name=".gui.help.Help"
             android:exported="false" />
         <activity
-            android:name=".gui.InitialMenu"
+            android:name=".gui.homepage.InitialMenu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

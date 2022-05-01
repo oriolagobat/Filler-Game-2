@@ -1,4 +1,4 @@
-package com.example.filler.gui
+package com.example.filler.gui.homepage
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import com.example.filler.ChooseResults
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
+import com.example.filler.gui.help.Help
 import com.google.android.material.color.DynamicColors
 
 class InitialMenu : AppCompatActivity(), View.OnClickListener {

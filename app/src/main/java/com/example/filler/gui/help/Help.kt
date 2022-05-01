@@ -1,4 +1,4 @@
-package com.example.filler.gui
+package com.example.filler.gui.help
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

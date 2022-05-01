@@ -125,6 +125,8 @@
             android:fontFamily="@font/main_font"
             android:autofillHints="Log e-mail"
             android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="@string/results_default_mail"
             android:hint="@string/results_hint_email"
 
             android:layout_height="wrap_content" />

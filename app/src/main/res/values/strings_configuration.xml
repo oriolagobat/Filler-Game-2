@@ -3,7 +3,7 @@
     <string name="configuration_header">Configuration</string>
     <string name="configuration_sub_header">Choose your game settings</string>
     <string name="configuration_username">Enter your username</string>
-    <string name="configuration_username_hint">Enter your username here....</string>
+    <string name="configuration_username_hint">Enter your username here…</string>
     <string name="configuration_colors">Pick the number of colors in the game</string>
     <string name="configuration_grid">Pick the board dimension</string>
     <string name="configuration_time">Choose if you want time control</string>

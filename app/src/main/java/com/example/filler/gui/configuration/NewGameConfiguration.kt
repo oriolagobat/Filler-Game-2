@@ -8,6 +8,7 @@ import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
+import com.example.filler.gui.getUserInputIfValid
 
 class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     View.OnClickListener, RadioGroup.OnCheckedChangeListener {
@@ -16,7 +17,6 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     private var username: String? = null
     private var difficulty: String? = null
-    private lateinit var usernameInput: NewUsernameInput
     private lateinit var colorNum: String
     private lateinit var gridNum: String
     private var timeControl = false
@@ -30,9 +30,6 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
         // Set this class listeners
         setUpListeners(this, binding)
-
-        // Set a new username input instance
-        usernameInput = NewUsernameInput(this, binding.usernameInput)
 
         // FIXME: Remove this when releasing final version
         binding.usernameInput.setText("John Doe")
@@ -52,7 +49,6 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
     private fun getItemFromSpinner(spinner: AdapterView<*>, position: Int): String =
         spinner.getItemAtPosition(position).toString()
 
-
     override fun onNothingSelected(parent: AdapterView<*>?) {
         val errorMsg = "Cannot be thrown, options won't be removed from the list"
         throw UnsupportedOperationException(errorMsg)
@@ -70,9 +66,8 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     // Manages the username input EditText
     private fun manageUsernameInput() {
-        username = usernameInput.get()
+        username = getUserInputIfValid(this, binding.usernameInput)
     }
-
 
     // Manages time checkBox
     private fun manageTimeCheckBox() {
@@ -85,7 +80,6 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
             StartNewGame(this, username!!, colorNum, gridNum, timeControl, difficulty!!)
         }
     }
-
 
     // Manages clicks on the radioGroup
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
