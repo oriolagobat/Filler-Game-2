@@ -26,10 +26,10 @@ class GameIteration(
         // This is how it will be
 //        binding.boardGridView.numColumns = settings.boardSize
         // This is for now, in order to work  with the game stub
-        binding.boardGridView.numColumns = 3
-//        binding.boardGridView.numColumns = 9
-        val gameStub = GameStub3x3(gameSettings)  //  Game initialization
-//        val gameStub = GameStub9x9(gameSettings)  //  Game initialization
+//        binding.boardGridView.numColumns = 3
+        binding.boardGridView.numColumns = 9
+//        val gameStub = GameStub3x3(gameSettings)  //  Game initialization
+        val gameStub = GameStub9x9(gameSettings)  //  Game initialization
 
         val stubBoard: GameResponse = gameStub.initGame()
         binding.boardGridView.adapter =

@@ -10,7 +10,7 @@
         android:alpha="0.9"
         android:contentDescription="@string/help_background_desc"
         android:scaleType="center"
-        android:src="@drawable/help_background4" />
+        android:src="@drawable/help_background6" />
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
