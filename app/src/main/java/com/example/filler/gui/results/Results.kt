@@ -36,12 +36,13 @@ class Results : AppCompatActivity(), View.OnClickListener {
         manageSongPlayer()
 
         // Set the corresponding layout image and text corresponding to the outcome of the game
-        when (resultType) {
-            "win" -> manageWinOutcome()
-            "loose" -> manageLoseOutcome()
-            "draw" -> manageDrawOutcome()
-            else -> throw IllegalArgumentException("No more possible results")
+        val (imageId, text) = when (resultType) {
+            "win" -> Pair(R.drawable.result_win, R.string.results_win_header)
+            "loose" -> Pair(R.drawable.result_win, R.string.results_win_header)
+            "draw" -> Pair(R.drawable.result_win, R.string.results_win_header)
+            else -> throw IllegalArgumentException("No more possible results")  // Will never be thrown
         }
+        updateOutcomeTextImage(imageId, text)
 
         // Set the date and log of the game
         setCurrentDate()
@@ -66,19 +67,10 @@ class Results : AppCompatActivity(), View.OnClickListener {
         startService(playerIntent)
     }
 
-    private fun manageWinOutcome() {
-        binding.outcomeImage.setImageResource(R.drawable.result_win)
-        binding.outcomeHeader.text = getString(R.string.results_win_header)
-    }
-
-    private fun manageLoseOutcome() {
-        binding.outcomeImage.setImageResource(R.drawable.result_lose)
-        binding.outcomeHeader.text = getString(R.string.results_lose_header)
-    }
-
-    private fun manageDrawOutcome() {
-        binding.outcomeImage.setImageResource(R.drawable.result_draw)
-        binding.outcomeHeader.text = getString(R.string.results_draw_header)
+    private fun updateOutcomeTextImage(imageId: Int, textId: Int) {
+        binding.outcomeImage.setImageResource(imageId)
+        val text = getString(textId)
+        binding.outcomeHeader.text = text
     }
 
     // TODO: Should this be my job or the logic one?
