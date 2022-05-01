@@ -6,89 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".gui.Help">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/helpHeaderConstraint"
-        android:layout_width="411dp"
-        android:layout_height="84dp"
-        android:background="@drawable/header_gradient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/mainHelpHeader"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:gravity="center"
-            android:text="@string/help_header"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!--            No text, it must be set from code as it has html in it-->
 
-        <TextView
-            android:id="@+id/mainHelpSubHeader"
-            android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:gravity="center"
-            android:text="@string/help_sub_header"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/helpContentConstraint"
+    <TextView
+        android:id="@+id/mainHelpHeader"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/title_font"
+        android:gravity="center"
+        android:text="@string/help_header"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helpHeaderConstraint"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!--            No text, it must be set from code as it has html in it-->
-        <TextView
-            android:id="@+id/rulesText"
-            android:layout_width="349dp"
-            android:layout_height="317dp"
-            android:text="@null"
-            app:layout_constraintBottom_toTopOf="@+id/helpSampleImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/mainHelpSubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/title_font"
+        android:gravity="center"
+        android:text="@string/help_sub_header"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/helpSampleImage"
-            android:layout_width="126dp"
-            android:layout_height="114dp"
-            android:contentDescription="@string/help_sample_image_desc"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/backHomeButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rulesText"
-            android:src="@drawable/sample_game_image" />
+    <TextView
+        android:id="@+id/rulesText"
+        android:layout_width="350dp"
+        android:layout_height="264dp"
+        android:fontFamily="@font/main_font"
+        android:text="@null"
+        app:layout_constraintBottom_toTopOf="@+id/helpSampleImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
 
-        <ImageButton
-            android:id="@+id/backHomeButton"
-            android:layout_width="71dp"
-            android:layout_height="73dp"
-            android:background="@null"
-            android:contentDescription="@string/help_back_desc"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/helpSampleImage"
-            app:srcCompat="@drawable/back_button" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/helpSampleImage"
+        android:layout_width="126dp"
+        android:layout_height="114dp"
+        android:contentDescription="@string/help_sample_image_desc"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sample_game_image"
+        app:layout_constraintBottom_toTopOf="@+id/backHomeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rulesText" />
+
+    <ImageButton
+        android:id="@+id/backHomeButton"
+        android:layout_width="71dp"
+        android:layout_height="73dp"
+        android:background="@null"
+        android:contentDescription="@string/help_back_desc"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpSampleImage"
+        app:srcCompat="@drawable/back_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
