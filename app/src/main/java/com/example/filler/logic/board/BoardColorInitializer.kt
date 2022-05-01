@@ -6,19 +6,22 @@ import com.example.filler.logic.game.Generator
 
 class BoardColorInitializer(
     private val colors: List<GameColor>,
-    private val board: Board
+    private val board: Board,
+    private var randGenerator: Generator
 ) {
-    private var randGenerator: Generator = RandomColorGenerator(colors)
 
-    fun initialize() {
+    fun start() {
         fillWithRandomColors()
         if (playersShareStartingColor())
             updateP2Color()
     }
 
     private fun fillWithRandomColors() {
-        for (i in board.colors.indices)
-            board.colors[i] = randGenerator.generate()
+        for (i in 0 until board.getSize())
+            board.setColor(
+                board.indexToPosition(i),
+                randGenerator.generate()
+            )
     }
 
     private fun playersShareStartingColor() =

@@ -20,7 +20,7 @@ class FillTest {
 
     @Test
     fun fill() {
-        boardColorFiller.initialize()
+        boardColorFiller.start()
         val p1HomeColor = board.getColor(board.getP1Home())
         val p2HomeColor = board.getColor(board.getP2Home())
         assertNotEquals(p1HomeColor, p2HomeColor)

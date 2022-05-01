@@ -10,8 +10,6 @@ import com.example.filler.logic.board.BoardColorInitializer
 import com.example.filler.logic.board.BoardImpl
 import com.example.filler.logic.colors.ColorSelector
 import com.example.filler.logic.colors.ColorSelectorImpl
-import com.example.filler.logic.player.AreaExpander
-import com.example.filler.logic.player.AreaExpanderImpl
 import com.example.filler.logic.player.Player
 import com.example.filler.logic.player.PlayerAreaImpl
 
@@ -36,7 +34,7 @@ class GameImpl(private val settings: GameSettings) : Game {
 
     private fun fillBoard() {
         val boardInitializer = BoardColorInitializer(availableColors, board)
-        boardInitializer.initialize()
+        boardInitializer.start()
     }
 
     private fun initPlayerLogic() {

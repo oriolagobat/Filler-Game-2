@@ -4,11 +4,13 @@ import com.example.filler.constants.GameColor
 import com.example.filler.logic.game.Position
 
 
-class BoardImpl(
-    override val width: Int,
-) : Board {
+class BoardImpl(private val width: Int) : Board {
 
-    override val colors = MutableList(width * width) { GameColor.UNCOLORED }
+    private val colors = MutableList(width * width) { GameColor.UNCOLORED }
+
+    override fun getSize(): Int {
+        return width * width
+    }
 
     override fun getP1Home(): Position {
         return Position(width - 1, 0)
@@ -28,8 +30,12 @@ class BoardImpl(
         colors[index] = color
     }
 
-    private fun positionToIndex(position: Position): Int {
+    override fun positionToIndex(position: Position): Int {
         return position.row * width + position.col
+    }
+
+    override fun indexToPosition(index: Int): Position {
+        return Position(index / width, index % width)
     }
 
     override fun toArray(): Array<GameColor> {
