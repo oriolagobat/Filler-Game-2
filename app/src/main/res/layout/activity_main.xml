@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/homepageBackgroundDesc"
         android:scaleType="centerCrop"
-        android:src="@drawable/homepage_background" />
+        android:src="@drawable/background_homepage" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
@@ -54,7 +54,7 @@
             android:fontFamily="@font/main_font"
             android:text="@string/homepageHelpButton"
             android:textSize="20sp"
-            app:icon="@drawable/question_icon"
+            app:icon="@drawable/icon_question"
             app:layout_constraintBottom_toTopOf="@+id/newGameButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
             android:fontFamily="@font/main_font"
             android:text="@string/homepageNewGameButton"
             android:textSize="20sp"
-            app:icon="@drawable/configuration_icon"
+            app:icon="@drawable/icon_settings"
             app:layout_constraintBottom_toTopOf="@+id/quitButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
             android:fontFamily="@font/main_font"
             android:text="@string/homepageQuitButton"
             android:textSize="20sp"
-            app:icon="@drawable/close"
+            app:icon="@drawable/icon_close"
             app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

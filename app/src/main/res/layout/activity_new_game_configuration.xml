@@ -9,7 +9,7 @@
         android:alpha="0.6"
         android:contentDescription="@string/conf_background_desc"
         android:scaleType="centerCrop"
-        android:src="@drawable/conf_background5" />
+        android:src="@drawable/background_new_game_conf" />
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -111,7 +111,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/colorsIntro"
-            app:srcCompat="@drawable/colors" />
+            app:srcCompat="@drawable/icon_color_roulette" />
 
         <Spinner
             android:id="@+id/colorSpinner"
@@ -157,7 +157,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gridIntro"
-            app:srcCompat="@drawable/board" />
+            app:srcCompat="@drawable/icon_board" />
 
         <TextView
             android:id="@+id/gridIntro"
@@ -225,7 +225,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timeIntro"
-            app:srcCompat="@drawable/clock" />
+            app:srcCompat="@drawable/icon_clock" />
 
         <RadioGroup
             android:id="@+id/difficultyRadioGroup"
@@ -266,7 +266,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
             android:text="@string/startNewGameButton"
-            app:icon="@drawable/new_game_icon"
+            app:icon="@drawable/icon_new_game"
             app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
