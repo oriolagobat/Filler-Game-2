@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
+import com.example.filler.gui.getText
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -22,7 +23,6 @@ class Results : AppCompatActivity(), View.OnClickListener {
     private lateinit var email: String
     private lateinit var date: String
     private lateinit var log: String
-    private lateinit var emailInput: NewEmailInput
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,8 +47,6 @@ class Results : AppCompatActivity(), View.OnClickListener {
         setCurrentDate()
         setLog()
 
-        // Create a new email input instance
-        emailInput = NewEmailInput(this, binding.emailInput)
 
         // Set listeners
         binding.emailInput.setOnClickListener(this)
@@ -109,11 +107,11 @@ class Results : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun saveEmail() {
-        email = emailInput.get()
+        email = getText(this, binding.emailInput)
     }
 
     private fun sendEmail() {
-        email = emailInput.get()
+        saveEmail()
         checkUnenteredEmail()
         sendMailIntent()
     }

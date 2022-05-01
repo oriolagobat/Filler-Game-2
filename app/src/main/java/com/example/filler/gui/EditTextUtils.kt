@@ -20,7 +20,7 @@ fun closeKeyboardClearFocus(
     editText.clearFocus()
 }
 
-fun getUserInputIfValid(
+fun getValidTextOrError(
     context: AppCompatActivity,
     editText: EditText,
 ): String {
@@ -35,4 +35,13 @@ fun getUserInputIfValid(
 
     // If the username is empty, return an empty username
     return input ?: ""
+}
+
+fun getText(
+    context: AppCompatActivity,
+    editText: EditText,
+): String {
+    closeKeyboardClearFocus(context, editText)
+    return editText.text.toString()
+
 }
