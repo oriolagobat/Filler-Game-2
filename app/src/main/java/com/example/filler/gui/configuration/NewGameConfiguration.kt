@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
@@ -15,12 +14,12 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     private lateinit var binding: ActivityNewGameConfigurationBinding
 
-    private lateinit var username: String
+    private var username: String? = null
+    private var difficulty: String? = null
     private lateinit var usernameInput: NewUsernameInput
     private lateinit var colorNum: String
     private lateinit var gridNum: String
     private var timeControl = false
-    private lateinit var difficulty: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +29,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         setContentView(binding.root)
 
         // Set this class listeners
-        ConfigurationListenersSetUp(this, binding)
+        setUpListeners(this, binding)
 
         // Set a new username input instance
         usernameInput = NewUsernameInput(this, binding.usernameInput)
@@ -82,17 +81,8 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     // Manages new game button
     private fun manageNewGameButton() {
-        val errorMsg: String? = when {
-            // Check possible variables that don't have a default value
-            (!::username.isInitialized) -> "Enter a username"
-            (!::difficulty.isInitialized) -> "Select a difficulty"
-            else -> null
-        }
-
-        if (errorMsg != null) {
-            Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
-        } else {
-            StartNewGame(this, username, colorNum, gridNum, timeControl, difficulty)
+        if (correctGameSettings(this, difficulty, username)) {
+            StartNewGame(this, username!!, colorNum, gridNum, timeControl, difficulty!!)
         }
     }
 
@@ -102,5 +92,4 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         val checked: RadioButton = findViewById(checkedId)
         difficulty = checked.text.toString()
     }
-
 }
