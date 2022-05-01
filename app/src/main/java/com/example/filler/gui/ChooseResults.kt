@@ -1,9 +1,10 @@
-package com.example.filler
+package com.example.filler.gui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.filler.R
 import com.example.filler.databinding.ActivityChooseResultsBinding
 import com.example.filler.gui.results.Results
 

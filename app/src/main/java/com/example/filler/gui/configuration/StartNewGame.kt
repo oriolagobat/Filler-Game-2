@@ -18,6 +18,9 @@ class StartNewGame(
             val error = "Please enter a username"
             Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
         } else {
+            // Stop the song player
+            stopConfSong(context)
+
             val intent = buildNewGameIntent(username, colorNum, gridNum, timeControl, difficulty)
             context.startActivity(intent)
         }

@@ -28,6 +28,9 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         binding = ActivityNewGameConfigurationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Start the song player
+        startConfSong(this)
+
         // Set this class listeners
         setUpConfigListeners(this, binding)
 

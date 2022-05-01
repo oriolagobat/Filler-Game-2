@@ -1,5 +1,6 @@
 package com.example.filler.gui.configuration
 
+import android.content.Intent
 import android.widget.Toast
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
 
@@ -37,4 +38,14 @@ fun correctGameSettings(
         return false
     }
     return true
+}
+
+fun startConfSong(context: NewGameConfiguration) {
+    val intent = Intent(context, ConfigurationSongPlayer::class.java)
+    context.startService(intent)
+}
+
+fun stopConfSong(context: NewGameConfiguration) {
+    val intent = Intent(context, ConfigurationSongPlayer::class.java)
+    context.stopService(intent)
 }

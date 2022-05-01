@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ChooseResults"
+            android:name=".gui.ChooseResults"
             android:exported="false" />
         <activity
             android:name=".gui.results.Results"
@@ -34,6 +34,7 @@
             </intent-filter>
         </activity>
         <service android:enabled="true" android:name="com.example.filler.gui.results.ResultsSongPlayer" />
+        <service android:enabled="true" android:name="com.example.filler.gui.configuration.ConfigurationSongPlayer" />
     </application>
 
 </manifest>
