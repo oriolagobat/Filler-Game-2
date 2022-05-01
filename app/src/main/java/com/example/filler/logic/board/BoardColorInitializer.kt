@@ -2,7 +2,7 @@ package com.example.filler.logic.board
 
 import com.example.filler.constants.GameColor
 import com.example.filler.logic.colors.RandomColorGenerator
-import com.example.filler.logic.game.Generator
+import com.example.filler.logic.colors.Generator
 
 class BoardColorInitializer(
     private val colors: List<GameColor>,
@@ -17,7 +17,7 @@ class BoardColorInitializer(
     }
 
     private fun fillWithRandomColors() {
-        for (i in 0 until board.getSize())
+        for (i in 0 until board.getNumCells())
             board.setColor(
                 board.indexToPosition(i),
                 randGenerator.generate()

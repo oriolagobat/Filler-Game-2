@@ -1,6 +1,6 @@
 package com.example.filler.logic.position
 
-import com.example.filler.logic.game.Position
+import com.example.filler.logic.board.Position
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

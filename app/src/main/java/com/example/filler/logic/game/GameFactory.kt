@@ -1,5 +1,5 @@
 package com.example.filler.logic.game
 
-class GameFactory {
-
+interface GameFactory {
+    fun makeGame(settings: GameSettings): Game
 }

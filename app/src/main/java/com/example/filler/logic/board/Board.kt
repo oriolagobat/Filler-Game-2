@@ -1,10 +1,10 @@
 package com.example.filler.logic.board
 
 import com.example.filler.constants.GameColor
-import com.example.filler.logic.game.Position
 
 interface Board {
-    fun getSize(): Int
+    fun getNumCols(): Int
+    fun getNumCells(): Int
     fun getP1Home(): Position
     fun getP2Home(): Position
     fun getColor(position: Position): GameColor

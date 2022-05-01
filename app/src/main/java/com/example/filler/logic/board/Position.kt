@@ -1,4 +1,4 @@
-package com.example.filler.logic.game
+package com.example.filler.logic.board
 
 data class Position(val row: Int, val col: Int) {
 

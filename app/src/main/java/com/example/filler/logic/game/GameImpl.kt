@@ -1,89 +1,60 @@
 package com.example.filler.logic.game
 
 import com.example.filler.constants.GameColor
-import com.example.filler.constants.GameConstants
 import com.example.filler.constants.GameState
-import com.example.filler.logic.ai.AIColorGeneratorFactoryImpl
-import com.example.filler.logic.ai.AIGeneratorSettings
 import com.example.filler.logic.board.Board
-import com.example.filler.logic.board.BoardColorInitializer
-import com.example.filler.logic.board.BoardImpl
 import com.example.filler.logic.colors.ColorSelector
-import com.example.filler.logic.colors.ColorSelectorImpl
+import com.example.filler.logic.colors.Generator
 import com.example.filler.logic.player.Player
-import com.example.filler.logic.player.PlayerAreaImpl
+import com.example.filler.logic.score.ScoreCalculator
 
-class GameImpl(private val settings: GameSettings) : Game {
-    private val availableColors: List<GameColor> = GameColor.values().toList().take(settings.nColors)
-    private val selector: ColorSelector = ColorSelectorImpl(availableColors)
-    private val board: Board = BoardImpl(settings.boardSize)
-    private var state = GameState.INITIALIZING
-    private var round = 0
-    private lateinit var smartColorGenerator: Generator
-    private lateinit var areaExpander: AreaExpander
-    private lateinit var checker: Checker
-    private lateinit var player1: Player
-    private lateinit var player2: Player
+class GameImpl(
+    private val scoreCalculator: ScoreCalculator,
+    private val smartColorGenerator: Generator,
+    private val selector: ColorSelector,
+    private val board: Board,
+    private val gameData: GameData,
+    private val player1: Player,
+    private val player2: Player
+) : Game {
 
-    override fun initGame(): GameResponse {
-        fillBoard()
-        initPlayerLogic()
-        initStateLogic()
-        return getGameInfo()
+    override fun pickColorManually(color: GameColor): GameResponse {
+        selector.select(color)
+        calculateScore(color)
+        setNextState()
+        return getGameResponse()
     }
 
-    private fun fillBoard() {
-        val boardInitializer = BoardColorInitializer(availableColors, board)
-        boardInitializer.start()
+    private fun calculateScore(color: GameColor) {
+        scoreCalculator.updateAreas(color)
+        player1.updateScore()
+        player2.updateScore()
     }
 
-    private fun initPlayerLogic() {
-        assignAreas()
-        selectInitialColors()
-        initP2AI()
+    private fun setNextState() = if (!gameFinished()) swapTurns() else setFinishState()
+
+    private fun gameFinished() = player1.score + player2.score == board.getNumCells()
+
+    private fun swapTurns() {
+        gameData.apply {
+            state = if (state == GameState.P1_TURN) GameState.P2_TURN else GameState.P1_TURN
+            currentPlayer = enemyPlayer.also { enemyPlayer = currentPlayer }
+        }
     }
 
-    private fun assignAreas() {
-        val player1Area = PlayerAreaImpl(board.getP1Home(), board)
-        val player2Area = PlayerAreaImpl(board.getP2Home(), board)
-        player1 = Player(GameConstants.INITIAL_SCORE, player1Area)
-        player2 = Player(GameConstants.INITIAL_SCORE, player2Area)
+    private fun setFinishState() = if (!isDraw()) setWinner() else gameData.state = GameState.DRAW
+
+    private fun isDraw() = player1.score == player2.score
+
+    private fun setWinner() {
+        gameData.state = if (player1.score > player2.score) GameState.P1_WON else GameState.P2_WON
     }
 
-    private fun selectInitialColors() {
-        selector.select(board.getColor(board.getP1Home()))
-        selector.select(board.getColor(board.getP2Home()))
-    }
-
-    private fun initP2AI() {
-        val settingsForAI = AIGeneratorSettings(board, player2.area, availableColors)
-        smartColorGenerator = AIColorGeneratorFactoryImpl()
-            .makeGenerator(this.settings.difficulty, settingsForAI)
-    }
-
-    private fun initStateLogic() {
-        areaExpander = AreaExpanderImpl(player1, player2, board)
-        checker = CheckerImpl(player1, player2, board)
-        state = GameState.P1_TURN
-    }
-
-    override fun getGameInfo(): GameResponse {
-        return GameResponse(round, board, selector, state)
-    }
-
-    override fun pickPlayerColor(player: Player, color: GameColor): GameResponse {
-        applyColorPick(color, player)
-        return getGameInfo()
-    }
-
-    override fun pickP2ColorThroughAI(): GameResponse {
+    override fun pickColorThroughAI(): GameResponse {
         val color = smartColorGenerator.generate()
-        applyColorPick(color, player2)
-        return getGameInfo()
+        return pickColorManually(color)
     }
 
-    private fun applyColorPick(color: GameColor, player: Player) {
-        areaExpander.updatePlayerArea(player, color)
-        checker.updateState(state)
-    }
+    override fun getGameResponse() =
+        GameResponse(gameData.state, gameData.round, player1.score, player2.score, board, selector)
 }

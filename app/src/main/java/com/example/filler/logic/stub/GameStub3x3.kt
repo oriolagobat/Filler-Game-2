@@ -8,10 +8,9 @@ import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
 import com.example.filler.logic.colors.ColorSelector
 import com.example.filler.logic.colors.ColorSelectorImpl
-import com.example.filler.logic.game.Game
-import com.example.filler.logic.game.Position
+import com.example.filler.logic.board.Position
 
-class GameStub3x3(private val settings: GameSettings) : Game {
+class GameStub3x3(private val settings: GameSettings) {
     var round = 0
     val state = GameState.INITIALIZING
     private val boardSize = 3
@@ -31,10 +30,12 @@ class GameStub3x3(private val settings: GameSettings) : Game {
     var selector: ColorSelector = ColorSelectorImpl(colorArray)
 
     private val response = GameResponse(
+        GameState.P1_TURN,
+        0,
+        0,
         0,
         board,
-        selector,
-        GameState.P1_TURN
+        selector
     )
 
     init {
@@ -47,23 +48,23 @@ class GameStub3x3(private val settings: GameSettings) : Game {
         selector.select(GameColor.GREEN)
     }
 
-    override fun initGame(): GameResponse {
+    fun initGame(): GameResponse {
         return response
     }
 
-    override fun pickP1Color(color: GameColor): GameResponse {
+    fun pickP1Color(color: GameColor): GameResponse {
         return response
     }
 
-    override fun pickP2Color(color: GameColor): GameResponse {
+    fun pickP2Color(color: GameColor): GameResponse {
         return response
     }
 
-    override fun pickP2ColorThroughAI(): GameResponse {
+    fun pickP2ColorThroughAI(): GameResponse {
         return response
     }
 
-    override fun getGameInfo(): GameResponse {
+    fun getGameInfo(): GameResponse {
         return response
     }
 }

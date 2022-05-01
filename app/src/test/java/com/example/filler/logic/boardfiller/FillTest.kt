@@ -3,6 +3,7 @@ package com.example.filler.logic.boardfiller
 import com.example.filler.constants.GameColor
 import com.example.filler.logic.board.BoardColorInitializer
 import com.example.filler.logic.board.BoardImpl
+import com.example.filler.logic.colors.RandomColorGenerator
 import org.junit.Assert.*
 
 import org.junit.Before
@@ -11,7 +12,8 @@ import org.junit.Test
 class FillTest {
     private val colors = listOf(GameColor.GREEN, GameColor.PURPLE, GameColor.YELLOW)
     private val board = BoardImpl(4)
-    private val boardColorFiller = BoardColorInitializer(colors, board)
+    private val generator = RandomColorGenerator(colors)
+    private val boardColorFiller = BoardColorInitializer(colors, board, generator)
 
     @Before
     fun setUp() {

@@ -1,8 +1,7 @@
-package com.example.filler.logic.newgame
+package com.example.filler.logic.game
 
 import com.example.filler.constants.GameColor
 import com.example.filler.constants.GameConstants
-import com.example.filler.constants.GameData
 import com.example.filler.constants.GameState
 import com.example.filler.logic.ai.AIColorGeneratorFactoryImpl
 import com.example.filler.logic.ai.AIGeneratorSettings
@@ -10,9 +9,8 @@ import com.example.filler.logic.board.Board
 import com.example.filler.logic.board.BoardColorInitializer
 import com.example.filler.logic.board.BoardImpl
 import com.example.filler.logic.colors.ColorSelectorImpl
+import com.example.filler.logic.colors.Generator
 import com.example.filler.logic.colors.RandomColorGenerator
-import com.example.filler.logic.game.GameSettings
-import com.example.filler.logic.game.Generator
 import com.example.filler.logic.player.Player
 import com.example.filler.logic.player.PlayerAreaImpl
 import com.example.filler.logic.score.ScoreCalculator

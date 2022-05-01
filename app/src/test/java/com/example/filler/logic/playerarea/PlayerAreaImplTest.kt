@@ -2,7 +2,7 @@ package com.example.filler.logic.playerarea
 
 import com.example.filler.logic.board.BoardImpl
 import com.example.filler.logic.player.PlayerAreaImpl
-import com.example.filler.logic.game.Position
+import com.example.filler.logic.board.Position
 import com.example.filler.logic.board.Board
 import com.example.filler.logic.player.PlayerArea
 import org.junit.Assert.*
@@ -36,7 +36,7 @@ class PlayerAreaImplTest {
 
     @Test
     fun `Area returned when a cell has been added is correct`() {
-        val newPosition = Position(0, board.width - 2)
+        val newPosition = Position(0, board.getNumCols() - 2)
         playerArea.addPosition(newPosition)
         val area = mutableSetOf(p1HomePosition, newPosition)
         assertEquals(area, playerArea.totalArea)
@@ -45,7 +45,7 @@ class PlayerAreaImplTest {
     //TODO: test fringe
     @Test
     fun `Fringe returned when a cell has been added is correct`() {
-        val newPosition = Position(0, board.width - 2)
+        val newPosition = Position(0, board.getNumCols() - 2)
         playerArea.addPosition(newPosition)
         val fringe = mutableSetOf(p1HomePosition, newPosition)
         assertEquals(fringe, playerArea.fringe)
@@ -53,8 +53,8 @@ class PlayerAreaImplTest {
 
     @Test
     fun `Home position is no longer in fringe when surrounded by area positions`() {
-        val aboveHomePosition = Position(board.width - 2, 0)
-        val rightOfHomePosition = Position(board.width - 1, 1)
+        val aboveHomePosition = Position(board.getNumCols() - 2, 0)
+        val rightOfHomePosition = Position(board.getNumCols() - 1, 1)
         playerArea.addPosition(aboveHomePosition)
         playerArea.addPosition(rightOfHomePosition)
         assertFalse(playerArea.fringe.contains(p1HomePosition))
