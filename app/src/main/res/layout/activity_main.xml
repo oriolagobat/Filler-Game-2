@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="match_parent"
-        android:src="@drawable/possiblefons3"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/homepageBackgroundDesc"
         android:scaleType="centerCrop"
-        android:layout_height="match_parent" />
+        android:src="@drawable/homepage_background" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
@@ -24,8 +25,8 @@
             android:layout_marginTop="160dp"
             android:fontFamily="@font/title_font"
             android:gravity="center"
-            android:textColor="@color/white"
             android:text="@string/homepage_header"
+            android:textColor="@color/white"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +39,8 @@
             android:layout_marginBottom="160dp"
             android:fontFamily="@font/title_font"
             android:gravity="center"
-            android:textColor="@color/purple_500"
             android:text="@string/homepage_sub_header"
+            android:textColor="@color/purple_500"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

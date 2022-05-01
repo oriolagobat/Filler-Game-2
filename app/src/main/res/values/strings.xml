@@ -7,6 +7,7 @@
     <string name="homepageHelpButton">Help</string>
     <string name="homepageNewGameButton">New Game</string>
     <string name="homepageQuitButton">Quit</string>
+    <string name="homepageBackgroundDesc">Background image for the homepage screen</string>
 
     <!--    HELP-->
     <string name="help_header">Help</string>
