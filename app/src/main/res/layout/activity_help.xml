@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.9"
+        android:alpha="0.6"
         android:contentDescription="@string/help_background_desc"
         android:scaleType="center"
-        android:src="@drawable/help_background6" />
+        android:src="@drawable/help_background5" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".gui.Help">
+
+        <!--            No text, it must be set from code as it has html in it-->
 
         <TextView
             android:id="@+id/mainHelpHeader"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="48dp"
             android:fontFamily="@font/title_font"
             android:gravity="center"
             android:text="@string/help_header"
@@ -34,19 +37,16 @@
 
         <TextView
             android:id="@+id/mainHelpSubHeader"
-            android:layout_width="match_parent"
+            android:layout_width="355dp"
             android:layout_height="31dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="48dp"
             android:fontFamily="@font/title_font"
             android:gravity="center"
             android:text="@string/help_sub_header"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <!--            No text, it must be set from code as it has html in it-->
 
         <TextView
             android:id="@+id/rulesText"
