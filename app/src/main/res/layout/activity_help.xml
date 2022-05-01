@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.6"
+        android:alpha="0.4"
         android:contentDescription="@string/help_background_desc"
         android:scaleType="center"
         android:src="@drawable/background_help" />
@@ -24,8 +24,8 @@
         <TextView
             android:id="@+id/mainHelpHeader"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="48dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/title_font"
             android:gravity="center"
             android:text="@string/help_header"
@@ -39,7 +39,7 @@
             android:id="@+id/mainHelpSubHeader"
             android:layout_width="355dp"
             android:layout_height="31dp"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="40dp"
             android:fontFamily="@font/title_font"
             android:gravity="center"
             android:text="@string/help_sub_header"
@@ -51,8 +51,9 @@
         <TextView
             android:id="@+id/rulesText"
             android:layout_width="350dp"
-            android:layout_height="264dp"
+            android:layout_height="400dp"
             android:fontFamily="@font/main_font"
+            android:textSize="19sp"
             android:text="@null"
             app:layout_constraintBottom_toTopOf="@+id/helpSampleImage"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,8 +62,8 @@
 
         <ImageView
             android:id="@+id/helpSampleImage"
-            android:layout_width="126dp"
-            android:layout_height="114dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:contentDescription="@string/help_sample_image_desc"
             android:scaleType="fitCenter"
             android:src="@drawable/sample_game_image"
