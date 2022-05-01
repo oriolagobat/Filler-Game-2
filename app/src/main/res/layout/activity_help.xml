@@ -11,15 +11,15 @@
     <!--            No text, it must be set from code as it has html in it-->
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="350dp"
-        android:layout_height="250dp"
-        android:src="@drawable/gear_gif1"
+        android:layout_width="141dp"
+        android:layout_height="134dp"
+        android:src="@drawable/question_mark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.996"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858" />
+        app:layout_constraintVertical_bias="0.706" />
 
     <TextView
         android:id="@+id/mainHelpHeader"
@@ -88,11 +88,11 @@
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/gear_gif2"
+        android:src="@drawable/question_mark2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.077" />
 </androidx.constraintlayout.widget.ConstraintLayout>
