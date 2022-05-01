@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="homepage_header">Homepage</string>
+    <string name="homepage_sub_header">Welcome to Filler !</string>
+    <string name="homepage_help_button">Help</string>
+    <string name="homepage_new_game_button">New Game</string>
+    <string name="homepage_quit_button">Quit</string>
+    <string name="homepage_background_desc">Background image for the homepage screen</string>
+</resources>

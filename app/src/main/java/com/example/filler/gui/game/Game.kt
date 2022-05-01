@@ -34,6 +34,6 @@ class Game : AppCompatActivity() {
     }
 
     private fun setUpTimersAndUsernames(username: String) {
-        binding.playerName.text = username
+        binding.usernameText.text = username
     }
 }
