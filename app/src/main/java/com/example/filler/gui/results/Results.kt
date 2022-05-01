@@ -1,18 +1,15 @@
 package com.example.filler.gui.results
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
-import com.example.filler.gui.getText
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -20,7 +17,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityResultsBinding
 
     // Start necessary variables
-    private lateinit var email: String
+    private var email: String? = null
     private lateinit var date: String
     private lateinit var log: String
 
@@ -33,7 +30,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
         val resultType = intent.getStringExtra("resultType")
 
         // Start the media player with the sound corresponding to the outcome of the game
-        manageSongPlayer()
+        startSongPlayer(this, intent)
 
         // Set the corresponding layout image and text corresponding to the outcome of the game
         val (imageId, text) = when (resultType) {
@@ -50,21 +47,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
 
 
         // Set listeners
-        binding.emailInput.setOnClickListener(this)
-        binding.sendEmailButton.setOnClickListener(this)
-        binding.restartGameButton.setOnClickListener(this)
-        binding.closeButton.setOnClickListener(this)
-    }
-
-    private fun manageSongPlayer() {
-        val playerIntent = Intent(this, SongPlayer::class.java)
-        when (intent.getStringExtra("resultType")) {
-            "win" -> playerIntent.putExtra("song", R.raw.win)
-            "loose" -> playerIntent.putExtra("song", R.raw.lose)
-            "draw" -> playerIntent.putExtra("song", R.raw.draw)
-            else -> throw IllegalArgumentException("No more possible results")
-        }
-        startService(playerIntent)
+        setUpResultListeners(this, binding)
     }
 
     private fun updateOutcomeTextImage(imageId: Int, textId: Int) {
@@ -91,43 +74,20 @@ class Results : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.emailInput -> saveEmail()
+            R.id.emailInput -> getEmail()
             R.id.sendEmailButton -> sendEmail()
             R.id.restartGameButton -> restartGame()
             R.id.closeButton -> finish()
         }
     }
 
-    private fun saveEmail() {
-        email = getText(this, binding.emailInput)
+    private fun getEmail() {
+        email = saveEmail(this, binding.emailInput)
     }
 
     private fun sendEmail() {
-        saveEmail()
-        checkUnenteredEmail()
-        sendMailIntent()
-    }
-
-    private fun sendMailIntent() {
-        val uriMail = "mailto:$email"
-        val uriSubject = "?subject=${Uri.encode("Filler: $date")}"
-        val uriBody = "&body=${Uri.encode(log)}"
-
-        val uri: Uri = Uri.parse("$uriMail$uriSubject$uriBody")
-
-        val intent = Intent(Intent.ACTION_SENDTO, uri)
-        startActivity(intent)
-    }
-
-    private fun checkUnenteredEmail() {
-        if (!::email.isInitialized || email.isEmpty()) {
-            Toast.makeText(
-                this,
-                "No email introduced, default one will be used...",
-                Toast.LENGTH_SHORT
-            ).show()
-            email = getString(R.string.results_hint_email)
-        }
+        getEmail()
+        checkAndSendMail(this, email, date, log)
     }
 
     // TODO: Check stack

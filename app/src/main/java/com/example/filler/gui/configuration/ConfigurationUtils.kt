@@ -3,7 +3,7 @@ package com.example.filler.gui.configuration
 import android.widget.Toast
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
 
-fun setUpListeners(
+fun setUpConfigListeners(
     context: NewGameConfiguration,
     binding: ActivityNewGameConfigurationBinding
 ) {

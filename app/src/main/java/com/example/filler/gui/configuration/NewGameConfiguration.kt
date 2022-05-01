@@ -29,7 +29,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         setContentView(binding.root)
 
         // Set this class listeners
-        setUpListeners(this, binding)
+        setUpConfigListeners(this, binding)
 
         // FIXME: Remove this when releasing final version
         binding.usernameInput.setText("John Doe")
