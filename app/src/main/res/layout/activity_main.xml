@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/homepageBackgroundDesc"
+        android:contentDescription="@string/homepage_background_desc"
         android:scaleType="centerCrop"
         android:src="@drawable/background_homepage" />
 
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
-            android:text="@string/homepageHelpButton"
+            android:text="@string/homepage_help_button"
             android:textSize="20sp"
             app:icon="@drawable/icon_question"
             app:layout_constraintBottom_toTopOf="@+id/newGameButton"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
-            android:text="@string/homepageNewGameButton"
+            android:text="@string/homepage_new_game_button"
             android:textSize="20sp"
             app:icon="@drawable/icon_settings"
             app:layout_constraintBottom_toTopOf="@+id/quitButton"
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
-            android:text="@string/homepageQuitButton"
+            android:text="@string/homepage_quit_button"
             android:textSize="20sp"
             app:icon="@drawable/icon_close"
             app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"

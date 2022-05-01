@@ -4,10 +4,10 @@
     <!--    HOMEPAGE-->
     <string name="homepage_header">Homepage</string>
     <string name="homepage_sub_header">Welcome to Filler !</string>
-    <string name="homepageHelpButton">Help</string>
-    <string name="homepageNewGameButton">New Game</string>
-    <string name="homepageQuitButton">Quit</string>
-    <string name="homepageBackgroundDesc">Background image for the homepage screen</string>
+    <string name="homepage_help_button">Help</string>
+    <string name="homepage_new_game_button">New Game</string>
+    <string name="homepage_quit_button">Quit</string>
+    <string name="homepage_background_desc">Background image for the homepage screen</string>
 
     <!--    HELP-->
     <string name="help_header">Help</string>
