@@ -23,6 +23,7 @@
         android:id="@+id/dateTimeOutput"
         android:layout_width="300dp"
         android:layout_height="39dp"
+        android:fontFamily="@font/main_font"
         android:layout_marginTop="17dp"
         android:layout_marginBottom="17dp"
         android:gravity="center_vertical"
@@ -52,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/results_log"
+        android:fontFamily="@font/main_font"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/logImage"
@@ -67,6 +69,7 @@
         android:layout_marginTop="17dp"
         android:layout_marginBottom="17dp"
         android:scrollbars="vertical"
+        android:fontFamily="@font/main_font"
         android:text="@string/results_default_log"
         app:layout_constraintBottom_toTopOf="@+id/emailHeader"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,37 +101,47 @@
         android:text="@string/results_email"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/emailInput"
+        app:layout_constraintBottom_toTopOf="@+id/emailInputLayout"
+        android:fontFamily="@font/main_font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logImage" />
 
-    <EditText
-        android:id="@+id/emailInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints="Log e-mail"
-        android:ems="10"
-        android:hint="@string/results_hint_email"
-        android:inputType="textEmailAddress"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInputLayout"
+        android:layout_width="200dp"
         app:layout_constraintBottom_toTopOf="@+id/sendEmailButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/emailHeader"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/main_font"
+            android:autofillHints="Log e-mail"
+            android:ems="10"
+            android:hint="@string/results_hint_email"
+
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/sendEmailButton"
         style="@style/Widget.Material3.Button.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
         android:text="@string/results_button_send"
         app:icon="@drawable/email"
         app:layout_constraintBottom_toTopOf="@+id/restartGameButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInput" />
+        app:layout_constraintTop_toBottomOf="@+id/emailInputLayout" />
 
     <Button
         android:id="@+id/restartGameButton"
@@ -137,6 +150,7 @@
         android:layout_height="wrap_content"
         android:text="@string/results_button_new"
         app:icon="@drawable/back_button"
+        android:fontFamily="@font/main_font"
         app:layout_constraintBottom_toTopOf="@+id/closeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,6 +161,7 @@
         style="@style/Widget.Material3.Button.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
         android:text="@string/results_button_close"
         app:icon="@drawable/close"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,6 +173,7 @@
         android:id="@+id/dateTimeHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
         android:text="@string/results_time"
         android:textSize="17sp"
         android:textStyle="bold"
@@ -172,6 +188,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:fontFamily="@font/title_font"
         android:text="@string/results_draw_header"
         android:textSize="30sp"
         android:textStyle="bold"
