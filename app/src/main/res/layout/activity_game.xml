@@ -6,148 +6,114 @@
     android:layout_height="match_parent"
     tools:context=".gui.game.Game">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/gameHeaderConstraint"
-        android:layout_width="411dp"
-        android:layout_height="84dp"
-        android:background="@drawable/header_gradient"
+
+    <TextView
+        android:id="@+id/mainGameHeader"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:fontFamily="@font/title_font"
+        android:gravity="center"
+        android:text="@string/game_sub_header"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <GridView
+        android:id="@+id/boardGridView"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toTopOf="@+id/selectorGridView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
 
-        <TextView
-            android:id="@+id/mainGameHeader"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:gravity="center"
-            android:text="@string/game_header"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/mainGameSubHeader"
-            android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:gravity="center"
-            android:text="@string/game_sub_header"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainGameHeader"
-            app:layout_constraintVertical_bias="1.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/helpContentConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <GridView
+        android:id="@+id/selectorGridView"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameHeaderConstraint"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/boardGridView" />
 
+    <LinearLayout
+        android:id="@+id/playerLayout"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="17dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/boardGridView"
+        app:layout_constraintEnd_toStartOf="@+id/timer"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainGameHeader">
 
-        <GridView
-            android:id="@+id/boardGridView"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
-            app:layout_constraintBottom_toTopOf="@+id/selectorGridView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/timer" />
-
-        <GridView
-            android:id="@+id/selectorGridView"
-            android:layout_width="350dp"
-            android:layout_height="150dp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/boardGridView" />
-
-        <LinearLayout
-            android:id="@+id/playerLayout"
-            android:layout_width="110dp"
+        <ImageView
+            android:id="@+id/playerPFP"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="26dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/boardGridView"
-            app:layout_constraintEnd_toStartOf="@+id/timer"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
-
-            <ImageView
-                android:id="@+id/playerPFP"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:contentDescription="@string/game_user_profile_image_description"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/user_profile" />
-
-            <TextView
-                android:id="@+id/playerName"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/game_username_default" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/iaLayout"
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="26dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/boardGridView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/timer"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
-
-            <TextView
-                android:id="@+id/aiName"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/game_ia_default" />
-
-            <ImageView
-                android:id="@+id/aiPFP"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:contentDescription="@string/game_ia_profile_image_description"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/robot" />
-
-        </LinearLayout>
+            android:layout_weight="1"
+            android:contentDescription="@string/game_user_profile_image_description"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/user_profile" />
 
         <TextView
-            android:id="@+id/timer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/game_timer_default"
-            app:layout_constraintBottom_toTopOf="@+id/boardGridView"
-            app:layout_constraintEnd_toStartOf="@+id/iaLayout"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/playerLayout"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:id="@+id/playerName"
+            android:layout_width="60dp"
+            android:fontFamily="@font/main_font"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/game_username_default" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/iaLayout"
+        android:layout_width="111dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="17dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/boardGridView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/mainGameHeader">
+
+        <TextView
+            android:id="@+id/aiName"
+            android:layout_width="60dp"
+            android:fontFamily="@font/main_font"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/game_ia_default" />
+
+        <ImageView
+            android:id="@+id/aiPFP"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/game_ia_profile_image_description"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/robot" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_timer_default"
+        app:layout_constraintBottom_toTopOf="@+id/boardGridView"
+        app:layout_constraintEnd_toStartOf="@+id/iaLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playerLayout"
+        app:layout_constraintTop_toBottomOf="@+id/mainGameHeader" />
 </androidx.constraintlayout.widget.ConstraintLayout>
