@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    Default colors-->
-    <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey">#D5D5D5</color>
 
     <!--    Palette colors-->
     <color name="md_theme_light_primary">#005CBC</color>
@@ -36,8 +31,6 @@
     <color name="md_theme_light_outline">#79747E</color>
     <color name="md_theme_light_inverseOnSurface">#F0F1EC</color>
     <color name="md_theme_light_inverseSurface">#2E312E</color>
-    <color name="md_theme_light_inversePrimary">#A8C7FF</color>
-    <color name="md_theme_light_shadow">#000000</color>
     <color name="md_theme_light_primaryInverse">#A8C7FF</color>
     <color name="md_theme_dark_primary">#A8C7FF</color>
     <color name="md_theme_dark_onPrimary">#002F67</color>
@@ -64,8 +57,6 @@
     <color name="md_theme_dark_outline">#938F99</color>
     <color name="md_theme_dark_inverseOnSurface">#1A1C1A</color>
     <color name="md_theme_dark_inverseSurface">#E2E3DE</color>
-    <color name="md_theme_dark_inversePrimary">#005CBC</color>
-    <color name="md_theme_dark_shadow">#000000</color>
     <color name="md_theme_dark_primaryInverse">#005CBC</color>
 
     <!--    Add 8 different colors-->
@@ -76,6 +67,5 @@
     <color name="game_blue">#0D84FA</color>
     <color name="game_purple">#673AB7</color>
     <color name="game_cyan">#FF4DD0E1</color>
-    <color name="game_black">#FF212121</color>
 
 </resources>

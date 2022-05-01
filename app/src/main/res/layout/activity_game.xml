@@ -55,7 +55,6 @@
         app:layout_constraintTop_toBottomOf="@+id/mainGameHeader">
 
         <ImageView
-            android:id="@+id/playerPFP"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -64,7 +63,6 @@
             app:srcCompat="@drawable/user_profile" />
 
         <TextView
-            android:id="@+id/playerName"
             android:layout_width="60dp"
             android:fontFamily="@font/main_font"
             android:layout_height="match_parent"
@@ -87,7 +85,6 @@
         app:layout_constraintTop_toBottomOf="@+id/mainGameHeader">
 
         <TextView
-            android:id="@+id/aiName"
             android:layout_width="60dp"
             android:fontFamily="@font/main_font"
             android:layout_height="match_parent"
@@ -96,7 +93,6 @@
             android:text="@string/game_ia_default" />
 
         <ImageView
-            android:id="@+id/aiPFP"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
