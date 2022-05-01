@@ -40,6 +40,11 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         binding.difficultyRadioGroup.check(R.id.difficultyMedium)
     }
 
+    override fun onPause() {
+        super.onPause()
+        stopConfSong(this)
+    }
+
     //  Manages spinner selections
     override fun onItemSelected(spinner: AdapterView<*>?, view: View?, position: Int, id: Long) {
         // Don't ignore first call, it will serve as the default if user doesn't select anything
