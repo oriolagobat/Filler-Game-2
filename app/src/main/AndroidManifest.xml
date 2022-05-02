@@ -16,7 +16,7 @@
             android:name=".gui.results.Results"
             android:exported="false" />
         <activity
-            android:name=".gui.game.Game"
+            android:name=".gui.game.GUIGame"
             android:exported="false" />
         <activity
             android:name=".gui.configuration.NewGameConfiguration"

@@ -4,36 +4,31 @@ import android.content.Context
 import android.widget.Toast
 import com.example.filler.constants.GameColor
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.logic.game.Game
+import com.example.filler.logic.game.GameFactoryImpl
 import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
-import com.example.filler.logic.stub.GameStub3x3
 import com.example.filler.logic.stub.GameStub9x9
 
 class GameIteration(
     private val context: Context,
     private val binding: ActivityGameBinding,
-    private val gameSettings: GameSettings
+    private val gameSettings: GameSettings,
 ) {
+    private var game: Game = GameFactoryImpl(gameSettings).makeGame()
+    private var gameResponse: GameResponse = game.getGameResponse()
     fun start() {
         setUpGameBoard()
         setUpChooserBar()
     }
 
-    // FIXME: Remove stub functionality and replace with actual game logic
-
-    // Set's up the game board, with its adapter
     private fun setUpGameBoard() {
-        // This is how it will be
-//        binding.boardGridView.numColumns = settings.boardSize
-        // This is for now, in order to work  with the game stub
-//        binding.boardGridView.numColumns = 3
-        binding.boardGridView.numColumns = 9
-//        val gameStub = GameStub3x3(gameSettings)  //  Game initialization
-        val gameStub = GameStub9x9(gameSettings)  //  Game initialization
+        val columnNumber = gameResponse.board.getNumCols()
+        binding.boardGridView.numColumns = columnNumber
 
-        val stubBoard: GameResponse = gameStub.initGame()
+        val boardArray: Array<GameColor> = gameResponse.board.toArray()
         binding.boardGridView.adapter =
-            BoardAdapter(context, stubBoard.board.toArray(), binding.boardGridView)
+            BoardAdapter(context, boardArray, binding.boardGridView)
     }
 
     // Set's up the chooser bar, with its adapter

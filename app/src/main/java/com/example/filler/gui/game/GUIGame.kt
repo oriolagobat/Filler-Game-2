@@ -6,7 +6,7 @@ import com.example.filler.constants.Difficulty
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.game.GameSettings
 
-class Game : AppCompatActivity() {
+class GUIGame : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
