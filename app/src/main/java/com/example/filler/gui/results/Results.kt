@@ -101,7 +101,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
     }
 
-    // Finishes the app
+    // TODO: Finish the app
     private fun closeGame() {
         android.os.Process.killProcess(android.os.Process.myPid());
     }
