@@ -4,8 +4,10 @@ import com.example.filler.constants.GameColor
 import com.example.filler.logic.colors.Generator
 import com.example.filler.logic.colors.RandomColorGenerator
 
-class MediumModeColorGenerator(private val settings: AIGeneratorSettings): Generator {
+class MediumModeColorGenerator(private val settings: AIGeneratorSettings) :
+    ColorGenerator(settings), Generator
+{
     override fun generate(): GameColor {
-        return RandomColorGenerator(settings.colors).generate()
+        return super.getColorsByGoodness()[2]
     }
 }

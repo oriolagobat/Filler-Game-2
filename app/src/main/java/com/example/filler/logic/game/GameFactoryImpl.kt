@@ -62,7 +62,7 @@ class GameFactoryImpl(private val settings: GameSettings) : GameFactory {
     }
 
     private fun initP2AI() {
-        val settingsForAI = AIGeneratorSettings(board, p2.area, availableColors)
+        val settingsForAI = AIGeneratorSettings(board, p1.area, p2.area, selector)
         smartColorGenerator = AIColorGeneratorFactoryImpl()
             .makeGenerator(this.settings.difficulty, settingsForAI)
     }
