@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import com.example.filler.R
 import com.example.filler.databinding.ActivityHelpBinding
+import com.example.filler.gui.hideNavBar
 
 class Help : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Hide the navbar
+        hideNavBar(window)
 
         // Set this activity's binding
         val binding = ActivityHelpBinding.inflate(layoutInflater)

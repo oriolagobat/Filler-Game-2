@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
 import com.example.filler.gui.getValidUsernameOrError
+import com.example.filler.gui.hideNavBar
 
 class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     View.OnClickListener, RadioGroup.OnCheckedChangeListener {
@@ -23,6 +24,9 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Hide the navbar
+        hideNavBar(window)
 
         // Set this class binding
         binding = ActivityNewGameConfigurationBinding.inflate(layoutInflater)

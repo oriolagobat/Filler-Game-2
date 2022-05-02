@@ -7,6 +7,7 @@ import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameState
 import com.example.filler.constants.PlayerType
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.gui.hideNavBar
 import com.example.filler.gui.results.Results
 import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameFactoryImpl
@@ -20,6 +21,9 @@ class GUIGame : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Hide the navbar
+        hideNavBar(window)
 
         // Set this activity binding
         binding = ActivityGameBinding.inflate(layoutInflater)

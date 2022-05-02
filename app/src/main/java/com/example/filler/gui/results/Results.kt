@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
+import com.example.filler.gui.hideNavBar
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -24,8 +25,13 @@ class Results : AppCompatActivity(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Hide the navbar
+        hideNavBar(window)
+
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.logOutput.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
         val resultType = intent.getStringExtra("resultType")
 

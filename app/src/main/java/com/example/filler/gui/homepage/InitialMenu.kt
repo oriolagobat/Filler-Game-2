@@ -8,6 +8,7 @@ import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
 import com.example.filler.gui.help.Help
+import com.example.filler.gui.hideNavBar
 import com.google.android.material.color.DynamicColors
 
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
@@ -16,6 +17,9 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
 
         // Set the dynamic colors
         DynamicColors.applyToActivitiesIfAvailable(application)
+
+        // Hide the navbar
+        hideNavBar(window)
 
         // Prepare the binding of the view
         val binding = ActivityMainBinding.inflate(layoutInflater)
