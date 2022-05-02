@@ -25,7 +25,7 @@ class GameFactoryImpl(private val settings: GameSettings) : GameFactory {
     private lateinit var p2: Player
     private lateinit var board: Board
 
-    override fun makeGame(settings: GameSettings): Game {
+    override fun makeGame(): Game {
         val data = generateInitialGameData()
         return GameImpl(scoreCalculator, smartColorGenerator, selector, board, data, p1, p2)
     }
