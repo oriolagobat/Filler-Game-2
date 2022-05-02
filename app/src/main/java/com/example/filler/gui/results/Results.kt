@@ -16,8 +16,6 @@ import java.time.format.DateTimeFormatter
 
 class Results : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityResultsBinding
-
-    // Start necessary variables
     private var email: String? = null
     private lateinit var date: String
     private lateinit var log: String
@@ -27,7 +25,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         // Hide the navbar
-        hideNavBar(window)
+        hideNavBar(this)
 
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -84,7 +82,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
             R.id.emailInput -> getEmail()
             R.id.sendEmailButton -> sendEmail()
             R.id.restartGameButton -> restartGame()
-            R.id.closeButton -> finish()
+            R.id.closeButton -> closeGame()
         }
     }
 
@@ -97,10 +95,14 @@ class Results : AppCompatActivity(), View.OnClickListener {
         checkAndSendMail(this, email, date, log)
     }
 
-    // TODO: Check stack
     private fun restartGame() {
         val intent = Intent(this, NewGameConfiguration::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
+    }
+
+    // Finishes the app
+    private fun closeGame() {
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 }

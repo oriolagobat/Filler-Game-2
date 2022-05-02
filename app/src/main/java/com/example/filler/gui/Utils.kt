@@ -1,19 +1,19 @@
 package com.example.filler.gui
 
+import android.app.Activity
+import android.view.View
 import android.view.Window
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 
-fun hideNavBar(window: Window) {
-    WindowCompat.setDecorFitsSystemWindows(window, false)
-    WindowInsetsControllerCompat(
-        window,
-        window.decorView.findViewById(android.R.id.content)
-    ).let { controller ->
-        controller.hide(WindowInsetsCompat.Type.systemBars())
+fun hideNavBar(activity: Activity) {
+    val window: Window = activity.window
+    val decorView: View = activity.window.decorView
 
-        controller.systemBarsBehavior =
-            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-    }
+    WindowCompat.setDecorFitsSystemWindows(window, false)
+    val controllerCompat = WindowInsetsControllerCompat(window, decorView)
+    controllerCompat.hide(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.navigationBars())
+    controllerCompat.systemBarsBehavior =
+        WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 }

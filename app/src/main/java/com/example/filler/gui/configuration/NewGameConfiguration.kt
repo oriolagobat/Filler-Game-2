@@ -26,7 +26,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         super.onCreate(savedInstanceState)
 
         // Hide the navbar
-        hideNavBar(window)
+        hideNavBar(this)
 
         // Set this class binding
         binding = ActivityNewGameConfigurationBinding.inflate(layoutInflater)

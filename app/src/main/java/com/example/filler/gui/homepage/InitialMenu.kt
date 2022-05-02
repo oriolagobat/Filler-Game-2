@@ -19,7 +19,7 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         DynamicColors.applyToActivitiesIfAvailable(application)
 
         // Hide the navbar
-        hideNavBar(window)
+        hideNavBar(this)
 
         // Prepare the binding of the view
         val binding = ActivityMainBinding.inflate(layoutInflater)

@@ -23,7 +23,7 @@ class GUIGame : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Hide the navbar
-        hideNavBar(window)
+        hideNavBar(this)
 
         // Set this activity binding
         binding = ActivityGameBinding.inflate(layoutInflater)

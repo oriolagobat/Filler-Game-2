@@ -12,7 +12,7 @@ class Help : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Hide the navbar
-        hideNavBar(window)
+        hideNavBar(this)
 
         // Set this activity's binding
         val binding = ActivityHelpBinding.inflate(layoutInflater)
