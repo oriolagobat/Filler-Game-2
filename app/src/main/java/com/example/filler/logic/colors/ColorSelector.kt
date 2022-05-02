@@ -7,4 +7,5 @@ interface ColorSelector {
     fun getAvailableColors(): List<GameColor>
     fun getSelectedColors(): List<GameColor>
     fun toArray(): Array<Pair<GameColor, Boolean>>
+    fun getTotalAmountOfColors(): Int
 }

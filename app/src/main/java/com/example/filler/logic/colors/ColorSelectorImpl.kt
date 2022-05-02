@@ -57,4 +57,8 @@ class ColorSelectorImpl(
     override fun toArray(): Array<Pair<GameColor, Boolean>> {
         return colors.toList().toTypedArray()
     }
+
+    override fun getTotalAmountOfColors(): Int {
+        return getAvailableColors().count() + getSelectedColors().count()
+    }
 }

@@ -37,4 +37,11 @@ class ColorSelectorImplTest {
         selector.select(GameColor.YELLOW)
         assertFalse(selector.getSelectedColors().contains(firstSelectedColor))
     }
+
+    @Test
+    fun `Total amount of colors should be the sum of available of selected colors`(){
+        selector.select(GameColor.GREEN)
+        val total = selector.getAvailableColors().count() + selector.getSelectedColors().count()
+        assertEquals(total, selector.getTotalAmountOfColors())
+    }
 }
