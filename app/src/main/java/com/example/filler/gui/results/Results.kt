@@ -94,6 +94,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     // TODO: Check stack
     private fun restartGame() {
         val intent = Intent(this, NewGameConfiguration::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
 }
