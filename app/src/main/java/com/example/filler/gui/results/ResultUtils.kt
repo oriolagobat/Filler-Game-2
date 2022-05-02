@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.filler.R
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.SongPlayer
@@ -32,6 +33,37 @@ fun startSongPlayer(
         else -> throw IllegalArgumentException("No more possible results")
     }
     context.startService(playerIntent)
+}
+
+fun updateScoreText(
+    context: Results,
+    intent: Intent,
+    binding: ActivityResultsBinding
+) {
+    val player1Score = intent.getIntExtra("player1Score", 0)
+    val player1Text = "Your score: $player1Score"
+    binding.p1Score.text = player1Text
+
+    val player2Score = intent.getIntExtra("player2Score", 0)
+    val player2Text = "AI score: $player2Score"
+    binding.aiScore.text = player2Text
+
+    setCorrectTextColor(context, intent, binding)
+}
+
+private fun setCorrectTextColor(
+    context: Results,
+    intent: Intent,
+    binding: ActivityResultsBinding
+) {
+    val (p1Color, p2Color) = when (intent.getStringExtra("resultType")) {
+        "win" -> Pair(R.color.green, R.color.red)
+        "lose" -> Pair(R.color.yellow, R.color.yellow)
+        "draw" -> Pair(R.color.red, R.color.green)
+        else -> throw IllegalArgumentException("No more possible results")
+    }
+    binding.p1Score.setTextColor(ContextCompat.getColor(context, p1Color))
+    binding.aiScore.setTextColor(ContextCompat.getColor(context, p2Color))
 }
 
 fun saveEmail(

@@ -72,6 +72,12 @@ class GUIGame : AppCompatActivity() {
 
     private fun startResultsActivity(finalResponse: GameResponse) {
         val intent = Intent(this, Results::class.java)
+        putOutComeData(intent, finalResponse)
+        putPlayerScoreData(intent, finalResponse)
+        startActivity(intent)
+    }
+
+    private fun putOutComeData(intent: Intent, finalResponse: GameResponse) {
         val stringId = "resultType"
         when (finalResponse.state) {
             GameState.P1_WON -> intent.putExtra(stringId, "win")
@@ -79,6 +85,10 @@ class GUIGame : AppCompatActivity() {
             GameState.DRAW -> intent.putExtra(stringId, "draw")
             else -> throw IllegalArgumentException("Invalid finish state")
         }
-        startActivity(intent)
+    }
+
+    private fun putPlayerScoreData(intent: Intent, finalResponse: GameResponse) {
+        intent.putExtra("player1Score", finalResponse.p1Score)
+        intent.putExtra("player2Score", finalResponse.p2Score)
     }
 }

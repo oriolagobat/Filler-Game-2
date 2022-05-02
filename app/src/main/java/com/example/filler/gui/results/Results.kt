@@ -41,6 +41,8 @@ class Results : AppCompatActivity(), View.OnClickListener {
         }
         updateOutcomeTextImage(imageId, text)
 
+        updateScoreText(this, intent, binding)
+
         // Set the date and log of the game
         setCurrentDate()
         setLog()
@@ -56,7 +58,6 @@ class Results : AppCompatActivity(), View.OnClickListener {
         binding.outcomeHeader.text = text
     }
 
-    // TODO: Should this be my job or the logic one?
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setCurrentDate() {
         val current = LocalDateTime.now()

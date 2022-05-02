@@ -16,4 +16,8 @@
     <string name="results_button_new">New game</string>
     <string name="results_button_close">Close</string>
     <string name="results_outcome_draw">Two swords icon, indicating the user has drawn</string>
+
+
+    <string name="score_p1_sample">Your score: XX</string>
+    <string name="score_ai_sample">AI score: XX</string>
 </resources>
