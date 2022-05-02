@@ -8,6 +8,7 @@ class HardModeColorGenerator(private val settings: AIGeneratorSettings) :
     ColorGenerator(settings), Generator
 {
     override fun generate(): GameColor {
-        return super.getColorsByGoodness()[1]
+        val colors = getColorsByGoodness()
+        return colors[colors.size - 1]
     }
 }
