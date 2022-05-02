@@ -9,6 +9,6 @@ class EasyModeColorGenerator(private val settings: AIGeneratorSettings) :
 {
 
     override fun generate(): GameColor {
-        return super.getColorsByGoodness()[3]
+        return super.getColorsByGoodness()[0]
     }
 }

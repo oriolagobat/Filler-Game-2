@@ -8,6 +8,6 @@ class MediumModeColorGenerator(private val settings: AIGeneratorSettings) :
     ColorGenerator(settings), Generator
 {
     override fun generate(): GameColor {
-        return super.getColorsByGoodness()[2]
+        return super.getColorsByGoodness()[0]
     }
 }
