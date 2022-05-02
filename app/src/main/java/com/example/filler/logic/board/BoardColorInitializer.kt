@@ -18,10 +18,23 @@ class BoardColorInitializer(
 
     private fun fillWithRandomColors() {
         for (i in 0 until board.getNumCells())
-            board.setColor(
-                board.indexToPosition(i),
-                randGenerator.generate()
-            )
+            addColor(board.indexToPosition(i))
+    }
+
+    private fun addColor(position: Position) {
+        val color = getValidColor(position)
+        board.setColor(position, color)
+    }
+
+    private fun getValidColor(position: Position): GameColor {
+        var color = randGenerator.generate()
+        while (isNotValid(color, position)) color = randGenerator.generate()
+        return color
+    }
+
+    private fun isNotValid(color: GameColor, position: Position): Boolean {
+        return position.getSurroundingPositions().filter { board.hasPosition(it) }
+            .any { board.getColor(it) == color }
     }
 
     private fun playersShareStartingColor() =
