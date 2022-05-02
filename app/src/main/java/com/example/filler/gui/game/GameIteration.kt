@@ -22,6 +22,7 @@ class GameIteration(
         setUpChooserBar()
     }
 
+    // Sets up the game board, with its adapter
     private fun setUpGameBoard() {
         val columnNumber = gameResponse.board.getNumCols()
         binding.boardGridView.numColumns = columnNumber
@@ -31,7 +32,7 @@ class GameIteration(
             BoardAdapter(context, boardArray, binding.boardGridView)
     }
 
-    // Set's up the chooser bar, with its adapter
+    // Sets up the chooser bar, with its adapter
     private fun setUpChooserBar() {
         // This is how it will be
 //        binding.boardGridView.numColumns = settings.nColors
