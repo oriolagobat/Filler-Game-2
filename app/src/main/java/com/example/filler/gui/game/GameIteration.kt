@@ -37,10 +37,10 @@ class GameIteration(
         binding.selectorGridView.adapter =
             SelectorAdapter(context, selectorArray, binding.selectorGridView)
 
-        manageInteraction()
+        manageInteractionType()
     }
 
-    private fun manageInteraction() {
+    private fun manageInteractionType() {
         when (playerType) {
             PlayerType.HUMAN -> humanInteraction()
             PlayerType.AI -> aiInteraction()
@@ -65,13 +65,15 @@ class GameIteration(
                 return@setOnItemClickListener
             } else {
                 val nextIterationGameResponse = game.pickColorManually(color)
-                context.nextIteration(nextIterationGameResponse, PlayerType.AI)
+                val nextPlayer = PlayerType.AI
+                context.nextIteration(nextIterationGameResponse, nextPlayer)
             }
         }
     }
 
     private fun aiInteraction() {
         val nextIterationGameResponse = game.pickColorThroughAI()
-        context.nextIteration(nextIterationGameResponse,PlayerType.HUMAN)
+        val nextPlayer = PlayerType.HUMAN
+        context.nextIteration(nextIterationGameResponse, nextPlayer)
     }
 }

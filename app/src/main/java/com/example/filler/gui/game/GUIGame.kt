@@ -1,10 +1,13 @@
 package com.example.filler.gui.game
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
+import com.example.filler.constants.GameState
 import com.example.filler.constants.PlayerType
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.gui.results.Results
 import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameFactoryImpl
 import com.example.filler.logic.game.GameResponse
@@ -54,6 +57,28 @@ class GUIGame : AppCompatActivity() {
     }
 
     fun nextIteration(gameResponse: GameResponse, nextPlayer: PlayerType) {
-        GameIteration(this, binding, game, gameResponse, nextPlayer).start()
+        if (!gameFinished(gameResponse)) {
+            GameIteration(this, binding, game, gameResponse, nextPlayer).start()
+        } else {
+            startResultsActivity(gameResponse)
+        }
+    }
+
+    private fun gameFinished(gameResponse: GameResponse): Boolean {
+        return gameResponse.state == GameState.P1_WON ||
+                gameResponse.state == GameState.P2_WON ||
+                gameResponse.state == GameState.DRAW
+    }
+
+    private fun startResultsActivity(finalResponse: GameResponse) {
+        val intent = Intent(this, Results::class.java)
+        val stringId = "resultType"
+        when (finalResponse.state) {
+            GameState.P1_WON -> intent.putExtra(stringId, "win")
+            GameState.P2_WON -> intent.putExtra(stringId, "lose")
+            GameState.DRAW -> intent.putExtra(stringId, "draw")
+            else -> throw IllegalArgumentException("Invalid finish state")
+        }
+        startActivity(intent)
     }
 }
