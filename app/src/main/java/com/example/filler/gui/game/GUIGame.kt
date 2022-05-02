@@ -3,11 +3,17 @@ package com.example.filler.gui.game
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
+import com.example.filler.constants.PlayerType
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.logic.game.Game
+import com.example.filler.logic.game.GameFactoryImpl
+import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
 
 class GUIGame : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
+
+    private lateinit var game: Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,16 +30,30 @@ class GUIGame : AppCompatActivity() {
         // Parse difficulty to constant value
         val difficulty = Difficulty.valueOf(difficultyString!!.uppercase())
 
-        // This is how it will be
         val settings = GameSettings(gridNum, colorNum, difficulty)
 
         // Initialize usernames and timer
         setUpTimersAndUsernames(username!!)
 
-        GameIteration(this, binding, settings).start()
+        // Initialize game
+        game = GameFactoryImpl(settings).makeGame()
+
+        // First Iteration
+        firstGameIteration()
     }
 
     private fun setUpTimersAndUsernames(username: String) {
         binding.usernameText.text = username
+    }
+
+    // Starts the game, making a first iteration to initialize everything
+    private fun firstGameIteration() {
+        val firstGameResponse = game.getGameResponse()
+        val firstPlayer = PlayerType.HUMAN
+        GameIteration(this, binding, game, firstGameResponse, firstPlayer).start()
+    }
+
+    fun nextIteration(gameResponse: GameResponse, nextPlayer: PlayerType) {
+        GameIteration(this, binding, game, gameResponse, nextPlayer).start()
     }
 }

@@ -48,7 +48,7 @@ class SelectorAdapter(
 
     private fun applyAlphaIfUnClickable(position: Int, textView: TextView) {
         if (getItem(position).second) {
-            textView.alpha = 0.1f
+            textView.alpha = 0.05f
         }
     }
 

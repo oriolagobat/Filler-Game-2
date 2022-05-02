@@ -1,21 +1,18 @@
 package com.example.filler.gui.game
 
-import android.content.Context
-import android.widget.Toast
 import com.example.filler.constants.GameColor
+import com.example.filler.constants.PlayerType
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.game.Game
-import com.example.filler.logic.game.GameFactoryImpl
 import com.example.filler.logic.game.GameResponse
-import com.example.filler.logic.game.GameSettings
 
 class GameIteration(
-    private val context: Context,
+    private val context: GUIGame,
     private val binding: ActivityGameBinding,
-    gameSettings: GameSettings,
+    private val game: Game,
+    private val gameResponse: GameResponse,
+    private val playerType: PlayerType
 ) {
-    private var game: Game = GameFactoryImpl(gameSettings).makeGame()
-    private var gameResponse: GameResponse = game.getGameResponse()
     fun start() {
         setUpGameBoard()
         setUpChooserBar()
@@ -40,6 +37,18 @@ class GameIteration(
         binding.selectorGridView.adapter =
             SelectorAdapter(context, selectorArray, binding.selectorGridView)
 
+        manageInteraction()
+    }
+
+    private fun manageInteraction() {
+        when (playerType) {
+            PlayerType.HUMAN -> humanInteraction()
+            PlayerType.AI -> aiInteraction()
+        }
+    }
+
+    private fun humanInteraction() {
+        val selectorArray: Array<Pair<GameColor, Boolean>> = gameResponse.selector.toArray()
 
         val colorsSelectorArray: Array<GameColor> = selectorArray.map { it.first }.toTypedArray()
         manageSelectorListeners(colorsSelectorArray)
@@ -55,9 +64,14 @@ class GameIteration(
                 // If the color is un clickable, do nothing
                 return@setOnItemClickListener
             } else {
-                // TODO: Pick game color
-                Toast.makeText(context, "You selected color $color", Toast.LENGTH_SHORT).show()
+                val nextIterationGameResponse = game.pickColorManually(color)
+                context.nextIteration(nextIterationGameResponse, PlayerType.AI)
             }
         }
+    }
+
+    private fun aiInteraction() {
+        val nextIterationGameResponse = game.pickColorThroughAI()
+        context.nextIteration(nextIterationGameResponse,PlayerType.HUMAN)
     }
 }
