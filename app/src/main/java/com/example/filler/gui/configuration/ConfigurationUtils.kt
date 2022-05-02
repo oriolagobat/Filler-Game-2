@@ -2,7 +2,9 @@ package com.example.filler.gui.configuration
 
 import android.content.Intent
 import android.widget.Toast
+import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
+import com.example.filler.gui.SongPlayer
 
 fun setUpConfigListeners(
     context: NewGameConfiguration,
@@ -41,11 +43,13 @@ fun correctGameSettings(
 }
 
 fun startConfSong(context: NewGameConfiguration) {
-    val intent = Intent(context, ConfigurationSongPlayer::class.java)
+    val intent = Intent(context, SongPlayer::class.java)
+    intent.putExtra("song", R.raw.configuration)
+    intent.putExtra("loop", true)  // Makes it loop while the user hasn't finished choosing
     context.startService(intent)
 }
 
 fun stopConfSong(context: NewGameConfiguration) {
-    val intent = Intent(context, ConfigurationSongPlayer::class.java)
+    val intent = Intent(context, SongPlayer::class.java)
     context.stopService(intent)
 }

@@ -1,17 +1,19 @@
-package com.example.filler.gui.results
+package com.example.filler.gui
 
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
 
-class ResultsSongPlayer : Service() {
+class SongPlayer : Service() {
     private lateinit var player: MediaPlayer
+    private var callIntent: Intent? = null
 
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
+        callIntent = intent
 
         val song = intent?.getIntExtra("song", -1)
 
@@ -28,15 +30,20 @@ class ResultsSongPlayer : Service() {
     }
 
     private fun manageSoundPlayer(song: Int) {
-        if (!::player.isInitialized || player.isPlaying) {  // First execution
-            player = MediaPlayer.create(applicationContext, song)
-            player.start()
-        } else {  // Other executions, stop and re-set taskGPlayer
+        if (::player.isInitialized && !player.isPlaying) {  // Not first execution
             player.stop()
             player.reset()
             player.release()
-            player = MediaPlayer.create(applicationContext, song)
-            player.start()
+        }
+        player = MediaPlayer.create(applicationContext, song)
+        player.start()
+        loopIfWanted()
+    }
+
+    private fun loopIfWanted() {
+        val loop = callIntent?.getBooleanExtra("loop", false)
+        if (loop!!) {
+            player.isLooping = true
         }
     }
 }

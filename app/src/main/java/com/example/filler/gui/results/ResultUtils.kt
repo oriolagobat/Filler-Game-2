@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.filler.R
 import com.example.filler.databinding.ActivityResultsBinding
+import com.example.filler.gui.SongPlayer
 import com.example.filler.gui.getText
 
 fun setUpResultListeners(
@@ -22,7 +23,8 @@ fun startSongPlayer(
     context: Results,
     startIntent: Intent
 ) {
-    val playerIntent = Intent(context, ResultsSongPlayer::class.java)
+    val playerIntent = Intent(context, SongPlayer::class.java)
+    playerIntent.putExtra("loop", false)  // Makes it not loop
     when (startIntent.getStringExtra("resultType")) {
         "win" -> playerIntent.putExtra("song", R.raw.win)
         "loose" -> playerIntent.putExtra("song", R.raw.lose)
