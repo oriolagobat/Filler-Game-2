@@ -5,6 +5,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.filler.R
 
 fun closeKeyboardClearFocus(
     context: AppCompatActivity,
@@ -20,7 +21,7 @@ fun closeKeyboardClearFocus(
     editText.clearFocus()
 }
 
-fun getValidTextOrError(
+fun getValidUsernameOrError(
     context: AppCompatActivity,
     editText: EditText,
 ): String {
@@ -37,11 +38,21 @@ fun getValidTextOrError(
     return input ?: ""
 }
 
-fun getText(
+fun getValidMailOrError(
     context: AppCompatActivity,
     editText: EditText,
 ): String {
     closeKeyboardClearFocus(context, editText)
-    return editText.text.toString()
 
+    val mail = editText.text.toString()
+    val defaultMail = context.getString(R.string.results_default_mail)
+    // Not the default mail, must check
+    if (mail != defaultMail && !validMail(mail)) {
+        editText.error = "Please enter a valid email"
+    }
+
+    return editText.text.toString()
 }
+
+// Checks if a mail is valid
+fun validMail(mail: String): Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()

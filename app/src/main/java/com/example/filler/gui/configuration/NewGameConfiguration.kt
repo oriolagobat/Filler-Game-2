@@ -8,7 +8,7 @@ import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
-import com.example.filler.gui.getValidTextOrError
+import com.example.filler.gui.getValidUsernameOrError
 
 class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     View.OnClickListener, RadioGroup.OnCheckedChangeListener {
@@ -74,7 +74,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     // Manages the username input EditText
     private fun manageUsernameInput() {
-        username = getValidTextOrError(this, binding.usernameInput)
+        username = getValidUsernameOrError(this, binding.usernameInput)
     }
 
     // Manages time checkBox

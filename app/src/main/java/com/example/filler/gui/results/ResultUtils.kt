@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.example.filler.R
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.SongPlayer
-import com.example.filler.gui.getText
+import com.example.filler.gui.getValidMailOrError
 
 fun setUpResultListeners(
     context: Results,
@@ -70,7 +70,7 @@ fun saveEmail(
     context: Results,
     emailInput: EditText
 ): String {
-    return getText(context, emailInput)
+    return getValidMailOrError(context, emailInput)
 }
 
 fun checkAndSendMail(
