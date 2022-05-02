@@ -34,7 +34,7 @@
     <GridView
         android:id="@+id/selectorGridView"
         android:layout_width="350dp"
-        android:layout_height="70dp"
+        android:layout_height="120dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

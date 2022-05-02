@@ -59,6 +59,5 @@ class SelectorAdapter(
 
 
     // We'll have as many squares in a row as the total number of squares.
-    private fun getSquarePerRow(): Int =
-        content.size
+    private fun getSquarePerRow(): Int = content.size
 }

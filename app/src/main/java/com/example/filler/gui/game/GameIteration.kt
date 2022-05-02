@@ -8,12 +8,11 @@ import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameFactoryImpl
 import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
-import com.example.filler.logic.stub.GameStub9x9
 
 class GameIteration(
     private val context: Context,
     private val binding: ActivityGameBinding,
-    private val gameSettings: GameSettings,
+    gameSettings: GameSettings,
 ) {
     private var game: Game = GameFactoryImpl(gameSettings).makeGame()
     private var gameResponse: GameResponse = game.getGameResponse()
@@ -34,28 +33,25 @@ class GameIteration(
 
     // Sets up the chooser bar, with its adapter
     private fun setUpChooserBar() {
-        // This is how it will be
-//        binding.boardGridView.numColumns = settings.nColors
-        // This is for now, in order to work  with the game stub
-//        binding.selectorGridView.numColumns = 3
-        binding.selectorGridView.numColumns = 8
-//        val gameStub = GameStub3x3(gameSettings)  //  Game initialization
-        val gameStub = GameStub9x9(gameSettings)  //  Game initialization
+        val columnNumber = gameResponse.selector.getTotalAmountOfColors()
+        binding.selectorGridView.numColumns = columnNumber
 
-        val stubSelector: GameResponse = gameStub.initGame()
-        val colors = getArrayColors(stubSelector.selector.toArray())
+        val selectorArray: Array<Pair<GameColor, Boolean>> = gameResponse.selector.toArray()
         binding.selectorGridView.adapter =
-            SelectorAdapter(context, stubSelector.selector.toArray(), binding.selectorGridView)
-        manageSelectorListeners(stubSelector, colors)
+            SelectorAdapter(context, selectorArray, binding.selectorGridView)
+
+
+        val colorsSelectorArray: Array<GameColor> = selectorArray.map { it.first }.toTypedArray()
+        manageSelectorListeners(colorsSelectorArray)
     }
 
     // Manages the listeners of the chooser bar
-    private fun manageSelectorListeners(response: GameResponse, colors: Array<GameColor>) {
+    private fun manageSelectorListeners(colors: Array<GameColor>) {
         // Set on click listener for the selector grid
         binding.selectorGridView.setOnItemClickListener { _, _, position, _ ->
             // Get the color that was clicked
             val color = colors[position]
-            if (colorUnClickable(response.selector.toArray(), color)) {
+            if (colorUnClickable(gameResponse.selector.toArray(), color)) {
                 // If the color is un clickable, do nothing
                 return@setOnItemClickListener
             } else {
