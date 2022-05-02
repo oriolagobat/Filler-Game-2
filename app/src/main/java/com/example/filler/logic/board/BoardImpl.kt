@@ -27,8 +27,8 @@ class BoardImpl(private val width: Int) : Board {
 
     override fun toArray(): Array<GameColor> = colors.toTypedArray()
 
-    override fun hasPosition(position: Position): Boolean {
-        val index = positionToIndex(position)
-        return position.row > 0 && position.col > 0 && index < colors.size
-    }
+    override fun hasPosition(position: Position): Boolean =
+        isValidCoordinate(position.col) && isValidCoordinate(position.row)
+
+    private fun isValidCoordinate(coord: Int): Boolean =  coord > 0 && coord < this.getNumCols()
 }

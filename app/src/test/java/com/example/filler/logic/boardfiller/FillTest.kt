@@ -11,7 +11,7 @@ import org.junit.Test
 
 class FillTest {
     private val colors = listOf(GameColor.GREEN, GameColor.PURPLE, GameColor.YELLOW)
-    private val board = BoardImpl(4)
+    private val board = BoardImpl(3)
     private val generator = RandomColorGenerator(colors)
     private val boardColorFiller = BoardColorInitializer(colors, board, generator)
 
