@@ -35,7 +35,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
         // Set the corresponding layout image and text corresponding to the outcome of the game
         val (imageId, text) = when (resultType) {
             "win" -> Pair(R.drawable.result_win, R.string.results_win_header)
-            "loose" -> Pair(R.drawable.result_lose, R.string.results_lose_header)
+            "lose" -> Pair(R.drawable.result_lose, R.string.results_lose_header)
             "draw" -> Pair(R.drawable.result_draw, R.string.results_draw_header)
             else -> throw IllegalArgumentException("No more possible results")  // Will never be thrown
         }

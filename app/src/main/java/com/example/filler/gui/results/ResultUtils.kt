@@ -27,7 +27,7 @@ fun startSongPlayer(
     playerIntent.putExtra("loop", false)  // Makes it not loop
     when (startIntent.getStringExtra("resultType")) {
         "win" -> playerIntent.putExtra("song", R.raw.win)
-        "loose" -> playerIntent.putExtra("song", R.raw.lose)
+        "lose" -> playerIntent.putExtra("song", R.raw.lose)
         "draw" -> playerIntent.putExtra("song", R.raw.draw)
         else -> throw IllegalArgumentException("No more possible results")
     }
