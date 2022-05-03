@@ -21,7 +21,7 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         // Hide the navbar
         hideNavBar(this)
 
-        // Prepare the binding of the view
+        // Get the binding and set the view
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -32,14 +32,14 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        lateinit var intent: Intent
 
-        when (v?.id) {
-            R.id.helpButton -> intent = Intent(this, Help::class.java)
-            R.id.newGameButton -> intent = Intent(this, NewGameConfiguration::class.java)
-            R.id.quitButton -> finish()
+        val intent = when (v?.id) {
+            R.id.helpButton -> Intent(this, Help::class.java)
+            R.id.newGameButton -> Intent(this, NewGameConfiguration::class.java)
+            R.id.quitButton -> null
+            else -> throw IllegalArgumentException("No more buttons")
         }
 
-        startActivity(intent)
+        if (intent != null) startActivity(intent) else finish()
     }
 }
