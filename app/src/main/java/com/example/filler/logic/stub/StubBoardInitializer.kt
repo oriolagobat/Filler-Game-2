@@ -5,8 +5,8 @@ import com.example.filler.logic.board.BoardImpl
 import java.util.*
 
 class StubBoardInitializer(private val board: BoardImpl) {
-    private val boardColors = listOf(
-        GameColor.ORANGE, GameColor.PURPLE, GameColor.GREEN,
+    val boardColors = listOf(
+        GameColor.ORANGE, GameColor.YELLOW, GameColor.GREEN,
         GameColor.PURPLE, GameColor.ORANGE, GameColor.YELLOW,
         GameColor.YELLOW, GameColor.GREEN, GameColor.PURPLE)
 

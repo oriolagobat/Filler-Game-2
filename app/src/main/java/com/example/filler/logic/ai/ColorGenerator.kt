@@ -22,7 +22,7 @@ open class ColorGenerator(private val settings: AIGeneratorSettings) {
 
     private fun orderByGoodness(colors: List<GameColor>): List<GameColor> {
         return colors.map { color -> color to getScoreIncrement(color) }
-            .sortedBy { pair -> pair.second }
+            .sortedByDescending { pair -> pair.second }
             .map { pair -> pair.first }
     }
 
