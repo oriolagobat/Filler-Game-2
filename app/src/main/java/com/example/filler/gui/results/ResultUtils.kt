@@ -10,8 +10,8 @@ import com.example.filler.constants.gui.Music
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.constants.gui.Scores
 import com.example.filler.databinding.ActivityResultsBinding
-import com.example.filler.gui.SongPlayer
-import com.example.filler.gui.getValidMailOrError
+import com.example.filler.gui.shared.SongPlayer
+import com.example.filler.gui.shared.getValidMailOrError
 
 fun setUpResultListeners(
     context: Results,

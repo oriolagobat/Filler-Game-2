@@ -11,7 +11,7 @@ import com.example.filler.R
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
-import com.example.filler.gui.hideNavBar
+import com.example.filler.gui.shared.hideNavBar
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 

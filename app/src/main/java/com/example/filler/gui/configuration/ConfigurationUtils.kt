@@ -5,7 +5,7 @@ import android.widget.Toast
 import com.example.filler.R
 import com.example.filler.constants.gui.Music
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
-import com.example.filler.gui.SongPlayer
+import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.gui.configuration.data.DifficultyString
 import com.example.filler.gui.configuration.data.Username
 

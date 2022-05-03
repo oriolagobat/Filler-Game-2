@@ -12,7 +12,7 @@ import com.example.filler.constants.gui.Scores
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.configuration.GameConfiguration
 import com.example.filler.gui.configuration.data.Username
-import com.example.filler.gui.hideNavBar
+import com.example.filler.gui.shared.hideNavBar
 import com.example.filler.gui.results.Results
 import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameFactoryImpl

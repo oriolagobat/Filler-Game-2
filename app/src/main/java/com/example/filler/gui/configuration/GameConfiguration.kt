@@ -5,7 +5,7 @@ import android.widget.AdapterView
 import android.widget.RadioButton
 import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
-import com.example.filler.gui.closeKeyboardClearFocus
+import com.example.filler.gui.shared.closeKeyboardClearFocus
 import com.example.filler.gui.configuration.data.*
 import java.io.Serializable
 

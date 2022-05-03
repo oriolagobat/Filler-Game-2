@@ -1,4 +1,4 @@
-package com.example.filler.gui
+package com.example.filler.gui.shared
 
 import android.app.Activity
 import android.content.Context

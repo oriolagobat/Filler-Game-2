@@ -6,7 +6,7 @@ import android.widget.AdapterView
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
-import com.example.filler.gui.hideNavBar
+import com.example.filler.gui.shared.hideNavBar
 
 class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     View.OnClickListener, RadioGroup.OnCheckedChangeListener {

@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import com.example.filler.R
 import com.example.filler.databinding.ActivityHelpBinding
-import com.example.filler.gui.hideNavBar
+import com.example.filler.gui.shared.hideNavBar
 
 class Help : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

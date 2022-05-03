@@ -8,7 +8,7 @@ import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
 import com.example.filler.gui.help.Help
-import com.example.filler.gui.hideNavBar
+import com.example.filler.gui.shared.hideNavBar
 import com.google.android.material.color.DynamicColors
 
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
