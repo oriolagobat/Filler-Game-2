@@ -2,12 +2,20 @@ package com.example.filler.logic.ai
 
 import com.example.filler.constants.GameColor
 import com.example.filler.logic.colors.Generator
-import com.example.filler.logic.colors.RandomColorGenerator
 
 class MediumModeColorGenerator(private val settings: AIGeneratorSettings) :
-    ColorGenerator(settings), Generator
-{
+    ColorGenerator(settings), Generator {
     override fun generate(): GameColor {
-        return getColorsByGoodness().first()
+        val colorsByGoodness = getColorsByGoodness()
+        val nUsefulChoices = getUsefulChoices(colorsByGoodness)
+        return chooseColor(getColors(colorsByGoodness), nUsefulChoices)
+    }
+
+    override fun chooseColor(colors: List<GameColor>, nUsefulChoices: Int): GameColor {
+       return when (nUsefulChoices) {
+           0 -> colors.random()
+           1 -> colors.take(1).first()
+           else -> colors.take(2).random()
+       }
     }
 }
