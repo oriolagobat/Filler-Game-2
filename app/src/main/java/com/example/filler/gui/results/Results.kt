@@ -8,6 +8,7 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.R
+import com.example.filler.constants.gui.Outcomes
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
 import com.example.filler.gui.hideNavBar
@@ -31,17 +32,17 @@ class Results : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         binding.logOutput.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
-        val resultType = intent.getStringExtra("resultType")
+        val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
 
         // Start the media player with the sound corresponding to the outcome of the game
         startSongPlayer(this, intent)
 
         // Set the corresponding layout image and text corresponding to the outcome of the game
         val (imageId, text) = when (resultType) {
-            "win" -> Pair(R.drawable.result_win, R.string.results_win_header)
-            "lose" -> Pair(R.drawable.result_lose, R.string.results_lose_header)
-            "draw" -> Pair(R.drawable.result_draw, R.string.results_draw_header)
-            else -> throw IllegalArgumentException("No more possible results")  // Will never be thrown
+            Outcomes.WIN.name -> Pair(R.drawable.result_win, R.string.results_win_header)
+            Outcomes.LOSE.name -> Pair(R.drawable.result_lose, R.string.results_lose_header)
+            Outcomes.DRAW.name -> Pair(R.drawable.result_draw, R.string.results_draw_header)
+            else -> throw IllegalArgumentException("No more result types")
         }
         updateOutcomeTextImage(imageId, text)
 

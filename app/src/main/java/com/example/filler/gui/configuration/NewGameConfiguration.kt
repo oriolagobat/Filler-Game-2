@@ -37,11 +37,6 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
 
         // Set this class listeners
         setUpConfigListeners(this, binding)
-
-        // FIXME: Remove this when releasing final version
-        binding.usernameInput.setText("John Doe")
-        binding.usernameInput.performClick()
-        binding.difficultyRadioGroup.check(R.id.difficultyMedium)
     }
 
     override fun onPause() {

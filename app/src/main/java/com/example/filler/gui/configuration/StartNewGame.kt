@@ -2,6 +2,7 @@ package com.example.filler.gui.configuration
 
 import android.content.Intent
 import android.widget.Toast
+import com.example.filler.constants.gui.NewGame
 import com.example.filler.gui.game.GUIGame
 
 class StartNewGame(
@@ -34,11 +35,11 @@ class StartNewGame(
         difficulty: String
     ): Intent {
         val intent = Intent(context, GUIGame::class.java)
-        intent.putExtra("username", username)
-        intent.putExtra("colorNum", getIntColorNum(colorNum))
-        intent.putExtra("gridNum", getIntGridNum(gridNum))
-        intent.putExtra("timeControl", timeControl)
-        intent.putExtra("difficulty", difficulty)
+        intent.putExtra(NewGame.USERNAME.name, username)
+        intent.putExtra(NewGame.COLORS.name, getIntColorNum(colorNum))
+        intent.putExtra(NewGame.BOARD_SIZE.name, getIntGridNum(gridNum))
+        intent.putExtra(NewGame.TIME.name, timeControl)
+        intent.putExtra(NewGame.DIFFICULTY.name, difficulty)
         return intent
     }
 

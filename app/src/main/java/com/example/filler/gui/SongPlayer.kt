@@ -4,6 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
+import com.example.filler.constants.gui.Music
 
 class SongPlayer : Service() {
     private lateinit var player: MediaPlayer
@@ -15,7 +16,7 @@ class SongPlayer : Service() {
         super.onStartCommand(intent, flags, startId)
         callIntent = intent
 
-        val song = intent?.getIntExtra("song", -1)
+        val song = intent?.getIntExtra(Music.SONG.name, -1)
 
         manageSoundPlayer(song!!)
         return startId
@@ -41,7 +42,7 @@ class SongPlayer : Service() {
     }
 
     private fun loopIfWanted() {
-        val loop = callIntent?.getBooleanExtra("loop", false)
+        val loop = callIntent?.getBooleanExtra(Music.LOOP.name, false)
         if (loop!!) {
             player.isLooping = true
         }

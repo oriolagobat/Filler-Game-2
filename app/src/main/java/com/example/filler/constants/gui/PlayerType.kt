@@ -1,4 +1,4 @@
-package com.example.filler.constants
+package com.example.filler.constants.gui
 
 enum class PlayerType {
     HUMAN,

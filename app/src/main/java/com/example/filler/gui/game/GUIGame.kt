@@ -5,7 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filler.constants.Difficulty
 import com.example.filler.constants.GameState
-import com.example.filler.constants.PlayerType
+import com.example.filler.constants.gui.NewGame
+import com.example.filler.constants.gui.Outcomes
+import com.example.filler.constants.gui.PlayerType
+import com.example.filler.constants.gui.Scores
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.hideNavBar
 import com.example.filler.gui.results.Results
@@ -29,11 +32,11 @@ class GUIGame : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val username = intent.getStringExtra("username")
-        val colorNum = intent.getIntExtra("colorNum", 0)
-        val gridNum = intent.getIntExtra("gridNum", 0)
-        val timeControl = intent.getBooleanExtra("timeControl", false)
-        val difficultyString = intent.getStringExtra("difficulty")
+        val username = intent.getStringExtra(NewGame.USERNAME.name)
+        val colorNum = intent.getIntExtra(NewGame.COLORS.name, 0)
+        val gridNum = intent.getIntExtra(NewGame.BOARD_SIZE.name, 0)
+        val timeControl = intent.getBooleanExtra(NewGame.TIME.name, false)
+        val difficultyString = intent.getStringExtra(NewGame.DIFFICULTY.name)
         // Parse difficulty to constant value
         val difficulty = Difficulty.valueOf(difficultyString!!.uppercase())
 
@@ -82,17 +85,16 @@ class GUIGame : AppCompatActivity() {
     }
 
     private fun putOutComeData(intent: Intent, finalResponse: GameResponse) {
-        val stringId = "resultType"
         when (finalResponse.state) {
-            GameState.P1_WON -> intent.putExtra(stringId, "win")
-            GameState.P2_WON -> intent.putExtra(stringId, "lose")
-            GameState.DRAW -> intent.putExtra(stringId, "draw")
+            GameState.P1_WON -> intent.putExtra(Outcomes.OUTCOME.name, Outcomes.WIN.name)
+            GameState.P2_WON -> intent.putExtra(Outcomes.OUTCOME.name, Outcomes.LOSE.name)
+            GameState.DRAW -> intent.putExtra(Outcomes.OUTCOME.name, Outcomes.DRAW.name)
             else -> throw IllegalArgumentException("Invalid finish state")
         }
     }
 
     private fun putPlayerScoreData(intent: Intent, finalResponse: GameResponse) {
-        intent.putExtra("player1Score", finalResponse.p1Score)
-        intent.putExtra("player2Score", finalResponse.p2Score)
+        intent.putExtra(Scores.PLAYER1SCORE.name, finalResponse.p1Score)
+        intent.putExtra(Scores.PLAYER2SCORE.name, finalResponse.p2Score)
     }
 }
