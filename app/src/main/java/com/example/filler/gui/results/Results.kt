@@ -103,6 +103,6 @@ class Results : AppCompatActivity(), View.OnClickListener {
 
     // TODO: Finish the app
     private fun closeGame() {
-        android.os.Process.killProcess(android.os.Process.myPid());
+        android.os.Process.killProcess(android.os.Process.myPid())
     }
 }
