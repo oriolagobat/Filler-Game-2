@@ -10,6 +10,8 @@ import com.example.filler.constants.gui.Outcomes
 import com.example.filler.constants.gui.PlayerType
 import com.example.filler.constants.gui.Scores
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.gui.configuration.GameConfiguration
+import com.example.filler.gui.configuration.data.Username
 import com.example.filler.gui.hideNavBar
 import com.example.filler.gui.results.Results
 import com.example.filler.logic.game.Game
@@ -32,18 +34,17 @@ class GUIGame : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val username = intent.getStringExtra(NewGame.USERNAME.name)
-        val colorNum = intent.getIntExtra(NewGame.COLORS.name, 0)
-        val gridNum = intent.getIntExtra(NewGame.BOARD_SIZE.name, 0)
-        val timeControl = intent.getBooleanExtra(NewGame.TIME.name, false)
-        val difficultyString = intent.getStringExtra(NewGame.DIFFICULTY.name)
+        val guiSettings = intent.getSerializableExtra(NewGame.SETTINGS.name) as GameConfiguration
         // Parse difficulty to constant value
-        val difficulty = Difficulty.valueOf(difficultyString!!.uppercase())
+        val difficultyStr = guiSettings.difficultyString.value!!
+        val difficulty = Difficulty.valueOf(difficultyStr.uppercase())
+        val boardSize = getFirstIntFromString(guiSettings.boardSize.value!!)
+        val colorNum = getFirstIntFromString(guiSettings.colorNumber.value!!)
 
-        val settings = GameSettings(gridNum, colorNum, difficulty)
+        val settings = GameSettings(boardSize, colorNum, difficulty)
 
         // Initialize usernames and timer
-        setUpTimersAndUsernames(username!!)
+        setUpTimersAndUsernames(guiSettings.username)
 
         // Initialize game
         game = GameFactoryImpl(settings).makeGame()
@@ -52,8 +53,12 @@ class GUIGame : AppCompatActivity() {
         firstGameIteration()
     }
 
-    private fun setUpTimersAndUsernames(username: String) {
-        binding.usernameText.text = username
+    private fun getFirstIntFromString(str: String): Int {
+        return str.first().digitToInt()
+    }
+
+    private fun setUpTimersAndUsernames(username: Username) {
+        binding.usernameText.text = username.value
     }
 
     // Starts the game, making a first iteration to initialize everything

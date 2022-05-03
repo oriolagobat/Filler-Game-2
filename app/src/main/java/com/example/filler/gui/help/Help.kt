@@ -10,11 +10,7 @@ import com.example.filler.gui.hideNavBar
 class Help : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Hide the navbar
         hideNavBar(this)
-
-        // Set this activity's binding
         val binding = ActivityHelpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

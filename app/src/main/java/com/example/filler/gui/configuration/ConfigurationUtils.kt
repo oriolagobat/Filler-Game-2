@@ -6,6 +6,8 @@ import com.example.filler.R
 import com.example.filler.constants.gui.Music
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
 import com.example.filler.gui.SongPlayer
+import com.example.filler.gui.configuration.data.DifficultyString
+import com.example.filler.gui.configuration.data.Username
 
 fun setUpConfigListeners(
     context: NewGameConfiguration,
@@ -26,13 +28,13 @@ fun setUpConfigListeners(
 
 fun correctGameSettings(
     context: NewGameConfiguration,
-    username: String?,
-    difficulty: String?
+    username: Username,
+    difficulty: DifficultyString
 ): Boolean {
     val errorMsg: String? = when {
         // Check possible variables that don't have a default value
-        (username == null) -> "Enter a username"
-        (difficulty == null) -> "Select a difficulty"
+        (username.value == null) -> "Enter a username"
+        (difficulty.value == null) -> "Select a difficulty"
         else -> null
     }
 
