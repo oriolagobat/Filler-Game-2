@@ -8,7 +8,7 @@ abstract class ColorGenerator(private val settings: AIGeneratorSettings) {
 
     abstract fun chooseColor(colors: List<GameColor>, nUsefulChoices: Int): GameColor
 
-    protected fun getColorsByGoodness(): List<Pair<GameColor, Int>> {
+    fun getColorsByGoodness(): List<Pair<GameColor, Int>> {
         positions = getCandidatePositions()
         val colors = getAvailableColors()
         return orderByGoodness(colors)

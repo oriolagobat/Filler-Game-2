@@ -30,7 +30,7 @@ class ColorGeneratorTest {
         selector = ColorSelectorImpl(boardInitializer.boardColors)
         selector.select(board.getColor(board.getP1Home()))
         selector.select(board.getColor(board.getP2Home()))
-        colorGenerator = ColorGenerator(AIGeneratorSettings(board, p1Area, p2Area, selector))
+        colorGenerator = EasyModeColorGenerator(AIGeneratorSettings(board, p1Area, p2Area, selector))
     }
 
     @Test
