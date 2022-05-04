@@ -15,7 +15,7 @@ import kotlin.math.sqrt
 
 class BoardAdapter(
     private val context: Context,
-    val colorsList: Array<GameColor>,
+    var colorsList: Array<GameColor>,
     private val grid: GridView,
 ) :
     BaseAdapter() {

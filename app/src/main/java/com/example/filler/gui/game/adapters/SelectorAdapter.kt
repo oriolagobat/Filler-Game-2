@@ -14,7 +14,7 @@ import com.example.filler.gui.game.getColorFromGameColor
 
 class SelectorAdapter(
     private val context: Context,
-    val content: Array<Pair<GameColor, Boolean>>,
+    var content: Array<Pair<GameColor, Boolean>>,
     private val grid: GridView
 ) : BaseAdapter() {
     override fun getCount(): Int {
@@ -42,16 +42,17 @@ class SelectorAdapter(
         setTextViewHeight(textView)
 
         // If color is un-clickable apply an alpha to it
-        applyAlphaIfUnClickable(position, textView)
+        modifyAlpha(position, textView)
 
         return view
     }
 
-    private fun applyAlphaIfUnClickable(position: Int, textView: TextView) {
-        if (getItem(position).second) {
-            textView.alpha = 0.05f
-        }
+    private fun modifyAlpha(position: Int, textView: TextView) {
+        val alpha = if (colorUnClickable(position)) 0.05f else 1f
+        textView.alpha = alpha
     }
+
+    private fun colorUnClickable(position: Int) = getItem(position).second
 
     // Textview height should be the total grid's width divided by the number of columns (square per row)
     private fun setTextViewHeight(textView: TextView) {
