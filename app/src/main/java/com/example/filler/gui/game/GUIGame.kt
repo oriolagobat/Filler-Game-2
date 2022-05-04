@@ -46,7 +46,7 @@ class GUIGame : AppCompatActivity() {
     }
 
     private fun setUpTimersAndUsernames(username: Username) {
-        binding.usernameText.text = username.value
+        binding.usernameText!!.text = username.value
         // TODO: Set up timer
     }
 
