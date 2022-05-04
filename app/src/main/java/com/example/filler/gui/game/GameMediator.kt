@@ -64,10 +64,11 @@ class GameMediator(
     }
 
     private fun updateGame() {
-        updateBoard()
-        updateSelector()
-
-        if (gameFinished(gameState)) context.startResultsActivity(gameState) else round()
+        if (gameFinished(gameState)) context.startResultsActivity(gameState) else {
+            updateBoard()
+            updateSelector()
+            round()
+        }
     }
 
     private fun updateSelector() {
