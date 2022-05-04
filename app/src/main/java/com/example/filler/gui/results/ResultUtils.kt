@@ -10,6 +10,7 @@ import com.example.filler.constants.gui.Music
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.constants.gui.Scores
 import com.example.filler.databinding.ActivityResultsBinding
+import com.example.filler.gui.game.data.Score
 import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.gui.shared.getValidMailOrError
 
@@ -42,12 +43,12 @@ fun updateScoreText(
     intent: Intent,
     binding: ActivityResultsBinding
 ) {
-    val player1Score = intent.getIntExtra(Scores.PLAYER1SCORE.name, 0)
-    val player1Text = "Your score: $player1Score"
+    val player1Score: Score = intent.getSerializableExtra(Scores.PLAYER1SCORE.name) as Score
+    val player1Text = "Your score: ${player1Score.value}"
     binding.p1Score.text = player1Text
 
-    val player2Score = intent.getIntExtra(Scores.PLAYER2SCORE.name, 0)
-    val player2Text = "AI score: $player2Score"
+    val player2Score = intent.getSerializableExtra(Scores.PLAYER2SCORE.name) as Score
+    val player2Text = "AI score: ${player2Score.value}"
     binding.aiScore.text = player2Text
 
     setCorrectTextColor(context, intent, binding)
