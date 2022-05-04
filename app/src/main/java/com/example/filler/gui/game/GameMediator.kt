@@ -23,7 +23,7 @@ class GameMediator(
     fun start() {
         setUpGameBoard()
         setUpSelector()
-        round()
+        newRound()
     }
 
     private fun setUpGameBoard() {
@@ -38,7 +38,7 @@ class GameMediator(
         selector.adapter = SelectorAdapter(context, selectorContent, selector)
     }
 
-    private fun round() {
+    private fun newRound() {
         when (gameState.state) {
             GameState.P1_TURN -> playerTurn()
             GameState.P2_TURN -> aiTurn()
@@ -57,7 +57,6 @@ class GameMediator(
         }
     }
 
-
     private fun aiTurn() {
         gameState = game.pickColorThroughAI()
         updateGame()
@@ -67,7 +66,7 @@ class GameMediator(
         if (gameFinished(gameState)) context.startResultsActivity(gameState) else {
             updateBoard()
             updateSelector()
-            round()
+            newRound()
         }
     }
 
