@@ -13,9 +13,11 @@ class ScoreCalculatorImpl(
 ) : ScoreCalculator {
 
     override fun updateAreas(pickedColor: GameColor) {
+        Logger.logD("Starting player area update")
         updateAreaColor(pickedColor)
         addValidPositions(pickedColor)
         swapAreas()
+        Logger.logD("Player area update finished")
     }
 
     private fun updateAreaColor(pickedColor: GameColor) {

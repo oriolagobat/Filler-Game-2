@@ -20,16 +20,18 @@ class GameImpl(
 ) : Game {
 
     override fun pickColorManually(color: GameColor): GameResponse {
+        Logger.logI("${gameData.currentPlayer.id} picked color $color")
         selector.select(color)
         calculateScore(color)
         setNextState()
+        Logger.logD("Game state changd to: ${gameData.state}, sending response...")
         return getGameResponse()
     }
 
     private fun calculateScore(color: GameColor) {
         scoreCalculator.updateAreas(color)
-        player1.updateScore()
-        player2.updateScore()
+        gameData.currentPlayer.updateScore()
+        Logger.logI("${gameData.currentPlayer.id} new score is: ${gameData.currentPlayer.score}")
     }
 
     private fun setNextState() = if (!gameFinished()) swapTurns() else setFinishState()
