@@ -3,6 +3,8 @@ package com.example.filler.gui.game
 import com.example.filler.constants.GameColor
 import com.example.filler.constants.gui.PlayerType
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.gui.game.adapters.BoardAdapter
+import com.example.filler.gui.game.adapters.SelectorAdapter
 import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameResponse
 

@@ -1,4 +1,4 @@
-package com.example.filler.gui.game
+package com.example.filler.gui.game.adapters
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -10,18 +10,21 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.filler.R
 import com.example.filler.constants.GameColor
+import com.example.filler.gui.game.getColorFromGameColor
+import kotlin.math.sqrt
 
-class SelectorAdapter(
+class BoardAdapter(
     private val context: Context,
-    private val content: Array<Pair<GameColor, Boolean>>,
-    private val grid: GridView
-) : BaseAdapter() {
+    private val colorsList: Array<GameColor>,
+    private val grid: GridView,
+) :
+    BaseAdapter() {
     override fun getCount(): Int {
-        return content.size
+        return colorsList.size
     }
 
-    override fun getItem(position: Int): Pair<GameColor, Boolean> {
-        return content[position]
+    override fun getItem(position: Int): GameColor {
+        return colorsList[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -35,29 +38,21 @@ class SelectorAdapter(
         val textView = view.findViewById<TextView>(R.id.boardItem)
 
         // Get the background color from the corresponding array position and set it
-        val drawableColorId = getColorFromGameColor(getItem(position).first)
+        val drawableColorId = getColorFromGameColor(getItem(position))
         val background: Drawable = AppCompatResources.getDrawable(context, drawableColorId)!!
         textView.background = background
         setTextViewHeight(textView)
 
-        // If color is un-clickable apply an alpha to it
-        applyAlphaIfUnClickable(position, textView)
-
         return view
     }
 
-    private fun applyAlphaIfUnClickable(position: Int, textView: TextView) {
-        if (getItem(position).second) {
-            textView.alpha = 0.05f
-        }
-    }
-
-    // Textview height should be the total grid's width divided by the number of columns (square per row)
+    // Textview height should be the total size of the grid divided by the number of rows (square per row)
     private fun setTextViewHeight(textView: TextView) {
-        textView.layoutParams.height = grid.width / getSquarePerRow()
+        textView.layoutParams.height = grid.height / getSquarePerRow()
     }
 
 
-    // We'll have as many squares in a row as the total number of squares.
-    private fun getSquarePerRow(): Int = content.size
+    // We'll have as many squares in a row as the square root of the number of squares.
+    private fun getSquarePerRow(): Int =
+        sqrt(colorsList.size.toDouble()).toInt()
 }
