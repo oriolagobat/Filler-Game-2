@@ -1,6 +1,6 @@
 package com.example.filler.logic.selector
 
-import com.example.filler.constants.GameColor
+import com.example.filler.constants.logic.GameColor
 import com.example.filler.logic.colors.ColorSelectorImpl
 import com.example.filler.logic.colors.ColorSelector
 import org.junit.Assert.*

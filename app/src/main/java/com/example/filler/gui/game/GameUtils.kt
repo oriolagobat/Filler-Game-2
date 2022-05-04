@@ -2,8 +2,8 @@ package com.example.filler.gui.game
 
 import android.widget.GridView
 import com.example.filler.R
-import com.example.filler.constants.GameColor
-import com.example.filler.constants.GameState
+import com.example.filler.constants.logic.GameColor
+import com.example.filler.constants.logic.GameState
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.logic.game.GameResponse
 import java.lang.IllegalArgumentException
@@ -12,7 +12,6 @@ fun getFirstIntFromString(str: String): Int = str.first().digitToInt()
 
 fun getBoard(binding: ActivityGameBinding): GridView = binding.boardGridView
 fun getSelector(binding: ActivityGameBinding): GridView = binding.selectorGridView
-
 
 fun gameFinished(gameResponse: GameResponse): Boolean {
     return when (gameResponse.state) {

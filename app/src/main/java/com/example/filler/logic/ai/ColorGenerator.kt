@@ -1,6 +1,6 @@
 package com.example.filler.logic.ai
 
-import com.example.filler.constants.GameColor
+import com.example.filler.constants.logic.GameColor
 import com.example.filler.logic.board.Position
 
 abstract class ColorGenerator(private val settings: AIGeneratorSettings) {

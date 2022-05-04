@@ -1,8 +1,8 @@
 package com.example.filler.logic.game
 
-import com.example.filler.constants.GameColor
-import com.example.filler.constants.GameConstants
-import com.example.filler.constants.GameState
+import com.example.filler.constants.logic.GameColor
+import com.example.filler.constants.logic.GameConstants
+import com.example.filler.constants.logic.GameState
 import com.example.filler.logic.ai.AIColorGeneratorFactoryImpl
 import com.example.filler.logic.ai.AIGeneratorSettings
 import com.example.filler.logic.board.Board

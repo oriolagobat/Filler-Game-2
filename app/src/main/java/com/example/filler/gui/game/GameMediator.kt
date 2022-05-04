@@ -1,8 +1,8 @@
 package com.example.filler.gui.game
 
 import android.widget.GridView
-import com.example.filler.constants.GameColor
-import com.example.filler.constants.GameState
+import com.example.filler.constants.logic.GameColor
+import com.example.filler.constants.logic.GameState
 import com.example.filler.gui.game.adapters.BoardAdapter
 import com.example.filler.gui.game.adapters.SelectorAdapter
 import com.example.filler.logic.game.Game

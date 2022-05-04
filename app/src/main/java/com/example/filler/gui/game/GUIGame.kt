@@ -3,14 +3,15 @@ package com.example.filler.gui.game
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.filler.constants.Difficulty
-import com.example.filler.constants.GameState
-import com.example.filler.constants.gui.NewGame
+import com.example.filler.constants.logic.Difficulty
+import com.example.filler.constants.logic.GameState
+import com.example.filler.constants.gui.Intents
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.constants.gui.Scores
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.configuration.GameConfiguration
 import com.example.filler.gui.configuration.data.Username
+import com.example.filler.gui.game.data.Score
 import com.example.filler.gui.results.Results
 import com.example.filler.gui.shared.hideNavBar
 import com.example.filler.logic.game.GameResponse
@@ -27,7 +28,7 @@ class GUIGame : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val guiSettings = intent.getSerializableExtra(NewGame.SETTINGS.name) as GameConfiguration
+        val guiSettings = intent.getSerializableExtra(Intents.SETTINGS.name) as GameConfiguration
         // Parse values to its type
         val difficultyStr = guiSettings.difficultyString.value!!
         val difficulty = Difficulty.valueOf(difficultyStr.uppercase())
@@ -51,7 +52,6 @@ class GUIGame : AppCompatActivity() {
 
     // Starts the game, making a first iteration to initialize everything
     private fun startGameMediator() {
-        // TODO: Put these parameters in a dataclass
         GameMediator(this, settings, getBoard(binding), getSelector(binding)).start()
     }
 
@@ -72,7 +72,7 @@ class GUIGame : AppCompatActivity() {
     }
 
     private fun putPlayerScoreData(intent: Intent, finalResponse: GameResponse) {
-        intent.putExtra(Scores.PLAYER1SCORE.name, finalResponse.p1Score)
-        intent.putExtra(Scores.PLAYER2SCORE.name, finalResponse.p2Score)
+        intent.putExtra(Scores.PLAYER1SCORE.name, Score(finalResponse.p1Score))
+        intent.putExtra(Scores.PLAYER2SCORE.name, Score(finalResponse.p2Score))
     }
 }

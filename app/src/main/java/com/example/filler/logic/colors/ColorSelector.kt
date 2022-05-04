@@ -1,6 +1,6 @@
 package com.example.filler.logic.colors
 
-import com.example.filler.constants.GameColor
+import com.example.filler.constants.logic.GameColor
 
 interface ColorSelector {
     fun select(selectedColor : GameColor)

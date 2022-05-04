@@ -1,6 +1,6 @@
 package com.example.filler.logic.board
 
-import com.example.filler.constants.GameColor
+import com.example.filler.constants.logic.GameColor
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

@@ -2,7 +2,7 @@ package com.example.filler.gui.configuration
 
 import android.content.Intent
 import android.widget.Toast
-import com.example.filler.constants.gui.NewGame
+import com.example.filler.constants.gui.Intents
 import com.example.filler.gui.game.GUIGame
 
 class StartNewGame(
@@ -25,7 +25,7 @@ class StartNewGame(
     private fun buildNewGameIntent(
     ): Intent {
         val intent = Intent(context, GUIGame::class.java)
-        intent.putExtra(NewGame.SETTINGS.name, settings)
+        intent.putExtra(Intents.SETTINGS.name, settings)
         return intent
     }
 }

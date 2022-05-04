@@ -1,4 +1,4 @@
-package com.example.filler.constants
+package com.example.filler.constants.logic
 
 object GameConstants {
     const val INITIAL_SCORE = 0

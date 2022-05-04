@@ -1,7 +1,7 @@
 package com.example.filler.logic.stub
 
-import com.example.filler.constants.GameColor
-import com.example.filler.constants.GameState
+import com.example.filler.constants.logic.GameColor
+import com.example.filler.constants.logic.GameState
 import com.example.filler.logic.board.Board
 import com.example.filler.logic.board.BoardImpl
 import com.example.filler.logic.game.GameResponse

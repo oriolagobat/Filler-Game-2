@@ -1,7 +1,6 @@
 package com.example.filler.logic.game
 
-import com.example.filler.constants.GameColor
-import com.example.filler.logic.game.GameResponse
+import com.example.filler.constants.logic.GameColor
 
 interface Game {
     fun pickColorManually(color: GameColor): GameResponse

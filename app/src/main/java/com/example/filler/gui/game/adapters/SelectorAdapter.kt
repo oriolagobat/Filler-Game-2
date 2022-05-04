@@ -9,7 +9,7 @@ import android.widget.GridView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.filler.R
-import com.example.filler.constants.GameColor
+import com.example.filler.constants.logic.GameColor
 import com.example.filler.gui.game.getColorFromGameColor
 
 class SelectorAdapter(

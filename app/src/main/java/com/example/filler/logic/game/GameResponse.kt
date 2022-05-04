@@ -1,6 +1,6 @@
 package com.example.filler.logic.game
 
-import com.example.filler.constants.GameState
+import com.example.filler.constants.logic.GameState
 import com.example.filler.logic.board.Board
 import com.example.filler.logic.colors.ColorSelector
 

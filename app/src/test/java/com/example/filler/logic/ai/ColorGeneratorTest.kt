@@ -1,14 +1,12 @@
 package com.example.filler.logic.ai
 
-import com.example.filler.constants.GameColor
-import com.example.filler.constants.GameConstants
+import com.example.filler.constants.logic.GameColor
 import com.example.filler.logic.board.BoardImpl
 import com.example.filler.logic.colors.ColorSelector
 import com.example.filler.logic.colors.ColorSelectorImpl
 import com.example.filler.logic.player.PlayerAreaImpl
 import com.example.filler.logic.score.ScoreCalculatorImpl
 import com.example.filler.logic.stub.StubBoardInitializer
-import com.nhaarman.mockito_kotlin.stub
 import org.junit.Assert.*
 
 import org.junit.Before

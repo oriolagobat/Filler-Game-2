@@ -1,6 +1,6 @@
 package com.example.filler.logic.boardfiller
 
-import com.example.filler.constants.GameColor
+import com.example.filler.constants.logic.GameColor
 import com.example.filler.logic.board.BoardColorInitializer
 import com.example.filler.logic.board.BoardImpl
 import com.example.filler.logic.colors.RandomColorGenerator
