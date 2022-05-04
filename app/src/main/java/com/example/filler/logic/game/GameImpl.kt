@@ -2,6 +2,7 @@ package com.example.filler.logic.game
 
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.constants.logic.GameState
+import com.example.filler.log.Logger
 import com.example.filler.logic.board.Board
 import com.example.filler.logic.colors.ColorSelector
 import com.example.filler.logic.colors.Generator

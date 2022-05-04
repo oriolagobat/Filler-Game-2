@@ -1,6 +1,7 @@
 package com.example.filler.logic.score
 
 import com.example.filler.constants.logic.GameColor
+import com.example.filler.log.Logger
 import com.example.filler.logic.board.Board
 import com.example.filler.logic.board.Position
 import com.example.filler.logic.player.PlayerArea
