@@ -10,8 +10,8 @@ import java.lang.IllegalArgumentException
 
 fun getFirstIntFromString(str: String): Int = str.first().digitToInt()
 
-fun getBoard(binding: ActivityGameBinding): GridView = binding.boardGridView
-fun getSelector(binding: ActivityGameBinding): GridView = binding.selectorGridView
+fun getBoard(binding: ActivityGameBinding): GridView = binding.boardGridView!!
+fun getSelector(binding: ActivityGameBinding): GridView = binding.selectorGridView!!
 
 fun gameFinished(gameResponse: GameResponse): Boolean {
     return when (gameResponse.state) {
