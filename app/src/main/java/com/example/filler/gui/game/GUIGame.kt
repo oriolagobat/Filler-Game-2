@@ -26,16 +26,12 @@ class GUIGame : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Hide the navbar
         hideNavBar(this)
-
-        // Set this activity binding
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val guiSettings = intent.getSerializableExtra(NewGame.SETTINGS.name) as GameConfiguration
-        // Parse difficulty to constant value
+        // Parse values to its type
         val difficultyStr = guiSettings.difficultyString.value!!
         val difficulty = Difficulty.valueOf(difficultyStr.uppercase())
         val boardSize = getFirstIntFromString(guiSettings.boardSize.value!!)

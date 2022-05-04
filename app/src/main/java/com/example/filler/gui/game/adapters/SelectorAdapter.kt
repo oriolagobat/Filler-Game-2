@@ -14,7 +14,7 @@ import com.example.filler.gui.game.getColorFromGameColor
 
 class SelectorAdapter(
     private val context: Context,
-    private val content: Array<Pair<GameColor, Boolean>>,
+    val content: Array<Pair<GameColor, Boolean>>,
     private val grid: GridView
 ) : BaseAdapter() {
     override fun getCount(): Int {

@@ -4,9 +4,8 @@ import com.example.filler.R
 import com.example.filler.constants.GameColor
 
 
-fun getArrayColors(array: Array<Pair<GameColor, Boolean>>): Array<GameColor> {
-    return array.map { it.first }.toTypedArray()
-}
+fun getArrayColors(array: Array<Pair<GameColor, Boolean>>): Array<GameColor> =
+    array.map { it.first }.toTypedArray()
 
 fun colorUnClickable(
     array: Array<Pair<GameColor, Boolean>>,

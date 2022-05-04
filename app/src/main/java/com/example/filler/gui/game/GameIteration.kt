@@ -52,8 +52,7 @@ class GameIteration(
     private fun humanInteraction() {
         val selectorArray: Array<Pair<GameColor, Boolean>> = gameResponse.selector.toArray()
 
-        val colorsSelectorArray: Array<GameColor> = selectorArray.map { it.first }.toTypedArray()
-        manageSelectorListeners(colorsSelectorArray)
+        manageSelectorListeners(getArrayColors(selectorArray))
     }
 
     // Manages the listeners of the chooser bar
