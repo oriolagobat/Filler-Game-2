@@ -61,8 +61,8 @@ private fun setCorrectTextColor(
 ) {
     val (p1Color, p2Color) = when (intent.getStringExtra(Outcomes.OUTCOME.name)) {
         Outcomes.WIN.name -> Pair(R.color.green, R.color.red)
-        Outcomes.LOSE.name -> Pair(R.color.yellow, R.color.yellow)
-        Outcomes.DRAW.name -> Pair(R.color.red, R.color.green)
+        Outcomes.LOSE.name -> Pair(R.color.red, R.color.green)
+        Outcomes.DRAW.name -> Pair(R.color.yellow, R.color.yellow)
         else -> throw IllegalArgumentException("No more possible results")
     }
     binding.p1Score.setTextColor(ContextCompat.getColor(context, p1Color))

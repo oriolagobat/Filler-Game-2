@@ -85,5 +85,4 @@ class GameMediator(
         boardAdapter.colorsList = boardContent
         boardAdapter.notifyDataSetChanged()
     }
-
 }
