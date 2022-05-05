@@ -1,10 +1,13 @@
 package com.example.filler.gui.game
 
+import android.content.Intent
 import android.widget.GridView
 import com.example.filler.R
+import com.example.filler.constants.gui.Music
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.constants.logic.GameState
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.logic.game.GameResponse
 import java.lang.IllegalArgumentException
 
@@ -47,4 +50,16 @@ fun getColorFromGameColor(gameColor: GameColor): Int {
         GameColor.BLACK -> R.color.black
         else -> throw IllegalArgumentException("No more colors...")
     }
+}
+
+fun startGameSong(context: GUIGame) {
+    val intent = Intent(context, SongPlayer::class.java)
+    intent.putExtra(Music.SONG.name, R.raw.game)
+    intent.putExtra(Music.LOOP.name, true)
+    context.startService(intent)
+}
+
+fun stopGameSong(context: GUIGame) {
+    val intent = Intent(context, SongPlayer::class.java)
+    context.stopService(intent)
 }

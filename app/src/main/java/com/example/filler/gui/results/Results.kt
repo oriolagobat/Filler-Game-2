@@ -20,7 +20,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityResultsBinding
     private var email: String? = null
     private lateinit var date: String
-    private lateinit var log: String
+    private val log: String = Logger.getLog()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.logOutput!!.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
+        binding.logOutput.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
         val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
 
         // Start the media player with the sound corresponding to the outcome of the game
@@ -46,7 +46,6 @@ class Results : AppCompatActivity(), View.OnClickListener {
             else -> throw IllegalArgumentException("No more result types")
         }
         updateOutcomeTextImage(imageId, text)
-
         updateScoreText(this, intent, binding)
 
         // Set the date and log of the game
@@ -73,7 +72,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setLog() {
-        binding.logOutput.text = Logger.getLog()
+        binding.logOutput.text = log
     }
 
     override fun onClick(v: View?) {

@@ -11,6 +11,7 @@ import com.example.filler.constants.gui.Scores
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.configuration.GameConfiguration
 import com.example.filler.gui.configuration.data.Username
+import com.example.filler.gui.configuration.stopConfSong
 import com.example.filler.gui.game.data.Score
 import com.example.filler.gui.results.Results
 import com.example.filler.gui.shared.hideNavBar
@@ -27,6 +28,7 @@ class GUIGame : AppCompatActivity() {
         hideNavBar(this)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        startGameSong(this)
 
         val guiSettings = intent.getSerializableExtra(Intents.SETTINGS.name) as GameConfiguration
         // Parse values to its type
@@ -59,6 +61,7 @@ class GUIGame : AppCompatActivity() {
         val intent = Intent(this, Results::class.java)
         putOutComeData(intent, finalResponse)
         putPlayerScoreData(intent, finalResponse)
+        stopGameSong(this)
         startActivity(intent)
     }
 
