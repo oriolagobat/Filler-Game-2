@@ -1,9 +1,7 @@
 package com.example.filler.gui.results
 
 import android.content.Intent
-import android.net.Uri
 import android.widget.EditText
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.filler.R
 import com.example.filler.constants.gui.Music
@@ -92,45 +90,4 @@ fun saveEmail(
     emailInput: EditText
 ): String {
     return getValidMailOrError(context, emailInput)
-}
-
-fun checkAndSendMail(
-    context: Results,
-    email: String?,
-    date: String,
-    log: String
-) {
-    checkUnenteredEmail(context, email)
-    sendMailIntent(context, email, date, log)
-}
-
-private fun checkUnenteredEmail(
-    context: Results,
-    email: String?,
-): String {
-    if (email == null || email.isEmpty()) {
-        Toast.makeText(
-            context,
-            "No email introduced, default one will be used...",
-            Toast.LENGTH_SHORT
-        ).show()
-        return context.getString(R.string.results_hint_email)
-    }
-    return email
-}
-
-private fun sendMailIntent(
-    context: Results,
-    email: String?,
-    date: String,
-    log: String
-) {
-    val uriMail = "mailto:$email"
-    val uriSubject = "?subject=${Uri.encode("Filler: $date")}"
-    val uriBody = "&body=${Uri.encode(log)}"
-
-    val uri: Uri = Uri.parse("$uriMail$uriSubject$uriBody")
-
-    val intent = Intent(Intent.ACTION_SENDTO, uri)
-    context.startActivity(intent)
 }

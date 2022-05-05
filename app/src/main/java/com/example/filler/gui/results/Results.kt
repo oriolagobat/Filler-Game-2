@@ -91,7 +91,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
 
     private fun sendEmail() {
         getEmail()
-        checkAndSendMail(this, email, date, log)
+        MailSender(this, email, date, log).send()
     }
 
     private fun restartGame() {
