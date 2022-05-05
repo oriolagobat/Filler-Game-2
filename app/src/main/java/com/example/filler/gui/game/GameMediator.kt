@@ -57,7 +57,7 @@ class GameMediator(
         }
     }
 
-    private fun aiTurn() {
+    fun aiTurn() {
         gameState = game.pickColorThroughAI()
         updateGame()
     }
