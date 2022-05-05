@@ -26,7 +26,7 @@ data class GameConfiguration(
 
     private fun colorSpinnerClick(spinner: AdapterView<*>?, position: Int) {
         colorNumber.value = getItemFromSpinner(spinner, position)
-        Logger.logI("User chose color number: ${colorNumber.value}")
+        Logger.logI("User chose to use ${colorNumber.value}")
     }
 
     private fun boardSizeClick(spinner: AdapterView<*>?, position: Int) {
