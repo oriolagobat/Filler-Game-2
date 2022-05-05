@@ -39,13 +39,13 @@ class Results : AppCompatActivity(), View.OnClickListener {
         startSongPlayer(this, intent)
 
         // Set the corresponding layout image and text corresponding to the outcome of the game
-        val (imageId, text) = when (resultType) {
-            Outcomes.WIN.name -> Pair(R.drawable.result_win, R.string.results_win_header)
-            Outcomes.LOSE.name -> Pair(R.drawable.result_lose, R.string.results_lose_header)
-            Outcomes.DRAW.name -> Pair(R.drawable.result_draw, R.string.results_draw_header)
+        val (imageId, textId, imageDescId) = when (resultType) {
+            Outcomes.WIN.name -> getWinInfo()
+            Outcomes.LOSE.name -> getDrawInfo()
+            Outcomes.DRAW.name -> getLoseInfo()
             else -> throw IllegalArgumentException("No more result types")
         }
-        updateOutcomeTextImage(imageId, text)
+        updateOutcomeTextImage(imageId, textId, imageDescId)
         updateScoreText(this, intent, binding)
 
         // Set the date and log of the game
@@ -57,8 +57,9 @@ class Results : AppCompatActivity(), View.OnClickListener {
         setUpResultListeners(this, binding)
     }
 
-    private fun updateOutcomeTextImage(imageId: Int, textId: Int) {
+    private fun updateOutcomeTextImage(imageId: Int, textId: Int, imageDescId: Int) {
         binding.outcomeImage.setImageResource(imageId)
+        binding.outcomeImage.contentDescription = getString(imageDescId)
         val text = getString(textId)
         binding.outcomeHeader.text = text
     }

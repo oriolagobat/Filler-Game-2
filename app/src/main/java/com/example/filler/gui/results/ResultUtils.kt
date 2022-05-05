@@ -69,6 +69,24 @@ private fun setCorrectTextColor(
     binding.aiScore.setTextColor(ContextCompat.getColor(context, p2Color))
 }
 
+fun getWinInfo(): Triple<Int, Int, Int> = Triple(
+    R.drawable.result_win,
+    R.string.results_win_header,
+    R.string.results_outcome_win
+)
+
+fun getLoseInfo(): Triple<Int, Int, Int> = Triple(
+    R.drawable.result_lose,
+    R.string.results_lose_header,
+    R.string.results_outcome_draw
+)
+
+fun getDrawInfo(): Triple<Int, Int, Int> = Triple(
+    R.drawable.result_draw,
+    R.string.results_draw_header,
+    R.string.results_outcome_draw
+)
+
 fun saveEmail(
     context: Results,
     emailInput: EditText
