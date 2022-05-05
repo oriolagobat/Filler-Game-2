@@ -18,8 +18,10 @@ fun getSelector(binding: ActivityGameBinding): GridView = binding.selectorGridVi
 fun setUpViewModel(viewModel: GUIGameViewModel): Boolean = !viewModel.setUpViewModel.value!!
 
 fun refreshBoardSelectorReference(viewModel: GUIGameViewModel, binding: ActivityGameBinding) {
-    viewModel.mutableGameMediator.value!!.board = binding.boardGridView
-    viewModel.mutableGameMediator.value!!.selector = binding.selectorGridView
+    val mediator = viewModel.mutableGameMediator.value!!
+    mediator.board = binding.boardGridView
+    mediator.selector = binding.selectorGridView
+    mediator.timer.guiTimer = binding.timer
 }
 
 fun gameFinished(gameResponse: GameResponse): Boolean {

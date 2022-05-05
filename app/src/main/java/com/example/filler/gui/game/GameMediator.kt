@@ -1,7 +1,6 @@
 package com.example.filler.gui.game
 
 import android.widget.GridView
-import android.widget.TextView
 import com.example.filler.R
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.constants.logic.GameState
@@ -23,12 +22,12 @@ class GameMediator(
     private var gameState: GameResponse = game.getGameResponse()
     private var boardContent: Array<GameColor> = gameState.board.toArray()
     private var selectorContent: Array<Pair<GameColor, Boolean>> = gameState.selector.toArray()
+    var timer: Timer = Timer(this, context.findViewById(R.id.timer))
     fun start() {
         setUpGameBoard()
         setUpSelector()
-//        updateTimer()
+        timer.start()
         newRound()
-        println(gameState.board.toArray().toList())
     }
 
 
@@ -72,6 +71,7 @@ class GameMediator(
         if (gameFinished(gameState)) context.startResultsActivity(gameState) else {
             updateBoard()
             updateSelector()
+            timer.start()
             newRound()
         }
     }
@@ -90,11 +90,6 @@ class GameMediator(
         val boardAdapter = board.adapter as BoardAdapter
         boardAdapter.colorsList = boardContent
         boardAdapter.notifyDataSetChanged()
-    }
-
-    private fun updateTimer() {
-        val timer = context.findViewById(R.id.timer) as TextView
-        Timer(this, timer).start()
     }
 
 

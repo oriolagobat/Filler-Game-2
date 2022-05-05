@@ -4,7 +4,7 @@ import android.os.CountDownTimer
 import android.widget.TextView
 import com.example.filler.gui.game.GameMediator
 
-class Timer(private val context: GameMediator, private val guiTimer: TextView) {
+class Timer(private val context: GameMediator, var guiTimer: TextView) {
 
     private var remainingTime = 15
 
@@ -30,12 +30,20 @@ class Timer(private val context: GameMediator, private val guiTimer: TextView) {
     }
 
     private fun updateTimerTextView() {
-        val remainingTimeString = "00:$remainingTime"
+        val remainingTimeString = getString(remainingTime)
         guiTimer.text = remainingTimeString
     }
 
     private fun chooseColor() {
         context.aiTurn()
+    }
+
+    private fun getString(remainingTime: Int): String {
+        return if (remainingTime < 10) {
+            "00:0$remainingTime"
+        } else {
+            "00:$remainingTime"
+        }
     }
 
 }
