@@ -76,7 +76,6 @@
             app:layout_constraintTop_toBottomOf="@+id/helpButton" />
 
 
-        <!--        FIXME: Stub button to go to results, remove-->
         <Button
             android:id="@+id/quitButton"
             style="@style/Widget.Material3.Button.Icon"
