@@ -2,18 +2,16 @@ package com.example.filler.gui.game
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.filler.R
-import com.example.filler.constants.logic.Difficulty
-import com.example.filler.constants.logic.GameState
+import androidx.lifecycle.ViewModelProvider
 import com.example.filler.constants.gui.Intents
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.constants.gui.Scores
+import com.example.filler.constants.logic.Difficulty
+import com.example.filler.constants.logic.GameState
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.configuration.GameConfiguration
 import com.example.filler.gui.configuration.data.Username
-import com.example.filler.gui.configuration.stopConfSong
 import com.example.filler.gui.game.data.Score
 import com.example.filler.gui.results.Results
 import com.example.filler.gui.shared.hideNavBar
@@ -24,12 +22,15 @@ class GUIGame : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
 
     private lateinit var settings: GameSettings
+    private lateinit var guiGameViewModel: GUIGameViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideNavBar(this)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        guiGameViewModel = ViewModelProvider(this)[GUIGameViewModel::class.java]
         startGameSong(this)
 
         val guiSettings = intent.getSerializableExtra(Intents.SETTINGS.name) as GameConfiguration
@@ -45,21 +46,26 @@ class GUIGame : AppCompatActivity() {
         // Initialize usernames and timer
         setUpTimersAndUsernames(guiSettings.username)
 
-        val timer = this.findViewById(R.id.timer) as TextView
-        timer.text = "asedf"
-
-        // Start the game mediator
-        startGameMediator()
+        // Start the game mediator if first creation
+        if (!guiGameViewModel.setUpViewModel.value!!) {
+            startGameMediator()
+            guiGameViewModel.setUpViewModel.value = true
+        } else {
+            guiGameViewModel.mutableGameMediator.value!!.board = binding.boardGridView
+            guiGameViewModel.mutableGameMediator.value!!.selector = binding.selectorGridView
+        }
+        guiGameViewModel.mutableGameMediator.value?.start()
     }
 
     private fun setUpTimersAndUsernames(username: Username) {
-        binding.usernameText!!.text = username.value
+        binding.usernameText.text = username.value
         // TODO: Set up timer
     }
 
     // Starts the game, making a first iteration to initialize everything
     private fun startGameMediator() {
-        GameMediator(this, settings, getBoard(binding), getSelector(binding)).start()
+        val gameMediator = GameMediator(this, settings, getBoard(binding), getSelector(binding))
+        guiGameViewModel.mutableGameMediator.value = gameMediator
     }
 
     fun startResultsActivity(finalResponse: GameResponse) {

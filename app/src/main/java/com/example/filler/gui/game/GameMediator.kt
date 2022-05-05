@@ -16,8 +16,8 @@ import com.example.filler.timer.Timer
 class GameMediator(
     private val context: GUIGame,
     gameSettings: GameSettings,
-    private val board: GridView,
-    private val selector: GridView
+    var board: GridView,
+    var selector: GridView
 ) {
     private val game: Game = GameFactoryImpl(gameSettings).makeGame()
     private var gameState: GameResponse = game.getGameResponse()
@@ -26,9 +26,11 @@ class GameMediator(
     fun start() {
         setUpGameBoard()
         setUpSelector()
-        updateTimer()
+//        updateTimer()
         newRound()
+        println(gameState.board.toArray().toList())
     }
+
 
     private fun setUpGameBoard() {
         val boardSize = gameState.board.getNumCols()
