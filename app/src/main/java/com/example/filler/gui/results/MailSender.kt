@@ -16,6 +16,7 @@ class MailSender(
 ) {
     fun send() {
         checkUnenteredEmail(context, email.value)
+        updateLogSendMail()
         sendMailIntent(context, email.value, date.value, log.value)
     }
 

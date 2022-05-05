@@ -39,6 +39,9 @@ class Results : AppCompatActivity(), View.OnClickListener {
         val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
         binding.emailInput.requestFocus()  // Set focus on the email input
 
+        // Update log with the outcome
+        updateLogOutcome(intent)
+
         // Start the media player with the sound corresponding to the outcome of the game
         startSongPlayer(this, intent)
 
@@ -55,7 +58,6 @@ class Results : AppCompatActivity(), View.OnClickListener {
         // Set the date and log of the game
         setCurrentDate()
         setLog()
-
 
         // Set listeners
         setUpResultListeners(this, binding)
@@ -91,6 +93,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
 
     private fun getEmail() {
         email.value = saveEmail(this, binding.emailInput)
+        updateLogMail(email)
     }
 
     private fun sendEmail() {
