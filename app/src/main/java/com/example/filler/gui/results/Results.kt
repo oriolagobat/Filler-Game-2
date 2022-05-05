@@ -34,6 +34,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
 
         binding.logOutput.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
         val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
+        binding.emailInput.requestFocus()  // Set focus on the email input
 
         // Start the media player with the sound corresponding to the outcome of the game
         startSongPlayer(this, intent)
