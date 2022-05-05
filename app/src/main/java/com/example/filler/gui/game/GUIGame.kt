@@ -46,14 +46,14 @@ class GUIGame : AppCompatActivity() {
         // Initialize usernames and timer
         setUpTimersAndUsernames(guiSettings.username)
 
-        // Start the game mediator if first creation
-        if (!guiGameViewModel.setUpViewModel.value!!) {
+        checkRecreationAndStart()
+    }
+
+    private fun checkRecreationAndStart() {
+        if (setUpViewModel(guiGameViewModel)) {
             startGameMediator()
             guiGameViewModel.setUpViewModel.value = true
-        } else {
-            guiGameViewModel.mutableGameMediator.value!!.board = binding.boardGridView
-            guiGameViewModel.mutableGameMediator.value!!.selector = binding.selectorGridView
-        }
+        } else refreshBoardSelectorReference(guiGameViewModel, binding)
         guiGameViewModel.mutableGameMediator.value?.start()
     }
 

@@ -9,12 +9,18 @@ import com.example.filler.constants.logic.GameState
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.logic.game.GameResponse
-import java.lang.IllegalArgumentException
 
 fun getFirstIntFromString(str: String): Int = str.first().digitToInt()
 
 fun getBoard(binding: ActivityGameBinding): GridView = binding.boardGridView
 fun getSelector(binding: ActivityGameBinding): GridView = binding.selectorGridView
+
+fun setUpViewModel(viewModel: GUIGameViewModel): Boolean = !viewModel.setUpViewModel.value!!
+
+fun refreshBoardSelectorReference(viewModel: GUIGameViewModel, binding: ActivityGameBinding) {
+    viewModel.mutableGameMediator.value!!.board = binding.boardGridView
+    viewModel.mutableGameMediator.value!!.selector = binding.selectorGridView
+}
 
 fun gameFinished(gameResponse: GameResponse): Boolean {
     return when (gameResponse.state) {
