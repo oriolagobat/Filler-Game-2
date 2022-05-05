@@ -13,8 +13,10 @@
         android:gravity="center"
         android:text="@string/configuration_header"
         android:textSize="28sp"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="22dp" />
+        app:layout_constraintBottom_toTopOf="@+id/usernameIntro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/usernameIntro"
@@ -24,15 +26,21 @@
         android:text="@string/configuration_username"
         android:textSize="17sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="63dp" />
+        app:layout_constraintBottom_toTopOf="@+id/usernameInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usernameInputLayout"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="104dp">
+        app:layout_constraintBottom_toTopOf="@+id/gridIntro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameIntro">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameInput"
@@ -49,12 +57,16 @@
         android:id="@+id/colorsIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="233dp"
         android:fontFamily="@font/main_font"
         android:text="@string/configuration_colors"
         android:textSize="17sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="430dp"
-        tools:layout_editor_absoluteY="74dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/usernameIntro"
+        app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
 
     <TextView
         android:id="@+id/gridIntro"
@@ -64,26 +76,37 @@
         android:text="@string/configuration_grid"
         android:textSize="17sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="173dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout" />
 
     <TextView
         android:id="@+id/timeIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="215dp"
         android:fontFamily="@font/main_font"
         android:text="@string/configuration_time"
         android:textSize="17sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="453dp"
-        tools:layout_editor_absoluteY="165dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/gridIntro"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
+        android:layout_marginStart="0dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="430dp"
-        tools:layout_editor_absoluteY="184dp">
+        app:layout_constraintBottom_toTopOf="@+id/startNewGameButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/timeIntro">
 
         <ImageView
             android:id="@+id/timeSample"
@@ -110,16 +133,22 @@
         android:text="@string/configuration_difficulty_choose"
         android:textSize="17sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="274dp" />
+        app:layout_constraintBottom_toTopOf="@+id/difficultyRadioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <RadioGroup
         android:id="@+id/difficultyRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="315dp">
+        app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficultyIntro">
 
         <RadioButton
             android:id="@+id/difficultyEasy"
@@ -151,29 +180,39 @@
         style="@style/Widget.Material3.Button.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="170dp"
         android:fontFamily="@font/main_font"
         android:text="@string/startNewGameButton"
         app:icon="@drawable/icon_new_game"
-        tools:layout_editor_absoluteX="466dp"
-        tools:layout_editor_absoluteY="282dp" />
+        app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/difficultyRadioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
     <TextView
         android:id="@+id/mainConfigurationSubHeader"
-        android:fontFamily="@font/title_font"
-        android:gravity="center"
-        android:textSize="18sp"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/title_font"
+        android:gravity="center"
         android:text="@string/configuration_sub_header"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="376dp" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficultyRadioGroup" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="170dp"
         android:layout_height="45dp"
+        android:layout_marginStart="0dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="439dp"
-        tools:layout_editor_absoluteY="104dp">
+        app:layout_constraintBottom_toTopOf="@+id/timeIntro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usernameInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/colorsIntro">
 
         <ImageView
             android:id="@+id/colorSample"
@@ -195,11 +234,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="170dp"
         android:layout_height="45dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="192dp">
+        app:layout_constraintBottom_toTopOf="@+id/difficultyIntro"
+        app:layout_constraintTop_toBottomOf="@+id/gridIntro"
+        tools:layout_editor_absoluteX="62dp">
 
         <ImageView
             android:id="@+id/gridSpinner"
