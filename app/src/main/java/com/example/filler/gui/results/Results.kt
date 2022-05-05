@@ -32,7 +32,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.logOutput.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
+        binding.logOutput!!.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
         val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
 
         // Start the media player with the sound corresponding to the outcome of the game
