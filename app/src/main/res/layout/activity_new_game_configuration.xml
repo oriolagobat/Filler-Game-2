@@ -129,7 +129,7 @@
             app:layout_constraintTop_toBottomOf="@+id/colorsIntro" />
 
         <Spinner
-            android:id="@+id/gridSpinner"
+            android:id="@+id/boardSpinner"
             android:layout_width="238dp"
             android:layout_height="39dp"
             android:layout_marginTop="20dp"
@@ -150,7 +150,7 @@
             android:contentDescription="@string/board_image_description"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/timeIntro"
-            app:layout_constraintEnd_toStartOf="@+id/gridSpinner"
+            app:layout_constraintEnd_toStartOf="@+id/boardSpinner"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"

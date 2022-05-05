@@ -263,7 +263,7 @@
                 app:srcCompat="@drawable/icon_board" />
 
             <Spinner
-                android:id="@+id/gridSpinner"
+                android:id="@+id/boardSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
