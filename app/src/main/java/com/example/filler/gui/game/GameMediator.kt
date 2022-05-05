@@ -1,6 +1,8 @@
 package com.example.filler.gui.game
 
 import android.widget.GridView
+import android.widget.TextView
+import com.example.filler.R
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.constants.logic.GameState
 import com.example.filler.gui.game.adapters.BoardAdapter
@@ -9,6 +11,7 @@ import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameFactoryImpl
 import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
+import com.example.filler.timer.Timer
 
 class GameMediator(
     private val context: GUIGame,
@@ -23,6 +26,7 @@ class GameMediator(
     fun start() {
         setUpGameBoard()
         setUpSelector()
+        updateTimer()
         newRound()
     }
 
@@ -85,4 +89,11 @@ class GameMediator(
         boardAdapter.colorsList = boardContent
         boardAdapter.notifyDataSetChanged()
     }
+
+    private fun updateTimer() {
+        val timer = context.findViewById(R.id.timer) as TextView
+        Timer(this, timer).start()
+    }
+
+
 }

@@ -2,7 +2,9 @@ package com.example.filler.gui.game
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.filler.R
 import com.example.filler.constants.logic.Difficulty
 import com.example.filler.constants.logic.GameState
 import com.example.filler.constants.gui.Intents
@@ -42,6 +44,9 @@ class GUIGame : AppCompatActivity() {
 
         // Initialize usernames and timer
         setUpTimersAndUsernames(guiSettings.username)
+
+        val timer = this.findViewById(R.id.timer) as TextView
+        timer.text = "asedf"
 
         // Start the game mediator
         startGameMediator()

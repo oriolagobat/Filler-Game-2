@@ -20,7 +20,7 @@ fun setUpConfigListeners(
 
     // Set the spinners onItemSelectedListener's
     binding.colorSpinner.onItemSelectedListener = context
-    binding.gridSpinner.onItemSelectedListener = context
+    binding.boardSpinner.onItemSelectedListener = context
 
     // Set radioGroup's onCheckedChangeListener
     binding.difficultyRadioGroup.setOnCheckedChangeListener(context)
