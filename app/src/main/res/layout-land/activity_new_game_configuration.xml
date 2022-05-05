@@ -1,264 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/mainConfigurationHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/title_font"
-        android:gravity="center"
-        android:text="@string/configuration_header"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/usernameIntro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/usernameIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_username"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/usernameInputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.6"
+        android:contentDescription="@string/conf_background_desc"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_new_game_conf" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameInputLayout"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/gridIntro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameIntro">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usernameInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="Game username"
-            android:fontFamily="@font/main_font"
-            android:hint="@string/configuration_username_hint"
-            android:inputType="textPersonName"
-            android:textSize="12sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/colorsIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="233dp"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_colors"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/usernameIntro"
-        app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
-
-    <TextView
-        android:id="@+id/gridIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_grid"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout" />
-
-    <TextView
-        android:id="@+id/timeIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="215dp"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_time"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/gridIntro"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginStart="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/startNewGameButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/timeIntro">
-
-        <ImageView
-            android:id="@+id/timeSample"
-            android:layout_width="38dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:contentDescription="@string/clock_image_description"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/icon_clock" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/timeCheckBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/difficultyIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/configuration_difficulty_choose"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/difficultyRadioGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <RadioGroup
-        android:id="@+id/difficultyRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyIntro">
-
-        <RadioButton
-            android:id="@+id/difficultyEasy"
+        <TextView
+            android:id="@+id/mainConfigurationHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/main_font"
-            android:text="@string/configuration_difficulty_easy" />
+            android:fontFamily="@font/title_font"
+            android:gravity="center"
+            android:text="@string/configuration_header"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/usernameIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/difficultyMedium"
+        <TextView
+            android:id="@+id/usernameIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="@font/main_font"
-            android:text="@string/configuration_difficulty_medium" />
+            android:text="@string/configuration_username"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/usernameInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.065"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
 
-        <RadioButton
-            android:id="@+id/difficultyHard"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameInputLayout"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/gridIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.099"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameIntro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="Game username"
+                android:fontFamily="@font/main_font"
+                android:hint="@string/configuration_username_hint"
+                android:inputType="textPersonName"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/colorsIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginStart="233dp"
             android:fontFamily="@font/main_font"
-            android:text="@string/configuration_difficulty_hard" />
-    </RadioGroup>
+            android:text="@string/configuration_colors"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/usernameIntro"
+            app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
 
-    <Button
-        android:id="@+id/startNewGameButton"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:fontFamily="@font/main_font"
-        android:text="@string/startNewGameButton"
-        app:icon="@drawable/icon_new_game"
-        app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/difficultyRadioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
-
-    <TextView
-        android:id="@+id/mainConfigurationSubHeader"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/title_font"
-        android:gravity="center"
-        android:text="@string/configuration_sub_header"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyRadioGroup" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="170dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/timeIntro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/usernameInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/colorsIntro">
-
-        <ImageView
-            android:id="@+id/colorSample"
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:contentDescription="@string/color_image_description"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/icon_color_roulette" />
-
-        <Spinner
-            android:id="@+id/colorSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:entries="@array/colors_options_array"
-            android:prompt="@string/configuration_colors"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="170dp"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/difficultyIntro"
-        app:layout_constraintTop_toBottomOf="@+id/gridIntro"
-        tools:layout_editor_absoluteX="62dp">
-
-        <ImageView
-            android:id="@+id/gridSpinner"
-            android:layout_width="80dp"
+        <TextView
+            android:id="@+id/gridIntro"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/board_image_description"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/icon_board" />
+            android:fontFamily="@font/main_font"
+            android:text="@string/configuration_grid"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:entries="@array/board_options_array"
-            android:prompt="@string/configuration_grid"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
+        <TextView
+            android:id="@+id/timeIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="215dp"
+            android:fontFamily="@font/main_font"
+            android:text="@string/configuration_time"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/gridIntro"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginStart="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/startNewGameButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/timeIntro">
+
+            <ImageView
+                android:id="@+id/timeSample"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/clock_image_description"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_clock" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/timeCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/difficultyIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/configuration_difficulty_choose"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/difficultyRadioGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.069"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <RadioGroup
+            android:id="@+id/difficultyRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/difficultyIntro">
+
+            <RadioButton
+                android:id="@+id/difficultyEasy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/main_font"
+                android:text="@string/configuration_difficulty_easy" />
+
+            <RadioButton
+                android:id="@+id/difficultyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/main_font"
+                android:text="@string/configuration_difficulty_medium" />
+
+            <RadioButton
+                android:id="@+id/difficultyHard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/main_font"
+                android:text="@string/configuration_difficulty_hard" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/startNewGameButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="170dp"
+            android:fontFamily="@font/main_font"
+            android:text="@string/startNewGameButton"
+            app:icon="@drawable/icon_new_game"
+            app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/difficultyRadioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+        <TextView
+            android:id="@+id/mainConfigurationSubHeader"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/title_font"
+            android:gravity="center"
+            android:text="@string/configuration_sub_header"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/difficultyRadioGroup" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/timeIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/usernameInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/colorsIntro">
+
+            <ImageView
+                android:id="@+id/colorSample"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/color_image_description"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_color_roulette" />
+
+            <Spinner
+                android:id="@+id/colorSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/colors_options_array"
+                android:prompt="@string/configuration_colors"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/difficultyIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridIntro">
+
+            <ImageView
+                android:id="@+id/gridSample"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/board_image_description"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_board" />
+
+            <Spinner
+                android:id="@+id/gridSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/board_options_array"
+                android:prompt="@string/configuration_grid"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

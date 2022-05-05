@@ -33,8 +33,6 @@ class BoardColorInitializer(
     }
 
     private fun isNotValid(color: GameColor, position: Position): Boolean {
-        val invalidSurroundings = position.getSurroundingPositions()
-        val surroundings = position.getSurroundingPositions().filter { board.hasPosition(it) }
         return position.getSurroundingPositions().filter { board.hasPosition(it) }
             .any { board.getColor(it) == color }
     }
