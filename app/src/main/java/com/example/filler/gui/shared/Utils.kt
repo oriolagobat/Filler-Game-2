@@ -37,7 +37,6 @@ fun closeKeyboardClearFocus(
     editText.clearFocus()
 }
 
-// TODO: Check if there's a better place
 fun getValidMailOrError(
     context: AppCompatActivity,
     editText: EditText,
@@ -55,4 +54,4 @@ fun getValidMailOrError(
 }
 
 // Checks if a mail is valid
-fun validMail(mail: String): Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()
+private fun validMail(mail: String): Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()
