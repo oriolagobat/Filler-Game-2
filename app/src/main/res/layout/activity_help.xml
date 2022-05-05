@@ -19,8 +19,6 @@
         android:layout_height="match_parent"
         tools:context=".gui.help.Help">
 
-        <!--            No text, it must be set from code as it has html in it-->
-
         <TextView
             android:id="@+id/mainHelpHeader"
             android:layout_width="match_parent"
@@ -48,6 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <!--            No text, it must be set from code as it has html in it-->
         <TextView
             android:id="@+id/rulesText"
             android:layout_width="350dp"
@@ -74,8 +73,8 @@
 
         <ImageButton
             android:id="@+id/backHomeButton"
-            android:layout_width="71dp"
-            android:layout_height="73dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:background="@null"
             android:contentDescription="@string/help_back_desc"
             android:scaleType="fitCenter"
