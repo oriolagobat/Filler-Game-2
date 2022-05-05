@@ -3,7 +3,7 @@ package com.example.filler.logic.ai
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.logic.colors.Generator
 
-class MediumModeColorGenerator(private val settings: AIGeneratorSettings) :
+class MediumModeColorGenerator(settings: AIGeneratorSettings) :
     ColorGenerator(settings), Generator {
     override fun generate(): GameColor {
         val colorsByGoodness = getColorsByGoodness()
@@ -12,10 +12,10 @@ class MediumModeColorGenerator(private val settings: AIGeneratorSettings) :
     }
 
     override fun chooseColor(colors: List<GameColor>, nUsefulChoices: Int): GameColor {
-       return when (nUsefulChoices) {
-           0 -> colors.random()
-           1 -> colors.take(1).first()
-           else -> colors.take(2).random()
-       }
+        return when (nUsefulChoices) {
+            0 -> colors.random()
+            1 -> colors.take(1).first()
+            else -> colors.take(2).random()
+        }
     }
 }

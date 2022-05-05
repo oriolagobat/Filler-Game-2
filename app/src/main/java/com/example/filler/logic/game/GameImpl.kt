@@ -24,7 +24,7 @@ class GameImpl(
         selector.select(color)
         calculateScore(color)
         setNextState()
-        Logger.logD("Game state changd to: ${gameData.state}, sending response...")
+        Logger.logD("Game state changed to: ${gameData.state}, sending response...")
         return getGameResponse()
     }
 

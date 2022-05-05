@@ -24,9 +24,9 @@ class ColorSelectorImpl(
     }
 
     override fun getAvailableColors(): List<GameColor> {
-       return colors
-           .filter { entry -> !entry.value }
-           .flatMap { entry -> listOf(entry.key) }
+        return colors
+            .filter { entry -> !entry.value }
+            .flatMap { entry -> listOf(entry.key) }
     }
 
     override fun getSelectedColors(): List<GameColor> {

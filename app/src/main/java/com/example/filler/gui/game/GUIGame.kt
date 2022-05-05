@@ -44,7 +44,7 @@ class GUIGame : AppCompatActivity() {
         settings = GameSettings(boardSize, colorNum, difficulty)
 
         // Initialize usernames and timer
-        setUpTimersAndUsernames(guiSettings.username)
+        setUpUsernames(guiSettings.username)
 
         checkRecreationAndStart()
     }
@@ -57,9 +57,8 @@ class GUIGame : AppCompatActivity() {
         guiGameViewModel.mutableGameMediator.value?.start()
     }
 
-    private fun setUpTimersAndUsernames(username: Username) {
+    private fun setUpUsernames(username: Username) {
         binding.usernameText.text = username.value
-        // TODO: Set up timer
     }
 
     // Starts the game, making a first iteration to initialize everything

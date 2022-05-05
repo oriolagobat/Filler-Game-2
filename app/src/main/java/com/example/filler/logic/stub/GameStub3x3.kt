@@ -11,7 +11,6 @@ import com.example.filler.logic.colors.ColorSelectorImpl
 import com.example.filler.logic.board.Position
 
 class GameStub3x3(private val settings: GameSettings) {
-    var round = 0
     val state = GameState.INITIALIZING
     private val boardSize = 3
     private val colorArray = arrayListOf(
