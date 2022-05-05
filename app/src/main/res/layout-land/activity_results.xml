@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/outcomeHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/title_font"
+        android:gravity="center"
+        android:text="@string/results_draw_header"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <TextView
+        android:id="@+id/p1Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
+        android:text="@string/score_p1_sample"
+        android:textSize="26sp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="89dp" />
+
+    <TextView
+        android:id="@+id/aiScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
+        android:text="@string/score_ai_sample"
+        android:textSize="26sp"
+        tools:layout_editor_absoluteX="460dp"
+        tools:layout_editor_absoluteY="106dp" />
+
+    <ImageView
+        android:id="@+id/outcomeImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:alpha="0.85"
+        android:contentDescription="@string/results_outcome_draw"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/result_draw"
+        tools:layout_editor_absoluteX="244dp"
+        tools:layout_editor_absoluteY="42dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="188dp">
+
+        <ImageView
+            android:id="@+id/logImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/results_log_desc"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/icon_log" />
+
+        <TextView
+            android:id="@+id/logHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/main_font"
+            android:gravity="center_vertical"
+            android:text="@string/results_log"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="212dp"
+        android:layout_height="133dp"
+        android:fontFamily="@font/main_font"
+        android:text="@string/results_default_log"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="240dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="442dp"
+        tools:layout_editor_absoluteY="192dp">
+
+        <ImageView
+            android:id="@+id/dateTimeImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/results_cal_desc"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/icon_calendar" />
+
+        <TextView
+            android:id="@+id/dateTimeHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/main_font"
+            android:gravity="center_vertical"
+            android:text="@string/results_time"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="442dp"
+        tools:layout_editor_absoluteY="272dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/results_mail_desc"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/icon_mail" />
+
+        <TextView
+            android:id="@+id/emailHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/main_font"
+            android:gravity="center_vertical"
+            android:text="@string/results_email"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dateTimeOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
+        android:text="@string/results_default_time"
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="465dp"
+        tools:layout_editor_absoluteY="242dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInputLayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="442dp"
+        tools:layout_editor_absoluteY="330dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Log e-mail"
+            android:fontFamily="@font/main_font"
+            android:hint="@string/results_hint_email"
+            android:inputType="textEmailAddress"
+            android:text="@string/results_default_mail"
+            android:textSize="17sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/sendEmailButton"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
+        android:text="@string/results_button_send"
+        android:textSize="20sp"
+        app:icon="@drawable/icon_email"
+        tools:layout_editor_absoluteX="276dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <Button
+        android:id="@+id/restartGameButton"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
+        android:text="@string/results_button_new"
+        android:textSize="20sp"
+        app:icon="@drawable/icon_back_button"
+        tools:layout_editor_absoluteX="276dp"
+        tools:layout_editor_absoluteY="276dp" />
+
+    <Button
+        android:id="@+id/closeButton"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/results_button_close"
+        android:textSize="17sp"
+        app:icon="@drawable/icon_close"
+        tools:layout_editor_absoluteX="289dp"
+        tools:layout_editor_absoluteY="329dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

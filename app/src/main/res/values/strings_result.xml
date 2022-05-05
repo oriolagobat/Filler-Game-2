@@ -12,6 +12,7 @@
     <string name="results_email">E-mail</string>
     <string name="results_hint_email">Enter your mail here…</string>
     <string name="results_default_mail">johndoe@gmail.com</string>
+    <string name="results_mail_desc">Mail icon</string>
     <string name="results_button_send">Send e-mail</string>
     <string name="results_button_new">New game</string>
     <string name="results_button_close">Close</string>
