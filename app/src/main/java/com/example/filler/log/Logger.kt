@@ -2,31 +2,41 @@ package com.example.filler.log
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.util.Date
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Logger {
 
     private val logger: Logger = LoggerFactory.getLogger("")
-    var gameLog = ""
+    private val logList = mutableListOf<String>()
+
+    private fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
+        val formatter = SimpleDateFormat(format, locale)
+        return formatter.format(this)
+    }
+
+    private fun getCurrentDateTime(): Date {
+        return Calendar.getInstance().time
+    }
 
     fun logD(message: String) {
-        logger.debug(message)
+        logList.add(getCurrentDateTime().toString("HH:mm:ss") + " [DEBUG]: " + message)
     }
 
     fun logI(message: String) {
-        logger.info(message)
+        logList.add(getCurrentDateTime().toString("HH:mm:ss") + " [INFO]: " + message)
     }
 
     fun logW(message: String) {
-        logger.warn(message)
+        logList.add(getCurrentDateTime().toString("HH:mm:ss") + " [WARN]: " + message)
     }
 
     fun logE(message: String) {
-        logger.error(message)
+        logList.add(getCurrentDateTime().toString("HH:mm:ss") + " [ERROR]: " + message)
     }
 
-    // Read /tmp/logback.log and return it as a String
     fun getLog(): String {
-        return "TODO"
-        java.io.File("/tmp/logback.log").readText()
+        return logList.joinToString("\n")
     }
 }

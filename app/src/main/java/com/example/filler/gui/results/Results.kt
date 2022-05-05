@@ -12,6 +12,7 @@ import com.example.filler.constants.gui.Outcomes
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
 import com.example.filler.gui.shared.hideNavBar
+import com.example.filler.log.Logger
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -72,10 +73,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setLog() {
-        // TODO: Get the log
-        // FIXME: Stub functionality
-        log = getString(R.string.stub_log)
-        binding.logOutput.text = log
+        binding.logOutput.text = Logger.getLog()
     }
 
     override fun onClick(v: View?) {
