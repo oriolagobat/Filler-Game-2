@@ -11,6 +11,9 @@ import com.example.filler.R
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
+import com.example.filler.gui.results.data.Date
+import com.example.filler.gui.results.data.Email
+import com.example.filler.gui.results.data.Log
 import com.example.filler.gui.shared.hideNavBar
 import com.example.filler.log.Logger
 import java.time.LocalDateTime
@@ -18,9 +21,9 @@ import java.time.format.DateTimeFormatter
 
 class Results : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityResultsBinding
-    private var email: String? = null
-    private lateinit var date: String
-    private val log: String = Logger.getLog()
+    private val email = Email()
+    private val date = Date()
+    private val log = Log(Logger.getLog())
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,12 +72,12 @@ class Results : AppCompatActivity(), View.OnClickListener {
     private fun setCurrentDate() {
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")
-        date = current.format(formatter)
-        binding.dateTimeOutput.text = date
+        date.value = current.format(formatter)
+        binding.dateTimeOutput.text = date.value
     }
 
     private fun setLog() {
-        binding.logOutput.text = log
+        binding.logOutput.text = log.value
     }
 
     override fun onClick(v: View?) {
@@ -87,7 +90,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getEmail() {
-        email = saveEmail(this, binding.emailInput)
+        email.value = saveEmail(this, binding.emailInput)
     }
 
     private fun sendEmail() {
@@ -96,6 +99,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun restartGame() {
+        // Todo: Check this
         val intent = Intent(this, NewGameConfiguration::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)

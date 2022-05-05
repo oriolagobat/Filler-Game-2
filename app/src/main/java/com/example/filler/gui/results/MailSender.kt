@@ -4,16 +4,19 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import com.example.filler.R
+import com.example.filler.gui.results.data.Date
+import com.example.filler.gui.results.data.Email
+import com.example.filler.gui.results.data.Log
 
 class MailSender(
     private val context: Results,
-    private val email: String?,
-    private val date: String,
-    private val log: String
+    private val email: Email,
+    private val date: Date,
+    private val log: Log
 ) {
     fun send() {
-        checkUnenteredEmail(context, email)
-        sendMailIntent(context, email, date, log)
+        checkUnenteredEmail(context, email.value)
+        sendMailIntent(context, email.value, date.value, log.value)
     }
 
     private fun checkUnenteredEmail(
