@@ -1,14 +1,11 @@
 package com.example.filler.log
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import java.util.Date
 import java.text.SimpleDateFormat
 import java.util.*
 
 object Logger {
 
-    private val logger: Logger = LoggerFactory.getLogger("")
     private val logList = mutableListOf<String>()
 
     private fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
