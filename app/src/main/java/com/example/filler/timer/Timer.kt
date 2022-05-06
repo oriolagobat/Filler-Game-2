@@ -2,14 +2,32 @@ package com.example.filler.timer
 
 import android.os.CountDownTimer
 import android.widget.TextView
+import com.example.filler.constants.logic.*
 import com.example.filler.gui.game.GameMediator
 
-class Timer(private val context: GameMediator, var guiTimer: TextView) {
+class Timer(private val context: GameMediator, var guiTimer: TextView, val difficulty: Difficulty) {
 
-    private var remainingTime = 15
+    private var timoutInSecs = 0L
+    private var timoutInMilis = 0L
+    private var remainingTime = 0
+
+    init {
+        timoutInSecs = when (difficulty) {
+            Difficulty.EASY -> EASY_MODE_TIMEOUT_SEC
+            Difficulty.MEDIUM -> MEDIUM_MODE_TIMEOUT_SEC
+            Difficulty.HARD -> HARD_MODE_TIMEOUT_SEC
+        }
+        timoutInMilis = timoutInSecs * 1000
+        resetRamainingTime()
+    }
+
+    private fun resetRamainingTime() {
+        remainingTime = timoutInSecs.toInt()
+    }
+
 
     fun start() {
-        remainingTime = 15
+        resetRamainingTime()
         timer.start()
     }
 
@@ -17,7 +35,7 @@ class Timer(private val context: GameMediator, var guiTimer: TextView) {
         timer.cancel()
     }
 
-    private val timer = object : CountDownTimer(15000, 1000) {
+    private val timer = object : CountDownTimer(timoutInMilis, TIMER_PERIOD_MS) {
 
         override fun onTick(millisUntilFinished: Long) {
             updateTimer()

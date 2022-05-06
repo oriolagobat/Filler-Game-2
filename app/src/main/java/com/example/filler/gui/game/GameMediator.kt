@@ -14,7 +14,7 @@ import com.example.filler.timer.Timer
 
 class GameMediator(
     private val context: GUIGame,
-    gameSettings: GameSettings,
+    var gameSettings: GameSettings,
     var board: GridView,
     var selector: GridView
 ) {
@@ -22,13 +22,12 @@ class GameMediator(
     private var gameState: GameResponse = game.getGameResponse()
     private var boardContent: Array<GameColor> = gameState.board.toArray()
     private var selectorContent: Array<Pair<GameColor, Boolean>> = gameState.selector.toArray()
-    var timer: Timer = Timer(this, context.findViewById(R.id.timer))
+    val timer = Timer(this, context.findViewById(R.id.timer), gameSettings.difficulty)
     fun start() {
         setUpGameBoard()
         setUpSelector()
         newRound()
     }
-
 
     private fun setUpGameBoard() {
         val boardSize = gameState.board.getNumCols()
