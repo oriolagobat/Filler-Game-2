@@ -90,6 +90,11 @@ class GUIGame : AppCompatActivity() {
         intent.putExtra(Scores.PLAYER2SCORE.name, Score(finalResponse.p2Score))
     }
 
+    override fun onPause() {
+        super.onPause()
+        stopGameSong(this)
+    }
+
     override fun onBackPressed() {
         return
     }
