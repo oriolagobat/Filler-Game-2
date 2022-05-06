@@ -18,19 +18,19 @@ object Logger {
         return Calendar.getInstance().time
     }
 
-    fun logD(message: String) {
+    fun logDebug(message: String) {
         logList.add(getCurrentDateTime().toString(GameConstants.LOGGER_DATE_FORMAT) + " [DEBUG]: " + message)
     }
 
-    fun logI(message: String) {
+    fun logInfo(message: String) {
         logList.add(getCurrentDateTime().toString(GameConstants.LOGGER_DATE_FORMAT) + " [INFO]: " + message)
     }
 
-    fun logW(message: String) {
+    fun logWarning(message: String) {
         logList.add(getCurrentDateTime().toString(GameConstants.LOGGER_DATE_FORMAT) + " [WARN]: " + message)
     }
 
-    fun logE(message: String) {
+    fun logError(message: String) {
         logList.add(getCurrentDateTime().toString(GameConstants.LOGGER_DATE_FORMAT) + " [ERROR]: " + message)
     }
 

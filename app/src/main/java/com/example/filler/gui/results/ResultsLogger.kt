@@ -18,13 +18,13 @@ fun updateLogOutcome(intent: Intent) {
         else -> throw IllegalArgumentException("No more possible outcomes")
     }
 
-    Logger.logI(message)
+    Logger.logInfo(message)
 }
 
 fun updateLogMail(mail: Email) {
-    Logger.logI("New email saved: ${mail.value}")
+    Logger.logInfo("New email saved: ${mail.value}")
 }
 
 fun updateLogSendMail() {
-    Logger.logI("Sending log by mail...")
+    Logger.logInfo("Sending log by mail...")
 }

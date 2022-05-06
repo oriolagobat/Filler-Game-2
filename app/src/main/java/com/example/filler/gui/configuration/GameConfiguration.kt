@@ -26,12 +26,12 @@ data class GameConfiguration(
 
     private fun colorSpinnerClick(spinner: AdapterView<*>?, position: Int) {
         colorNumber.value = getItemFromSpinner(spinner, position)
-        Logger.logI("User chose to use ${colorNumber.value}")
+        Logger.logInfo("User chose to use ${colorNumber.value}")
     }
 
     private fun boardSizeClick(spinner: AdapterView<*>?, position: Int) {
         boardSize.value = getItemFromSpinner(spinner, position)
-        Logger.logI("User chose board size: ${boardSize.value}")
+        Logger.logInfo("User chose board size: ${boardSize.value}")
     }
 
     private fun getItemFromSpinner(spinner: AdapterView<*>?, position: Int): String =
@@ -58,26 +58,26 @@ data class GameConfiguration(
             usernameInput.error = "Please enter a username"
         } else {
             username.value = usernameInput.text.toString()
-            Logger.logI("User chose username: ${username.value}")
+            Logger.logInfo("User chose username: ${username.value}")
         }
         closeKeyboardClearFocus(context, usernameInput)
     }
 
     private fun manageTimeCheckBox(binding: ActivityNewGameConfigurationBinding) {
         this.timeControl.value = binding.timeCheckBox.isChecked
-        Logger.logI("User chose time control: ${timeControl.value}")
+        Logger.logInfo("User chose time control: ${timeControl.value}")
     }
 
     fun radioButtonClick(context: NewGameConfiguration, checkedId: Int) {
         val checked: RadioButton = context.findViewById(checkedId)
         this.difficultyString.value = checked.text.toString()
-        Logger.logI("User chose difficulty: ${difficultyString.value}")
+        Logger.logInfo("User chose difficulty: ${difficultyString.value}")
     }
 
     private fun manageNewGameButton(context: NewGameConfiguration) {
         if (correctGameSettings(context, username, difficultyString)) {
             StartNewGame(this, context)
-            Logger.logI("User chooses to start a new game")
+            Logger.logInfo("User chooses to start a new game")
         }
     }
 }

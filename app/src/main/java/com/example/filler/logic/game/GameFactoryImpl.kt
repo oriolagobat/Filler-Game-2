@@ -28,7 +28,7 @@ class GameFactoryImpl(private val settings: GameSettings) : GameFactory {
 
     override fun makeGame(): Game {
         val data = generateInitialGameData()
-        Logger.logD("Initial game data generated, creating game instance...")
+        Logger.logDebug("Initial game data generated, creating game instance...")
         return GameImpl(scoreCalculator, smartColorGenerator, selector, board, data, p1, p2)
     }
 
@@ -50,33 +50,33 @@ class GameFactoryImpl(private val settings: GameSettings) : GameFactory {
         val randGenerator = RandomColorGenerator(availableColors)
         board = BoardImpl(settings.boardSize)
         BoardColorInitializer(availableColors, board, randGenerator).start()
-        Logger.logD("Board initialized")
+        Logger.logDebug("Board initialized")
     }
 
     private fun initPlayers() {
         val player1Area = PlayerAreaImpl(board.getP1Home(), board)
         val player2Area = PlayerAreaImpl(board.getP2Home(), board)
-        Logger.logD("Players initialized")
+        Logger.logDebug("Players initialized")
         p1 = Player(GameConstants.P1_ID, GameConstants.INITIAL_SCORE, player1Area)
         p2 = Player(GameConstants.P2_ID, GameConstants.INITIAL_SCORE, player2Area)
-        Logger.logD("Player areas initialized")
+        Logger.logDebug("Player areas initialized")
     }
 
     private fun initScoreCalculator() {
         scoreCalculator = ScoreCalculatorImpl(board, p1.area, p2.area)
-        Logger.logD("Score calculator initialized")
+        Logger.logDebug("Score calculator initialized")
     }
 
     private fun initP2AI() {
         val settingsForAI = AIGeneratorSettings(board, p1.area, p2.area, selector)
         smartColorGenerator = AIColorGeneratorFactoryImpl()
             .makeGenerator(this.settings.difficulty, settingsForAI)
-        Logger.logD("AI initialized")
+        Logger.logDebug("AI initialized")
     }
 
     private fun initSelector() {
         selector.select(board.getColor(board.getP1Home()))
         selector.select(board.getColor(board.getP2Home()))
-        Logger.logD("Color selector initialized")
+        Logger.logDebug("Color selector initialized")
     }
 }
