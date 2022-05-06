@@ -5,7 +5,9 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
+import com.example.filler.gui.game.image.ImagePopup
 import com.example.filler.gui.shared.hideNavBar
 
 class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedListener,
@@ -19,6 +21,10 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         hideNavBar(this)
         binding = ActivityNewGameConfigurationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.pfpButton.setOnClickListener {
+            ImagePopup(this, R.id.userPFP)
+        }
 
         // Initialize game configuration
         gameConf = GameConfiguration()

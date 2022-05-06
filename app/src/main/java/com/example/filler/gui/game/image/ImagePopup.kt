@@ -9,12 +9,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import com.example.filler.BuildConfig
+import com.example.filler.gui.configuration.NewGameConfiguration
 import com.example.filler.gui.game.GUIGame
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.io.File
 
 class ImagePopup(
-    private val context: GUIGame,
+    private val context: NewGameConfiguration,
     private val imageId: Int,
     private val imageFile: File = File(context.filesDir, "image.png"),
     private var takenImageUri: Uri = FileProvider.getUriForFile(
