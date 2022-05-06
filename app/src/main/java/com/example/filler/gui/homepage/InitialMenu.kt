@@ -1,9 +1,11 @@
 package com.example.filler.gui.homepage
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.configuration.NewGameConfiguration
@@ -14,6 +16,9 @@ import com.google.android.material.color.DynamicColors
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Request permissions
+        checkAndRequestInitialPermissions()
 
         // Set the dynamic colors
         DynamicColors.applyToActivitiesIfAvailable(application)
@@ -49,5 +54,17 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         val configurationIntent = Intent(this, NewGameConfiguration::class.java)
         startActivity(configurationIntent)
         finish()
+    }
+
+    private fun checkAndRequestInitialPermissions() {
+        ActivityCompat.requestPermissions(this, getInitialPermissionsArray(), 0)
+    }
+
+    private fun getInitialPermissionsArray(): Array<String> {
+        return arrayOf(
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+        )
     }
 }
