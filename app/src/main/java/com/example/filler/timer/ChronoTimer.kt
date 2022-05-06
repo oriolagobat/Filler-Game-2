@@ -9,14 +9,13 @@ class ChronoTimer(
     override var timerTextView: TextView,
     val difficulty: Difficulty
 ) : GameTimer {
-    private val timer = Timer()
+    private var timer = Timer()
     private var currentTime = 0
 
     override fun init() {
+        timer = Timer()
         timer.schedule(object : TimerTask() {
-            override fun run() {
-                updateTimer()
-            }
+            override fun run() = updateTimer()
         }, 0, TIMER_PERIOD_MS)
     }
 
@@ -28,8 +27,8 @@ class ChronoTimer(
 
     override fun cancel() {}
 
-    override fun finish() {
+    override fun finish() = try {
         timer.cancel()
+    } catch (e: IllegalStateException) {
     }
-
 }
