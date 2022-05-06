@@ -32,14 +32,22 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-
-        val intent = when (v?.id) {
-            R.id.helpButton -> Intent(this, Help::class.java)
-            R.id.newGameButton -> Intent(this, NewGameConfiguration::class.java)
-            R.id.quitButton -> null
+        when (v?.id) {
+            R.id.helpButton -> startHelpScreen()
+            R.id.newGameButton -> startConfigurationScreen()
+            R.id.quitButton -> finish()
             else -> throw IllegalArgumentException("No more buttons")
         }
+    }
 
-        if (intent != null) startActivity(intent) else finish()
+    private fun startHelpScreen() {
+        val helpIntent = Intent(this, Help::class.java)
+        startActivity(helpIntent)
+    }
+
+    private fun startConfigurationScreen() {
+        val configurationIntent = Intent(this, NewGameConfiguration::class.java)
+        startActivity(configurationIntent)
+        finish()
     }
 }
