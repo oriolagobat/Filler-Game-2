@@ -48,8 +48,8 @@ class Results : AppCompatActivity(), View.OnClickListener {
         // Set the corresponding layout image and text corresponding to the outcome of the game
         val (imageId, textId, imageDescId) = when (resultType) {
             Outcomes.WIN.name -> getWinInfo()
-            Outcomes.LOSE.name -> getDrawInfo()
-            Outcomes.DRAW.name -> getLoseInfo()
+            Outcomes.LOSE.name -> getLoseInfo()
+            Outcomes.DRAW.name -> getDrawInfo()
             else -> throw IllegalArgumentException("No more result types")
         }
         updateOutcomeTextImage(imageId, textId, imageDescId)
