@@ -6,6 +6,7 @@ import com.example.filler.log.Logger
 import com.example.filler.logic.board.Board
 import com.example.filler.logic.colors.ColorSelector
 import com.example.filler.logic.colors.Generator
+import com.example.filler.logic.colors.RandomColorGenerator
 import com.example.filler.logic.player.Player
 import com.example.filler.logic.score.ScoreCalculator
 
@@ -19,6 +20,16 @@ class GameImpl(
     private val player2: Player
 ) : Game {
 
+    override fun pickColorThroughAI(): GameResponse {
+        val color = smartColorGenerator.generate()
+        return pickColorManually(color)
+    }
+
+    override fun pickRandomColor(): GameResponse {
+        val color = RandomColorGenerator(selector.getAvailableColors()).generate()
+        return pickColorManually(color)
+    }
+
     override fun pickColorManually(color: GameColor): GameResponse {
         setRound()
         Logger.logInfo("${gameData.currentPlayer.id} picked color $color")
@@ -27,6 +38,7 @@ class GameImpl(
         Logger.logDebug("Game state changed to: ${gameData.state}, sending response...")
         return getGameResponse()
     }
+
 
     private fun setRound() {
         if (gameData.state == GameState.P1_TURN) {
@@ -63,11 +75,6 @@ class GameImpl(
 
     private fun setWinner() {
         gameData.state = if (player1.score > player2.score) GameState.P1_WON else GameState.P2_WON
-    }
-
-    override fun pickColorThroughAI(): GameResponse {
-        val color = smartColorGenerator.generate()
-        return pickColorManually(color)
     }
 
     override fun getGameResponse() =

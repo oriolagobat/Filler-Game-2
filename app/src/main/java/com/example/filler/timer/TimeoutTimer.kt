@@ -5,11 +5,24 @@ import android.widget.TextView
 import com.example.filler.constants.logic.*
 import com.example.filler.gui.game.GameMediator
 
-class Timer(private val context: GameMediator, var guiTimer: TextView, val difficulty: Difficulty) {
+class TimeoutTimer(
+    private val context: GameMediator,
+    override var timerTextView: TextView,
+    val difficulty: Difficulty
+) : GameTimer {
 
     private var timoutInSecs = 0L
     private var timoutInMilis = 0L
     private var remainingTime = 0
+
+    override fun start() {
+        resetRamainingTime()
+        timer.start()
+    }
+
+    override fun cancel() = timer.cancel()
+
+    override fun finish() = cancel()
 
     init {
         timoutInSecs = when (difficulty) {
@@ -25,25 +38,11 @@ class Timer(private val context: GameMediator, var guiTimer: TextView, val diffi
         remainingTime = timoutInSecs.toInt()
     }
 
-
-    fun start() {
-        resetRamainingTime()
-        timer.start()
-    }
-
-    fun cancel() {
-        timer.cancel()
-    }
-
     private val timer = object : CountDownTimer(timoutInMilis, TIMER_PERIOD_MS) {
 
-        override fun onTick(millisUntilFinished: Long) {
-            updateTimer()
-        }
+        override fun onTick(millisUntilFinished: Long) = updateTimer()
 
-        override fun onFinish() {
-            chooseColor()
-        }
+        override fun onFinish() = context.playerTurnByTimeout()
     }
 
     private fun updateTimer() {
@@ -52,20 +51,7 @@ class Timer(private val context: GameMediator, var guiTimer: TextView, val diffi
     }
 
     private fun updateTimerTextView() {
-        val remainingTimeString = getString(remainingTime)
-        guiTimer.text = remainingTimeString
+        val remainingTimeString = intToFormattedTime(remainingTime)
+        timerTextView.text = remainingTimeString
     }
-
-    private fun chooseColor() {
-        context.aiTurn()
-    }
-
-    private fun getString(remainingTime: Int): String {
-        return if (remainingTime < 10) {
-            "00:0$remainingTime"
-        } else {
-            "00:$remainingTime"
-        }
-    }
-
 }

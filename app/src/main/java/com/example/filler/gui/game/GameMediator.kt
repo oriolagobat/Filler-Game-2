@@ -10,11 +10,12 @@ import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameFactoryImpl
 import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
-import com.example.filler.timer.Timer
+import com.example.filler.timer.TimeoutTimer
+import com.example.filler.timer.TimerFactoryImpl
 
 class GameMediator(
     private val context: GUIGame,
-    var gameSettings: GameSettings,
+    private var gameSettings: GameSettings,
     var board: GridView,
     var selector: GridView
 ) {
@@ -22,7 +23,7 @@ class GameMediator(
     private var gameState: GameResponse = game.getGameResponse()
     private var boardContent: Array<GameColor> = gameState.board.toArray()
     private var selectorContent: Array<Pair<GameColor, Boolean>> = gameState.selector.toArray()
-    val timer = Timer(this, context.findViewById(R.id.timer), gameSettings.difficulty)
+    val timer = TimerFactoryImpl(this, context.findViewById(R.id.timer), gameSettings).createTimer()
     fun start() {
         setUpGameBoard()
         setUpSelector()
@@ -62,7 +63,12 @@ class GameMediator(
         }
     }
 
-    fun aiTurn() {
+    fun playerTurnByTimeout() {
+        gameState = game.pickRandomColor()
+        updateGame()
+    }
+
+    private fun aiTurn() {
         gameState = game.pickColorThroughAI()
         updateGame()
     }
@@ -71,7 +77,7 @@ class GameMediator(
 
     private fun finishGame() {
         context.startResultsActivity(gameState)
-        timer.cancel()
+        timer.finish()
     }
 
     private fun setUpNextRound() {

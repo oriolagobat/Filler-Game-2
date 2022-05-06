@@ -1,14 +1,9 @@
 package com.example.filler.logic.board
 
-import android.os.CountDownTimer
-import android.util.Log
 import com.example.filler.constants.logic.GameColor
-import com.example.filler.timer.Timer
-import com.example.filler.timer.TimerStub
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import kotlin.math.log
 
 
 class BoardTest {

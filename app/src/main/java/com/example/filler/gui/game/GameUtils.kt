@@ -21,7 +21,7 @@ fun refreshBoardSelectorReference(viewModel: GUIGameViewModel, binding: Activity
     val mediator = viewModel.mutableGameMediator.value!!
     mediator.board = binding.boardGridView
     mediator.selector = binding.selectorGridView
-    mediator.timer.guiTimer = binding.timer
+    mediator.timer.timerTextView = binding.timer
 }
 
 fun gameFinished(gameResponse: GameResponse): Boolean {

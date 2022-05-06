@@ -39,9 +39,10 @@ class GUIGame : AppCompatActivity() {
         val difficulty = Difficulty.valueOf(difficultyStr.uppercase())
         val boardSize = getFirstIntFromString(guiSettings.boardSize.value!!)
         val colorNum = getFirstIntFromString(guiSettings.colorNumber.value!!)
+        val hasTimeout = guiSettings.timeControl.value
 
         // Create game settings
-        settings = GameSettings(boardSize, colorNum, difficulty)
+        settings = GameSettings(boardSize, colorNum, difficulty, hasTimeout)
 
         // Initialize usernames and timer
         setUpUsernames(guiSettings.username)
