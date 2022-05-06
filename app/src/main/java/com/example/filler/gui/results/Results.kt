@@ -106,4 +106,8 @@ class Results : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
         finish()
     }
+
+    override fun onBackPressed() {
+        return
+    }
 }
