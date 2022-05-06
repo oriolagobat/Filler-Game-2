@@ -19,6 +19,7 @@ class StartNewGame(
 
             val intent = buildNewGameIntent()
             context.startActivity(intent)
+            context.finish()
         }
     }
 
