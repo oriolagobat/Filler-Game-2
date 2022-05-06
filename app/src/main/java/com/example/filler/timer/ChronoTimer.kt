@@ -29,6 +29,5 @@ class ChronoTimer(
 
     override fun finish() = try {
         timer.cancel()
-    } catch (e: IllegalStateException) {
-    }
+    } catch (e: IllegalStateException) { }
 }
