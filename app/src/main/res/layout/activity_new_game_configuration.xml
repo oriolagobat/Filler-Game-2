@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,8 +13,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/background_new_game_conf" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".gui.configuration.NewGameConfiguration">
@@ -21,13 +22,12 @@
             android:id="@+id/mainConfigurationHeader"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/title_font"
             android:gravity="center"
             android:text="@string/configuration_header"
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
             android:id="@+id/mainConfigurationSubHeader"
             android:layout_width="357dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/title_font"
             android:gravity="center"
             android:text="@string/configuration_sub_header"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/colorsIntro"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.416"
+            app:layout_constraintHorizontal_bias="0.453"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/usernameIntro">
 
@@ -99,6 +99,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout" />
 
+        <Spinner
+            android:id="@+id/colorSpinner"
+            android:layout_width="238dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            android:entries="@array/colors_options_array"
+            android:prompt="@string/configuration_colors"
+            android:spinnerMode="dialog"
+            app:layout_constraintBottom_toTopOf="@+id/gridIntro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/colorSample"
+            app:layout_constraintTop_toBottomOf="@+id/colorsIntro" />
+
         <ImageView
             android:id="@+id/colorSample"
             android:layout_width="39dp"
@@ -114,26 +129,11 @@
             app:srcCompat="@drawable/icon_color_roulette" />
 
         <Spinner
-            android:id="@+id/colorSpinner"
-            android:layout_width="238dp"
-            android:layout_height="39dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:entries="@array/colors_options_array"
-            android:prompt="@string/configuration_colors"
-            android:spinnerMode="dialog"
-            app:layout_constraintBottom_toTopOf="@+id/gridIntro"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/colorSample"
-            app:layout_constraintTop_toBottomOf="@+id/colorsIntro" />
-
-        <Spinner
             android:id="@+id/boardSpinner"
             android:layout_width="238dp"
             android:layout_height="39dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
             android:entries="@array/board_options_array"
             android:prompt="@string/configuration_grid"
             android:spinnerMode="dialog"
@@ -203,8 +203,8 @@
             android:id="@+id/timeCheckBox"
             android:layout_width="50dp"
             android:layout_height="39dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="21dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
             android:text=""
             app:layout_constraintBottom_toTopOf="@+id/difficultyIntro"
             app:layout_constraintEnd_toEndOf="parent"
@@ -230,7 +230,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/startNewGameButton"
+            app:layout_constraintBottom_toTopOf="@+id/pfpButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/difficultyIntro">
@@ -263,6 +263,18 @@
             android:text="@string/startNewGameButton"
             app:icon="@drawable/icon_new_game"
             app:layout_constraintBottom_toTopOf="@+id/mainConfigurationSubHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pfpButton" />
+
+        <Button
+            android:id="@+id/pfpButton"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/conf_pfp"
+            app:icon="@drawable/icon_pfp"
+            app:layout_constraintBottom_toTopOf="@+id/startNewGameButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/difficultyRadioGroup" />
