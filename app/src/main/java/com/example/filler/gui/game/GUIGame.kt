@@ -73,6 +73,7 @@ class GUIGame : AppCompatActivity() {
         putPlayerScoreData(intent, finalResponse)
         stopGameSong(this)
         startActivity(intent)
+        finish()
     }
 
     private fun putOutComeData(intent: Intent, finalResponse: GameResponse) {
