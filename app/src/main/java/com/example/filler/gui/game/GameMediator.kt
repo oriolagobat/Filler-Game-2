@@ -3,6 +3,7 @@ package com.example.filler.gui.game
 import android.widget.GridView
 import com.example.filler.R
 import com.example.filler.constants.logic.GameColor
+import com.example.filler.constants.logic.GameConstants
 import com.example.filler.constants.logic.GameState
 import com.example.filler.gui.game.adapters.BoardAdapter
 import com.example.filler.gui.game.adapters.SelectorAdapter

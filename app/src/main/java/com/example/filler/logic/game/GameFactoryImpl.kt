@@ -1,8 +1,6 @@
 package com.example.filler.logic.game
 
-import com.example.filler.constants.logic.GameColor
-import com.example.filler.constants.logic.GameConstants
-import com.example.filler.constants.logic.GameState
+import com.example.filler.constants.logic.*
 import com.example.filler.log.Logger
 import com.example.filler.logic.ai.AIColorGeneratorFactoryImpl
 import com.example.filler.logic.ai.AIGeneratorSettings
@@ -35,7 +33,7 @@ class GameFactoryImpl(private val settings: GameSettings) : GameFactory {
     private fun generateInitialGameData(): GameData {
         val startingPlayer = p1
         val enemyPlayer = p2
-        return GameData(startingPlayer, enemyPlayer, GameConstants.INITIAL_ROUND, GameState.P1_TURN)
+        return GameData(startingPlayer, enemyPlayer, INITIAL_ROUND, GameState.P1_TURN)
     }
 
     init {
@@ -57,8 +55,8 @@ class GameFactoryImpl(private val settings: GameSettings) : GameFactory {
         val player1Area = PlayerAreaImpl(board.getP1Home(), board)
         val player2Area = PlayerAreaImpl(board.getP2Home(), board)
         Logger.logDebug("Players initialized")
-        p1 = Player(GameConstants.P1_ID, GameConstants.INITIAL_SCORE, player1Area)
-        p2 = Player(GameConstants.P2_ID, GameConstants.INITIAL_SCORE, player2Area)
+        p1 = Player(P1_ID, INITIAL_SCORE, player1Area)
+        p2 = Player(P2_ID, INITIAL_SCORE, player2Area)
         Logger.logDebug("Player areas initialized")
     }
 
