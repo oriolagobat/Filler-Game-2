@@ -7,13 +7,20 @@ import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import androidx.core.content.FileProvider
+import com.example.filler.BuildConfig
 import com.example.filler.gui.game.GUIGame
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import java.io.File
 
 class ImagePopup(
     private val context: GUIGame,
     private val imageId: Int,
-    private var takenImageUri: Uri? = null,
+    private val imageFile: File = File(context.filesDir, "image.png"),
+    private var takenImageUri: Uri = FileProvider.getUriForFile(
+        context.applicationContext,
+        BuildConfig.APPLICATION_ID + ".provider", imageFile
+    ),
 
     private val galleryResult: ActivityResultLauncher<String> =
         context.registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri ->
