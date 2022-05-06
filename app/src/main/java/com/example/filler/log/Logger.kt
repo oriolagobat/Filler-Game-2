@@ -1,5 +1,6 @@
 package com.example.filler.log
 
+import com.example.filler.constants.logic.GameConstants
 import java.util.Date
 import java.text.SimpleDateFormat
 import java.util.*
@@ -18,19 +19,19 @@ object Logger {
     }
 
     fun logD(message: String) {
-        logList.add(getCurrentDateTime().toString("HH:mm:ss") + " [DEBUG]: " + message)
+        logList.add(getCurrentDateTime().toString(GameConstants.LOGGER_DATE_FORMAT) + " [DEBUG]: " + message)
     }
 
     fun logI(message: String) {
-        logList.add(getCurrentDateTime().toString("HH:mm:ss") + " [INFO]: " + message)
+        logList.add(getCurrentDateTime().toString(GameConstants.LOGGER_DATE_FORMAT) + " [INFO]: " + message)
     }
 
     fun logW(message: String) {
-        logList.add(getCurrentDateTime().toString("HH:mm:ss") + " [WARN]: " + message)
+        logList.add(getCurrentDateTime().toString(GameConstants.LOGGER_DATE_FORMAT) + " [WARN]: " + message)
     }
 
     fun logE(message: String) {
-        logList.add(getCurrentDateTime().toString("HH:mm:ss") + " [ERROR]: " + message)
+        logList.add(getCurrentDateTime().toString(GameConstants.LOGGER_DATE_FORMAT) + " [ERROR]: " + message)
     }
 
     fun getLog(): String {
