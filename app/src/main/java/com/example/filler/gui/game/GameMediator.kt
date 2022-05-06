@@ -3,7 +3,6 @@ package com.example.filler.gui.game
 import android.widget.GridView
 import com.example.filler.R
 import com.example.filler.constants.logic.GameColor
-import com.example.filler.constants.logic.GameConstants
 import com.example.filler.constants.logic.GameState
 import com.example.filler.gui.game.adapters.BoardAdapter
 import com.example.filler.gui.game.adapters.SelectorAdapter
@@ -27,7 +26,6 @@ class GameMediator(
     fun start() {
         setUpGameBoard()
         setUpSelector()
-        timer.start()
         newRound()
     }
 
@@ -53,12 +51,14 @@ class GameMediator(
     }
 
     private fun playerTurn() {
+        timer.start()
         val colorsSelector = getArrayColors(selectorContent)
         selector.setOnItemClickListener { _, _, position, _ ->
             val color = colorsSelector[position]
             if (colorUnClickable(selectorContent, color))
                 return@setOnItemClickListener
             gameState = game.pickColorManually(color)
+            timer.cancel()
             updateGame()
         }
     }
@@ -68,13 +68,17 @@ class GameMediator(
         updateGame()
     }
 
-    private fun updateGame() {
-        if (gameFinished(gameState)) context.startResultsActivity(gameState) else {
-            updateBoard()
-            updateSelector()
-            timer.start()
-            newRound()
-        }
+    private fun updateGame() = if (gameFinished(gameState)) finishGame() else setUpNextRound()
+
+    private fun finishGame() {
+        context.startResultsActivity(gameState)
+        timer.cancel()
+    }
+
+    private fun setUpNextRound() {
+        updateBoard()
+        updateSelector()
+        newRound()
     }
 
     private fun updateSelector() {

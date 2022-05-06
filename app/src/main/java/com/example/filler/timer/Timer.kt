@@ -13,13 +13,11 @@ class Timer(private val context: GameMediator, var guiTimer: TextView) {
         timer.start()
     }
 
-    fun restart() {
+    fun cancel() {
         timer.cancel()
-        remainingTime = 15
-        timer.start()
     }
 
-    private val timer = object : CountDownTimer(10000, 1000) {
+    private val timer = object : CountDownTimer(15000, 1000) {
 
         override fun onTick(millisUntilFinished: Long) {
             updateTimer()
