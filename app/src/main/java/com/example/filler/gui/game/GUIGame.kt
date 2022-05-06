@@ -32,10 +32,6 @@ class GUIGame : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.userPFP.setOnClickListener {
-            ImagePopup(this, R.id.userPFP)
-        }
-
         guiGameViewModel = ViewModelProvider(this)[GUIGameViewModel::class.java]
         startGameSong(this)
 
