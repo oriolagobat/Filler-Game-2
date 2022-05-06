@@ -89,4 +89,8 @@ class GUIGame : AppCompatActivity() {
         intent.putExtra(Scores.PLAYER1SCORE.name, Score(finalResponse.p1Score))
         intent.putExtra(Scores.PLAYER2SCORE.name, Score(finalResponse.p2Score))
     }
+
+    override fun onBackPressed() {
+        return
+    }
 }
