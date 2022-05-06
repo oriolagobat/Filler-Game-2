@@ -107,7 +107,7 @@
     <TextView
         android:id="@+id/timer"
         android:textSize="25sp"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/main_font"
         android:gravity="center"
