@@ -1,13 +1,16 @@
 package com.example.filler.gui.game.image
 
+import android.widget.ImageView
 import android.widget.Toast
 import com.example.filler.gui.game.GUIGame
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ImagePopup(
-    private val context: GUIGame
+    private val context: GUIGame,
     private val imageId: Int
 ) {    init {
+    val userPFP = context.findViewById<ImageView>(imageId)
+
     MaterialAlertDialogBuilder(context)
         .setTitle("Profile picture")
         .setMessage("What do you want to do with your profile picture?")

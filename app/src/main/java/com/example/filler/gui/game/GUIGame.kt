@@ -31,7 +31,7 @@ class GUIGame : AppCompatActivity() {
         hideNavBar(this)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ImagePopup(this, R.id.user)
+        ImagePopup(this, R.id.userPFP)
 
         guiGameViewModel = ViewModelProvider(this)[GUIGameViewModel::class.java]
         startGameSong(this)
