@@ -35,7 +35,7 @@ class ColorGeneratorTest {
     fun `Colors returned when no moves done are correct`() {
         val colors = colorGenerator.getColorsByGoodness()
         assertEquals(selector.getAvailableColors().count(), colors.count())
-        assertEquals(GameColor.YELLOW, colors.first())
+        assertEquals(Pair(GameColor.YELLOW, 2), colors.first())
     }
 
     @Test
@@ -44,7 +44,7 @@ class ColorGeneratorTest {
         calculator.updateAreas(GameColor.YELLOW)
         val colors = colorGenerator.getColorsByGoodness()
         assertEquals(selector.getAvailableColors().count(), colors.count())
-        assertEquals(GameColor.ORANGE, colors.first())
-        assertEquals(GameColor.PURPLE, colors[colors.count() - 1])
+        assertEquals(Pair(GameColor.ORANGE, 0), colors.first())
+        assertEquals(Pair(GameColor.PURPLE, 0), colors[colors.count() - 1])
     }
 }
