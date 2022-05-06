@@ -51,4 +51,8 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
         gameConf.radioButtonClick(this, checkedId)
     }
+
+    override fun onBackPressed() {
+        return
+    }
 }
