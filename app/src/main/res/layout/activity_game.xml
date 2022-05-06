@@ -55,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/mainGameHeader">
 
         <ImageView
+            android:id="@+id/userPFP"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
