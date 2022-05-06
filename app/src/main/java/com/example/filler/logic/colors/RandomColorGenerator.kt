@@ -1,6 +1,7 @@
 package com.example.filler.logic.colors
 
 import com.example.filler.constants.logic.GameColor
+import kotlin.random.Random
 
 class RandomColorGenerator(
     private val colors: List<GameColor>
@@ -11,6 +12,6 @@ class RandomColorGenerator(
     }
 
     private fun getRandomColor(): GameColor {
-        return colors[(colors.indices).random()]
+        return colors[(colors.indices).random(Random(System.currentTimeMillis()))]
     }
 }
