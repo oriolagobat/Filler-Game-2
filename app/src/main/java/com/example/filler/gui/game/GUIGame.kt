@@ -23,7 +23,6 @@ class GUIGame : AppCompatActivity() {
 
     private lateinit var settings: GameSettings
     private lateinit var guiGameViewModel: GUIGameViewModel
-    private lateinit var gameMediator: GameMediator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +64,7 @@ class GUIGame : AppCompatActivity() {
 
     // Starts the game, making a first iteration to initialize everything
     private fun startGameMediator() {
-        gameMediator = GameMediator(this, settings, getBoard(binding), getSelector(binding))
+        val gameMediator = GameMediator(this, settings, getBoard(binding), getSelector(binding))
         guiGameViewModel.mutableGameMediator.value = gameMediator
     }
 
@@ -94,7 +93,7 @@ class GUIGame : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        gameMediator.timer.finish()
+        guiGameViewModel.mutableGameMediator.value!!.timer.finish()
     }
 
     override fun onPause() {
