@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.filler.R
 import com.example.filler.constants.gui.Intents
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.constants.gui.Scores
@@ -14,7 +13,6 @@ import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.configuration.GameConfiguration
 import com.example.filler.gui.configuration.data.Username
 import com.example.filler.gui.game.data.Score
-import com.example.filler.gui.game.image.ImagePopup
 import com.example.filler.gui.results.Results
 import com.example.filler.gui.shared.hideNavBar
 import com.example.filler.logic.game.GameResponse
