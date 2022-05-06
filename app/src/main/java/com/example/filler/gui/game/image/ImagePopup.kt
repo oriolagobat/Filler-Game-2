@@ -10,7 +10,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import com.example.filler.BuildConfig
 import com.example.filler.gui.configuration.NewGameConfiguration
-import com.example.filler.gui.game.GUIGame
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.io.File
 
