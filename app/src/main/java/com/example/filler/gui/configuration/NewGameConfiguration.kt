@@ -12,7 +12,7 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
     View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     private lateinit var binding: ActivityNewGameConfigurationBinding
-    private lateinit var gameConf : GameConfiguration
+    private lateinit var gameConf: GameConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

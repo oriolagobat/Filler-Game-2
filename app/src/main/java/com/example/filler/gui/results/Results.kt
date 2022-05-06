@@ -86,8 +86,8 @@ class Results : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.emailInput -> getEmail()
             R.id.sendEmailButton -> sendEmail()
-            R.id.restartGameButton -> restartGame()
-            R.id.closeButton -> closeGame()
+            R.id.restartGameButton -> startNewGame()
+            R.id.closeButton -> finish()
         }
     }
 
@@ -101,15 +101,9 @@ class Results : AppCompatActivity(), View.OnClickListener {
         MailSender(this, email, date, log).send()
     }
 
-    private fun restartGame() {
-        // Todo: Check this
+    private fun startNewGame() {
         val intent = Intent(this, NewGameConfiguration::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
-    }
-
-    // TODO: Finish the app
-    private fun closeGame() {
-        android.os.Process.killProcess(android.os.Process.myPid())
+        finish()
     }
 }
