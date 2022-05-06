@@ -4,6 +4,7 @@ import android.widget.TextView
 
 interface GameTimer {
     var timerTextView: TextView
+    fun init()
     fun start()
     fun cancel()
     fun intToFormattedTime(remainingTime: Int): String {

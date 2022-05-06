@@ -12,7 +12,7 @@ class ChronoTimer(
     private val timer = Timer()
     private var currentTime = 0
 
-    override fun start() {
+    override fun init() {
         timer.schedule(object : TimerTask() {
             override fun run() {
                 updateTimer()
@@ -23,6 +23,8 @@ class ChronoTimer(
     private fun updateTimer() {
         timerTextView.text = intToFormattedTime((currentTime++))
     }
+
+    override fun start() {}
 
     override fun cancel() {}
 

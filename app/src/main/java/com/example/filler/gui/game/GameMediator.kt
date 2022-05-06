@@ -27,6 +27,7 @@ class GameMediator(
     fun start() {
         setUpGameBoard()
         setUpSelector()
+        timer.init()
         newRound()
     }
 

@@ -20,6 +20,8 @@ class TimeoutTimer(
         timer.start()
     }
 
+    override fun init() {}
+
     override fun cancel() = timer.cancel()
 
     override fun finish() = cancel()
