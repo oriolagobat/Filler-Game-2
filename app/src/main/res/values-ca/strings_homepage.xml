@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="homepage_header">Inici</string>
+    <string name="homepage_sub_header">Benvingut a Filler!</string>
+    <string name="homepage_help_button">Ajuda</string>
+    <string name="homepage_new_game_button">Començar partida</string>
+    <string name="homepage_quit_button">Sortir</string>
+    <string name="homepage_background_desc">Imatge de fons de la pantalla d\'inici</string>
+</resources>

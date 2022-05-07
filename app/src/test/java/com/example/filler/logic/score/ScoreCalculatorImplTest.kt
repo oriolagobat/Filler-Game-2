@@ -40,5 +40,4 @@ class ScoreCalculatorImplTest {
         calculator.updateAreas(GameColor.ORANGE)
         assertEquals(4, p1Area.totalArea.size)
     }
-
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="results_win_header">Has guanyat!</string>
+    <string name="results_lose_header">Ets un perdedor!</string>
+    <string name="results_draw_header">Empat!</string>
+
+    <string name="results_time">Data i hora</string>
+    <string name="results_default_time">El temps anirà aqui…</string>
+    <string name="results_cal_desc">Icona calendari</string>
+    <string name="results_log">Log</string>
+    <string name="results_default_log">El log anirà aqui…</string>
+    <string name="results_log_desc">Icona del log</string>
+    <string name="results_email">E-mail</string>
+    <string name="results_hint_email">Introdueix el teu email…</string>
+    <string name="results_default_mail">johndoe@gmail.com</string>
+    <string name="results_mail_desc">Icona del mail</string>
+    <string name="results_button_send">Enviar e-mail</string>
+    <string name="results_button_new">Torna a jugar</string>
+    <string name="results_button_close">Sortir</string>
+
+    <string name="results_outcome_win">Crown icon, indicating the user has won</string>
+    <string name="results_outcome_draw">Two swords icon, indicating the user has drawn</string>
+
+
+    <string name="score_p1_sample">Jugador 1: XX</string>
+    <string name="score_ai_sample">Jugador 2: XX</string>
+</resources>
