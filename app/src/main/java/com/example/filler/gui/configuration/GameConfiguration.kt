@@ -6,7 +6,6 @@ import android.widget.RadioButton
 import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
 import com.example.filler.gui.configuration.data.*
-import com.example.filler.gui.game.image.ImagePopup
 import com.example.filler.gui.shared.closeKeyboardClearFocus
 import com.example.filler.log.Logger
 import java.io.Serializable

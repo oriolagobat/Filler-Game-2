@@ -23,10 +23,14 @@ class ChronoTimer(
         timerTextView.text = intToFormattedTime((currentTime++))
     }
 
+    // It's an adapter and its implementation will be done in its sub classes
     override fun start() {}
 
+    // It's an adapter and its implementation will be done in its sub classes
     override fun cancel() {}
 
+    // We don't do anything with the exception because just want to be able to call finish
+    // even when it's already finished
     override fun finish() = try {
         timer.cancel()
     } catch (e: IllegalStateException) { }

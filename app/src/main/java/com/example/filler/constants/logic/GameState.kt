@@ -6,5 +6,4 @@ enum class GameState {
     P1_WON,
     P2_WON,
     DRAW,
-    INITIALIZING
 }

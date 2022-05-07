@@ -11,15 +11,16 @@ class TimeoutTimer(
     val difficulty: Difficulty
 ) : GameTimer {
 
-    private var timoutInSecs = 0L
-    private var timoutInMilis = 0L
+    private var timeoutInSecs = 0L
+    private var timeoutInMilis = 0L
     private var remainingTime = 0
 
     override fun start() {
-        resetRamainingTime()
+        resetRemainingTime()
         timer.start()
     }
 
+    // A timeout timer doesn't need to be initialized
     override fun init() {}
 
     override fun cancel() = timer.cancel()
@@ -27,20 +28,20 @@ class TimeoutTimer(
     override fun finish() = cancel()
 
     init {
-        timoutInSecs = when (difficulty) {
+        timeoutInSecs = when (difficulty) {
             Difficulty.EASY -> EASY_MODE_TIMEOUT_SEC
             Difficulty.MEDIUM -> MEDIUM_MODE_TIMEOUT_SEC
             Difficulty.HARD -> HARD_MODE_TIMEOUT_SEC
         }
-        timoutInMilis = timoutInSecs * 1000
-        resetRamainingTime()
+        timeoutInMilis = timeoutInSecs * 1000
+        resetRemainingTime()
     }
 
-    private fun resetRamainingTime() {
-        remainingTime = timoutInSecs.toInt()
+    private fun resetRemainingTime() {
+        remainingTime = timeoutInSecs.toInt()
     }
 
-    private val timer = object : CountDownTimer(timoutInMilis, TIMER_PERIOD_MS) {
+    private val timer = object : CountDownTimer(timeoutInMilis, TIMER_PERIOD_MS) {
 
         override fun onTick(millisUntilFinished: Long) = updateTimer()
 

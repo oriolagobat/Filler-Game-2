@@ -11,9 +11,9 @@ class TimerFactoryImpl(
 ) :
     TimerFactory {
     override fun createTimer(): GameTimer {
-        when (gameSettings.hasTimeout) {
-            true -> return TimeoutTimer(gameMediator, timerTextView, gameSettings.difficulty)
-            false -> return ChronoTimer(timerTextView, gameSettings.difficulty)
+        return when (gameSettings.hasTimeout) {
+            true -> TimeoutTimer(gameMediator, timerTextView, gameSettings.difficulty)
+            false -> ChronoTimer(timerTextView, gameSettings.difficulty)
         }
     }
 

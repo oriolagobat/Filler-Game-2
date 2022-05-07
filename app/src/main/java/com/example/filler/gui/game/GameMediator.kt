@@ -10,12 +10,11 @@ import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameFactoryImpl
 import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
-import com.example.filler.timer.TimeoutTimer
 import com.example.filler.timer.TimerFactoryImpl
 
 class GameMediator(
     private val context: GUIGame,
-    private var gameSettings: GameSettings,
+    gameSettings: GameSettings,
     var board: GridView,
     var selector: GridView
 ) {
@@ -102,6 +101,4 @@ class GameMediator(
         boardAdapter.colorsList = boardContent
         boardAdapter.notifyDataSetChanged()
     }
-
-
 }
