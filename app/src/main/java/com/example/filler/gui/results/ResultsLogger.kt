@@ -12,9 +12,9 @@ fun updateLogOutcome(intent: Intent) {
     val player2Score = intent.getSerializableExtra(Scores.PLAYER2SCORE.name) as Score
 
     val message = when (intent.getStringExtra(Outcomes.OUTCOME.name)) {
-        Outcomes.WIN.name -> "You won! With a score of ${player1Score.value} points against ${player2Score.value} from the AI"
-        Outcomes.LOSE.name -> "You lost... You got ${player1Score.value} points against ${player2Score.value} from the AI"
-        Outcomes.DRAW.name -> "It's a draw! You both got ${player1Score.value} points"
+        Outcomes.WIN.name -> "P1 won. P1: ${player1Score.value} - P2: ${player2Score.value}"
+        Outcomes.LOSE.name -> "P2 won. P1: ${player1Score.value} - P2: ${player2Score.value}"
+        Outcomes.DRAW.name -> "Draw. P1: ${player1Score.value} - P2: ${player2Score.value}"
         else -> throw IllegalArgumentException("No more possible outcomes")
     }
 

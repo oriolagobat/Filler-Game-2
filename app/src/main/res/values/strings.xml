@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Filler</string>
+    <string name="username_empty">Please enter a username</string>
+    <string name="username_empty_toast">Please enter a username</string>
 </resources>

@@ -41,16 +41,18 @@ fun updateScoreText(
     intent: Intent,
     binding: ActivityResultsBinding
 ) {
-    val player1Score: Score = intent.getSerializableExtra(Scores.PLAYER1SCORE.name) as Score
-    val player1Text = "Your score: ${player1Score.value}"
-    binding.p1Score.text = player1Text
+    val p1Score: Score = intent.getSerializableExtra(Scores.PLAYER1SCORE.name) as Score
+    val p2Score = intent.getSerializableExtra(Scores.PLAYER2SCORE.name) as Score
+    val p1Name = context.getString((R.string.score_p1_sample))
+    val p2Name = context.getString((R.string.score_ai_sample))
 
-    val player2Score = intent.getSerializableExtra(Scores.PLAYER2SCORE.name) as Score
-    val player2Text = "AI score: ${player2Score.value}"
-    binding.aiScore.text = player2Text
+    binding.p1Score.text = formatScore(p1Name, p1Score.value.toString())
+    binding.aiScore.text = formatScore(p2Name, p2Score.value.toString())
 
     setCorrectTextColor(context, intent, binding)
 }
+
+private fun formatScore(name: String, score: String): String = "$name: $score"
 
 private fun setCorrectTextColor(
     context: Results,

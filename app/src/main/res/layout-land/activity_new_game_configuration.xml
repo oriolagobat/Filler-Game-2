@@ -163,6 +163,7 @@
             app:layout_constraintVertical_bias="0.85">
 
             <RadioButton
+                android:id="@+id/difficultyEasy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -170,6 +171,7 @@
                 android:text="@string/configuration_difficulty_easy" />
 
             <RadioButton
+                android:id="@+id/difficultyMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -177,6 +179,7 @@
                 android:text="@string/configuration_difficulty_medium" />
 
             <RadioButton
+                android:id="@+id/difficultyHard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

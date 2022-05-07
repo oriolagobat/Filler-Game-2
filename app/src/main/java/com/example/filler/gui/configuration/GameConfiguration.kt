@@ -55,7 +55,7 @@ data class GameConfiguration(
     ) {
         val usernameInput = binding.usernameInput
         if (usernameInput.text!!.isEmpty()) {
-            usernameInput.error = "Please enter a username"
+            usernameInput.error = context.getString(R.string.username_empty)
         } else {
             username.value = usernameInput.text.toString()
             Logger.logInfo("User chose username: ${username.value}")
@@ -70,8 +70,17 @@ data class GameConfiguration(
 
     fun radioButtonClick(context: NewGameConfiguration, checkedId: Int) {
         val checked: RadioButton = context.findViewById(checkedId)
-        this.difficultyString.value = checked.text.toString()
+        this.difficultyString.value = getDifficultyString(checked.id)
         Logger.logInfo("User chose difficulty: ${difficultyString.value}")
+    }
+
+    private fun getDifficultyString(checkedId: Int): String {
+        return when (checkedId) {
+            R.id.difficultyEasy -> "easy"
+            R.id.difficultyMedium -> "medium"
+            R.id.difficultyHard -> "hard"
+            else -> throw IllegalStateException("Unknown radio button id: $checkedId")
+        }
     }
 
     private fun manageNewGameButton(context: NewGameConfiguration) {

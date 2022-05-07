@@ -2,6 +2,7 @@ package com.example.filler.gui.configuration
 
 import android.content.Intent
 import android.widget.Toast
+import com.example.filler.R
 import com.example.filler.constants.gui.Intents
 import com.example.filler.gui.game.GUIGame
 
@@ -11,7 +12,7 @@ class StartNewGame(
 ) {
     init {
         if (settings.username.value!!.isEmpty()) {
-            val error = "Please enter a username"
+            val error = context.getString(R.string.username_empty_toast)
             Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
         } else {
             // Stop the song player

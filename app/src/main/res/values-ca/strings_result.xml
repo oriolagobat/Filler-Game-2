@@ -22,6 +22,6 @@
     <string name="results_outcome_draw">Two swords icon, indicating the user has drawn</string>
 
 
-    <string name="score_p1_sample">Jugador 1: XX</string>
-    <string name="score_ai_sample">Jugador 2: XX</string>
+    <string name="score_p1_sample">Puntuació J1</string>
+    <string name="score_ai_sample">Puntuació J2</string>
 </resources>
