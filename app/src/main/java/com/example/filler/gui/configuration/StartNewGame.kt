@@ -13,7 +13,7 @@ class StartNewGame(
 ) {
     init {
         if (settings.username.value!!.isEmpty()) {
-            val error = context.getString(R.string.username_empty_toast)
+            val error = context.getString(R.string.username_empty)
             Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
         } else {
             // Stop the song player

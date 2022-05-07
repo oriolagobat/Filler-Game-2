@@ -46,15 +46,16 @@
 
         <TextView
             android:id="@+id/usernameIntro"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
+            android:gravity="start"
             android:text="@string/configuration_username"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/usernameInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.175"
+            app:layout_constraintHorizontal_bias="0.24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainConfigurationHeader" />
 
@@ -87,15 +88,16 @@
 
         <TextView
             android:id="@+id/colorsIntro"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
+            android:gravity="start"
             android:text="@string/configuration_colors"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/colorSample"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.258"
+            app:layout_constraintHorizontal_bias="0.458"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout" />
 
@@ -159,43 +161,46 @@
 
         <TextView
             android:id="@+id/gridIntro"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
+            android:gravity="start"
             android:text="@string/configuration_grid"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/gridSample"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.187"
+            app:layout_constraintHorizontal_bias="0.24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/colorSample" />
 
         <TextView
             android:id="@+id/timeIntro"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
+            android:gravity="start"
             android:text="@string/configuration_time"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/timeSample"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gridSample" />
 
         <TextView
             android:id="@+id/difficultyIntro"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
+            android:gravity="start"
             android:text="@string/configuration_difficulty_choose"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/difficultyRadioGroup"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.198"
+            app:layout_constraintHorizontal_bias="0.235"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timeSample" />
 
