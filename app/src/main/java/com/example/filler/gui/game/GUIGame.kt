@@ -1,6 +1,7 @@
 package com.example.filler.gui.game
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -40,6 +41,9 @@ class GUIGame : AppCompatActivity() {
         val boardSize = getFirstIntFromString(guiSettings.boardSize.value!!)
         val colorNum = getFirstIntFromString(guiSettings.colorNumber.value!!)
         val hasTimeout = guiSettings.timeControl.value
+
+        // Set the image the user has chosen
+        binding.userPFP.setImageURI(Uri.parse(guiSettings.profilePicture.value))
 
         // Create game settings
         settings = GameSettings(boardSize, colorNum, difficulty, hasTimeout)

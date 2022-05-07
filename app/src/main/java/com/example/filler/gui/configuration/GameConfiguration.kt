@@ -6,6 +6,7 @@ import android.widget.RadioButton
 import com.example.filler.R
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
 import com.example.filler.gui.configuration.data.*
+import com.example.filler.gui.game.image.ImagePopup
 import com.example.filler.gui.shared.closeKeyboardClearFocus
 import com.example.filler.log.Logger
 import java.io.Serializable
@@ -15,7 +16,8 @@ data class GameConfiguration(
     val colorNumber: ColorNumber = ColorNumber(),
     val boardSize: BoardSize = BoardSize(),
     val timeControl: TimeControl = TimeControl(),
-    val difficultyString: DifficultyString = DifficultyString()
+    val difficultyString: DifficultyString = DifficultyString(),
+    val profilePicture: ProfilePicture = ProfilePicture(),
 ) : Serializable {
     fun spinnerClick(spinner: AdapterView<*>?, position: Int) {
         when (spinner?.id) {
@@ -40,7 +42,7 @@ data class GameConfiguration(
     fun click(
         v: View?,
         context: NewGameConfiguration,
-        binding: ActivityNewGameConfigurationBinding
+        binding: ActivityNewGameConfigurationBinding,
     ) {
         when (v?.id) {
             R.id.usernameInput -> manageUsernameInput(context, binding)
