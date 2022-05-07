@@ -29,13 +29,7 @@ class StartNewGame(
     private fun buildNewGameIntent(
     ): Intent {
         // Save the chosen image, done here because image is chosen asynchronously
-        val savedImageUri = context.imagePopup.chosenImageUri.toString()
-        Toast.makeText(context, savedImageUri, Toast.LENGTH_SHORT).show()
-        if (savedImageUri == "gallery") {
-            settings.profilePicture.value = context.imagePopup.mediaGallery.imageUri!!.toString()
-        } else {
-            settings.profilePicture.value = savedImageUri
-        }
+        savePlayerImage(settings.profilePicture, context)
         val intent = Intent(context, GUIGame::class.java)
         intent.putExtra(Intents.SETTINGS.name, settings)
         return intent

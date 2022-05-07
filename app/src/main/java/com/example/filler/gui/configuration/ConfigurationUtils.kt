@@ -5,9 +5,10 @@ import android.widget.Toast
 import com.example.filler.R
 import com.example.filler.constants.gui.Music
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
-import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.gui.configuration.data.DifficultyString
+import com.example.filler.gui.configuration.data.ProfilePicture
 import com.example.filler.gui.configuration.data.Username
+import com.example.filler.gui.shared.SongPlayer
 
 fun setUpConfigListeners(
     context: NewGameConfiguration,
@@ -55,4 +56,26 @@ fun startConfSong(context: NewGameConfiguration) {
 fun stopConfSong(context: NewGameConfiguration) {
     val intent = Intent(context, SongPlayer::class.java)
     context.stopService(intent)
+}
+
+fun savePlayerImage(
+    profilePicture: ProfilePicture,
+    context: NewGameConfiguration
+) {
+    val savedImageUriStr = context.imagePopup.chosenImageUri.toString()
+
+    if (userChoseLibrary(savedImageUriStr)) saveLibraryUriStr(
+        profilePicture,
+        context
+    ) else saveUriStr(profilePicture, savedImageUriStr)
+}
+
+private fun userChoseLibrary(savedImageUriStr: String): Boolean = (savedImageUriStr == "gallery")
+private fun saveLibraryUriStr(
+    profilePicture: ProfilePicture, context: NewGameConfiguration
+) {
+    profilePicture.value = context.imagePopup.mediaGallery.imageUri!!.toString()
+}
+private fun saveUriStr(profilePicture: ProfilePicture, savedImageUriStr: String) {
+    profilePicture.value = savedImageUriStr
 }
