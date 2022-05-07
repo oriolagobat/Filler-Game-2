@@ -5,6 +5,7 @@ import android.widget.Toast
 import com.example.filler.R
 import com.example.filler.constants.gui.Intents
 import com.example.filler.gui.game.GUIGame
+import com.example.filler.log.Logger
 
 class StartNewGame(
     private val settings: GameConfiguration,
@@ -19,6 +20,7 @@ class StartNewGame(
             stopConfSong(context)
 
             val intent = buildNewGameIntent()
+            Logger.clearLog()
             context.startActivity(intent)
             context.finish()
         }

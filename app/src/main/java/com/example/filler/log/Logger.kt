@@ -9,15 +9,6 @@ object Logger {
 
     private val logList = mutableListOf<String>()
 
-    private fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
-        val formatter = SimpleDateFormat(format, locale)
-        return formatter.format(this)
-    }
-
-    private fun getCurrentDateTime(): Date {
-        return Calendar.getInstance().time
-    }
-
     fun logDebug(message: String) {
         logList.add(getCurrentDateTime().toString(LOGGER_DATE_FORMAT) + " [DEBUG]: " + message)
     }
@@ -34,7 +25,18 @@ object Logger {
         logList.add(getCurrentDateTime().toString(LOGGER_DATE_FORMAT) + " [ERROR]: " + message)
     }
 
+    fun clearLog() = logList.clear()
+
     fun getLog(): String {
         return logList.joinToString("\n")
+    }
+
+    private fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
+        val formatter = SimpleDateFormat(format, locale)
+        return formatter.format(this)
+    }
+
+    private fun getCurrentDateTime(): Date {
+        return Calendar.getInstance().time
     }
 }
