@@ -19,4 +19,10 @@
     <string name="color_image_description">Color roulette</string>
     <string name="board_image_description">Board icon</string>
     <string name="clock_image_description">Clock icon</string>
+
+    <string name="configuration_popup_title">Profile picture</string>
+    <string name="configuration_popup_message">What do you want to do with your profile picture?</string>
+    <string name="configuration_popup_default">Use the default one</string>
+    <string name="configuration_popup_camera">Take a picture</string>
+    <string name="configuration_popup_gallery">Choose from gallery</string>
 </resources>

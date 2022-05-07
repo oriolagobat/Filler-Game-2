@@ -20,9 +20,9 @@ class ImagePopup(
 
     fun show() {
         MaterialAlertDialogBuilder(context)
-            .setTitle("Profile picture")
-            .setMessage("What do you want to do with your profile picture?")
-            .setNegativeButton("Take a picture") { _, _ ->
+            .setTitle(context.getString(R.string.configuration_popup_title))
+            .setMessage(context.getString(R.string.configuration_popup_message))
+            .setNegativeButton(context.getString(R.string.configuration_popup_camera)) { _, _ ->
                 camera.tempImageUri = FileProvider.getUriForFile(
                     context,
                     BuildConfig.APPLICATION_ID + ".provider",
@@ -33,11 +33,11 @@ class ImagePopup(
                 camera.imageFromCamera()
                 chosenImageUri = camera.tempImageUri!!
             }
-            .setNeutralButton("Choose from gallery") { _, _ ->
+            .setNeutralButton(context.getString(R.string.configuration_popup_gallery)) { _, _ ->
                 mediaGallery.imageFromGallery()
                 chosenImageUri = Uri.parse("gallery")
             }
-            .setPositiveButton("Use the default one", null).also {
+            .setPositiveButton(context.getString(R.string.configuration_popup_default), null).also {
                 chosenImageUri = Uri.parse("android.resource://" + context.packageName + "/" + R.drawable.user_profile)
             }
             .show()
