@@ -7,6 +7,7 @@ import com.example.filler.constants.gui.Music
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.constants.logic.GameState
 import com.example.filler.databinding.ActivityGameBinding
+import com.example.filler.gui.game.viewmodel.GUIGameViewModel
 import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.logic.game.GameResponse
 
@@ -15,7 +16,7 @@ fun getFirstIntFromString(str: String): Int = str.first().digitToInt()
 fun getBoard(binding: ActivityGameBinding): GridView = binding.boardGridView
 fun getSelector(binding: ActivityGameBinding): GridView = binding.selectorGridView
 
-fun setUpViewModel(viewModel: GUIGameViewModel): Boolean = !viewModel.setUpViewModel.value!!
+fun setUpGameViewModel(viewModel: GUIGameViewModel): Boolean = !viewModel.setUpViewModel.value!!
 
 fun refreshBoardSelectorReference(viewModel: GUIGameViewModel, binding: ActivityGameBinding) {
     val mediator = viewModel.mutableGameMediator.value!!

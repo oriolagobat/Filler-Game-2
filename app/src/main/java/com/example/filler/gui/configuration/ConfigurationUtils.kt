@@ -2,12 +2,12 @@ package com.example.filler.gui.configuration
 
 import android.content.Intent
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.filler.R
 import com.example.filler.constants.gui.Music
 import com.example.filler.databinding.ActivityNewGameConfigurationBinding
-import com.example.filler.gui.configuration.data.DifficultyString
 import com.example.filler.gui.configuration.data.ProfilePicture
-import com.example.filler.gui.configuration.data.Username
+import com.example.filler.gui.configuration.viewmodel.ConfigurationGameViewModel
 import com.example.filler.gui.shared.SongPlayer
 
 fun setUpConfigListeners(
@@ -28,14 +28,17 @@ fun setUpConfigListeners(
 }
 
 fun correctGameSettings(
+    gameConfiguration: GameConfiguration,
     context: NewGameConfiguration,
-    username: Username,
-    difficulty: DifficultyString
 ): Boolean {
+    val username = gameConfiguration.username.value
+    val difficulty = gameConfiguration.difficultyString.value
     val errorMsg: String? = when {
         // Check possible variables that don't have a default value
-        (username.value == null) -> context.getString(R.string.username_empty)
-        (difficulty.value == null) -> context.getString(R.string.difficulty_empty)
+        (username == null || username.isEmpty()) -> context.getString(R.string.username_empty)
+        (difficulty == null || difficulty.isEmpty()) -> context.getString(
+            R.string.difficulty_empty
+        )
         else -> null
     }
 
@@ -76,6 +79,21 @@ private fun saveLibraryUriStr(
 ) {
     profilePicture.value = context.imagePopup.mediaGallery.imageUri!!.toString()
 }
+
 private fun saveUriStr(profilePicture: ProfilePicture, savedImageUriStr: String) {
     profilePicture.value = savedImageUriStr
+}
+
+fun setUpConfigurationViewModel(
+    owner: NewGameConfiguration,
+): GameConfiguration {
+    val configurationGameViewModel =
+        ViewModelProvider(owner)[ConfigurationGameViewModel::class.java]
+    val gameConf: GameConfiguration?
+    if (!configurationGameViewModel.setUpViewModel.value!!) {
+        configurationGameViewModel.setUpViewModel.value = true
+        gameConf = GameConfiguration()
+        configurationGameViewModel.mutableGameConfiguration.value = gameConf
+    } else gameConf = configurationGameViewModel.mutableGameConfiguration.value!!
+    return gameConf
 }

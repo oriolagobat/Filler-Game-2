@@ -14,6 +14,7 @@ import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.configuration.GameConfiguration
 import com.example.filler.gui.configuration.data.Username
 import com.example.filler.gui.game.data.Score
+import com.example.filler.gui.game.viewmodel.GUIGameViewModel
 import com.example.filler.gui.results.Results
 import com.example.filler.gui.shared.hideNavBar
 import com.example.filler.logic.game.GameResponse
@@ -55,7 +56,7 @@ class GUIGame : AppCompatActivity() {
     }
 
     private fun checkRecreationAndStart() {
-        if (setUpViewModel(guiGameViewModel)) {
+        if (setUpGameViewModel(guiGameViewModel)) {
             startGameMediator()
             guiGameViewModel.setUpViewModel.value = true
         } else refreshBoardSelectorReference(guiGameViewModel, binding)

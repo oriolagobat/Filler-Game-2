@@ -23,12 +23,11 @@ class NewGameConfiguration : AppCompatActivity(), AdapterView.OnItemSelectedList
         setContentView(binding.root)
         imagePopup = ImagePopup(this)
 
+        gameConf = setUpConfigurationViewModel(this)
+
         binding.pfpButton.setOnClickListener {
             imagePopup.show()
         }
-
-        // Initialize game configuration
-        gameConf = GameConfiguration()
 
         // Start the song player
         startConfSong(this)
