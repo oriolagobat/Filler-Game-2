@@ -16,7 +16,8 @@ class ImagePopup(
     mediaGallery.setMediaGalleryLauncher()
 }
 
-    var chosenImageUri: Uri? = null
+    var chosenImageUri: Uri =
+        Uri.parse("android.resource://" + context.packageName + "/" + R.drawable.user_profile)
 
     fun show() {
         MaterialAlertDialogBuilder(context)
@@ -38,7 +39,8 @@ class ImagePopup(
                 chosenImageUri = Uri.parse("gallery")
             }
             .setPositiveButton(context.getString(R.string.configuration_popup_default), null).also {
-                chosenImageUri = Uri.parse("android.resource://" + context.packageName + "/" + R.drawable.user_profile)
+                chosenImageUri =
+                    Uri.parse("android.resource://" + context.packageName + "/" + R.drawable.user_profile)
             }
             .show()
     }

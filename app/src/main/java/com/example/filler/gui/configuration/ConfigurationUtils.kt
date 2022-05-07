@@ -34,8 +34,8 @@ fun correctGameSettings(
 ): Boolean {
     val errorMsg: String? = when {
         // Check possible variables that don't have a default value
-        (username.value == null) -> "Enter a username"
-        (difficulty.value == null) -> "Select a difficulty"
+        (username.value == null) -> context.getString(R.string.username_empty)
+        (difficulty.value == null) -> context.getString(R.string.difficulty_empty)
         else -> null
     }
 

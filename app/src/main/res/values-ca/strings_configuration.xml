@@ -3,7 +3,7 @@
     <string name="configuration_header">Configuració</string>
     <string name="configuration_sub_header">Escull la configuració</string>
     <string name="configuration_username">Introdueix el nom d\'usuari</string>
-    <string name="configuration_username_hint">Nom d\'usuari aqui</string>
+    <string name="configuration_username_hint">Escriu aquí el teu nom d\'usuari</string>
     <string name="configuration_colors">Escull el nombre de colors</string>
     <string name="configuration_grid">Escull la mida de la taula</string>
     <string name="configuration_time">Vols control de temps?</string>
@@ -15,13 +15,14 @@
     <string name="conf_background_desc">Imatge de fons de la pantalla de configuració</string>
     <string name="conf_pfp">Canvia la imatge de perfil</string>
     <string name="username_empty">Introdueix un nom d\'usuari</string>
+    <string name="difficulty_empty">Selecciona una dificultat</string>
 
     <string name="color_image_description">Color roulette</string>
     <string name="board_image_description">Board icon</string>
     <string name="clock_image_description">Clock icon</string>
 
     <string name="configuration_popup_title">Foto de perfil</string>
-    <string name="configuration_popup_message">Que t'agradaria fer amb la foto de perfil?</string>
+    <string name="configuration_popup_message">Que t\'agradaria fer amb la foto de perfil?</string>
     <string name="configuration_popup_default">Utilitza la per defecte</string>
     <string name="configuration_popup_camera">Obre la càmara</string>
     <string name="configuration_popup_gallery">Tria una fotografia de la galeria</string>

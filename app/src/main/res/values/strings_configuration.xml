@@ -15,6 +15,7 @@
     <string name="conf_background_desc">Background image for the configuration screen</string>
     <string name="conf_pfp">Change your profile picture</string>
     <string name="username_empty">Please enter a username</string>
+    <string name="difficulty_empty">Select a difficulty</string>
 
     <string name="color_image_description">Color roulette</string>
     <string name="board_image_description">Board icon</string>
