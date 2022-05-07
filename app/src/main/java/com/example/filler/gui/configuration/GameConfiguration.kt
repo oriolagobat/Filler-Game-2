@@ -85,7 +85,7 @@ data class GameConfiguration(
     }
 
     private fun manageNewGameButton(context: NewGameConfiguration) {
-        if (correctGameSettings( this, context)) {
+        if (correctGameSettings(this, context)) {
             StartNewGame(this, context)
             Logger.logInfo("User chooses to start a new game")
         }
