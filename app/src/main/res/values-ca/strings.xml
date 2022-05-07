@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Filler</string>
-    <string name="username_empty">Introdueix un nom d\'usuari</string>
-    <string name="username_empty_toast">Introdueix un nom d\'usuari</string>
 </resources>

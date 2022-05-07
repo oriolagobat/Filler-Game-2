@@ -14,6 +14,7 @@
     <string name="startNewGameButton">Començar partida</string>
     <string name="conf_background_desc">Imatge de fons de la pantalla de configuració</string>
     <string name="conf_pfp">Canvia la imatge de perfil</string>
+    <string name="username_empty">Introdueix un nom d\'usuari</string>
 
     <string name="color_image_description">Color roulette</string>
     <string name="board_image_description">Board icon</string>
