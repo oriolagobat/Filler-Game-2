@@ -10,13 +10,13 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 class ImagePopup(
     private val context: NewGameConfiguration,
     private val camera: Camera = Camera(context),
-    private val mediaGallery: MediaGallery = MediaGallery(context)
+    val mediaGallery: MediaGallery = MediaGallery(context)
 ) {    init {
     camera.setCameraLauncher()
     mediaGallery.setMediaGalleryLauncher()
 }
 
-    lateinit var chosenImageUri: Uri
+    var chosenImageUri: Uri? = null
 
     fun show() {
         MaterialAlertDialogBuilder(context)
@@ -35,7 +35,7 @@ class ImagePopup(
             }
             .setNeutralButton("Choose from gallery") { _, _ ->
                 mediaGallery.imageFromGallery()
-                chosenImageUri = mediaGallery.imageUri
+                chosenImageUri = Uri.parse("gallery")
             }
             .setPositiveButton("Use the default one", null).also {
                 chosenImageUri = Uri.parse("android.resource://" + context.packageName + "/" + R.drawable.user_profile)

@@ -3,18 +3,16 @@ package com.example.filler.gui.game.image
 import android.Manifest
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
-import com.example.filler.R
 import com.example.filler.gui.configuration.NewGameConfiguration
 
 class MediaGallery(
     private val context: NewGameConfiguration,
 ) {
     private lateinit var mediaGalleryLauncher: ActivityResultLauncher<String>
-    lateinit var imageUri: Uri
+    var imageUri: Uri? = null
 
     fun setMediaGalleryLauncher() {
         mediaGalleryLauncher =
