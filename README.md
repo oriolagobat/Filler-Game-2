@@ -3,7 +3,7 @@
 Filler Game 🎮
 </h1>
 
-<h1 align="center"><img src="https://github.com/oriolagobat/Filler-Game/tree/main/images/gameplay.gif" height="288px" width="182px"></h1>
+<h2 align = center> <img align="center" src="https://github.com/oriolagobat/Filler-Game/blob/main/images/gameplay.gif" height="288px" width="182px"/> </h2>
 
 
 ## App features 📱
