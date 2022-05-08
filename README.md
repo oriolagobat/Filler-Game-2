@@ -29,8 +29,8 @@ Filler Game 🎮
 - By default the time is unlimited, but the user can choose to set a round time limit, which will
   determine how many seconds he has to choose a color. When the time is up, a random color is chosen
   as a punishment. If time control is enabled, this limit will be:
-    - Easy: 3 seconds
-    - Medium: 3 seconds
+    - Easy: 10 seconds
+    - Medium: 7 seconds
     - Hard: 3 seconds
 - The user profile picture shown during the game, can be changed to any image. Either to the default
   one, one from the gallery, or one taken from the camera.
