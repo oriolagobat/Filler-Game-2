@@ -19,19 +19,12 @@ class ChronoTimer(
         }, 0, TIMER_PERIOD_MS)
     }
 
-    private fun updateTimer() {
-        timerTextView.text = intToFormattedTime((currentTime++))
-    }
+    private fun updateTimer() { timerTextView.text = intToFormattedTime((currentTime++)) }
 
-    // It's an adapter and its implementation will be done in its sub classes
+    override fun finish() = try { timer.cancel() } catch (e: IllegalStateException) { }
+
+    // Following methods not implemented since chrono timer is not stopped between rounds
     override fun start() {}
 
-    // It's an adapter and its implementation will be done in its sub classes
     override fun cancel() {}
-
-    // We don't do anything with the exception because just want to be able to call finish
-    // even when it's already finished
-    override fun finish() = try {
-        timer.cancel()
-    } catch (e: IllegalStateException) { }
 }
