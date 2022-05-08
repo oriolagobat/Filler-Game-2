@@ -3,7 +3,8 @@
 Filler Game 🎮
 </h1>
 
-![Alt text](/images/in-game.png?raw=true "View during game")
+<h1 align="center"><img src="https://github.com/oriolagobat/Filler-Game/tree/main/images/gameplay.gif" height="288px" width="182px"></h1>
+
 
 ## App features 📱
 - There is a help section with a simple explanation of the game rules and objectives
