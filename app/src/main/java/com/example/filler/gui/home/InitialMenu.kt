@@ -32,6 +32,7 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         binding.newGameButton.setOnClickListener(this)
         binding.queryButton.setOnClickListener(this)
         binding.quitButton.setOnClickListener(this)
+        binding.settingsButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -39,6 +40,7 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
             R.id.helpButton -> startHelpScreen()
             R.id.newGameButton -> startGameScreen()
             R.id.queryButton -> startQueryScreen()
+            R.id.settingsButton -> startSettingsScreen()
             R.id.quitButton -> finish()
             else -> throw IllegalArgumentException("No more buttons")
         }
@@ -52,8 +54,8 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
 
     private fun startGameScreen() {
         // FIXME: Implement game class and uncomment
-//        val configurationIntent = Intent(this, NewGame::class.java)
-//        startActivity(configurationIntent)
+//        val gameIntent = Intent(this, NewGame::class.java)
+//        startActivity(gameIntent)
         finish()
     }
 
@@ -61,6 +63,12 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
         // FIXME: Implement query class and uncomment
 //        val queryIntent = Intent(this, Query::class.java)
 //        startActivity(queryIntent)
+    }
+
+    private fun startSettingsScreen() {
+        // FIXME: Implement settings class and uncomment
+//        val settingsIntent = Intent(this, Settings::class.java)
+//        startActivity(settingsIntent)
     }
 
     private fun checkAndRequestInitialPermissions() {

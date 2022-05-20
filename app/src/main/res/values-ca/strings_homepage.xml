@@ -7,4 +7,5 @@
     <string name="homepage_check_game_button">Consultar antics jocs</string>
     <string name="homepage_quit_button">Sortir</string>
     <string name="homepage_background_desc">Imatge de fons de la pantalla d\'inici</string>
+    <string name="homepage_settings_desc">Botó per anar a l\'activitat de configuració</string>
 </resources>
