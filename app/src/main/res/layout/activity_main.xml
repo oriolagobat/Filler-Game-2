@@ -1,3 +1,111 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/homepage_background_desc"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_homepage" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".gui.homepage.InitialMenu">
+
+
+        <TextView
+            android:id="@+id/mainHelpHeader"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="160dp"
+            android:fontFamily="@font/title_font"
+            android:gravity="center"
+            android:text="@string/homepage_header"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mainHelpSubHeader"
+            android:layout_width="355dp"
+            android:layout_height="27dp"
+            android:layout_marginBottom="160dp"
+            android:fontFamily="@font/title_font"
+            android:gravity="center"
+            android:text="@string/homepage_sub_header"
+            android:textColor="@color/purple_500"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/helpButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/homepage_help_button"
+            android:textSize="20sp"
+            app:icon="@drawable/icon_question"
+            app:layout_constraintBottom_toTopOf="@+id/newGameButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/newGameButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/homepage_new_game_button"
+            android:textSize="20sp"
+            app:icon="@drawable/icon_settings"
+            app:layout_constraintBottom_toTopOf="@+id/checkGamesButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/helpButton" />
+
+        <Button
+            android:id="@+id/checkGamesButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/homepage_check_game_button"
+            android:textSize="20sp"
+            app:icon="@drawable/icon_check_old_games"
+            app:layout_constraintBottom_toTopOf="@+id/quitButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newGameButton" />
+
+        <Button
+            android:id="@+id/quitButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/homepage_quit_button"
+            android:textSize="20sp"
+            app:icon="@drawable/icon_close"
+            app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkGamesButton" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+

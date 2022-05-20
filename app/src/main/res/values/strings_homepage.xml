@@ -4,6 +4,7 @@
     <string name="homepage_sub_header">Welcome to Filler !</string>
     <string name="homepage_help_button">Help</string>
     <string name="homepage_new_game_button">New Game</string>
+    <string name="homepage_check_game_button">Check old games</string>
     <string name="homepage_quit_button">Quit</string>
     <string name="homepage_background_desc">Background image for the homepage screen</string>
 </resources>
