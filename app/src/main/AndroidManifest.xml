@@ -30,7 +30,7 @@
             android:name=".gui.help.Help"
             android:exported="false" />
         <activity
-            android:name=".gui.homepage.InitialMenu"
+            android:name=".gui.home.InitialMenu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -48,13 +48,13 @@
         android:textSize="20sp"
         app:icon="@drawable/icon_settings"
         app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
-        app:layout_constraintEnd_toStartOf="@+id/checkGamesButton"
+        app:layout_constraintEnd_toStartOf="@+id/queryButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/helpButton"
         app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
 
     <Button
-        android:id="@+id/checkGamesButton"
+        android:id="@+id/queryButton"
         style="@style/Widget.Material3.Button.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/checkGamesButton"
+        app:layout_constraintStart_toEndOf="@+id/queryButton"
         app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
 
     <TextView

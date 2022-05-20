@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".gui.homepage.InitialMenu">
+        tools:context=".gui.home.InitialMenu">
 
 
         <TextView
@@ -56,13 +56,13 @@
             android:textSize="65sp"
             app:icon="@drawable/icon_settings"
             app:iconSize="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/checkGamesButton"
+            app:layout_constraintBottom_toTopOf="@+id/queryButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/helpButton" />
 
         <Button
-            android:id="@+id/checkGamesButton"
+            android:id="@+id/queryButton"
             style="@style/Widget.Material3.Button.Icon"
             android:layout_width="500dp"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkGamesButton" />
+            app:layout_constraintTop_toBottomOf="@+id/queryButton" />
 
         <TextView
             android:id="@+id/mainHelpSubHeader"

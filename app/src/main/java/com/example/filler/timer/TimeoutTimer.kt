@@ -1,9 +1,10 @@
+/*
 package com.example.filler.timer
 
 import android.os.CountDownTimer
 import android.widget.TextView
 import com.example.filler.constants.logic.*
-import com.example.filler.gui.game.GameMediator
+//import com.example.filler.gui.game.GameMediator
 
 class TimeoutTimer(
     private val context: GameMediator,
@@ -57,4 +58,4 @@ class TimeoutTimer(
         val remainingTimeString = intToFormattedTime(remainingTime)
         timerTextView.text = remainingTimeString
     }
-}
+}*/
