@@ -1,12 +1,14 @@
 package com.example.filler.gui.home
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
+import com.example.filler.gui.help.Help
 import com.example.filler.gui.shared.hideNavBar
 import com.google.android.material.color.DynamicColors
 
@@ -47,9 +49,8 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun startHelpScreen() {
-        // FIXME: Implement help class and uncomment
-//        val helpIntent = Intent(this, Help::class.java)
-//        startActivity(helpIntent)
+        val helpIntent = Intent(this, Help::class.java)
+        startActivity(helpIntent)
     }
 
     private fun startGameScreen() {
