@@ -1,6 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_homepage">
+
+
+    <TextView
+        android:id="@+id/mainHelpHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/title_font"
+        android:gravity="center"
+        android:text="@string/homepage_header"
+        android:textColor="@color/white"
+        android:textSize="90sp"
+        app:layout_constraintBottom_toTopOf="@+id/newGameButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/helpButton"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        android:layout_marginBottom="67dp"
+        android:fontFamily="@font/main_font"
+        android:text="@string/homepage_help_button"
+        app:iconSize="40dp"
+        android:textSize="65sp"
+        app:icon="@drawable/icon_question"
+        app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
+        app:layout_constraintEnd_toStartOf="@+id/newGameButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
+
+    <Button
+        android:id="@+id/newGameButton"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
+        android:text="@string/homepage_new_game_button"
+        android:textSize="65sp"
+        app:iconSize="40dp"
+        app:icon="@drawable/icon_settings"
+        app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
+        app:layout_constraintEnd_toStartOf="@+id/checkGamesButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/helpButton"
+        app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
+
+    <Button
+        android:id="@+id/checkGamesButton"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="470dp"
+        app:iconSize="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        android:layout_marginBottom="67dp"
+        android:fontFamily="@font/main_font"
+        android:text="@string/homepage_check_game_button"
+        android:textSize="65sp"
+        app:icon="@drawable/icon_check_old_games"
+        app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
+        app:layout_constraintEnd_toStartOf="@+id/quitButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/newGameButton"
+        app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
+
+    <Button
+        android:id="@+id/quitButton"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        android:layout_marginBottom="67dp"
+        android:fontFamily="@font/main_font"
+        android:text="@string/homepage_quit_button"
+        android:textSize="65sp"
+        app:iconSize="40dp"
+        app:icon="@drawable/icon_close"
+        app:layout_constraintBottom_toTopOf="@+id/mainHelpSubHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkGamesButton"
+        app:layout_constraintTop_toBottomOf="@+id/mainHelpHeader" />
+
+    <TextView
+        android:id="@+id/mainHelpSubHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/title_font"
+        android:gravity="center"
+        android:text="@string/homepage_sub_header"
+        android:textColor="@color/purple_500"
+        android:textSize="95sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newGameButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
