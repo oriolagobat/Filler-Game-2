@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.filler.databinding.GameFragmentBinding
 import com.example.filler.gui.game.GUIGame
 import com.example.filler.gui.game.startGameSong
+import com.example.filler.gui.game.stopGameSong
 
 class GameFragment : Fragment() {
 
@@ -21,5 +22,10 @@ class GameFragment : Fragment() {
         val binding = GameFragmentBinding.inflate(inflater, container, false)
         startGameSong(activity as GUIGame)
         return binding.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopGameSong(activity as GUIGame)
     }
 }
