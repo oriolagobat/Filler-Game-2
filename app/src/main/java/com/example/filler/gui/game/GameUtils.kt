@@ -8,6 +8,7 @@ import com.example.filler.constants.gui.Music
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.constants.logic.GameState
 import com.example.filler.databinding.GameFragmentBinding
+import com.example.filler.gui.game.fragments.GameFragment
 import com.example.filler.gui.game.viewmodel.GUIGameViewModel
 import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.logic.game.GameResponse
@@ -20,8 +21,13 @@ fun getTimer(binding: GameFragmentBinding): TextView = binding.timer
 
 fun setUpGameViewModel(viewModel: GUIGameViewModel): Boolean = !viewModel.setUpViewModel.value!!
 
-fun refreshBoardSelectorReference(viewModel: GUIGameViewModel, binding: GameFragmentBinding) {
+fun refreshBoardSelectorReference(
+    viewModel: GUIGameViewModel,
+    binding: GameFragmentBinding,
+    gameFragment: GameFragment
+) {
     val mediator = viewModel.mutableGameMediator.value!!
+    mediator.gameFragment = gameFragment
     mediator.board = binding.boardGridView
     mediator.selector = binding.selectorGridView
     mediator.timer.timerTextView = binding.timer

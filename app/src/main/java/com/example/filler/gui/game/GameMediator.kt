@@ -14,17 +14,18 @@ import com.example.filler.logic.game.GameSettings
 import com.example.filler.timer.TimerFactoryImpl
 
 class GameMediator(
-    private val context: GameFragment,
+    var gameFragment: GameFragment,
     gameSettings: GameSettings,
     var board: GridView,
     var selector: GridView,
-    timerBox: TextView,
+    timerView: TextView,
 ) {
+    private val gameFragmentActivity = gameFragment.requireActivity()
     private val game: Game = GameFactoryImpl(gameSettings).makeGame()
     private var gameState: GameResponse = game.getGameResponse()
     private var boardContent: Array<GameColor> = gameState.board.toArray()
     private var selectorContent: Array<Pair<GameColor, Boolean>> = gameState.selector.toArray()
-    val timer = TimerFactoryImpl(this, timerBox, gameSettings).createTimer()
+    val timer = TimerFactoryImpl(this, timerView, gameSettings).createTimer()
     fun start() {
         setUpGameBoard()
         setUpSelector()
@@ -35,13 +36,13 @@ class GameMediator(
     private fun setUpGameBoard() {
         val boardSize = gameState.board.getNumCols()
         board.numColumns = boardSize
-        board.adapter = BoardAdapter(context.requireContext(), boardContent, board)
+        board.adapter = BoardAdapter(gameFragment.requireContext(), boardContent, board)
     }
 
     private fun setUpSelector() {
         val selectorNum = gameState.selector.getTotalAmountOfColors()
         selector.numColumns = selectorNum
-        selector.adapter = SelectorAdapter(context.requireContext(), selectorContent, selector)
+        selector.adapter = SelectorAdapter(gameFragment.requireContext(), selectorContent, selector)
     }
 
     private fun newRound() {
@@ -78,9 +79,10 @@ class GameMediator(
     private fun updateGame() = if (gameFinished(gameState)) finishGame() else setUpNextRound()
 
     private fun finishGame() {
-        // TODO: Implement with new version
-        context.startResultsActivity(gameState)
+        // TODO: Implement
+//        context.startResultsActivity(gameState)
         timer.finish()
+        gameFragmentActivity.finish()
     }
 
     private fun setUpNextRound() {
