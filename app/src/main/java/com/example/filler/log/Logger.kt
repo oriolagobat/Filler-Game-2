@@ -7,34 +7,40 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object Logger {
-    val logList = MutableLiveData<MutableList<String>>()
+    val logList = MutableLiveData<List<String>>()
 
     init {
         if (logList.value == null) {
-            logList.value = mutableListOf()
+            logList.value = listOf()
         }
     }
 
     fun logDebug(message: String) {
-        logList.value!!.add(getCurrentDateTime().toString(LOGGER_DATE_FORMAT) + " [DEBUG]: " + message)
+        logList.value = logList.value?.plus(newLogMessage(message, "DEBUG"))
     }
 
     fun logInfo(message: String) {
-        logList.value!!.add(getCurrentDateTime().toString(LOGGER_DATE_FORMAT) + " [INFO]: " + message)
+        logList.value = logList.value?.plus(newLogMessage(message, "INFO"))
     }
 
     fun logWarning(message: String) {
-        logList.value!!.add(getCurrentDateTime().toString(LOGGER_DATE_FORMAT) + " [WARN]: " + message)
+        logList.value = logList.value?.plus(newLogMessage(message, "WARNING"))
     }
 
     fun logError(message: String) {
-        logList.value!!.add(getCurrentDateTime().toString(LOGGER_DATE_FORMAT) + " [ERROR]: " + message)
+        logList.value = logList.value?.plus(newLogMessage(message, "ERROR"))
     }
 
-    fun clearLog() = logList.value!!.clear()
+    fun clearLog() {
+        logList.value = listOf()
+    }
 
     fun getLog(): String {
         return logList.value!!.joinToString("\n")
+    }
+
+    private fun newLogMessage(message: String, type: String): String {
+        return getCurrentDateTime().toString(LOGGER_DATE_FORMAT) + " [$type]: " + message
     }
 
     private fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
