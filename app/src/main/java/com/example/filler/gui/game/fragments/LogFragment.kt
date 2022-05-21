@@ -1,7 +1,6 @@
 package com.example.filler.gui.game.fragments
 
 import android.os.Bundle
-import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +22,9 @@ class LogFragment : Fragment() {
         binding = LogFragmentBinding.inflate(inflater, container, false)
         gameViewModel = ViewModelProvider(this)[GUIGameViewModel::class.java]
         binding.logTextView.text = Logger.getLog()
+        Logger.logList.observe(viewLifecycleOwner) {
+            binding.logTextView.text = Logger.getLog()
+        }
         return binding.root
     }
 
