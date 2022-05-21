@@ -24,9 +24,13 @@ class GameFragment : Fragment() {
     ): View {
         binding = GameFragmentBinding.inflate(inflater, container, false)
         // TODO: Set up username and pfp
-        guiGameViewModel = ViewModelProvider(this)[GUIGameViewModel::class.java]
         checkRecreationAndStart()
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        guiGameViewModel = ViewModelProvider(this)[GUIGameViewModel::class.java]
     }
 
     private fun checkRecreationAndStart() {
