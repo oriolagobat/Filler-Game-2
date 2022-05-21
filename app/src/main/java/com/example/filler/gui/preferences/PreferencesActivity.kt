@@ -1,3 +1,4 @@
+/*
 package com.example.filler.gui.preferences
 
 import android.os.Bundle
@@ -27,3 +28,4 @@ class PreferencesActivity : AppCompatActivity() {
             .commit()
     }
 }
+*/

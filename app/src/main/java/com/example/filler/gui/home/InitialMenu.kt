@@ -10,7 +10,7 @@ import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.game.GUIGame
 import com.example.filler.gui.help.Help
-import com.example.filler.gui.preferences.PreferencesActivity
+//import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.shared.hideNavBar
 import com.google.android.material.color.DynamicColors
 
@@ -69,8 +69,10 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
 
     private fun startSettingsScreen() {
         // FIXME: Implement settings class and uncomment
-        val settingsIntent = Intent(this, PreferencesActivity::class.java)
-        startActivity(settingsIntent)
+//        val settingsIntent = Intent(this, PreferencesActivity::class.java)
+//        startActivity(settingsIntent)
+        // FIXME: Remove finish()
+        finish()
     }
 
     private fun checkAndRequestInitialPermissions() {

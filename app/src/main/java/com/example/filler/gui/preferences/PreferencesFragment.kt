@@ -1,3 +1,4 @@
+/*
 package com.example.filler.gui.preferences
 
 import android.os.Bundle
@@ -13,4 +14,4 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences, rootKey)
     }
-}
+}*/

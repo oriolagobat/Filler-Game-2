@@ -1,6 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="horizontal"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/gameFragment"
+        android:name="com.example.filler.gui.game.fragments.GameFragment"
+        android:layout_width="850dp"
+        android:layout_height="match_parent" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/logFragment"
+        android:name="com.example.filler.gui.game.fragments.LogFragment"
+        android:layout_width="850dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
