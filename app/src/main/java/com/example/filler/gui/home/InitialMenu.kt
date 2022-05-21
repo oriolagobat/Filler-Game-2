@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
+import com.example.filler.gui.game.GUIGame
 import com.example.filler.gui.help.Help
 import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.shared.hideNavBar
@@ -55,9 +56,8 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun startGameScreen() {
-        // FIXME: Implement game class and uncomment
-//        val gameIntent = Intent(this, NewGame::class.java)
-//        startActivity(gameIntent)
+        val gameIntent = Intent(this, GUIGame::class.java)
+        startActivity(gameIntent)
         finish()
     }
 
