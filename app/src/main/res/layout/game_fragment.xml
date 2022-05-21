@@ -1,12 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
+    <LinearLayout
+        android:id="@+id/playerLayout"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/boardGridView"
+        app:layout_constraintEnd_toStartOf="@+id/timer"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/userPFP"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/game_user_profile_image_description"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/user_profile" />
+
+        <TextView
+            android:id="@+id/usernameText"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/main_font"
+            android:gravity="center"
+            android:text="@string/game_username_default" />
+    </LinearLayout>
+
     <TextView
-        android:layout_width="match_parent"
-        android:text="Hola! Primer fragment!"
-        android:layout_height="match_parent" />
+        android:id="@+id/timer"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_font"
+        android:gravity="center"
+        android:text="@string/game_timer_default"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/boardGridView"
+        app:layout_constraintEnd_toStartOf="@+id/iaLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playerLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/iaLayout"
+        android:layout_width="111dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/boardGridView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/timer"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/main_font"
+            android:gravity="center"
+            android:text="@string/game_ia_default" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/game_ia_profile_image_description"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/robot" />
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/boardGridView"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toTopOf="@+id/selectorGridView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+    <GridView
+        android:id="@+id/selectorGridView"
+        android:layout_width="350dp"
+        android:layout_height="120dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boardGridView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,28 +2,30 @@ package com.example.filler.gui.game
 
 import android.content.Intent
 import android.widget.GridView
+import android.widget.TextView
 import com.example.filler.R
 import com.example.filler.constants.gui.Music
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.constants.logic.GameState
-import com.example.filler.databinding.ActivityGameBinding
-//import com.example.filler.gui.game.viewmodel.GUIGameViewModel
+import com.example.filler.databinding.GameFragmentBinding
+import com.example.filler.gui.game.viewmodel.GUIGameViewModel
 import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.logic.game.GameResponse
 
 fun getFirstIntFromString(str: String): Int = str.first().digitToInt()
 
-//fun getBoard(binding: ActivityGameBinding): GridView = binding.boardGridView
-//fun getSelector(binding: ActivityGameBinding): GridView = binding.selectorGridView
+fun getBoard(binding: GameFragmentBinding): GridView = binding.boardGridView
+fun getSelector(binding: GameFragmentBinding): GridView = binding.selectorGridView
+fun getTimer(binding: GameFragmentBinding): TextView = binding.timer
 
-//fun setUpGameViewModel(viewModel: GUIGameViewModel): Boolean = !viewModel.setUpViewModel.value!!
+fun setUpGameViewModel(viewModel: GUIGameViewModel): Boolean = !viewModel.setUpViewModel.value!!
 
-/*fun refreshBoardSelectorReference(viewModel: GUIGameViewModel, binding: ActivityGameBinding) {
+fun refreshBoardSelectorReference(viewModel: GUIGameViewModel, binding: GameFragmentBinding) {
     val mediator = viewModel.mutableGameMediator.value!!
     mediator.board = binding.boardGridView
     mediator.selector = binding.selectorGridView
     mediator.timer.timerTextView = binding.timer
-}*/
+}
 
 fun gameFinished(gameResponse: GameResponse): Boolean {
     return when (gameResponse.state) {

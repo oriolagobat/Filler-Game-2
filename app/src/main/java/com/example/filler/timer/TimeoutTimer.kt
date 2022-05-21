@@ -1,48 +1,48 @@
-/*
 package com.example.filler.timer
 
 import android.os.CountDownTimer
 import android.widget.TextView
 import com.example.filler.constants.logic.*
-//import com.example.filler.gui.game.GameMediator
+import com.example.filler.gui.game.GameMediator
 
 class TimeoutTimer(
     private val context: GameMediator,
     override var timerTextView: TextView,
-    val difficulty: Difficulty
+    difficulty: Difficulty
 ) : GameTimer {
 
-    private var timoutInSecs = 0L
-    private var timoutInMilis = 0L
+    private var timeoutInSecs = 0L
+    private var timeoutInMils = 0L
     private var remainingTime = 0
 
     override fun start() {
-        resetRamainingTime()
+        resetRemainingTime()
         timer.start()
     }
 
-    //  Not implemented since countdowntimer doesn't need to be initialized each round
-    override fun init() { }
+    override fun init() {
+        //  Not implemented since countdownTimer doesn't need to be initialized each round
+    }
 
     override fun cancel() = timer.cancel()
 
     override fun finish() = cancel()
 
     init {
-        timoutInSecs = when (difficulty) {
+        timeoutInSecs = when (difficulty) {
             Difficulty.EASY -> EASY_MODE_TIMEOUT_SEC
             Difficulty.MEDIUM -> MEDIUM_MODE_TIMEOUT_SEC
             Difficulty.HARD -> HARD_MODE_TIMEOUT_SEC
         }
-        timoutInMilis = timoutInSecs * 1000
-        resetRamainingTime()
+        timeoutInMils = timeoutInSecs * 1000
+        resetRemainingTime()
     }
 
-    private fun resetRamainingTime() {
-        remainingTime = timoutInSecs.toInt()
+    private fun resetRemainingTime() {
+        remainingTime = timeoutInSecs.toInt()
     }
 
-    private val timer = object : CountDownTimer(timoutInMilis, TIMER_PERIOD_MS) {
+    private val timer = object : CountDownTimer(timeoutInMils, TIMER_PERIOD_MS) {
 
         override fun onTick(millisUntilFinished: Long) = updateTimer()
 
@@ -58,4 +58,4 @@ class TimeoutTimer(
         val remainingTimeString = intToFormattedTime(remainingTime)
         timerTextView.text = remainingTimeString
     }
-}*/
+}

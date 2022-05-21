@@ -1,4 +1,3 @@
-/*
 package com.example.filler.timer
 
 import android.widget.TextView
@@ -14,9 +13,8 @@ class TimerFactoryImpl(
     override fun createTimer(): GameTimer {
         return when (gameSettings.hasTimeout) {
             true -> TimeoutTimer(gameMediator, timerTextView, gameSettings.difficulty)
-            false -> ChronoTimer(timerTextView, gameSettings.difficulty)
+            false -> ChronoTimer(timerTextView)
         }
     }
 
 }
-*/
