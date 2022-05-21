@@ -9,10 +9,14 @@ class GUIGame : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideNavBar(this)
-        startGameSong(this)
 
         val binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startGameSong(this)
     }
 
     override fun onPause() {
