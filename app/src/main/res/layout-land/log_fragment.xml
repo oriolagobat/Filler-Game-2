@@ -1,6 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:scrollbars="vertical"
+    android:scrollbars="horizontal"
     android:layout_height="match_parent">
 
     <TextView
