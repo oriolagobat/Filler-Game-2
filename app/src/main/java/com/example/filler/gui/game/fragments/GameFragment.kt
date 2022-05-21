@@ -30,7 +30,7 @@ class GameFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        guiGameViewModel = ViewModelProvider(this)[GUIGameViewModel::class.java]
+        guiGameViewModel = ViewModelProvider(requireActivity())[GUIGameViewModel::class.java]
     }
 
     private fun checkRecreationAndStart() {
