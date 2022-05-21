@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".gui.preferences.PreferencesActivity"
+            android:exported="false" />
+        <activity
             android:name=".gui.results.Results"
             android:exported="false" />
         <activity
@@ -42,6 +45,7 @@
         <service
             android:name="com.example.filler.gui.shared.SongPlayer"
             android:enabled="true" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -52,4 +56,5 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
+
 </manifest>
