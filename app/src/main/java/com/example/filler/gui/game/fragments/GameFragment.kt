@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.filler.R
 import com.example.filler.constants.gui.*
 import com.example.filler.constants.logic.Difficulty
 import com.example.filler.constants.logic.GameState
@@ -44,7 +45,7 @@ class GameFragment : Fragment() {
     }
 
     private fun setPfp() {
-        // TODO: Set image
+        binding.userPFP.setImageResource(preferences.getInt(PROFILE_PIC_KEY, PROFILE_PIC_DEFAULT))
     }
 
     private fun checkRecreationAndStart() {
