@@ -9,12 +9,17 @@
         <item>8 x 8</item>
         <item>9 x 9</item>
     </string-array>
-    <string-array id="colors_array" name="colors_entries_array">
+    <string-array name="colors_entries_array">
         <item>3 colors</item>
         <item>4 colors</item>
         <item>5 colors</item>
         <item>6 colors</item>
         <item>7 colors</item>
         <item>8 colors</item>
+    </string-array>
+    <string-array name="difficulty_entries_array">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
     </string-array>
 </resources>
