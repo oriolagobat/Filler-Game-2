@@ -11,6 +11,7 @@ import com.example.filler.databinding.GameFragmentBinding
 import com.example.filler.gui.game.fragments.GameFragment
 import com.example.filler.gui.game.viewmodel.GUIGameViewModel
 import com.example.filler.gui.shared.SongPlayer
+import com.example.filler.gui.shared.sound
 import com.example.filler.logic.game.GameResponse
 
 fun getFirstIntFromString(str: String): Int = str.first().digitToInt()
@@ -70,6 +71,7 @@ fun getColorFromGameColor(gameColor: GameColor): Int {
 }
 
 fun startGameSong(context: GUIGame) {
+    if (!sound(context)) return
     val intent = Intent(context, SongPlayer::class.java)
     intent.putExtra(Music.SONG.name, R.raw.game)
     intent.putExtra(Music.LOOP.name, true)
