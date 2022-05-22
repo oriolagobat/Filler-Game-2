@@ -17,6 +17,7 @@ Filler Game 🎮
   sent to the desired email address
 - A different result screen for all 3 scenarios (win, lose, draw)
 - Game scores are shown at the result screen
+- **NEW!** User can choose if he wants music or not
 
 ## Game features 🕹️
 
