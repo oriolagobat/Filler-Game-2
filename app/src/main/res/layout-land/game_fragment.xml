@@ -44,7 +44,7 @@
             android:layout_gravity="center"
             android:contentDescription="@string/game_user_profile_image_description"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/user_profile" />
+            android:src="@drawable/user_profile" />
 
         <TextView
             android:id="@+id/usernameText"
@@ -84,7 +84,7 @@
             android:layout_gravity="center"
             android:contentDescription="@string/game_ia_profile_image_description"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/robot" />
+            android:src="@drawable/robot" />
 
         <TextView
             android:layout_width="match_parent"
