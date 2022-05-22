@@ -5,33 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.filler.FillerApplication
 import com.example.filler.databinding.FragmentQueryBinding
-
-//TODO: Delete sample list
-val summaries = mutableListOf(
-    GameSummary("Player1", "Win"),
-    GameSummary("Player2", "Lose"),
-    GameSummary("Player3", "Draw"),
-    GameSummary("Player4", "Win"),
-    GameSummary("Player5", "Lose"),
-    GameSummary("Player6", "Draw"),
-    GameSummary("Player7", "Win"),
-    GameSummary("Player8", "Lose"),
-    GameSummary("Player9", "Draw"),
-    GameSummary("Player10", "Win"),
-)
+import com.example.filler.persistence.database.GameSummaryViewModel
+import com.example.filler.persistence.database.GameSummaryViewModelFactory
 
 class QueryFrag : Fragment() {
 
     private var _binding: FragmentQueryBinding? = null
     private val binding get() = _binding!!
+    private val gameSummaryViewModel: GameSummaryViewModel by viewModels {
+        GameSummaryViewModelFactory((requireActivity().application as FillerApplication).repository)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?)
-    : View {
+        savedInstanceState: Bundle?
+    )
+            : View {
         _binding = FragmentQueryBinding.inflate(inflater, container, false)
         initUI()
         return binding.root
@@ -44,7 +38,9 @@ class QueryFrag : Fragment() {
     }
 
     private fun populateAdapter(adapter: GameSummaryListAdapter) {
-        adapter.submitList(summaries)
+        gameSummaryViewModel.allGameSummaries.observe(requireActivity()) { words ->
+            words.let { adapter.submitList(it) }
+        }
     }
 
     private fun setAdapter(adapter: GameSummaryListAdapter) {
