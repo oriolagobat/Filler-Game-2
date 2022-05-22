@@ -79,6 +79,7 @@ fun startGameSong(context: GUIGame) {
 }
 
 fun stopGameSong(context: GUIGame) {
+    if (!sound(context)) return
     val intent = Intent(context, SongPlayer::class.java)
     context.stopService(intent)
 }
