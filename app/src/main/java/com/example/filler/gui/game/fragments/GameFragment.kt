@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.filler.R
 import com.example.filler.constants.gui.*
 import com.example.filler.constants.logic.Difficulty
 import com.example.filler.constants.logic.GameState
