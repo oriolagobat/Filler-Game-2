@@ -3,16 +3,11 @@ package com.example.filler.gui.preferences
 import android.content.Context
 import android.os.Bundle
 import androidx.preference.*
-import com.example.filler.constants.gui.*
 import com.example.filler.R
-
-//TODO: Replace with call to arrays on resources.
-val NUM_COLORS_ENTRIES = arrayOf("3", "4", "5", "6", "7", "8")
-val BOARD_SIZE_ENTRIES = arrayOf("3 x 3", "4 x 4", "5 x 5", "6 x 6", "7 x 7", "8 x 8", "9 x 9")
-val DIFFICULTY_ENTRIES = arrayOf("Easy", "Medium", "Hard")
+import com.example.filler.constants.gui.*
 
 class PreferencesFragment : PreferenceFragmentCompat() {
-    private lateinit var screen: PreferenceScreen;
+    private lateinit var screen: PreferenceScreen
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         initPreferenceScreen()
@@ -51,14 +46,14 @@ class PreferencesFragment : PreferenceFragmentCompat() {
             title = "Board size"
             summary = "Choose the size of the board"
             entries = resources.getStringArray(R.array.board_entries_array)
-            entryValues = rangetoCharArray(BOARD_SIZE_MIN, BOARD_SIZE_MAX)
+            entryValues = rangeToCharArray(BOARD_SIZE_MIN, BOARD_SIZE_MAX)
             setDefaultValue(BOARD_SIZE_DEFAULT.toString())
             screen.addPreference(this)
         }
     }
 
     // Returns an array of numeral characters from min to max
-    private fun rangetoCharArray(minValue: Int, maxValue: Int): Array<out CharSequence> {
+    private fun rangeToCharArray(minValue: Int, maxValue: Int): Array<out CharSequence> {
         return Array(maxValue - minValue + 1) { "" }.apply {
             for (i in minValue..maxValue)
                 this[i - minValue] = i.toString()
@@ -71,7 +66,7 @@ class PreferencesFragment : PreferenceFragmentCompat() {
             title = "Colors"
             summary = "Choose the number of colors"
             entries = resources.getStringArray(R.array.colors_entries_array)
-            entryValues = rangetoCharArray(NUM_COLORS_MIN, NUM_COLORS_MAX)
+            entryValues = rangeToCharArray(NUM_COLORS_MIN, NUM_COLORS_MAX)
             setDefaultValue(NUM_COLORS_DEFAULT.toString())
             screen.addPreference(this)
         }

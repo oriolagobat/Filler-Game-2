@@ -56,10 +56,12 @@ fun getValidMailOrError(
 }
 
 // Checks if a mail is valid
-private fun validMail(mail: String): Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()
+private fun validMail(mail: String): Boolean =
+    android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()
 
 // Returns the preferences manager
-fun getPreferences(context: Context): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+fun getPreferences(context: Context): SharedPreferences =
+    PreferenceManager.getDefaultSharedPreferences(context)
 
 // Returns true if the user wants music
 fun sound(context: Context): Boolean {
