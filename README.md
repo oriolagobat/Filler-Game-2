@@ -12,12 +12,12 @@ Filler Game 🎮
   the result screen has different sound effects depending on the game outcome.
 - The app can be used in portrait or landscape mode, and also offers the possibility to change the
   orientation at any moment
-- The app offers language support in English and Catalan
+- The app offers language support in English, Catalan and **NEW!** Spanish
 - A log is formed since the the configuration screen, ending at the result screen. It can then be
   sent to the desired email address
 - A different result screen for all 3 scenarios (win, lose, draw)
 - Game scores are shown at the result screen
-- **NEW!** User can choose if he wants music or not
+- **NEW!** User can choose if he wants music/sound or not
 
 ## Game features 🕹️
 
