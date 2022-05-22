@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".persistence.DetailRegActivity"
+            android:exported="false" />
+        <activity
+            android:name=".persistence.AccessBDActivity"
+            android:exported="false" />
+        <activity
             android:name=".gui.preferences.PreferencesActivity"
             android:exported="false" />
         <activity
@@ -41,6 +47,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name="com.example.filler.gui.shared.SongPlayer"
             android:enabled="true" />
