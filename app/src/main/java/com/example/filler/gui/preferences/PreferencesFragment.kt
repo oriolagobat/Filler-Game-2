@@ -35,7 +35,7 @@ class PreferencesFragment : PreferenceFragmentCompat() {
 
     private fun addGameCategory(context: Context) {
         PreferenceCategory(context).apply {
-            title = "Game"
+            title = resources.getString(R.string.pref_game_category_title)
             screen.addPreference(this)
         }
     }
@@ -43,8 +43,8 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun addBoardSizePreference(context: Context) {
         ListPreference(context).apply {
             key = BOARD_SIZE_KEY
-            title = "Board size"
-            summary = "Choose the size of the board"
+            title = resources.getString(R.string.pref_game_board_title)
+            summary = resources.getString(R.string.pref_game_board_summary)
             entries = resources.getStringArray(R.array.board_entries_array)
             entryValues = rangeToCharArray(BOARD_SIZE_MIN, BOARD_SIZE_MAX)
             setDefaultValue(BOARD_SIZE_DEFAULT.toString())
@@ -63,8 +63,8 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun addNumColorsPreference(context: Context) {
         ListPreference(context).apply {
             key = NUM_COLORS_KEY
-            title = "Colors"
-            summary = "Choose the number of colors"
+            title = resources.getString(R.string.pref_game_colors_title)
+            summary = resources.getString(R.string.pref_game_colors_summary)
             entries = resources.getStringArray(R.array.colors_entries_array)
             entryValues = rangeToCharArray(NUM_COLORS_MIN, NUM_COLORS_MAX)
             setDefaultValue(NUM_COLORS_DEFAULT.toString())
@@ -75,8 +75,8 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun addDifficultyPreference(context: Context) {
         ListPreference(context).apply {
             key = DIFFICULTY_KEY
-            title = "Difficulty"
-            summary = "Choose the difficulty"
+            title = resources.getString(R.string.pref_game_difficulty_title)
+            summary = resources.getString(R.string.pref_game_difficulty_summary)
             entries = resources.getStringArray(R.array.difficulty_entries_array)
             entryValues = arrayOf(DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD)
             setDefaultValue(DIFFICULTY_DEFAULT)
@@ -87,9 +87,9 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun addTimeControlPreference(context: Context) {
         SwitchPreferenceCompat(context).apply {
             key = TIME_CONTROL_KEY
-            title = "Time Control"
-            summaryOn = "Time Control On"
-            summaryOff = "Time Control Off"
+            title = resources.getString(R.string.pref_game_time_control_title)
+            summaryOn = resources.getString(R.string.pref_game_time_control_summary_on)
+            summaryOff = resources.getString(R.string.pref_game_time_control_summary_off)
             isChecked = TIME_CONTROL_DEFAULT
             screen.addPreference(this)
         }
@@ -104,7 +104,7 @@ class PreferencesFragment : PreferenceFragmentCompat() {
 
     private fun addGeneralCategory(context: Context) {
         PreferenceCategory(context).apply {
-            title = "General"
+            title = resources.getString(R.string.pref_general_category_title)
             screen.addPreference(this)
         }
     }
@@ -112,8 +112,8 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun addAliasPreference(context: Context) {
         EditTextPreference(context).apply {
             key = ALIAS_KEY
-            title = "Alias"
-            summary = "Choose your alias"
+            title = resources.getString(R.string.pref_general_alias_title)
+            summary = resources.getString(R.string.pref_general_alias_summary)
             setDefaultValue(ALIAS_DEFAULT)
             screen.addPreference(this)
         }
@@ -122,8 +122,8 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun addProfilePicPreference(context: Context) {
         Preference(context).apply {
             key = PROFILE_PIC_KEY
-            title = "Profile Picture"
-            summary = "Choose your profile picture"
+            title = resources.getString(R.string.pref_general_profile_pic_title)
+            summary = resources.getString(R.string.pref_general_profile_pic_summary)
             setDefaultValue(R.drawable.user_profile)
             screen.addPreference(this)
         }
@@ -132,9 +132,9 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun addMusicPreference(context: Context) {
         SwitchPreferenceCompat(context).apply {
             key = MUSIC_KEY
-            title = "Music"
-            summaryOn = "Music On"
-            summaryOff = "Music Off"
+            title = resources.getString(R.string.pref_general_music_title)
+            summaryOn = resources.getString(R.string.pref_general_music_summary_on)
+            summaryOff = resources.getString(R.string.pref_general_music_summary_off)
             isChecked = MUSIC_DEFAULT
             screen.addPreference(this)
         }
