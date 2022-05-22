@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.preference.PreferenceManager
 import com.example.filler.R
 
 fun hideNavBar(activity: Activity) {
@@ -55,3 +56,9 @@ fun getValidMailOrError(
 
 // Checks if a mail is valid
 private fun validMail(mail: String): Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()
+
+// Returns true if the user wants music
+fun sound(context: Context): Boolean {
+    val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+    return sharedPreferences.getBoolean("music", true) // Music on by default
+}
