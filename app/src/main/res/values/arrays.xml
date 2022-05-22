@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    CONFIGURATION-->
-    <string-array name="colors_options_array">
+    <string-array name="colors_keys_array">
         <item>3 colors</item>
         <item>4 colors</item>
         <item>5 colors</item>
@@ -9,13 +9,30 @@
         <item>7 colors</item>
         <item>8 colors</item>
     </string-array>
-    <string-array name="board_options_array">
-        <item>3 X 3</item>
-        <item>4 X 4</item>
-        <item>5 X 5</item>
-        <item>6 X 6</item>
-        <item>7 X 7</item>
-        <item>8 X 8</item>
-        <item>9 X 9</item>
+    <string-array name="colors_values_array">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="board_keys_array">
+        <item>3 x 3</item>
+        <item>4 x 4</item>
+        <item>5 x 5</item>
+        <item>6 x 6</item>
+        <item>7 x 7</item>
+        <item>8 x 8</item>
+        <item>9 x 9</item>
+    </string-array>
+    <string-array name="board_values_array">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
     </string-array>
 </resources>
