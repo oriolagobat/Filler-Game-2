@@ -4,8 +4,11 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.viewModels
+import com.example.filler.FillerApplication
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
 import com.example.filler.gui.game.GUIGame
@@ -14,9 +17,13 @@ import com.example.filler.gui.preferences.PreferencesActivity
 //import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.shared.hideNavBar
 import com.example.filler.persistence.AccessBDActivity
+import com.example.filler.persistence.database.GameSummary
+import com.example.filler.persistence.database.GameSummaryViewModel
+import com.example.filler.persistence.database.GameSummaryViewModelFactory
 import com.google.android.material.color.DynamicColors
 
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
