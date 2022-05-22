@@ -3,7 +3,7 @@
     <!--    Game category-->
     <string name="pref_game_category_title">Game</string>
     <string name="pref_game_board_title">Board size</string>
-    <string name="pref_game_board_summary">Board size</string>
+    <string name="pref_game_board_summary">Choose the size of the board</string>
     <string name="pref_game_colors_title">Colors</string>
     <string name="pref_game_colors_summary">Choose the number of colors</string>
     <string name="pref_game_difficulty_title">Difficulty</string>
@@ -14,11 +14,11 @@
 
     <!--    General category-->
     <string name="pref_general_category_title">General</string>
-    <string name="pref_general_alias_title">Alias</string>
-    <string name="pref_general_alias_summary">Choose your alias</string>
+    <string name="pref_general_alias_title">Username</string>
+    <string name="pref_general_alias_summary">Choose your username</string>
     <string name="pref_general_profile_pic_title">Profile picture</string>
     <string name="pref_general_profile_pic_summary">Choose your profile picture</string>
-    <string name="pref_general_music_title">Time control</string>
+    <string name="pref_general_music_title">Music</string>
     <string name="pref_general_music_summary_on">Music on</string>
     <string name="pref_general_music_summary_off">Music off</string>
 </resources>
