@@ -3,7 +3,5 @@
     <string name="game_sub_header">A jugar!</string>
     <string name="game_user_profile_image_description">Imatge de perfil de l\'usuari</string>
     <string name="game_username_default">El nom d\'usuari anirà aquí.</string>
-    <string name="game_ia_profile_image_description">Imatge de perfil de l\'enemic</string>
     <string name="game_ia_default">IA</string>
-    <string name="game_timer_default">00:00</string>
 </resources>

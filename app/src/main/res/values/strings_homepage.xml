@@ -6,6 +6,6 @@
     <string name="homepage_new_game_button">New Game</string>
     <string name="homepage_check_game_button">Check old games</string>
     <string name="homepage_quit_button">Quit</string>
-    <string name="homepage_background_desc">Background image for the homepage screen</string>
-    <string name="homepage_settings_desc">Button to go to the settings activity</string>
+    <string name="homepage_background_desc" translatable="false">Background image for the homepage screen</string>
+    <string name="homepage_settings_desc" translatable="false">Button to go to the settings activity</string>
 </resources>
