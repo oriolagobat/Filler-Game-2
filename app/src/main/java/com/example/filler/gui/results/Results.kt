@@ -16,6 +16,7 @@ import com.example.filler.gui.results.data.Date
 import com.example.filler.gui.results.data.Email
 import com.example.filler.gui.results.data.Log
 import com.example.filler.gui.shared.hideNavBar
+import com.example.filler.gui.shared.sound
 import com.example.filler.log.Logger
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -41,7 +42,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
         updateLogOutcome(intent)
 
         // Start the media player with the sound corresponding to the outcome of the game
-        startSongPlayer(this, intent)
+        if (sound(this)) startSongPlayer(this, intent)
 
         updateLayout(resultType!!)
 
