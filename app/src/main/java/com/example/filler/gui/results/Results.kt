@@ -109,6 +109,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun startNewGame() {
+        Logger.clearLog()
         val intent = Intent(this, GUIGame::class.java)
         startActivity(intent)
         finish()

@@ -2,6 +2,7 @@ package com.example.filler.gui.shared
 
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import android.view.View
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
@@ -57,8 +58,11 @@ fun getValidMailOrError(
 // Checks if a mail is valid
 private fun validMail(mail: String): Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()
 
+// Returns the preferences manager
+fun getPreferences(context: Context): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+
 // Returns true if the user wants music
 fun sound(context: Context): Boolean {
-    val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+    val sharedPreferences = getPreferences(context)
     return sharedPreferences.getBoolean("music", true) // Music on by default
 }
