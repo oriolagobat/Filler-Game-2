@@ -27,6 +27,9 @@ const val TIME_CONTROL_DEFAULT = false
 const val ALIAS_KEY = "alias"
 const val ALIAS_DEFAULT = "Player"
 
+// Profile pic
+const val PROFILE_PIC_KEY = "profilePic"
+
 // Music
 const val MUSIC_KEY = "music"
 const val MUSIC_DEFAULT = true
