@@ -11,6 +11,7 @@ import com.example.filler.R
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.game.GUIGame
+import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.results.data.Date
 import com.example.filler.gui.results.data.Email
 import com.example.filler.gui.results.data.Log
@@ -102,11 +103,8 @@ class Results : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun editSettings() {
-        // TODO: Implement settings
-//        val intent = Intent(this, Settings::class.java)
-//        startActivity(intent)
-        // FIXME: Remove this line
-        finish()
+        val intent = Intent(this, PreferencesActivity::class.java)
+        startActivity(intent)
     }
 
     private fun startNewGame() {
