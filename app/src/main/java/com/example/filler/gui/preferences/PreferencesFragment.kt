@@ -1,4 +1,3 @@
-/*
 package com.example.filler.gui.preferences
 
 import android.content.Context
@@ -134,4 +133,4 @@ class PreferencesFragment : PreferenceFragmentCompat() {
             screen.addPreference(this)
         }
     }
-}*/
+}

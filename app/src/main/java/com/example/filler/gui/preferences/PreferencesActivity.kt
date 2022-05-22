@@ -8,7 +8,8 @@ import com.example.filler.databinding.ActivityPreferencesBinding
 
 class PreferencesActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityPreferencesBinding
+    private var _binding: ActivityPreferencesBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +18,7 @@ class PreferencesActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-        binding = ActivityPreferencesBinding.inflate(layoutInflater)
+        _binding = ActivityPreferencesBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
