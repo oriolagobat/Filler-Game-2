@@ -13,6 +13,7 @@ import com.example.filler.gui.help.Help
 import com.example.filler.gui.preferences.PreferencesActivity
 //import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.shared.hideNavBar
+import com.example.filler.persistence.AccessBDActivity
 import com.google.android.material.color.DynamicColors
 
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
@@ -63,9 +64,8 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun startQueryScreen() {
-        // FIXME: Implement query class and uncomment
-//        val queryIntent = Intent(this, Query::class.java)
-//        startActivity(queryIntent)
+        val queryIntent = Intent(this, AccessBDActivity::class.java)
+        startActivity(queryIntent)
     }
 
     private fun startSettingsScreen() {
