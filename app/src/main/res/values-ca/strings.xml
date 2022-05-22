@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Filler</string>
+    <string name="pref_game_category_title">Joc</string>
+    <string name="pref_game_board_title">Mida de la graella</string>
+    <string name="pref_game_board_summary">Elegeix la mida de la graella</string>
+    <string name="pref_game_colors_title">Colors</string>
+    <string name="pref_game_colors_summary">Elegeix el nombre de colors</string>
+    <string name="pref_game_difficulty_title">Dificultat</string>
+    <string name="pref_game_difficulty_summary">Tria la dificultat</string>
+    <string name="pref_game_time_control_title">Control de temps</string>
+    <string name="pref_game_time_control_summary_on">Control de temps activat</string>
+    <string name="pref_game_time_control_summary_off">Control de temps desactivat</string>
+    <string name="pref_general_category_title">General</string>
+    <string name="pref_general_alias_title">Nom d\'usuari</string>
+    <string name="pref_general_alias_summary">Tria el teu nom d\'usuari</string>
+    <string name="pref_general_music_summary_on">Música activada</string>
+    <string name="pref_general_music_summary_off">Música desactivada</string>
+    <string name="pref_general_music_title">Música</string>
+    <string name="pref_general_profile_pic_summary">Tria la teva foto de perfil</string>
+    <string name="pref_general_profile_pic_title">Foto de perfil</string>
 </resources>
