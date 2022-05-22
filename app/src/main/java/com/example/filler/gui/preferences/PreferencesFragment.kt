@@ -1,10 +1,13 @@
 package com.example.filler.gui.preferences
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.preference.*
 import com.example.filler.R
 import com.example.filler.constants.gui.*
+import com.example.filler.gui.shared.SongPlayer
+import com.example.filler.gui.shared.sound
 
 class PreferencesFragment : PreferenceFragmentCompat() {
     private lateinit var screen: PreferenceScreen
@@ -137,6 +140,36 @@ class PreferencesFragment : PreferenceFragmentCompat() {
             summaryOff = resources.getString(R.string.pref_general_music_summary_off)
             isChecked = MUSIC_DEFAULT
             screen.addPreference(this)
+            // Change the music on change
+            this.setOnPreferenceChangeListener { _, newValue ->
+                if (newValue as Boolean) startPreferenceSong()
+                else stopPreferenceSong()
+                true
+            }
         }
+    }
+
+    // Music
+
+    override fun onPause() {
+        super.onPause()
+        if (sound(requireContext())) stopPreferenceSong()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (sound(requireContext())) startPreferenceSong()
+    }
+
+    private fun startPreferenceSong() {
+        val intent = Intent(requireContext(), SongPlayer::class.java)
+        intent.putExtra(Music.SONG.name, R.raw.preferences)
+        intent.putExtra(Music.LOOP.name, true)
+        requireActivity().startService(intent)
+    }
+
+    private fun stopPreferenceSong() {
+        val intent = Intent(requireContext(), SongPlayer::class.java)
+        requireActivity().stopService(intent)
     }
 }
