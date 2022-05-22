@@ -20,7 +20,6 @@ class GameMediator(
     var selector: GridView,
     timerView: TextView,
 ) {
-    private val gameFragmentActivity = gameFragment.requireActivity()
     private val game: Game = GameFactoryImpl(gameSettings).makeGame()
     private var gameState: GameResponse = game.getGameResponse()
     private var boardContent: Array<GameColor> = gameState.board.toArray()
@@ -79,10 +78,8 @@ class GameMediator(
     private fun updateGame() = if (gameFinished(gameState)) finishGame() else setUpNextRound()
 
     private fun finishGame() {
-        // TODO: Implement
-//        context.startResultsActivity(gameState)
+        gameFragment.startResultsActivity(gameState)
         timer.finish()
-        gameFragmentActivity.finish()
     }
 
     private fun setUpNextRound() {
