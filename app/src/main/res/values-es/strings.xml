@@ -48,4 +48,5 @@
     <string name="pref_general_music_summary_off">Música desactivada</string>
     <string name="pref_general_profile_pic_title">Foto de perfil</string>
     <string name="pref_general_profile_pic_summary">Elige tu foto de perfil</string>
+    <string name="pref_general_music_title">Música</string>
 </resources>
