@@ -2,7 +2,7 @@
 <resources>
     <string name="help_header">Help</string>
     <string name="help_sub_header">How to play Filler</string>
-    <string name="help_rules">
+    <string name="help_rules" translatable="false">
         <![CDATA[
             <p>
                 <br>
@@ -23,5 +23,5 @@
     </string>
     <string name="help_sample_image_desc">Game sample image</string>
     <string name="help_back_desc">Back to main page image</string>
-    <string name="help_background_desc">Background image for the help screen</string>
+    <string name="help_background_desc" translatable="false">Background image for the help screen</string>
 </resources>

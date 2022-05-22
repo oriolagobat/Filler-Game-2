@@ -1,10 +1,9 @@
 <resources>
-    <string name="app_name">Filler</string>
     <string name="pref_game_category_title">Joc</string>
     <string name="pref_game_board_title">Mida de la graella</string>
-    <string name="pref_game_board_summary">Elegeix la mida de la graella</string>
+    <string name="pref_game_board_summary">Tria la mida de la graella</string>
     <string name="pref_game_colors_title">Colors</string>
-    <string name="pref_game_colors_summary">Elegeix el nombre de colors</string>
+    <string name="pref_game_colors_summary">Tria el nombre de colors</string>
     <string name="pref_game_difficulty_title">Dificultat</string>
     <string name="pref_game_difficulty_summary">Tria la dificultat</string>
     <string name="pref_game_time_control_title">Control de temps</string>
