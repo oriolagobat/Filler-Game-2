@@ -6,16 +6,19 @@ import android.os.Bundle
 import androidx.preference.*
 import com.example.filler.R
 import com.example.filler.constants.gui.*
+import com.example.filler.gui.game.image.ImagePopup
 import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.gui.shared.sound
 
 class PreferencesFragment : PreferenceFragmentCompat() {
     private lateinit var screen: PreferenceScreen
+    private lateinit var imagePopup: ImagePopup
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         initPreferenceScreen()
         buildPreferenceScreen(screen.context)
         preferenceScreen = screen
+        imagePopup = ImagePopup(requireContext() as PreferencesActivity)
     }
 
     private fun initPreferenceScreen() {
@@ -129,6 +132,10 @@ class PreferencesFragment : PreferenceFragmentCompat() {
             summary = resources.getString(R.string.pref_general_profile_pic_summary)
             setDefaultValue(R.drawable.user_profile)
             screen.addPreference(this)
+            this.setOnPreferenceClickListener { _ ->
+                imagePopup.show()
+                true
+            }
         }
     }
 

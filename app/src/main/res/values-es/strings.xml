@@ -49,4 +49,9 @@
     <string name="pref_general_profile_pic_title">Foto de perfil</string>
     <string name="pref_general_profile_pic_summary">Elige tu foto de perfil</string>
     <string name="pref_general_music_title">Música</string>
+    <string name="pref_popup_title">Foto de perfil</string>
+    <string name="pref_popup_message">¿Que quieres hacer con la foto de perfil?</string>
+    <string name="pref_popup_default">Usar la predeterminada</string>
+    <string name="pref_popup_camera">Tomar una foto</string>
+    <string name="pref_popup_gallery">Elegir una de la galeria</string>
 </resources>

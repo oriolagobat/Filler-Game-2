@@ -21,4 +21,11 @@
     <string name="pref_general_music_title">Music</string>
     <string name="pref_general_music_summary_on">Music on</string>
     <string name="pref_general_music_summary_off">Music off</string>
+
+    <!--    Image chooser-->
+    <string name="pref_popup_title">Profile picture</string>
+    <string name="pref_popup_message">What do you want to do with your profile picture?</string>
+    <string name="pref_popup_default">Use the default one</string>
+    <string name="pref_popup_camera">Take a picture</string>
+    <string name="pref_popup_gallery">Choose from gallery</string>
 </resources>

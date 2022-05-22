@@ -17,4 +17,9 @@
     <string name="pref_general_music_title">Música</string>
     <string name="pref_general_profile_pic_summary">Tria la teva foto de perfil</string>
     <string name="pref_general_profile_pic_title">Foto de perfil</string>
+    <string name="pref_popup_title">Foto de perfil</string>
+    <string name="pref_popup_message">Què vols fer amb la foto de perfil?</string>
+    <string name="pref_popup_default">Utilitzar la per defecte</string>
+    <string name="pref_popup_camera">Fer una foto</string>
+    <string name="pref_popup_gallery">Triar-ne una de la galeria</string>
 </resources>
