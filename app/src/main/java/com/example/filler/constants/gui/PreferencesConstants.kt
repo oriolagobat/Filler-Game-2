@@ -1,5 +1,7 @@
 package com.example.filler.constants.gui
 
+import com.example.filler.R
+
 // Colors
 const val NUM_COLORS_KEY = "numColors"
 const val NUM_COLORS_DEFAULT = 8
@@ -29,6 +31,7 @@ const val ALIAS_DEFAULT = "Player"
 
 // Profile pic
 const val PROFILE_PIC_KEY = "profilePic"
+const val PROFILE_PIC_DEFAULT = R.drawable.user_profile
 
 // Music
 const val MUSIC_KEY = "music"
