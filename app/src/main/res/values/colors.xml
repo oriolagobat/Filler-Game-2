@@ -72,6 +72,8 @@
     <color name="game_cyan">#FF4DD0E1</color>
 
     <color name="colorPrimary">@color/md_theme_light_primary</color>
-    <color name="colorPrimaryDark">@color/md_theme_light_secondary</color>
+    <color name="colorError">@color/md_theme_light_error</color>
+    <color name="colorSecondary">@color/md_theme_light_secondary</color>
+    <color name="colorTertiary">@color/md_theme_light_tertiary</color>
     <color name="colorAccent">@color/md_theme_light_tertiary</color>
 </resources>

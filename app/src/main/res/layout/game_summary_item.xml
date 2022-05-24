@@ -1,26 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="7dp"
+    android:layout_height="70dp"
     android:layout_margin="5dp"
-    android:background="@drawable/recycler_item_background"
-    android:layout_height="wrap_content">
+    android:background="@drawable/recycler_item_background">
 
-    <TextView
-        android:id="@+id/alias"
-        android:layout_width="match_parent"
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/game_summary_alias"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/game_summary_date"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/game_summary_delete"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextAppearance.AppCompat.Headline"
-        android:text="Alias" />
-<!--        android:background="@android:color/holo_blue_dark" />-->
+        android:layout_margin="15dp"
+        android:backgroundTint="#ef5a5a"
+        app:icon="@drawable/persistence_delete"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/outcome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/TextAppearance.AppCompat.Body2"
-        android:text="Outcome" />
-<!--        android:background="@android:color/holo_blue_dark" />-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/game_summary_date"
+        app:layout_constraintTop_toBottomOf="@id/game_summary_alias"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-</LinearLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/game_summary_score"
+        app:layout_constraintStart_toEndOf="@id/game_summary_date"
+        app:layout_constraintTop_toTopOf="@id/game_summary_date"
+        app:layout_constraintBottom_toBottomOf="@id/game_summary_date"
+        android:layout_margin="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
