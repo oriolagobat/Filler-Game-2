@@ -54,4 +54,6 @@
     <string name="pref_popup_default">Usar la predeterminada</string>
     <string name="pref_popup_camera">Tomar una foto</string>
     <string name="pref_popup_gallery">Elegir una de la galeria</string>
+    <string name="pref_game_summary">Personalizar parametros del juego</string>
+    <string name="pref_general_summary">Personalizar caraterísticas de la app</string>
 </resources>

@@ -24,8 +24,7 @@ class QueryFrag : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    )
-            : View {
+    ): View {
         _binding = FragmentQueryBinding.inflate(inflater, container, false)
         initUI()
         return binding.root

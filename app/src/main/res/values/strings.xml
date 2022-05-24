@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name" translatable="false">Filler</string>
+    <string name="pref_colors_default" translatable="false">6</string>
+    <string name="pref_board_default" translatable="false">8</string>
+    <string name="pref_difficulty_default" translatable="false">1</string>
+    <string name="pref_alias_default" translatable="false">Player</string>
+    <string name="pref_timer_default" translatable="false">false</string>
+    <string name="pref_music_default" translatable="false">false</string>
+    <string name="pref_game_key" translatable="false">GAME</string>
+    <string name="pref_general_key" translatable="false">GENERAL</string>
+    <string name="pref_colors_key" translatable="false">NUM_COLORS</string>
+    <string name="pref_board_key" translatable="false">BOARD_SIZE</string>
+    <string name="pref_difficulty_key" translatable="false">DIFFICULTY</string>
+    <string name="pref_alias_key" translatable="false">TIMER</string>
+    <string name="pref_timer_key" translatable="false">ALIAS</string>
+    <string name="pref_profile_pic_key" translatable="false">PROFILE_PIC</string>
+    <string name="pref_music_key" translatable="false">MUSIC</string>
+    <string name="pref_game_summary">Customize game parameters</string>
+    <string name="pref_general_summary">Customize app features</string>
 </resources>

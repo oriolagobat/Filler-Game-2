@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        android:key="@string/pref_game_key"
+        android:title="@string/pref_game_category_title" >
+
+        <ListPreference
+            android:defaultValue="@string/pref_board_default"
+            android:entries="@array/board_entries_array"
+            android:entryValues="@array/board_values_array"
+            android:icon="@drawable/pref_icon_board"
+            android:key="@string/pref_board_key"
+            android:summary="@string/pref_game_board_summary"
+            android:title="@string/pref_game_board_title" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_colors_default"
+            android:entries="@array/colors_entries_array"
+            android:entryValues="@array/colors_values_array"
+            android:icon="@drawable/pref_icon_colors"
+            android:key="@string/pref_colors_key"
+            android:summary="@string/pref_game_colors_summary"
+            android:title="@string/pref_game_colors_title" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_difficulty_default"
+            android:entries="@array/difficulty_entries_array"
+            android:entryValues="@array/difficulty_values_array"
+            android:icon="@drawable/pref_icon_difficulty"
+            android:key="@string/pref_difficulty_key"
+            android:summary="@string/pref_game_difficulty_summary"
+            android:title="@string/pref_game_difficulty_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="@string/pref_timer_default"
+            android:icon="@drawable/pref_icon_timer"
+            android:key="@string/pref_timer_key"
+            android:summaryOff="@string/pref_game_time_control_summary_off"
+            android:summaryOn="@string/pref_game_time_control_summary_on"
+            android:title="@string/pref_game_time_control_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/pref_general_key"
+        android:title="@string/pref_general_category_title" >
+
+        <EditTextPreference
+            android:defaultValue="@string/pref_alias_default"
+            android:icon="@drawable/pref_icon_alias"
+            android:key="@string/pref_alias_key"
+            android:summary="@string/pref_general_alias_summary"
+            android:title="@string/pref_general_alias_title" />
+
+        <Preference
+            android:icon="@drawable/pref_icon_profile_pic"
+            android:key="@string/pref_profile_pic_key"
+            android:summary="@string/pref_general_profile_pic_summary"
+            android:title="@string/pref_general_profile_pic_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="@string/pref_music_default"
+            android:icon="@drawable/pref_icon_music"
+            android:key="@string/pref_music_key"
+            android:summaryOff="@string/pref_general_music_summary_off"
+            android:summaryOn="@string/pref_general_music_summary_on"
+            android:title="@string/pref_general_music_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

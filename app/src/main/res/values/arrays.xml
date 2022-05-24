@@ -9,6 +9,15 @@
         <item>8 x 8</item>
         <item>9 x 9</item>
     </string-array>
+    <string-array name="board_values_array">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
     <string-array name="colors_entries_array">
         <item>3 colors</item>
         <item>4 colors</item>
@@ -17,9 +26,22 @@
         <item>7 colors</item>
         <item>8 colors</item>
     </string-array>
+    <string-array name="colors_values_array">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
     <string-array name="difficulty_entries_array">
         <item>Easy</item>
         <item>Medium</item>
         <item>Hard</item>
+    </string-array>
+    <string-array name="difficulty_values_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 </resources>
