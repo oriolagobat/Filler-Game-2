@@ -30,6 +30,6 @@
     </style>
     <style name="PreferenceScreen" parent="AppTheme">
         <item name="android:colorAccent">@color/colorPrimary</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">28sp</item>
     </style>
 </resources>

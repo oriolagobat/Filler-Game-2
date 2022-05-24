@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.filler.R
 import com.example.filler.constants.gui.*
 import com.example.filler.constants.logic.Difficulty
 import com.example.filler.constants.logic.GameState
@@ -40,11 +41,19 @@ class GameFragment : Fragment() {
     }
 
     private fun setUsername() {
-        binding.usernameText.text = preferences.getString(ALIAS_KEY, ALIAS_DEFAULT)
+        binding.usernameText.text = preferences.getString(
+            getString(R.string.pref_alias_key),
+            ALIAS_DEFAULT
+        )
     }
 
     private fun setPfp() {
-        binding.userPFP.setImageResource(preferences.getInt(PROFILE_PIC_KEY, PROFILE_PIC_DEFAULT))
+        binding.userPFP.setImageResource(
+            preferences.getInt(
+                getString(R.string.pref_profile_pic_key),
+                PROFILE_PIC_DEFAULT
+            )
+        )
     }
 
     private fun checkRecreationAndStart() {
@@ -71,26 +80,35 @@ class GameFragment : Fragment() {
     }
 
     private fun getBoardSize(): Int {
-        val boardString = preferences.getString(BOARD_SIZE_KEY, BOARD_SIZE_DEFAULT.toString())
+        val boardString = preferences.getString(
+            getString(R.string.pref_board_key),
+            BOARD_SIZE_DEFAULT.toString()
+        )
         return boardString!!.toInt()
     }
 
     private fun getColorNumber(): Int {
-        val selectorString = preferences.getString(NUM_COLORS_KEY, NUM_COLORS_DEFAULT.toString())
+        val selectorString = preferences.getString(
+            getString(R.string.pref_colors_key),
+            NUM_COLORS_DEFAULT.toString()
+        )
         return selectorString!!.toInt()
     }
 
     private fun getDifficulty(): Difficulty {
-        return when (preferences.getString(DIFFICULTY_KEY, DIFFICULTY_DEFAULT)) {
-            "easy" -> Difficulty.EASY
-            "medium" -> Difficulty.MEDIUM
-            "hard" -> Difficulty.HARD
+        return when (preferences.getString(
+            getString(R.string.pref_difficulty_key),
+            DIFFICULTY_DEFAULT
+        )) {
+            DIFFICULTY_EASY -> Difficulty.EASY
+            DIFFICULTY_MEDIUM -> Difficulty.MEDIUM
+            DIFFICULTY_HARD -> Difficulty.HARD
             else -> Difficulty.MEDIUM
         }
     }
 
     private fun getTimeControl(): Boolean {
-        return preferences.getBoolean(TIME_CONTROL_KEY, TIME_CONTROL_DEFAULT)
+        return preferences.getBoolean(getString(R.string.pref_timer_key), TIME_CONTROL_DEFAULT)
     }
 
     fun startResultsActivity(finalResponse: GameResponse) {

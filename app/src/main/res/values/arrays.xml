@@ -40,8 +40,8 @@
         <item>Hard</item>
     </string-array>
     <string-array name="difficulty_values_array">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
+        <item>easy</item>
+        <item>medium</item>
+        <item>hard</item>
     </string-array>
 </resources>

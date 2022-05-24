@@ -12,7 +12,6 @@ import androidx.preference.PreferenceManager
 import com.example.filler.FillerApplication
 import com.example.filler.R
 import com.example.filler.constants.gui.ALIAS_DEFAULT
-import com.example.filler.constants.gui.ALIAS_KEY
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.game.GUIGame
@@ -73,7 +72,9 @@ class Results : AppCompatActivity(), View.OnClickListener {
 
     private fun getAlias(): String {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        return sharedPreferences.getString(ALIAS_KEY, ALIAS_DEFAULT) ?: ALIAS_DEFAULT
+        return sharedPreferences.getString(
+            getString(R.string.pref_alias_key), ALIAS_DEFAULT
+        ) ?: ALIAS_DEFAULT
     }
 
     private fun getOutcome(intent: Intent): String {
