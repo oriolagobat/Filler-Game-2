@@ -18,8 +18,7 @@ class GameSummaryListAdapter(
     inner class GameSummaryViewHolder(
         itemView: View,
         _listener: GameSummaryClickListener
-    ) : RecyclerView.ViewHolder(itemView),
-    View.OnClickListener, View.OnLongClickListener{
+    ) : RecyclerView.ViewHolder(itemView) {
         private val aliasTextView: TextView = itemView.findViewById(R.id.game_summary_alias)
         private val outcomeTextView: TextView = itemView.findViewById(R.id.game_summary_score)
         private val dateTextView: TextView = itemView.findViewById(R.id.game_summary_date)
@@ -29,7 +28,26 @@ class GameSummaryListAdapter(
         fun bind(alias: String, outcome: String) {
             aliasTextView.text = alias
             outcomeTextView.text = outcome
+            setListeners()
+        }
+
+        private fun setListeners() {
+            setDetailListener()
+            setQueryListener()
             setDeleteListener()
+        }
+
+        private fun setDetailListener() {
+            itemView.setOnClickListener {
+                listener.get()?.onRowClicked(bindingAdapterPosition)
+            }
+        }
+
+        private fun setQueryListener() {
+            itemView.setOnLongClickListener {
+                listener.get()?.onRowLongClicked(bindingAdapterPosition)
+                true
+            }
         }
 
         private fun setDeleteListener() {
@@ -37,16 +55,6 @@ class GameSummaryListAdapter(
                 listener.get()?.onRowDeleteClicked(bindingAdapterPosition)
             }
         }
-
-        override fun onClick(v: View?) {
-            listener.get()?.onRowClicked(bindingAdapterPosition)
-        }
-
-        override fun onLongClick(v: View?): Boolean {
-            listener.get()?.onRowLongClicked(bindingAdapterPosition)
-            return true
-        }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameSummaryViewHolder {
