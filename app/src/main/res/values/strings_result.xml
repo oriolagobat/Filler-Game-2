@@ -18,6 +18,7 @@
     <string name="results_button_new">New game</string>
     <string name="results_button_close">Close</string>
     <string name="results_mail_error">No email introduced, default one will be used…</string>
+    <string name="results_mail_text_error">Please enter a valid email</string>
 
     <string name="results_outcome_win" translatable="false">Crown icon, indicating the user has won</string>
     <string name="results_outcome_draw" translatable="false">Two swords icon, indicating the user has drawn</string>

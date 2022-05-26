@@ -49,7 +49,7 @@ fun getValidMailOrError(
     val defaultMail = context.getString(R.string.results_default_mail)
     // Not the default mail, must check
     if (mail != defaultMail && !validMail(mail)) {
-        editText.error = "Please enter a valid email"
+        editText.error = context.getString(R.string.results_mail_text_error)
     }
 
     return editText.text.toString()
