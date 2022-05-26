@@ -1,4 +1,4 @@
-package com.example.filler.gui.game.image
+package com.example.filler.gui.preferences.image
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -7,6 +7,8 @@ import android.os.Environment
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import com.example.filler.constants.gui.TEMP_PREFIX
+import com.example.filler.constants.gui.TEMP_SUFFIX
 import com.example.filler.gui.preferences.PreferencesActivity
 import java.io.File
 
@@ -23,7 +25,7 @@ class Camera(
 
     fun createImageFile(): File {
         val storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile("temp_image", ".jpg", storageDir)
+        return File.createTempFile(TEMP_PREFIX, TEMP_SUFFIX, storageDir)
     }
 
     fun imageFromCamera() {

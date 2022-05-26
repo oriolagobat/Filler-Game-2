@@ -70,7 +70,7 @@ fun getColorFromGameColor(gameColor: GameColor): Int {
     }
 }
 
-fun startGameSong(context: GUIGame) {
+fun startGameSong(context: GameActivity) {
     if (!sound(context)) return
     val intent = Intent(context, SongPlayer::class.java)
     intent.putExtra(Music.SONG.name, R.raw.game)
@@ -78,7 +78,7 @@ fun startGameSong(context: GUIGame) {
     context.startService(intent)
 }
 
-fun stopGameSong(context: GUIGame) {
+fun stopGameSong(context: GameActivity) {
     if (!sound(context)) return
     val intent = Intent(context, SongPlayer::class.java)
     context.stopService(intent)

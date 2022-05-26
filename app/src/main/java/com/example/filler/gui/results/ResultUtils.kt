@@ -13,7 +13,7 @@ import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.gui.shared.getValidMailOrError
 
 fun setUpResultListeners(
-    context: Results,
+    context: ResultsActivity,
     binding: ActivityResultsBinding
 ) {
     binding.emailInput.setOnClickListener(context)
@@ -24,7 +24,7 @@ fun setUpResultListeners(
 }
 
 fun startSongPlayer(
-    context: Results,
+    context: ResultsActivity,
     startIntent: Intent
 ) {
     val playerIntent = Intent(context, SongPlayer::class.java)
@@ -38,7 +38,7 @@ fun startSongPlayer(
 }
 
 fun updateScoreText(
-    context: Results,
+    context: ResultsActivity,
     intent: Intent,
     binding: ActivityResultsBinding
 ) {
@@ -56,7 +56,7 @@ fun updateScoreText(
 private fun formatScore(name: String, score: String): String = "$name: $score"
 
 private fun setCorrectTextColor(
-    context: Results,
+    context: ResultsActivity,
     intent: Intent,
     binding: ActivityResultsBinding
 ) {
@@ -89,7 +89,7 @@ fun getDrawInfo(): Triple<Int, Int, Int> = Triple(
 )
 
 fun saveEmail(
-    context: Results,
+    context: ResultsActivity,
     emailInput: EditText
 ): String {
     return getValidMailOrError(context, emailInput)

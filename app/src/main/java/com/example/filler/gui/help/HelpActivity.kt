@@ -7,7 +7,7 @@ import com.example.filler.R
 import com.example.filler.databinding.ActivityHelpBinding
 import com.example.filler.gui.shared.hideNavBar
 
-class Help : AppCompatActivity() {
+class HelpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideNavBar(this)

@@ -1,4 +1,4 @@
-package com.example.filler.gui.game.image
+package com.example.filler.gui.preferences.image
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import com.example.filler.constants.gui.IMAGE_MIME
 import com.example.filler.gui.preferences.PreferencesActivity
 
 class MediaGallery(
@@ -23,7 +24,7 @@ class MediaGallery(
 
     fun imageFromGallery() {
         if (!hasGalleryPermissions()) requestGalleryPermissions()
-        val imageMIME = "image/*"
+        val imageMIME = IMAGE_MIME
         mediaGalleryLauncher.launch(imageMIME)
     }
 

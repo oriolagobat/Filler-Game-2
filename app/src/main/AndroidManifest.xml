@@ -28,16 +28,16 @@
             android:name=".gui.preferences.PreferencesActivity"
             android:exported="false" />
         <activity
-            android:name=".gui.results.Results"
+            android:name=".gui.results.ResultsActivity"
             android:exported="false" />
         <activity
-            android:name=".gui.game.GUIGame"
+            android:name=".gui.game.GameActivity"
             android:exported="false" />
         <activity
-            android:name=".gui.help.Help"
+            android:name=".gui.help.HelpActivity"
             android:exported="false" />
         <activity
-            android:name=".gui.home.InitialMenu"
+            android:name=".gui.home.HomepageActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>

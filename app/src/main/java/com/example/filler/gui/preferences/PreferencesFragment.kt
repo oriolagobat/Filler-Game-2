@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceScreen
 import androidx.preference.SwitchPreferenceCompat
 import com.example.filler.R
 import com.example.filler.constants.gui.Music
-import com.example.filler.gui.game.image.ImagePopup
+import com.example.filler.gui.preferences.image.ImagePopup
 import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.gui.shared.sound
 

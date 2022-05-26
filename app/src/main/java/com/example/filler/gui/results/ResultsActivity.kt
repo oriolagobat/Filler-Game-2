@@ -13,8 +13,9 @@ import com.example.filler.FillerApplication
 import com.example.filler.R
 import com.example.filler.constants.gui.ALIAS_DEFAULT
 import com.example.filler.constants.gui.Outcomes
+import com.example.filler.constants.gui.RESULT_DATE_FORMAT
 import com.example.filler.databinding.ActivityResultsBinding
-import com.example.filler.gui.game.GUIGame
+import com.example.filler.gui.game.GameActivity
 import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.results.data.Date
 import com.example.filler.gui.results.data.Email
@@ -28,7 +29,7 @@ import com.example.filler.persistence.database.GameSummaryViewModelFactory
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class Results : AppCompatActivity(), View.OnClickListener {
+class ResultsActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityResultsBinding
     private val email = Email()
     private val date = Date()
@@ -106,7 +107,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setCurrentDate() {
         val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")
+        val formatter = DateTimeFormatter.ofPattern(RESULT_DATE_FORMAT)
         date.value = current.format(formatter)
         binding.dateTimeOutput.text = date.value
     }
@@ -142,7 +143,7 @@ class Results : AppCompatActivity(), View.OnClickListener {
 
     private fun startNewGame() {
         Logger.clearLog()
-        val intent = Intent(this, GUIGame::class.java)
+        val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
         finish()
     }

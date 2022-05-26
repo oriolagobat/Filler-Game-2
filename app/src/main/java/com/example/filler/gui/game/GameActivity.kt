@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import com.example.filler.databinding.ActivityGameBinding
 import com.example.filler.gui.shared.hideNavBar
 
-class GUIGame : FragmentActivity() {
+class GameActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideNavBar(this)

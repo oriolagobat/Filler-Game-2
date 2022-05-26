@@ -16,7 +16,7 @@ import com.example.filler.databinding.GameFragmentBinding
 import com.example.filler.gui.game.*
 import com.example.filler.gui.game.data.Score
 import com.example.filler.gui.game.viewmodel.GUIGameViewModel
-import com.example.filler.gui.results.Results
+import com.example.filler.gui.results.ResultsActivity
 import com.example.filler.gui.shared.getPreferences
 import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
@@ -95,10 +95,10 @@ class GameFragment : Fragment() {
     }
 
     fun startResultsActivity(finalResponse: GameResponse) {
-        val intent = Intent(requireContext(), Results::class.java)
+        val intent = Intent(requireContext(), ResultsActivity::class.java)
         putOutComeData(intent, finalResponse)
         putPlayerScoreData(intent, finalResponse)
-        stopGameSong(requireActivity() as GUIGame)
+        stopGameSong(requireActivity() as GameActivity)
         startActivity(intent)
         requireActivity().finish()
     }

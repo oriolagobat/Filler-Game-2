@@ -24,4 +24,5 @@
     <string name="pref_popup_gallery">Triar-ne una de la galeria</string>
     <string name="pref_game_summary">Personalitzar paràmetres del joc</string>
     <string name="pref_general_summary">Personalitzar característiques de l\'app</string>
+    <string name="results_mail_error">No s\'ha introduit correu electrònic, s\'usarà el per defecte</string>
 </resources>

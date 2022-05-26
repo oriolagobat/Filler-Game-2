@@ -4,26 +4,20 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.fragment.app.viewModels
-import com.example.filler.FillerApplication
 import com.example.filler.R
 import com.example.filler.databinding.ActivityMainBinding
-import com.example.filler.gui.game.GUIGame
-import com.example.filler.gui.help.Help
+import com.example.filler.gui.game.GameActivity
+import com.example.filler.gui.help.HelpActivity
 import com.example.filler.gui.preferences.PreferencesActivity
 //import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.shared.hideNavBar
 import com.example.filler.persistence.AccessBDActivity
-import com.example.filler.persistence.database.GameSummary
-import com.example.filler.persistence.database.GameSummaryViewModel
-import com.example.filler.persistence.database.GameSummaryViewModelFactory
 import com.google.android.material.color.DynamicColors
 
-class InitialMenu : AppCompatActivity(), View.OnClickListener {
+class HomepageActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -65,12 +59,12 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun startHelpScreen() {
-        val helpIntent = Intent(this, Help::class.java)
+        val helpIntent = Intent(this, HelpActivity::class.java)
         startActivity(helpIntent)
     }
 
     private fun startGameScreen() {
-        val gameIntent = Intent(this, GUIGame::class.java)
+        val gameIntent = Intent(this, GameActivity::class.java)
         startActivity(gameIntent)
         finish()
     }
