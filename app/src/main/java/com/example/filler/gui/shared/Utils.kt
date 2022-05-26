@@ -66,5 +66,6 @@ fun getPreferences(context: Context): SharedPreferences =
 // Returns true if the user wants music
 fun sound(context: Context): Boolean {
     val sharedPreferences = getPreferences(context)
-    return sharedPreferences.getBoolean("music", true) // Music on by default
+    val musicKey = context.getString(R.string.pref_music_key)
+    return sharedPreferences.getBoolean(musicKey, true) // Music on by default
 }
