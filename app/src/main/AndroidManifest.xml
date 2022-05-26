@@ -34,14 +34,12 @@
             android:name=".gui.game.GUIGame"
             android:exported="false" />
         <activity
-            android:name=".gui.configuration.NewGameConfiguration"
-            android:exported="false" />
-        <activity
             android:name=".gui.help.Help"
             android:exported="false" />
         <activity
             android:name=".gui.home.InitialMenu"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

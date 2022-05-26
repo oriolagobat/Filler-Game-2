@@ -84,4 +84,6 @@ dependencies {
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
 
+    //Androidx Core Splash Screen
+    implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
 }

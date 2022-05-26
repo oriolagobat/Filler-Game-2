@@ -7,6 +7,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.viewModels
 import com.example.filler.FillerApplication
 import com.example.filler.R
@@ -25,6 +26,7 @@ import com.google.android.material.color.DynamicColors
 class InitialMenu : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
 
         // Request permissions
@@ -35,6 +37,9 @@ class InitialMenu : AppCompatActivity(), View.OnClickListener {
 
         // Hide the navbar
         hideNavBar(this)
+
+        // Splash screen
+        installSplashScreen()
 
         // Get the binding and set the view
         val binding = ActivityMainBinding.inflate(layoutInflater)
