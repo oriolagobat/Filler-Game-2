@@ -4,31 +4,44 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filler.R
 import com.example.filler.persistence.database.GameSummary
 import java.lang.ref.WeakReference
 
 class GameSummaryListAdapter(
+    var summaries: List<GameSummary>,
     private val listener: GameSummaryClickListener
-) : ListAdapter<GameSummary, GameSummaryListAdapter.GameSummaryViewHolder>(GameSummaryComparator()) {
+) : RecyclerView.Adapter<GameSummaryListAdapter.GameSummaryViewHolder>() {
 
     inner class GameSummaryViewHolder(
         itemView: View,
         _listener: GameSummaryClickListener
     ) : RecyclerView.ViewHolder(itemView) {
-        private val aliasTextView: TextView = itemView.findViewById(R.id.game_summary_alias)
-        private val outcomeTextView: TextView = itemView.findViewById(R.id.game_summary_score)
-        private val dateTextView: TextView = itemView.findViewById(R.id.game_summary_date)
         private val deleteButton: View = itemView.findViewById(R.id.game_summary_delete)
         private val listener = WeakReference(_listener)
 
-        fun bind(alias: String, outcome: String) {
-            aliasTextView.text = alias
-            outcomeTextView.text = outcome
+        fun bind(summary: GameSummary) {
+            setContent(summary)
             setListeners()
+        }
+
+        private fun setContent(summary: GameSummary) {
+           setAlias(summary)
+           setOutcome(summary)
+           setDate(summary)
+        }
+
+        private fun setAlias(summary: GameSummary) {
+            itemView.findViewById<TextView>(R.id.game_summary_alias).text = summary.alias
+        }
+
+        private fun setOutcome(summary: GameSummary) {
+            itemView.findViewById<TextView>(R.id.game_summary_score).text = summary.outcome
+        }
+
+        private fun setDate(summary: GameSummary) {
+            itemView.findViewById<TextView>(R.id.game_summary_date).text = summary.id.toString()
         }
 
         private fun setListeners() {
@@ -45,14 +58,14 @@ class GameSummaryListAdapter(
 
         private fun setQueryListener() {
             itemView.setOnLongClickListener {
-                listener.get()?.onRowLongClicked(bindingAdapterPosition)
+                listener.get()?.onRowLongClicked(itemView)
                 true
             }
         }
 
         private fun setDeleteListener() {
             deleteButton.setOnClickListener {
-                listener.get()?.onRowDeleteClicked(bindingAdapterPosition)
+                listener.get()?.onRowDeleteClicked(summaries[bindingAdapterPosition])
             }
         }
     }
@@ -65,17 +78,10 @@ class GameSummaryListAdapter(
     }
 
     override fun onBindViewHolder(holder: GameSummaryViewHolder, position: Int) {
-        val current = getItem(position)
-        holder.bind(current.alias, current.outcome)
+        holder.bind(summaries[position])
     }
 
-    class GameSummaryComparator : DiffUtil.ItemCallback<GameSummary>() {
-        override fun areItemsTheSame(oldItem: GameSummary, newItem: GameSummary): Boolean {
-            return oldItem === newItem
-        }
-
-        override fun areContentsTheSame(oldItem: GameSummary, newItem: GameSummary): Boolean {
-            return oldItem.alias == newItem.alias && oldItem.outcome == newItem.outcome
-        }
+    override fun getItemCount(): Int {
+        return summaries.size
     }
 }

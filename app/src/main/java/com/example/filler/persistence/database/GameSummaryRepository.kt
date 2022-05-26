@@ -5,10 +5,17 @@ import kotlinx.coroutines.flow.Flow
 
 class GameSummaryRepository(private val wordDao: GameSummaryDAO) {
 
-    val allSummaries: Flow<List<GameSummary>> = wordDao.getAllSummaries()
-
     @WorkerThread
     suspend fun insert(summary: GameSummary) {
         wordDao.insert(summary)
+    }
+
+    @WorkerThread
+    suspend fun delete(summary: GameSummary) {
+        wordDao.delete(summary)
+    }
+
+    suspend fun getSummaries(): List<GameSummary> {
+        return wordDao.getAllSummaries()
     }
 }
