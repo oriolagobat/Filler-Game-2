@@ -4,5 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ResultsViewModel : ViewModel() {
-    val setUpViewModel: MutableLiveData<Boolean> = MutableLiveData()
+    val firstResultCreation: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>(true)
+    }
 }
