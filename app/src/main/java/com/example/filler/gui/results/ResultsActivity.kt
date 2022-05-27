@@ -3,7 +3,6 @@ package com.example.filler.gui.results
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
@@ -45,7 +44,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.logOutput.movementMethod = ScrollingMovementMethod()  // Makes the log scrollable
         val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
         binding.emailInput.requestFocus()  // Set focus on the email input
 
@@ -94,7 +92,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         updateOutcomeTextImage(imageId, textId, imageDescId)
         updateScoreText(this, intent, binding)
         setCurrentDate()
-        setLog()
     }
 
     private fun updateOutcomeTextImage(imageId: Int, textId: Int, imageDescId: Int) {
@@ -110,10 +107,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         val formatter = DateTimeFormatter.ofPattern(RESULT_DATE_FORMAT)
         date.value = current.format(formatter)
         binding.dateTimeOutput.text = date.value
-    }
-
-    private fun setLog() {
-        binding.logOutput.text = log.value
     }
 
     override fun onClick(v: View?) {
