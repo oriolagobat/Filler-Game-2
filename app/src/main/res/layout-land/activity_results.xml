@@ -80,13 +80,11 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <TextView
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/logOutput"
         android:layout_width="240dp"
         android:layout_height="160dp"
-        android:fontFamily="@font/main_font"
-        android:text="@string/results_default_log"
-        android:textSize="14sp"
+        android:name="com.example.filler.gui.game.fragments.LogFragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/restartGameButton"
         app:layout_constraintHorizontal_bias="0.45"

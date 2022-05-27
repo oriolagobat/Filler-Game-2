@@ -67,16 +67,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTimeImage" />
 
-    <TextView
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/logOutput"
         android:layout_width="720dp"
         android:layout_height="90dp"
-        android:textSize="40sp"
         android:layout_marginTop="13dp"
+        android:name="com.example.filler.gui.game.fragments.LogFragment"
         android:layout_marginBottom="13dp"
-        android:fontFamily="@font/main_font"
-        android:scrollbars="vertical"
-        android:text="@string/results_default_log"
         app:layout_constraintBottom_toTopOf="@+id/emailHeader"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
