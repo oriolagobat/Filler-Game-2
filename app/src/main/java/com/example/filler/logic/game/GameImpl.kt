@@ -81,7 +81,7 @@ class GameImpl(
         stats.p1Score = player1.score
         stats.p2Score = player2.score
         stats.setP1ConqueredAreaPercent(player1.score, board.getNumCells())
-        stats.outcome = gameData.state.toString()
+        stats.setOutcome(gameData.state.toString())
         stats.setEndDate()
     }
 

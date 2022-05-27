@@ -41,7 +41,7 @@ class GameSummaryListAdapter(
         }
 
         private fun setDate(summary: GameSummary) {
-            itemView.findViewById<TextView>(R.id.game_summary_date).text = summary.id.toString()
+            itemView.findViewById<TextView>(R.id.game_summary_date).text = summary.endTime
         }
 
         private fun setListeners() {

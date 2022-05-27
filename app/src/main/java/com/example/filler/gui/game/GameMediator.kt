@@ -84,7 +84,7 @@ class GameMediator(
     private fun updateGame() = if (gameFinished(gameState)) finishGame() else setUpNextRound()
 
     private fun finishGame() {
-        gameFragment.startResultsActivity(gameState)
+        gameFragment.startResultsActivity(gameState, game.getGameSummary())
         timer.finish()
     }
 

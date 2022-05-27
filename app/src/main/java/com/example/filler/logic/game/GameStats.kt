@@ -10,8 +10,8 @@ class GameStats {
     private var elapsedTime = ""
     private var startTime = ""
     private var endTime = ""
+    private var outcome = ""
     var difficulty = ""
-    var outcome = ""
     private var conqueredAreaPercent = 0
     var p2Score: Int = 0
     var p1Score: Int = 0
@@ -59,5 +59,13 @@ class GameStats {
             conqueredAreaPercent = conqueredAreaPercent,
             numColors = numColors
         )
+    }
+
+    fun setOutcome(outcome: String) {
+        when (outcome) {
+            "P1_WON" -> this.outcome = "Victory"
+            "P2_WON" -> this.outcome = "Defeat"
+            "DRAW" -> this.outcome = "Draw"
+        }
     }
 }

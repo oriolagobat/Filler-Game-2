@@ -2,6 +2,7 @@ package com.example.filler.persistence.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class GameSummary(
@@ -13,4 +14,4 @@ data class GameSummary(
     val gridSize: Int,
     val numColors: Int,
     val conqueredAreaPercent: Int
-)
+) : Serializable

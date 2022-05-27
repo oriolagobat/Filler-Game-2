@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.example.filler.R
 import com.example.filler.constants.gui.*
 import com.example.filler.constants.logic.Difficulty
@@ -20,6 +21,7 @@ import com.example.filler.gui.results.ResultsActivity
 import com.example.filler.gui.shared.getPreferences
 import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
+import com.example.filler.persistence.database.GameSummary
 
 class GameFragment : Fragment() {
     private lateinit var gameViewModel: GUIGameViewModel
@@ -41,7 +43,23 @@ class GameFragment : Fragment() {
     }
 
     private fun setUsername() {
-        binding.usernameText.text = preferences.getString(getString(R.string.pref_alias_key), ALIAS_DEFAULT)
+        val chosenUsername = preferences.getString(getString(R.string.pref_alias_key), ALIAS_DEFAULT)
+        if (validAlias(chosenUsername!!)) binding.usernameText.text = chosenUsername
+        else {
+            setDefaultAlias()
+            binding.usernameText.text = ALIAS_DEFAULT
+        }
+    }
+
+    private fun setDefaultAlias() {
+        PreferenceManager.getDefaultSharedPreferences(requireContext())
+            .edit()
+            .putString(getString(R.string.pref_alias_key), getString(R.string.pref_alias_default))
+            .apply()
+    }
+
+    private fun validAlias(alias: String): Boolean {
+        return alias.lines().size <= 1 && alias.length <= 20
     }
 
     private fun setPfp() {
@@ -94,10 +112,11 @@ class GameFragment : Fragment() {
         return preferences.getBoolean(getString(R.string.pref_timer_key), TIME_CONTROL_DEFAULT)
     }
 
-    fun startResultsActivity(finalResponse: GameResponse) {
+    fun startResultsActivity(finalResponse: GameResponse, summary: GameSummary) {
         val intent = Intent(requireContext(), ResultsActivity::class.java)
         putOutComeData(intent, finalResponse)
         putPlayerScoreData(intent, finalResponse)
+        putSummaryData(intent, summary)
         stopGameSong(requireActivity() as GameActivity)
         startActivity(intent)
         requireActivity().finish()
@@ -115,6 +134,10 @@ class GameFragment : Fragment() {
     private fun putPlayerScoreData(intent: Intent, finalResponse: GameResponse) {
         intent.putExtra(Scores.PLAYER1SCORE.name, Score(finalResponse.p1Score))
         intent.putExtra(Scores.PLAYER2SCORE.name, Score(finalResponse.p2Score))
+    }
+
+    private fun putSummaryData(intent: Intent, summary: GameSummary) {
+       intent.putExtra(Summary.GAMESUMMARY.name, summary)
     }
 
     override fun onDestroy() {

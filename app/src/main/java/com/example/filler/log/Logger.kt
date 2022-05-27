@@ -11,7 +11,7 @@ object Logger {
 
     init {
         if (logList.value == null) {
-            logList.value = listOf()
+            logList.value = listOf<String>()
         }
     }
 

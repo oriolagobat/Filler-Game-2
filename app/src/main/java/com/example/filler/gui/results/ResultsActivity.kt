@@ -14,6 +14,7 @@ import com.example.filler.R
 import com.example.filler.constants.gui.ALIAS_DEFAULT
 import com.example.filler.constants.gui.Outcomes
 import com.example.filler.constants.gui.RESULT_DATE_FORMAT
+import com.example.filler.constants.gui.Summary
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.game.GameActivity
 import com.example.filler.gui.preferences.PreferencesActivity
@@ -67,12 +68,17 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun persistGameStats(intent: Intent) {
-        //TODO: Ask for the game summary and persist it to the database
-//        val summary = GameSummary(
-//            alias = getAlias(),
-//            outcome = getOutcome(intent)
-//        )
-//        gameSummaryViewModel.insert(summary)
+        val logicSummary = intent.extras?.getSerializable(Summary.GAMESUMMARY.name) as GameSummary
+        val summary = GameSummary(
+            endTime = logicSummary.endTime,
+            elapsedTime = logicSummary.elapsedTime,
+            alias = getAlias(),
+            outcome = logicSummary.outcome,
+            gridSize = logicSummary.gridSize,
+            numColors = logicSummary.numColors,
+            conqueredAreaPercent = logicSummary.conqueredAreaPercent
+        )
+        gameSummaryViewModel.insert(summary)
     }
 
     private fun getAlias(): String {

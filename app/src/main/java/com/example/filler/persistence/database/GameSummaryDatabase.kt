@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(GameSummary::class), version = 3, exportSchema = false)
+@Database(entities = arrayOf(GameSummary::class), version = 4, exportSchema = false)
 abstract class GameSummaryRoomDatabase : RoomDatabase() {
 
     abstract fun gameSummaryDao(): GameSummaryDAO
