@@ -26,8 +26,9 @@ class GameFactoryImpl(private val settings: GameSettings) : GameFactory {
 
     override fun makeGame(): Game {
         val data = generateInitialGameData()
+        val stats = initStats()
         Logger.logDebug("Initial game data generated, creating game instance...")
-        return GameImpl(scoreCalculator, smartColorGenerator, selector, board, data, p1, p2)
+        return GameImpl(scoreCalculator, smartColorGenerator, selector, board, data, p1, p2, stats)
     }
 
     private fun generateInitialGameData(): GameData {
@@ -76,5 +77,18 @@ class GameFactoryImpl(private val settings: GameSettings) : GameFactory {
         selector.select(board.getColor(board.getP1Home()))
         selector.select(board.getColor(board.getP2Home()))
         Logger.logDebug("Color selector initialized")
+    }
+
+    private fun initStats(): GameStats {
+        return GameStats().apply {
+            setStartDate()
+            difficulty = capitalize(settings.difficulty.toString())
+            gridSize = settings.boardSize
+            numColors = settings.nColors
+        }
+    }
+
+    private fun capitalize(s: String): String {
+        return s.lowercase().replaceFirstChar { it.uppercase() }
     }
 }

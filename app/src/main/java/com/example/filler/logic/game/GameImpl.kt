@@ -9,6 +9,7 @@ import com.example.filler.logic.colors.Generator
 import com.example.filler.logic.colors.RandomColorGenerator
 import com.example.filler.logic.player.Player
 import com.example.filler.logic.score.ScoreCalculator
+import com.example.filler.persistence.database.GameSummary
 
 class GameImpl(
     private val scoreCalculator: ScoreCalculator,
@@ -17,7 +18,8 @@ class GameImpl(
     private val board: Board,
     private val gameData: GameData,
     private val player1: Player,
-    private val player2: Player
+    private val player2: Player,
+    private val stats: GameStats
 ) : Game {
 
     override fun pickColorThroughAI(): GameResponse {
@@ -39,7 +41,6 @@ class GameImpl(
         return getGameResponse()
     }
 
-
     private fun setRound() {
         if (gameData.state == GameState.P1_TURN) {
             gameData.round++
@@ -58,7 +59,7 @@ class GameImpl(
         Logger.logInfo("${gameData.currentPlayer.id} new score is: ${gameData.currentPlayer.score}")
     }
 
-    private fun setNextState() = if (!gameFinished()) swapTurns() else setFinishState()
+    private fun setNextState() = if (!gameFinished()) swapTurns() else finishGame()
 
     private fun gameFinished() = player1.score + player2.score == board.getNumCells()
 
@@ -69,7 +70,21 @@ class GameImpl(
         }
     }
 
+    private fun finishGame() {
+        setFinishState()
+        setFinishStats()
+    }
+
     private fun setFinishState() = if (!isDraw()) setWinner() else gameData.state = GameState.DRAW
+
+    private fun setFinishStats() {
+        stats.p1Score = player1.score
+        stats.p2Score = player2.score
+        stats.setP1ConqueredAreaPercent(player1.score, board.getNumCells())
+        stats.outcome = gameData.state.toString()
+        stats.setEndDate()
+    }
+
 
     private fun isDraw() = player1.score == player2.score
 
@@ -79,4 +94,8 @@ class GameImpl(
 
     override fun getGameResponse() =
         GameResponse(gameData.state, gameData.round, player1.score, player2.score, board, selector)
+
+    override fun getGameSummary(): GameSummary {
+        return stats.makeSummary()
+    }
 }

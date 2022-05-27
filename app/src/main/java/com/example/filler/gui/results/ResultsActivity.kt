@@ -67,11 +67,12 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun persistGameStats(intent: Intent) {
-        val summary = GameSummary(
-            alias = getAlias(),
-            outcome = getOutcome(intent)
-        )
-        gameSummaryViewModel.insert(summary)
+        //TODO: Ask for the game summary and persist it to the database
+//        val summary = GameSummary(
+//            alias = getAlias(),
+//            outcome = getOutcome(intent)
+//        )
+//        gameSummaryViewModel.insert(summary)
     }
 
     private fun getAlias(): String {
