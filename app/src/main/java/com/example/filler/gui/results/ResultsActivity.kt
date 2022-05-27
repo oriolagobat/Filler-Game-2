@@ -7,6 +7,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.example.filler.FillerApplication
 import com.example.filler.R
@@ -19,6 +20,7 @@ import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.results.data.Date
 import com.example.filler.gui.results.data.Email
 import com.example.filler.gui.results.data.Log
+import com.example.filler.gui.results.viewmodel.ResultsViewModel
 import com.example.filler.gui.shared.hideNavBar
 import com.example.filler.gui.shared.sound
 import com.example.filler.log.Logger
@@ -47,18 +49,21 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
         binding.emailInput.requestFocus()  // Set focus on the email input
 
-        // Update log with the outcome
-        updateLogOutcome(intent)
-
-        // Persist game to database
-        persistGameStats(intent)
-
-        // Start the media player with the sound corresponding to the outcome of the game
-        if (sound(this)) startSongPlayer(this, intent)
+        checkFirstCreation()
 
         updateLayout(resultType!!)
 
         setUpResultListeners(this, binding)
+    }
+
+    private fun checkFirstCreation() {
+        val resultViewModel = ViewModelProvider(this)[ResultsViewModel::class.java]
+        if (resultViewModel.firstCreation.value!!) {
+            updateLogOutcome(intent)  // Update log
+            persistGameStats(intent)  // Persist game
+            if (sound(this)) startSongPlayer(this, intent)  // Start song player
+            resultViewModel.firstCreation.value = false
+        }
     }
 
     private fun persistGameStats(intent: Intent) {
