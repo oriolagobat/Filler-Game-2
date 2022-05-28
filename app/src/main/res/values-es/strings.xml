@@ -58,4 +58,5 @@
     <string name="pref_general_summary">Personalizar caraterísticas de la app</string>
     <string name="results_mail_error">No se ha introducido ningún correo electrónico, se usará el por defecto</string>
     <string name="results_mail_text_error">Por favor introduce un correo válido</string>
+    <string name="game_background_desc">Imagen de fondo para la pantalla del juego</string>
 </resources>

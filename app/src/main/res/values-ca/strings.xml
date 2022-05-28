@@ -26,4 +26,5 @@
     <string name="pref_general_summary">Personalitzar característiques de l\'app</string>
     <string name="results_mail_error">No s\'ha introduit correu electrònic, s\'usarà el per defecte</string>
     <string name="results_mail_text_error">Siusplau introdueix un correu vàlid</string>
+    <string name="game_background_desc">Imatge de fons per la pantalla del joc</string>
 </resources>

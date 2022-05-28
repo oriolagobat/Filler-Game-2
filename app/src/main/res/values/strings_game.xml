@@ -6,4 +6,5 @@
     <string name="game_ia_profile_image_description" translatable="false">AI profile picture</string>
     <string name="game_ia_default">AI</string>
     <string name="game_timer_default" translatable="false">00:00</string>
+    <string name="game_background_desc">Background image for the game screen</string>
 </resources>
