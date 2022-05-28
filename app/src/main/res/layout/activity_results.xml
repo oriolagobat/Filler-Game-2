@@ -1,244 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".gui.results.ResultsActivity">
+    android:layout_height="match_parent">
+
 
     <ImageView
-        android:id="@+id/outcomeImage"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:alpha="0.85"
-        android:contentDescription="@string/results_outcome_draw"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/dateTimeHeader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/p1Score"
-        app:srcCompat="@drawable/result_draw" />
-
-    <TextView
-        android:id="@+id/dateTimeOutput"
-        android:layout_width="300dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="13dp"
-        android:fontFamily="@font/main_font"
-        android:gravity="center_vertical"
-        android:text="@string/results_default_time"
-        app:layout_constraintBottom_toTopOf="@+id/logHeader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/dateTimeImage"
-        app:layout_constraintTop_toBottomOf="@+id/dateTimeHeader" />
-
-    <ImageView
-        android:id="@+id/dateTimeImage"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:contentDescription="@string/results_cal_desc"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/logHeader"
-        app:layout_constraintEnd_toStartOf="@+id/dateTimeOutput"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateTimeHeader"
-        app:srcCompat="@drawable/icon_calendar" />
-
-    <!--            Attribute android:autofillHints cannot be passed from strings.xml-->
-    <!--            That's why it's hardcoded-->
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:contentDescription="@string/results_background_desc"
+        android:scaleType="centerCrop"
+        android:src="@drawable/result_background" />
 
 
-    <TextView
-        android:id="@+id/logHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/results_log"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/logImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateTimeImage" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".gui.results.ResultsActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/logOutput"
-        android:name="com.example.filler.gui.game.fragments.LogFragment"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailHeader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/logImage"
-        app:layout_constraintTop_toBottomOf="@+id/logHeader" />
+        <ImageView
+            android:id="@+id/outcomeImage"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:alpha="0.85"
+            android:contentDescription="@string/results_outcome_draw"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/dateTimeHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/p1Score"
+            app:srcCompat="@drawable/result_draw" />
 
-    <ImageView
-        android:id="@+id/logImage"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:contentDescription="@string/results_log_desc"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/emailHeader"
-        app:layout_constraintEnd_toStartOf="@+id/logOutput"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logHeader"
-        app:srcCompat="@drawable/icon_log" />
+        <TextView
+            android:id="@+id/dateTimeOutput"
+            android:layout_width="300dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="13dp"
+            android:fontFamily="@font/main_font"
+            android:gravity="center_vertical"
+            android:text="@string/results_default_time"
+            app:layout_constraintBottom_toTopOf="@+id/logHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dateTimeImage"
+            app:layout_constraintTop_toBottomOf="@+id/dateTimeHeader" />
 
-    <TextView
-        android:id="@+id/emailHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/results_email"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/emailInputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logImage" />
+        <ImageView
+            android:id="@+id/dateTimeImage"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/results_cal_desc"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/logHeader"
+            app:layout_constraintEnd_toStartOf="@+id/dateTimeOutput"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateTimeHeader"
+            app:srcCompat="@drawable/icon_calendar" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailInputLayout"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/sendEmailButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailHeader">
+        <!--            Attribute android:autofillHints cannot be passed from strings.xml-->
+        <!--            That's why it's hardcoded-->
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailInput"
+
+        <TextView
+            android:id="@+id/logHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/results_log"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/logImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateTimeImage" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/logOutput"
+            android:name="com.example.filler.gui.game.fragments.LogFragment"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toTopOf="@+id/emailHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/logImage"
+            app:layout_constraintTop_toBottomOf="@+id/logHeader" />
+
+        <ImageView
+            android:id="@+id/logImage"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/results_log_desc"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/emailHeader"
+            app:layout_constraintEnd_toStartOf="@+id/logOutput"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logHeader"
+            app:srcCompat="@drawable/icon_log" />
+
+        <TextView
+            android:id="@+id/emailHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/results_email"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/emailInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.077"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logImage" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/sendEmailButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.17"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailHeader">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="Log e-mail"
+                android:ems="10"
+                android:fontFamily="@font/main_font"
+                android:hint="@string/results_hint_email"
+                android:inputType="textEmailAddress"
+
+                android:text="@string/results_default_mail" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/sendEmailButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/results_button_send"
+            app:icon="@drawable/icon_email"
+            app:layout_constraintBottom_toTopOf="@+id/restartGameButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailInputLayout" />
+
+        <Button
+            android:id="@+id/closeButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/results_button_close"
+            app:icon="@drawable/icon_close"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/restartGameButton" />
+
+        <Button
+            android:id="@+id/restartGameButton"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/results_button_new"
+            app:icon="@drawable/icon_back_button"
+            app:layout_constraintBottom_toTopOf="@+id/closeButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sendEmailButton" />
+
+        <TextView
+            android:id="@+id/dateTimeHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_font"
+            android:text="@string/results_time"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/dateTimeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.087"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outcomeImage" />
+
+        <TextView
+            android:id="@+id/outcomeHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="Log e-mail"
-            android:ems="10"
+            android:fontFamily="@font/title_font"
+            android:gravity="center"
+            android:text="@string/results_draw_header"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/p1Score"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/p1Score"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/main_font"
-            android:hint="@string/results_hint_email"
-            android:inputType="textEmailAddress"
+            android:text="@string/score_p1_sample"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/outcomeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.121"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outcomeHeader" />
 
-            android:text="@string/results_default_mail" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/aiScore"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/main_font"
+            android:gravity="end"
+            android:text="@string/score_ai_sample"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/outcomeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outcomeHeader"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/sendEmailButton"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/results_button_send"
-        app:icon="@drawable/icon_email"
-        app:layout_constraintBottom_toTopOf="@+id/restartGameButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInputLayout" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/settingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:contentDescription="@string/homepage_settings_desc"
+            app:backgroundTint="@color/md_theme_light_primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.954"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976"
+            app:srcCompat="@drawable/icon_settings"
+            app:tint="@color/white" />
 
-    <Button
-        android:id="@+id/closeButton"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/results_button_close"
-        app:icon="@drawable/icon_close"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restartGameButton" />
-
-    <Button
-        android:id="@+id/restartGameButton"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/results_button_new"
-        app:icon="@drawable/icon_back_button"
-        app:layout_constraintBottom_toTopOf="@+id/closeButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendEmailButton" />
-
-    <TextView
-        android:id="@+id/dateTimeHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/results_time"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dateTimeImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outcomeImage" />
-
-    <TextView
-        android:id="@+id/outcomeHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/title_font"
-        android:gravity="center"
-        android:text="@string/results_draw_header"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/p1Score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/p1Score"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font"
-        android:text="@string/score_p1_sample"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/outcomeImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outcomeHeader" />
-
-    <TextView
-        android:id="@+id/aiScore"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="12dp"
-        android:fontFamily="@font/main_font"
-        android:gravity="end"
-        android:text="@string/score_ai_sample"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/outcomeImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outcomeHeader"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:contentDescription="@string/homepage_settings_desc"
-        app:backgroundTint="@color/md_theme_light_primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@drawable/icon_settings"
-        app:tint="@color/white" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
