@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentContainer
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
@@ -13,9 +14,11 @@ import com.example.filler.FillerApplication
 import com.example.filler.R
 import com.example.filler.constants.gui.Summary
 import com.example.filler.databinding.ActivityDbaccesBinding
+import com.example.filler.databinding.FragmentQueryBinding
 import com.example.filler.persistence.database.GameSummary
 import com.example.filler.persistence.database.GameSummaryViewModel
 import com.example.filler.persistence.database.GameSummaryViewModelFactory
+
 
 class AccessBDActivity : AppCompatActivity() {
     private val gameSummaryViewModel: GameSummaryViewModel by viewModels {
@@ -49,6 +52,18 @@ class AccessBDActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             add<RegFrag>(R.id.details_frag_container)
         }
+//        val constraintLayout = findViewById<ConstraintLayout>(R.id.activity_dbacces_large)
+//        val constraintSet = ConstraintSet()
+//        constraintSet.clone(constraintLayout)
+//        constraintSet.connect(
+//            R.id.items_frag_container,
+//            ConstraintSet.BOTTOM,
+//            R.id.details_frag_container,
+//            ConstraintSet.TOP,
+//            0
+//        )
+//        constraintSet.applyTo(constraintLayout)
+
     }
 
     private fun startDetailActivity(summary: GameSummary) {
