@@ -1,15 +1,18 @@
 package com.example.filler.persistence
 
-import android.content.ClipData.newIntent
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentContainer
+import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.example.filler.FillerApplication
 import com.example.filler.R
 import com.example.filler.constants.gui.Summary
+import com.example.filler.databinding.ActivityDbaccesBinding
 import com.example.filler.persistence.database.GameSummary
 import com.example.filler.persistence.database.GameSummaryViewModel
 import com.example.filler.persistence.database.GameSummaryViewModelFactory
@@ -33,6 +36,22 @@ class AccessBDActivity : AppCompatActivity() {
     }
 
     fun onItemClick(summary: GameSummary) {
+        if (detailViewIsPresent()) setDetailFragment()
+        else startDetailActivity(summary)
+    }
+
+    private fun detailViewIsPresent(): Boolean {
+        return findViewById<FragmentContainerView>(R.id.details_frag_container) != null
+    }
+
+    private fun setDetailFragment() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<RegFrag>(R.id.details_frag_container)
+        }
+    }
+
+    private fun startDetailActivity(summary: GameSummary) {
         val intent = Intent(this, DetailRegActivity::class.java)
         intent.putExtra(Summary.GAMESUMMARY.name, summary)
         startActivity(intent)

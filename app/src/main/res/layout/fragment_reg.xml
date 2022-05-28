@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/recycler_item_background"
+    android:backgroundTint="@color/colorPrimary"
+    android:layout_margin="12dp"
+    android:layout_marginBottom="20dp"
     tools:context=".persistence.RegFrag">
 
     <com.google.android.material.textview.MaterialTextView
