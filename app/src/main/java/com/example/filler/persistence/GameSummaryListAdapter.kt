@@ -52,7 +52,7 @@ class GameSummaryListAdapter(
 
         private fun setDetailListener() {
             itemView.setOnClickListener {
-                listener.get()?.onRowClicked(bindingAdapterPosition)
+                listener.get()?.onRowClicked(summaries[bindingAdapterPosition])
             }
         }
 
