@@ -88,10 +88,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         ) ?: ALIAS_DEFAULT
     }
 
-    private fun getOutcome(intent: Intent): String {
-        return intent.getStringExtra(Outcomes.OUTCOME.name) ?: ""
-    }
-
     @RequiresApi(Build.VERSION_CODES.O)
     private fun updateLayout(resultType: String) {
         // Set the corresponding layout image and text corresponding to the outcome of the game

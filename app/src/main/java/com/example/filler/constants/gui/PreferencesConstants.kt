@@ -19,6 +19,8 @@ const val TIME_CONTROL_DEFAULT = false
 
 // Alias
 const val ALIAS_DEFAULT = "Player"
+const val MAX_ALIAS_LENGTH = 13
+const val MAX_ALIAS_LINES = 1
 
 // Profile pic
 const val PROFILE_PIC_DEFAULT = R.drawable.user_profile

@@ -59,7 +59,7 @@ class GameFragment : Fragment() {
     }
 
     private fun validAlias(alias: String): Boolean {
-        return alias.lines().size <= 1 && alias.length <= 20
+        return alias.lines().size <= MAX_ALIAS_LINES && alias.length <= MAX_ALIAS_LENGTH
     }
 
     private fun setPfp() {
