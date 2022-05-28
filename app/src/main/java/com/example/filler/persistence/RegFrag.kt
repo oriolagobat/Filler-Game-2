@@ -31,7 +31,7 @@ class RegFrag : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        gameSummaryViewModel.currentSummary.observe(viewLifecycleOwner) { current ->
+        GameSummaryViewModel.currentSummary.observe(viewLifecycleOwner) { current ->
             binding.textview.text = current?.endTime ?: "No current game"
         }
     }

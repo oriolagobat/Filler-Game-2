@@ -4,8 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.filler.constants.gui.Summary
-import com.example.filler.logic.game.Game
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -13,11 +11,16 @@ import kotlinx.coroutines.runBlocking
 class GameSummaryViewModel(private val repository: GameSummaryRepository) : ViewModel() {
 
     val summaries: MutableLiveData<List<GameSummary>> = MutableLiveData()
-    val currentSummary: MutableLiveData<GameSummary?>
+
+    companion object {
+        var currentSummary: MutableLiveData<GameSummary?> = MutableLiveData(null)
+    }
 
     init {
         updateSummaries()
-        currentSummary = getFirstSummary()
+        if (currentSummary.value == null) {
+            currentSummary.value = getFirstSummary()
+        }
     }
 
     private fun updateSummaries() {
@@ -30,7 +33,9 @@ class GameSummaryViewModel(private val repository: GameSummaryRepository) : View
         summaries.value = result
     }
 
-    private fun getFirstSummary() = MutableLiveData(summaries.value?.get(0))
+    private fun getFirstSummary(): GameSummary? {
+        return summaries.value?.firstOrNull()
+    }
 
     fun insert(summary: GameSummary) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(summary)
@@ -45,7 +50,9 @@ class GameSummaryViewModel(private val repository: GameSummaryRepository) : View
         updateSummaries()
     }
 
-    fun updateCurrentSummary(summary: GameSummary) { currentSummary.value = summary }
+    fun updateCurrentSummary(summary: GameSummary) {
+        currentSummary.value = summary
+    }
 }
 
 class GameSummaryViewModelFactory(private val repository: GameSummaryRepository) :
