@@ -8,10 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.filler.FillerApplication
 import com.example.filler.databinding.FragmentQueryBinding
-import com.example.filler.logic.game.Game
 import com.example.filler.persistence.database.GameSummary
 import com.example.filler.persistence.database.GameSummaryViewModel
 import com.example.filler.persistence.database.GameSummaryViewModelFactory
@@ -35,6 +33,7 @@ class QueryFrag : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initUI()
     }
 
@@ -52,8 +51,8 @@ class QueryFrag : Fragment() {
 
     private fun setUpListener(): GameSummaryClickListener {
         return object : GameSummaryClickListener {
-            override fun onRowClicked(position: Int) {
-                Toast.makeText(activity, "Clicked on row $position", Toast.LENGTH_SHORT).show()
+            override fun onRowClicked(summary: GameSummary) {
+                itemClickCallback(summary)
             }
 
             override fun onRowLongClicked(view: View) {
@@ -67,9 +66,16 @@ class QueryFrag : Fragment() {
         }
     }
 
+    private fun itemClickCallback(summary: GameSummary) {
+        gameSummaryViewModel.updateCurrentSummary(summary)
+        val parentActivity = requireActivity() as AccessBDActivity
+        parentActivity.onItemClick(summary)
+        Toast.makeText(activity, "Clicked on ", Toast.LENGTH_SHORT).show()
+    }
+
     private fun listenForSumariesUpdate() {
-        gameSummaryViewModel.summaries.observe(viewLifecycleOwner) {
-            adapter.summaries = gameSummaryViewModel.summaries.value!!
+        gameSummaryViewModel.summaries.observe(viewLifecycleOwner) { summaryList ->
+            adapter.summaries = summaryList
             adapter.notifyDataSetChanged()
         }
     }
