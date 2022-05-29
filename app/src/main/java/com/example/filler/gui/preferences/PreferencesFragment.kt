@@ -1,5 +1,6 @@
 package com.example.filler.gui.preferences
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.preference.Preference
@@ -12,6 +13,12 @@ import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.gui.shared.sound
 
 class PreferencesFragment : PreferenceFragmentCompat() {
+    private lateinit var imagePopup: ImagePopup
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        imagePopup = ImagePopup(requireContext() as PreferencesActivity)
+    }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         requireActivity().setTheme(R.style.PreferenceScreen)
@@ -21,7 +28,6 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     }
 
     private fun setProfilePicListener() {
-        val imagePopup = ImagePopup(requireContext() as PreferencesActivity)
         findPreference<Preference>(getString(R.string.pref_profile_pic_key))
             ?.setOnPreferenceClickListener {
                 imagePopup.show()
@@ -58,5 +64,18 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun stopPreferenceSong() {
         val intent = Intent(requireContext(), SongPlayer::class.java)
         requireActivity().stopService(intent)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        val imageString = imagePopup.chosenImageUri.toString()
+        if (imageString == "gallery") {
+            imagePopup.chosenImageUri = imagePopup.mediaGallery.imageUri!!
+        }
+
+        preferenceManager.sharedPreferences!!.edit()
+            .putString(getString(R.string.pref_profile_pic_key), imageString)
+            .apply()
     }
 }
