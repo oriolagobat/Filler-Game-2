@@ -31,4 +31,5 @@
     <string name="detail_elapsed">Total time</string>
     <string name="detail_conquered">Conquered cells</string>
     <string name="query_loses">Loses</string>
+    <string name="query_title">Queries</string>
 </resources>

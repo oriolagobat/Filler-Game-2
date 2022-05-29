@@ -46,4 +46,5 @@
     <string name="query_victories">Victòries</string>
     <string name="query_draws">Empats</string>
     <string name="query_loses">Derrotes</string>
+    <string name="query_title">Consultes</string>
 </resources>

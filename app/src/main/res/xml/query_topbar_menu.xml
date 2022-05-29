@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/queryTitle"
+        android:title="@string/query_title" />
+    <item android:id="@+id/queryIcon"
+        android:icon="@drawable/icon_magnifying_glass" />
+</menu>
