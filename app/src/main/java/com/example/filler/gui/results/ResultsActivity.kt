@@ -111,7 +111,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.goHomeButton -> goHome()
             R.id.settingsButton -> editSettings()
             R.id.restartGameButton -> startNewGame()
             R.id.closeButton -> finish()
