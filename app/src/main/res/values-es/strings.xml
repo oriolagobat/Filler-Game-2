@@ -78,5 +78,5 @@
     <string name="query_victories">Victorias</string>
     <string name="query_draws">Empates</string>
     <string name="query_loses">Derrotas</string>
-    <string name="query_title">Consultas</string>
+    <string name="query_title">Filtrar por</string>
 </resources>

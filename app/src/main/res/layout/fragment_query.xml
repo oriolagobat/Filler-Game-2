@@ -7,17 +7,42 @@
     tools:context=".persistence.QueryFrag">
 
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/query_toolbar_background">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                app:titleTextColor="@color/white"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/ToolBarTheme"
+                app:menu="@menu/query_overflow_menu"
+                app:title="@string/query_title" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/game_summary_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/game_summary_item" />
 
