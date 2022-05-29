@@ -13,8 +13,6 @@ import androidx.fragment.app.commit
 import com.example.filler.FillerApplication
 import com.example.filler.R
 import com.example.filler.constants.gui.Summary
-import com.example.filler.databinding.ActivityDbaccesBinding
-import com.example.filler.databinding.FragmentQueryBinding
 import com.example.filler.persistence.database.GameSummary
 import com.example.filler.persistence.database.GameSummaryViewModel
 import com.example.filler.persistence.database.GameSummaryViewModelFactory

@@ -33,7 +33,7 @@
                 android:layout_marginEnd="5dp"
                 android:text="@string/detail_config"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="30sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
                 android:layout_marginEnd="5dp"
                 android:text="@string/detail_stats"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="30sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -102,6 +102,7 @@
         android:background="@drawable/detail_heading_background"
         android:backgroundTint="@color/detail_win_background"
         android:fontFamily="sans-serif-condensed"
+        android:textSize="40dp"
         android:padding="5dp"
         android:text="@string/detail_win"
         android:textColor="@color/detail_win"
@@ -119,6 +120,7 @@
         android:backgroundTint="@color/detail_lose_background"
         android:fontFamily="sans-serif-condensed"
         android:padding="5dp"
+        android:textSize="40dp"
         android:text="@string/detail_win"
         android:textColor="@color/detail_lose"
         app:layout_constraintTop_toTopOf="parent"
@@ -131,6 +133,7 @@
         style="@style/TextAppearance.Material3.HeadlineLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="40dp"
         android:background="@drawable/detail_heading_background"
         android:backgroundTint="@color/detail_draw_background"
         android:fontFamily="sans-serif-condensed"
@@ -166,7 +169,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/detail_colors"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -183,7 +186,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="9"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -199,7 +202,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/detail_size"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -216,7 +219,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text=" 9 x 9"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -233,7 +236,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/detail_alias"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -249,7 +252,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -277,7 +280,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/detail_end"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -294,7 +297,7 @@
                 android:id="@+id/persistence_end_date"
                 android:text="27/02/2020 12:00"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -310,7 +313,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/detail_elapsed"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -327,7 +330,7 @@
                 android:id="@+id/persistence_total_time"
                 android:text=" 9 x 9"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -344,7 +347,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/detail_conquered"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -361,7 +364,7 @@
                 android:id="@+id/persistence_conquered_cells"
                 android:text="54%"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

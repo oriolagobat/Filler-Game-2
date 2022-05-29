@@ -20,7 +20,7 @@ class GameStats {
 
     fun setEndDate() {
         _endTime = getCurrentDateTime()
-        endTime = _endTime.toString("dd/MM/yyyy HH:mm:ss")
+        endTime = _endTime.toString("dd/MM/yyyy HH:mm")
         setElapsedTime()
     }
 

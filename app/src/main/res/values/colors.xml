@@ -76,4 +76,11 @@
     <color name="colorSecondary">@color/md_theme_light_secondary</color>
     <color name="colorTertiary">@color/md_theme_light_tertiary</color>
     <color name="colorAccent">@color/md_theme_light_tertiary</color>
+
+    <color name="detail_win_background">#B9F6CA</color>
+    <color name="detail_win">#00C853</color>
+    <color name="detail_lose_background">#FF9E80</color>
+    <color name="detail_lose">#D50000</color>
+    <color name="detail_draw_background">#FFFF8D</color>
+    <color name="detail_draw">#FFA000</color>
 </resources>

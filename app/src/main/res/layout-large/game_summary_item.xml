@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_margin="12dp"
+    android:background="@drawable/recycler_item_background"
+    android:backgroundTint="@color/colorPrimary">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/game_summary_score"
+        style="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="30dp"
+        android:text="Victory"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/game_summary_alias"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="15dp" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/game_summary_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorError"
+        android:textSize="30dp"
+        android:padding="7dp"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:text="Delete"
+        app:icon="@drawable/persistence_delete"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/game_summary_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/game_summary_date"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:text="Date date date 00"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/game_summary_alias"
+        app:layout_constraintStart_toEndOf="@id/game_summary_date_icon"
+        app:layout_constraintTop_toTopOf="@id/game_summary_alias"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/game_summary_alias"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginBottom="15dp"
+        android:text="Player"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/game_summary_alias_icon"
+        app:layout_constraintTop_toBottomOf="@id/game_summary_score"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="70dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/game_summary_alias_icon"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/pref_icon_profile_pic"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_summary_score" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/game_summary_date_icon"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        app:icon="@drawable/persistence_time_icon"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/game_summary_alias"
+        app:layout_constraintStart_toEndOf="@id/game_summary_alias"
+        app:layout_constraintTop_toTopOf="@id/game_summary_alias" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
