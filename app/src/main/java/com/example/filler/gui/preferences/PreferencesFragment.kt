@@ -69,9 +69,9 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     override fun onDestroy() {
         super.onDestroy()
 
-        val imageString = imagePopup.chosenImageUri.toString()
+        var imageString = imagePopup.chosenImageUri.toString()
         if (imageString == "gallery") {
-            imagePopup.chosenImageUri = imagePopup.mediaGallery.imageUri!!
+            imageString = imagePopup.mediaGallery.imageUri!!
         }
 
         preferenceManager.sharedPreferences!!.edit()
