@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filler.FillerApplication
+import com.example.filler.R
 import com.example.filler.databinding.FragmentQueryBinding
 import com.example.filler.persistence.database.GameSummary
 import com.example.filler.persistence.database.GameSummaryViewModel
@@ -55,8 +57,8 @@ class QueryFrag : Fragment() {
                 itemClickCallback(summary)
             }
 
-            override fun onRowLongClicked(view: View) {
-//                showPopupMenu()
+            override fun onRowLongClicked(view: View, summary: GameSummary) {
+                showPopupMenu(view, summary)
                 Toast.makeText(activity, "Long clicked on row", Toast.LENGTH_SHORT).show()
             }
 
@@ -80,20 +82,20 @@ class QueryFrag : Fragment() {
         }
     }
 
-//    private fun showPopupMenu() {
-//        val popupMenu = PopupMenu(activity, binding.queryRecyclerView)
-//        popupMenu.inflate(R.menu.popup_menu)
-//        popupMenu.setOnMenuItemClickListener {
-//            when (it.itemId) {
-//                R.id.popup_menu_delete -> {
-//                    Toast.makeText(activity, "Delete", Toast.LENGTH_SHORT).show()
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-//        popupMenu.show()
-//    }
+    private fun showPopupMenu(view: View, summary: GameSummary) {
+        val popupMenu = PopupMenu(requireActivity(), view)
+        popupMenu.inflate(R.menu.popup_menu)
+        popupMenu.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.popup_menu_filter_by_this_name -> {
+                    gameSummaryViewModel.filterByAlias(summary.alias)
+                    true
+                }
+                else -> false
+            }
+        }
+        popupMenu.show()
+    }
 
     private fun setAdapter(adapter: GameSummaryListAdapter) {
         binding.gameSummaryRecyclerView.adapter = adapter

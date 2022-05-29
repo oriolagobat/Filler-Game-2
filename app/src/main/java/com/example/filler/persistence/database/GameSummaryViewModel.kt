@@ -17,13 +17,13 @@ class GameSummaryViewModel(private val repository: GameSummaryRepository) : View
     }
 
     init {
-        updateSummaries()
+        initSummaries()
         if (currentSummary.value == null) {
             currentSummary.value = getFirstSummary()
         }
     }
 
-    private fun updateSummaries() {
+    private fun initSummaries() {
         lateinit var result: List<GameSummary>
         runBlocking {
             viewModelScope.launch(Dispatchers.IO) {
@@ -47,11 +47,71 @@ class GameSummaryViewModel(private val repository: GameSummaryRepository) : View
                 repository.delete(summary)
             }.join()
         }
-        updateSummaries()
+        summaries.value = summaries.value?.filter { it.id != summary.id }
     }
 
     fun updateCurrentSummary(summary: GameSummary) {
         currentSummary.value = summary
+    }
+
+    fun filterByAlias(alias: String) {
+        lateinit var result: List<GameSummary>
+        runBlocking {
+            viewModelScope.launch(Dispatchers.IO) {
+                result = repository.getSummariesWithAlias(alias)
+            }.join()
+        }
+        summaries.value = result
+    }
+
+    fun filterByAreaDesc() {
+        lateinit var result: List<GameSummary>
+        runBlocking {
+            viewModelScope.launch(Dispatchers.IO) {
+                result = repository.byAreaDesc()
+            }.join()
+        }
+        summaries.value = result
+    }
+
+    fun filterByAreaAsc() {
+        lateinit var result: List<GameSummary>
+        runBlocking {
+            viewModelScope.launch(Dispatchers.IO) {
+                result = repository.byAreaAsc()
+            }.join()
+        }
+        summaries.value = result
+    }
+
+    fun filterByVictory() {
+        lateinit var result: List<GameSummary>
+        runBlocking {
+            viewModelScope.launch(Dispatchers.IO) {
+                result = repository.getAllVictories()
+            }.join()
+        }
+        summaries.value = result
+    }
+
+    fun filterByDefeat() {
+        lateinit var result: List<GameSummary>
+        runBlocking {
+            viewModelScope.launch(Dispatchers.IO) {
+                result = repository.getAllDefeats()
+            }.join()
+        }
+        summaries.value = result
+    }
+
+    fun filterByDraw() {
+        lateinit var result: List<GameSummary>
+        runBlocking {
+            viewModelScope.launch(Dispatchers.IO) {
+                result = repository.getAllDraws()
+            }.join()
+        }
+        summaries.value = result
     }
 }
 

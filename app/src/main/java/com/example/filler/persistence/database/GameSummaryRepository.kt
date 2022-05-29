@@ -15,7 +15,39 @@ class GameSummaryRepository(private val wordDao: GameSummaryDAO) {
         wordDao.delete(summary)
     }
 
+    @WorkerThread
     suspend fun getSummaries(): List<GameSummary> {
         return wordDao.getAllSummaries()
     }
+
+    @WorkerThread
+    suspend fun getSummariesWithAlias(alias: String): List<GameSummary> {
+        return wordDao.getSummariesWithAlias(alias)
+    }
+
+    @WorkerThread
+    suspend fun byAreaDesc(): List<GameSummary> {
+        return wordDao.getAllSummariesOrderedByConqueredAreaDesc()
+    }
+
+    @WorkerThread
+    suspend fun byAreaAsc(): List<GameSummary> {
+        return wordDao.getAllSummariesOrderedByConqueredAreaAsc()
+    }
+
+    @WorkerThread
+    suspend fun getAllVictories(): List<GameSummary> {
+        return wordDao.getAllVictorySummaries()
+    }
+
+    @WorkerThread
+    suspend fun getAllDefeats(): List<GameSummary> {
+        return wordDao.getAllDefeatSummaries()
+    }
+
+    @WorkerThread
+    suspend fun getAllDraws(): List<GameSummary> {
+        return wordDao.getAllDrawSummaries()
+    }
+
 }

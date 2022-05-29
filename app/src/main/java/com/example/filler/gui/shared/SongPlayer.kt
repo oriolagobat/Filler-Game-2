@@ -24,7 +24,7 @@ class SongPlayer : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (player.isPlaying) {
+        if (::player.isInitialized && player.isPlaying) {
             player.stop()
             player.release()
         }

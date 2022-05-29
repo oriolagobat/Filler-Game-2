@@ -58,7 +58,7 @@ class GameSummaryListAdapter(
 
         private fun setQueryListener() {
             itemView.setOnLongClickListener {
-                listener.get()?.onRowLongClicked(itemView)
+                listener.get()?.onRowLongClicked(itemView, summaries[bindingAdapterPosition])
                 true
             }
         }

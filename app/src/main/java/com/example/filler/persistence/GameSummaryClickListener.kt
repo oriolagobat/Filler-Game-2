@@ -5,6 +5,6 @@ import com.example.filler.persistence.database.GameSummary
 
 interface GameSummaryClickListener {
     fun onRowClicked(summary: GameSummary)
-    fun onRowLongClicked(view: View)
+    fun onRowLongClicked(view: View, summary: GameSummary)
     fun onRowDeleteClicked(summary: GameSummary)
 }

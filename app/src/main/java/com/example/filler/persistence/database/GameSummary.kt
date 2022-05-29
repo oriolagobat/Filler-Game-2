@@ -1,5 +1,6 @@
 package com.example.filler.persistence.database
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
@@ -7,11 +8,11 @@ import java.io.Serializable
 @Entity
 data class GameSummary(
     @PrimaryKey (autoGenerate = true) val id: Int = 0,
-    val endTime: String,
-    val elapsedTime: String,
-    val alias: String,
-    val outcome: String,
-    val gridSize: Int,
-    val numColors: Int,
-    val conqueredAreaPercent: Int
+    @ColumnInfo(name = "endTime") val endTime: String,
+    @ColumnInfo(name = "elapsedTime") val elapsedTime: String,
+    @ColumnInfo(name = "alias") val alias: String,
+    @ColumnInfo(name = "outcome") val outcome: String,
+    @ColumnInfo(name = "gridSize") val gridSize: Int,
+    @ColumnInfo(name = "numColors") val numColors: Int,
+    @ColumnInfo(name = "conqueredArea") val conqueredAreaPercent: Int
 ) : Serializable
