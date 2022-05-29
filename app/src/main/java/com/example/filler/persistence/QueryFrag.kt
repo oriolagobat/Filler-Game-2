@@ -36,7 +36,36 @@ class QueryFrag : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setToolBarListeners()
         initUI()
+    }
+
+    private fun setToolBarListeners() {
+        binding.topAppBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.ascendingPercentage -> {
+                    Toast.makeText(requireContext(), "Ascending", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.descendingPercentage -> {
+                    Toast.makeText(requireContext(), "Descending", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.victories -> {
+                    Toast.makeText(requireContext(), "Victories", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.loses -> {
+                    Toast.makeText(requireContext(), "Loses", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.draws -> {
+                    Toast.makeText(requireContext(), "Draws", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun initUI() {
