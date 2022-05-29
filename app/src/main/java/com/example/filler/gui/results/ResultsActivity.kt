@@ -17,6 +17,7 @@ import com.example.filler.constants.gui.RESULT_DATE_FORMAT
 import com.example.filler.constants.gui.Summary
 import com.example.filler.databinding.ActivityResultsBinding
 import com.example.filler.gui.game.GameActivity
+import com.example.filler.gui.home.HomepageActivity
 import com.example.filler.gui.preferences.PreferencesActivity
 import com.example.filler.gui.results.data.Date
 import com.example.filler.gui.results.data.Email
@@ -99,7 +100,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         }
         updateOutcomeTextImage(imageId, textId, imageDescId)
         updateScoreText(this, intent, binding)
-        setCurrentDate()
     }
 
     private fun updateOutcomeTextImage(imageId: Int, textId: Int, imageDescId: Int) {
@@ -109,32 +109,13 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         binding.outcomeHeader.text = text
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun setCurrentDate() {
-        val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern(RESULT_DATE_FORMAT)
-        date.value = current.format(formatter)
-        binding.dateTimeOutput.text = date.value
-    }
-
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.emailInput -> getEmail()
-            R.id.goHomeButton -> sendEmail()
+            R.id.goHomeButton -> goHome()
             R.id.settingsButton -> editSettings()
             R.id.restartGameButton -> startNewGame()
             R.id.closeButton -> finish()
         }
-    }
-
-    private fun getEmail() {
-        email.value = saveEmail(this, binding.emailInput)
-        updateLogMail(email)
-    }
-
-    private fun sendEmail() {
-        getEmail()
-        MailSender(this, email, date, log).send()
     }
 
     private fun editSettings() {
@@ -150,7 +131,12 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onBackPressed() {
-        return
+        goHome()
     }
 
+    private fun goHome() {
+        val intent = Intent(this, HomepageActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 }

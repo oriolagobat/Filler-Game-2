@@ -16,8 +16,6 @@ fun setUpResultListeners(
     context: ResultsActivity,
     binding: ActivityResultsBinding
 ) {
-    binding.emailInput.setOnClickListener(context)
-    binding.sendEmailButton.setOnClickListener(context)
     binding.restartGameButton.setOnClickListener(context)
     binding.closeButton.setOnClickListener(context)
     binding.settingsButton.setOnClickListener(context)
