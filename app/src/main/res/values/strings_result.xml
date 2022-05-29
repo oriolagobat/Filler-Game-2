@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="results_win_header">You\'ve won!</string>
-    <string name="results_lose_header">You\'re a looser!</string>
+    <string name="results_lose_header">You\'re a loser!</string>
     <string name="results_draw_header">It\'s a draw!</string>
 
     <string name="results_time">Date and time</string>
