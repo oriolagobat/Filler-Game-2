@@ -36,18 +36,7 @@ class GameSummaryRepository(private val wordDao: GameSummaryDAO) {
     }
 
     @WorkerThread
-    suspend fun getAllVictories(): List<GameSummary> {
-        return wordDao.getAllVictorySummaries()
+    suspend fun getSummariesByOutcome(outcome: String): List<GameSummary> {
+        return wordDao.getSummaryByOutcome(outcome)
     }
-
-    @WorkerThread
-    suspend fun getAllDefeats(): List<GameSummary> {
-        return wordDao.getAllDefeatSummaries()
-    }
-
-    @WorkerThread
-    suspend fun getAllDraws(): List<GameSummary> {
-        return wordDao.getAllDrawSummaries()
-    }
-
 }

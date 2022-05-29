@@ -84,31 +84,11 @@ class GameSummaryViewModel(private val repository: GameSummaryRepository) : View
         summaries.value = result
     }
 
-    fun filterByVictory() {
+    fun filterByOutcome(outcome: String) {
         lateinit var result: List<GameSummary>
         runBlocking {
             viewModelScope.launch(Dispatchers.IO) {
-                result = repository.getAllVictories()
-            }.join()
-        }
-        summaries.value = result
-    }
-
-    fun filterByDefeat() {
-        lateinit var result: List<GameSummary>
-        runBlocking {
-            viewModelScope.launch(Dispatchers.IO) {
-                result = repository.getAllDefeats()
-            }.join()
-        }
-        summaries.value = result
-    }
-
-    fun filterByDraw() {
-        lateinit var result: List<GameSummary>
-        runBlocking {
-            viewModelScope.launch(Dispatchers.IO) {
-                result = repository.getAllDraws()
+                result = repository.getSummariesByOutcome(outcome)
             }.join()
         }
         summaries.value = result

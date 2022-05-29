@@ -17,14 +17,8 @@ interface GameSummaryDAO {
     @Query("SELECT * FROM gamesummary ORDER BY conqueredArea ASC")
     fun getAllSummariesOrderedByConqueredAreaAsc(): List<GameSummary>
 
-    @Query("SELECT * FROM gamesummary WHERE outcome = 'P1_WON'")
-    fun getAllVictorySummaries(): List<GameSummary>
-
-    @Query("SELECT * FROM gamesummary WHERE outcome = 'P22WON'")
-    fun getAllDefeatSummaries(): List<GameSummary>
-
-    @Query("SELECT * FROM gamesummary WHERE outcome = 'DRAW'")
-    fun getAllDrawSummaries(): List<GameSummary>
+    @Query("SELECT * FROM gamesummary WHERE outcome LIKE :outcome")
+    fun getSummaryByOutcome(outcome: String): List<GameSummary>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(summary: GameSummary)

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -44,23 +43,23 @@ class QueryFrag : Fragment() {
         binding.topAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.ascendingPercentage -> {
-                    Toast.makeText(requireContext(), "Ascending", Toast.LENGTH_SHORT).show()
+                    gameSummaryViewModel.filterByAreaAsc()
                     true
                 }
                 R.id.descendingPercentage -> {
-                    Toast.makeText(requireContext(), "Descending", Toast.LENGTH_SHORT).show()
+                    gameSummaryViewModel.filterByAreaDesc()
                     true
                 }
                 R.id.victories -> {
-                    Toast.makeText(requireContext(), "Victories", Toast.LENGTH_SHORT).show()
+                    gameSummaryViewModel.filterByOutcome("Victory")
                     true
                 }
                 R.id.loses -> {
-                    Toast.makeText(requireContext(), "Loses", Toast.LENGTH_SHORT).show()
+                    gameSummaryViewModel.filterByOutcome("Defeat")
                     true
                 }
                 R.id.draws -> {
-                    Toast.makeText(requireContext(), "Draws", Toast.LENGTH_SHORT).show()
+                    gameSummaryViewModel.filterByOutcome("Draw")
                     true
                 }
                 else -> false
