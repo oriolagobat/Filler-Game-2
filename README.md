@@ -4,6 +4,25 @@ Filler Game 🎮
 
 <h2 align = center> <img align="center" src="https://github.com/oriolagobat/Filler-Game/blob/main/images/gameplay.gif" height="288px" width="182px"/> </h2>
 
+## What's new?
+### Features:
+- Game summaries.
+- Persistence of game summaries, user can check the history of games.
+- Queries regarding the summaries to be shown on the history.
+- Spanish translation added to current ones (Catalan and English)
+- Preferences are now stored, so there's no need to reset them each game.
+- Possibility to completely disable the music
+
+### Project design:
+- Username validation.
+- Use of fragments, viewmodels and other patterns (interfaces) to make the code more readable and decoupled.
+- Recycler view for the game history
+- Usage of Room database
+- Support for tablet in landscape and portrait mode
+- Background added in all activities
+- Use of Material Design 3
+- General improvements on the app appearance
+
 ## App features 📱
 
 - There is a help section with a simple explanation of the game rules and objectives
@@ -12,12 +31,12 @@ Filler Game 🎮
   the result screen has different sound effects depending on the game outcome.
 - The app can be used in portrait or landscape mode, and also offers the possibility to change the
   orientation at any moment
-- The app offers language support in English, Catalan and **NEW!** Spanish
-- A log is formed since the the configuration screen, ending at the result screen. It can then be
+- The app offers language support in English, Catalan and Spanish
+- A log is formed since the configuration screen, ending at the result screen. It can then be
   sent to the desired email address
 - A different result screen for all 3 scenarios (win, lose, draw)
 - Game scores are shown at the result screen
-- **NEW!** User can choose if he wants music/sound or not
+- User can choose if he wants music/sound or not
 
 ## Game features 🕹️
 
