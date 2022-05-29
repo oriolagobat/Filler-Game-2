@@ -59,7 +59,6 @@ class QueryFrag : Fragment() {
 
             override fun onRowLongClicked(view: View, summary: GameSummary) {
                 showPopupMenu(view, summary)
-                Toast.makeText(activity, "Long clicked on row", Toast.LENGTH_SHORT).show()
             }
 
             override fun onRowDeleteClicked(summary: GameSummary) {
@@ -72,7 +71,6 @@ class QueryFrag : Fragment() {
         gameSummaryViewModel.updateCurrentSummary(summary)
         val parentActivity = requireActivity() as AccessBDActivity
         parentActivity.onItemClick(summary)
-        Toast.makeText(activity, "Clicked on ", Toast.LENGTH_SHORT).show()
     }
 
     private fun listenForSumariesUpdate() {
