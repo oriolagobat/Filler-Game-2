@@ -2,6 +2,7 @@ package com.example.filler.gui.game.fragments
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -64,11 +65,11 @@ class GameFragment : Fragment() {
     }
 
     private fun setPfp() {
-        binding.userPFP.setImageResource(
-            preferences.getInt(
+        binding.userPFP.setImageURI(
+            Uri.parse(preferences.getString(
                 getString(R.string.pref_profile_pic_key),
-                PROFILE_PIC_DEFAULT
-            )
+                PROFILE_PIC_DEFAULT.toString()
+            ))
         )
     }
 
