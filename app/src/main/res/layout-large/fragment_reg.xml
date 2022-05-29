@@ -11,15 +11,15 @@
     tools:context=".persistence.RegFrag">
 
     <LinearLayout
-        android:layout_margin="10dp"
         android:id="@+id/persistence_params"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/persistence_outcome_win"
         app:layout_constraintBottom_toTopOf="@id/persistence_config_details"
+        app:layout_constraintEnd_toEndOf="@id/persistence_config_details"
         app:layout_constraintStart_toStartOf="@id/persistence_config_details"
-        app:layout_constraintEnd_toEndOf="@id/persistence_config_details">
+        app:layout_constraintTop_toBottomOf="@id/persistence_outcome_win">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -54,15 +54,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_margin="10dp"
         android:id="@+id/persistence_stats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/persistence_outcome_win"
         app:layout_constraintBottom_toTopOf="@id/persistence_stats_details"
+        app:layout_constraintEnd_toEndOf="@id/persistence_stats_details"
         app:layout_constraintStart_toStartOf="@id/persistence_stats_details"
-        app:layout_constraintEnd_toEndOf="@id/persistence_stats_details">
+        app:layout_constraintTop_toBottomOf="@id/persistence_outcome_win">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -102,14 +102,14 @@
         android:background="@drawable/detail_heading_background"
         android:backgroundTint="@color/detail_win_background"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="40dp"
         android:padding="5dp"
         android:text="@string/detail_win"
         android:textColor="@color/detail_win"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textScaleX="1.15"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textScaleX="1.15" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/persistence_outcome_lose"
@@ -120,30 +120,31 @@
         android:backgroundTint="@color/detail_lose_background"
         android:fontFamily="sans-serif-condensed"
         android:padding="5dp"
-        android:textSize="40dp"
         android:text="@string/detail_win"
         android:textColor="@color/detail_lose"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textScaleX="1.15"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textScaleX="1.15" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     .
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/persistence_outcome_draw"
         style="@style/TextAppearance.Material3.HeadlineLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40dp"
         android:background="@drawable/detail_heading_background"
         android:backgroundTint="@color/detail_draw_background"
         android:fontFamily="sans-serif-condensed"
         android:padding="5dp"
         android:text="@string/detail_win"
         android:textColor="@color/detail_draw"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textScaleX="1.15"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textScaleX="1.15" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/persistence_config_details"
@@ -152,10 +153,10 @@
         android:background="@drawable/persistence_detail_background"
         android:orientation="vertical"
         android:padding="4dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/persistence_stats_details"
-        app:layout_constraintTop_toBottomOf="@id/persistence_params"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/persistence_params">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -212,9 +213,9 @@
                 app:srcCompat="@drawable/persistence_arrow" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/persistence_size"
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="wrap_content"
-                android:id="@+id/persistence_size"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:text=" 9 x 9"
@@ -246,9 +247,9 @@
                 app:srcCompat="@drawable/persistence_arrow" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/persistence_alias"
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="wrap_content"
-                android:id="@+id/persistence_alias"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/white"
@@ -263,10 +264,10 @@
         android:background="@drawable/persistence_detail_background"
         android:orientation="vertical"
         android:padding="4dp"
-        app:layout_constraintStart_toEndOf="@id/persistence_config_details"
-        app:layout_constraintTop_toBottomOf="@id/persistence_stats"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toEndOf="@id/persistence_config_details"
+        app:layout_constraintTop_toBottomOf="@id/persistence_stats">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -290,11 +291,11 @@
                 app:srcCompat="@drawable/persistence_arrow" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/persistence_end_date"
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:id="@+id/persistence_end_date"
                 android:text="27/02/2020 12:00"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -323,11 +324,11 @@
                 app:srcCompat="@drawable/persistence_arrow" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/persistence_total_time"
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:id="@+id/persistence_total_time"
                 android:text=" 9 x 9"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -357,11 +358,11 @@
                 app:srcCompat="@drawable/persistence_arrow" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/persistence_conquered_cells"
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:id="@+id/persistence_conquered_cells"
                 android:text="54%"
                 android:textColor="@color/white"
                 android:textSize="20sp" />

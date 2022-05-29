@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
         android:key="@string/pref_game_key"
-        android:title="@string/pref_game_category_title" >
+        android:title="@string/pref_game_category_title">
 
         <ListPreference
             android:defaultValue="@string/pref_board_default"
@@ -44,7 +43,7 @@
 
     <PreferenceCategory
         android:key="@string/pref_general_key"
-        android:title="@string/pref_general_category_title" >
+        android:title="@string/pref_general_category_title">
 
         <EditTextPreference
             android:defaultValue="@string/pref_alias_default"

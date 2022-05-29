@@ -8,5 +8,5 @@
         android:id="@+id/boardItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal" />
 </LinearLayout>

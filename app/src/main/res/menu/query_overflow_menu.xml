@@ -1,12 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/ascendingPercentage"
+    <item
+        android:id="@+id/ascendingPercentage"
         android:title="@string/query_ascending_percentage" />
-    <item android:id="@+id/descendingPercentage"
+    <item
+        android:id="@+id/descendingPercentage"
         android:title="@string/query_descending_percentage" />
-    <item android:id="@+id/victories"
+    <item
+        android:id="@+id/victories"
         android:title="@string/query_victories" />
-    <item android:id="@+id/draws"
+    <item
+        android:id="@+id/draws"
         android:title="@string/query_draws" />
-    <item android:id="@+id/loses"
+    <item
+        android:id="@+id/loses"
         android:title="@string/query_loses" />
 </menu>
