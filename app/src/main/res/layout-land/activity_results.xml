@@ -39,7 +39,7 @@
             android:fontFamily="@font/main_font"
             android:text="@string/score_p1_sample"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/sendEmailButton"
+            app:layout_constraintBottom_toTopOf="@+id/goHomeButton"
             app:layout_constraintEnd_toStartOf="@+id/outcomeImage"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
             android:gravity="right"
             android:text="@string/score_ai_sample"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/sendEmailButton"
+            app:layout_constraintBottom_toTopOf="@+id/goHomeButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/outcomeImage"
@@ -115,7 +115,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/sendEmailButton"
+            app:layout_constraintStart_toEndOf="@+id/goHomeButton"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
             app:layout_constraintVertical_bias="0.02" />
 
@@ -190,7 +190,7 @@
             android:alpha="0.85"
             android:contentDescription="@string/results_outcome_draw"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/sendEmailButton"
+            app:layout_constraintBottom_toTopOf="@+id/goHomeButton"
             app:layout_constraintEnd_toStartOf="@+id/aiScore"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/p1Score"
@@ -221,7 +221,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/sendEmailButton"
+            android:id="@+id/goHomeButton"
             style="@style/Widget.Material3.Button.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -246,7 +246,7 @@
             app:layout_constraintBottom_toTopOf="@+id/closeButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sendEmailButton" />
+            app:layout_constraintTop_toBottomOf="@+id/goHomeButton" />
 
         <Button
             android:id="@+id/closeButton"

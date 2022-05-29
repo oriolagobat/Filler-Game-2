@@ -43,10 +43,12 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        hideNavBar(this)
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
+//        binding.emailInput.requestFocus()  // Set focus on the email input
 
         checkFirstCreation()
 
@@ -118,7 +120,7 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.emailInput -> getEmail()
-            R.id.sendEmailButton -> sendEmail()
+            R.id.goHomeButton -> sendEmail()
             R.id.settingsButton -> editSettings()
             R.id.restartGameButton -> startNewGame()
             R.id.closeButton -> finish()
@@ -145,11 +147,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
         finish()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        hideNavBar(this)
     }
 
     override fun onBackPressed() {

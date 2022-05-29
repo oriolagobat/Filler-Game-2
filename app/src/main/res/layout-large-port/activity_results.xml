@@ -125,7 +125,7 @@
             android:id="@+id/emailInputLayout"
             android:layout_width="400dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/sendEmailButton"
+            app:layout_constraintBottom_toTopOf="@+id/goHomeButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.133"
             app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +145,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/sendEmailButton"
+            android:id="@+id/goHomeButton"
             style="@style/Widget.Material3.Button.Icon"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
             app:layout_constraintBottom_toTopOf="@+id/closeButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sendEmailButton" />
+            app:layout_constraintTop_toBottomOf="@+id/goHomeButton" />
 
         <TextView
             android:id="@+id/dateTimeHeader"
