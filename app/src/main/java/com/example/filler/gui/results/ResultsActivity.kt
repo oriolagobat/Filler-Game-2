@@ -48,7 +48,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         val resultType = intent.getStringExtra(Outcomes.OUTCOME.name)
-        binding.emailInput.requestFocus()  // Set focus on the email input
 
         checkFirstCreation()
 
