@@ -41,4 +41,9 @@
     <string name="detail_conquered">Caselles totals</string>
     <string name="game_background_desc">Imatge de fons per la pantalla del joc</string>
     <string name="results_background_desc">Imatge de fons per la pantalla de resultats</string>
+    <string name="query_ascending_percentage">Major graella conquerida</string>
+    <string name="query_descending_percentage">Menor graella conquerida</string>
+    <string name="query_victories">Victòries</string>
+    <string name="query_draws">Empats</string>
+    <string name="query_loses">Derrotes</string>
 </resources>

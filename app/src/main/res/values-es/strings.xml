@@ -73,4 +73,9 @@
     <string name="detail_conquered">Casillas totales</string>
     <string name="game_background_desc">Imagen de fondo para la pantalla del juego</string>
     <string name="results_background_desc">Imagen de fondo para la pantalla de resultados</string>
+    <string name="query_ascending_percentage">Más parrilla conquerida</string>
+    <string name="query_descending_percentage">Menos parrilla conquerida</string>
+    <string name="query_victories">Victorias</string>
+    <string name="query_draws">Empates</string>
+    <string name="query_loses">Derrotas</string>
 </resources>

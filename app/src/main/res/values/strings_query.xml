@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="query_ascending_percentage">Most grid conquered</string>
+    <string name="query_descending_percentage">Less grid conquered</string>
+    <string name="query_victories">Victories</string>
+    <string name="query_draws">Draws</string>
+</resources>

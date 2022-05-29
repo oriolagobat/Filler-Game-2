@@ -30,4 +30,5 @@
     <string name="detail_end">End</string>
     <string name="detail_elapsed">Total time</string>
     <string name="detail_conquered">Conquered cells</string>
+    <string name="query_loses">Loses</string>
 </resources>
