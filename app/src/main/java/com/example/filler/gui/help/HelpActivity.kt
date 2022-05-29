@@ -17,8 +17,10 @@ class HelpActivity : AppCompatActivity() {
         // Set the textView text
         // As it has html to format it, it has to be done by code
         binding.rulesText.text =
-            HtmlCompat.fromHtml(getString(R.string.help_rules),
-                HtmlCompat.FROM_HTML_MODE_COMPACT)
+            HtmlCompat.fromHtml(
+                getString(R.string.help_rules),
+                HtmlCompat.FROM_HTML_MODE_COMPACT
+            )
 
         // When button clicked, finish the activity
         binding.backHomeButton.setOnClickListener { finish() }

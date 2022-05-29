@@ -43,7 +43,8 @@ class GameFragment : Fragment() {
     }
 
     private fun setUsername() {
-        val chosenUsername = preferences.getString(getString(R.string.pref_alias_key), ALIAS_DEFAULT)
+        val chosenUsername =
+            preferences.getString(getString(R.string.pref_alias_key), ALIAS_DEFAULT)
         if (validAlias(chosenUsername!!)) binding.usernameText.text = chosenUsername
         else {
             setDefaultAlias()
@@ -63,7 +64,12 @@ class GameFragment : Fragment() {
     }
 
     private fun setPfp() {
-        binding.userPFP.setImageResource(preferences.getInt(getString(R.string.pref_profile_pic_key), PROFILE_PIC_DEFAULT))
+        binding.userPFP.setImageResource(
+            preferences.getInt(
+                getString(R.string.pref_profile_pic_key),
+                PROFILE_PIC_DEFAULT
+            )
+        )
     }
 
     private fun checkRecreationAndStart() {
@@ -90,17 +96,24 @@ class GameFragment : Fragment() {
     }
 
     private fun getBoardSize(): Int {
-        val boardString = preferences.getString(getString(R.string.pref_board_key), BOARD_SIZE_DEFAULT.toString())
+        val boardString =
+            preferences.getString(getString(R.string.pref_board_key), BOARD_SIZE_DEFAULT.toString())
         return boardString!!.toInt()
     }
 
     private fun getColorNumber(): Int {
-        val selectorString = preferences.getString(getString(R.string.pref_colors_key), NUM_COLORS_DEFAULT.toString())
+        val selectorString = preferences.getString(
+            getString(R.string.pref_colors_key),
+            NUM_COLORS_DEFAULT.toString()
+        )
         return selectorString!!.toInt()
     }
 
     private fun getDifficulty(): Difficulty {
-        return when (preferences.getString(getString(R.string.pref_difficulty_key), DIFFICULTY_DEFAULT)) {
+        return when (preferences.getString(
+            getString(R.string.pref_difficulty_key),
+            DIFFICULTY_DEFAULT
+        )) {
             DIFFICULTY_EASY -> Difficulty.EASY
             DIFFICULTY_MEDIUM -> Difficulty.MEDIUM
             DIFFICULTY_HARD -> Difficulty.HARD
@@ -137,7 +150,7 @@ class GameFragment : Fragment() {
     }
 
     private fun putSummaryData(intent: Intent, summary: GameSummary) {
-       intent.putExtra(Summary.GAMESUMMARY.name, summary)
+        intent.putExtra(Summary.GAMESUMMARY.name, summary)
     }
 
     override fun onDestroy() {

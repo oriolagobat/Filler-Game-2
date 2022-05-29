@@ -17,9 +17,15 @@ class ChronoTimer(
         }, 0, TIMER_PERIOD_MS)
     }
 
-    private fun updateTimer() { timerTextView.text = intToFormattedTime((currentTime++)) }
+    private fun updateTimer() {
+        timerTextView.text = intToFormattedTime((currentTime++))
+    }
 
-    override fun finish() = try { timer.cancel() } catch (e: IllegalStateException) { }
+    override fun finish() = try {
+        timer.cancel()
+    } catch (e: IllegalStateException) {
+        // Nothing, done because it can be stopped more than one time
+    }
 
     override fun start() {
         // Not implemented since chronoTimer is not stopped between rounds

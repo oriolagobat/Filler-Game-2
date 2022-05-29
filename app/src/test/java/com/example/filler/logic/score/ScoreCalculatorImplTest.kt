@@ -4,8 +4,7 @@ import com.example.filler.constants.logic.GameColor
 import com.example.filler.logic.board.BoardImpl
 import com.example.filler.logic.player.PlayerAreaImpl
 import com.example.filler.logic.stub.StubBoardInitializer
-import org.junit.Assert.*
-
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 

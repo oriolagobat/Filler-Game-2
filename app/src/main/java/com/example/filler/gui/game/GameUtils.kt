@@ -14,8 +14,6 @@ import com.example.filler.gui.shared.SongPlayer
 import com.example.filler.gui.shared.sound
 import com.example.filler.logic.game.GameResponse
 
-fun getFirstIntFromString(str: String): Int = str.first().digitToInt()
-
 fun getBoard(binding: GameFragmentBinding): GridView = binding.boardGridView
 fun getSelector(binding: GameFragmentBinding): GridView = binding.selectorGridView
 fun getTimer(binding: GameFragmentBinding): TextView = binding.timer

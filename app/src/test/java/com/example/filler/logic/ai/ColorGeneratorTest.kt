@@ -7,8 +7,7 @@ import com.example.filler.logic.colors.ColorSelectorImpl
 import com.example.filler.logic.player.PlayerAreaImpl
 import com.example.filler.logic.score.ScoreCalculatorImpl
 import com.example.filler.logic.stub.StubBoardInitializer
-import org.junit.Assert.*
-
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 

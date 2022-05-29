@@ -72,7 +72,7 @@ class QueryFrag : Fragment() {
         val listener = setUpListener()
         adapter = GameSummaryListAdapter(summaries, listener)
         setAdapter(adapter)
-        listenForSumariesUpdate()
+        listenForSummariesUpdate()
     }
 
     private fun getInitialData(): List<GameSummary> {
@@ -101,7 +101,7 @@ class QueryFrag : Fragment() {
         parentActivity.onItemClick(summary)
     }
 
-    private fun listenForSumariesUpdate() {
+    private fun listenForSummariesUpdate() {
         gameSummaryViewModel.summaries.observe(viewLifecycleOwner) { summaryList ->
             adapter.summaries = summaryList
             adapter.notifyDataSetChanged()

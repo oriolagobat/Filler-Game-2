@@ -2,7 +2,6 @@ package com.example.filler.log
 
 import androidx.lifecycle.MutableLiveData
 import com.example.filler.constants.logic.LOGGER_DATE_FORMAT
-import java.util.Date
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -11,7 +10,7 @@ object Logger {
 
     init {
         if (logList.value == null) {
-            logList.value = listOf<String>()
+            logList.value = listOf()
         }
     }
 
@@ -21,14 +20,6 @@ object Logger {
 
     fun logInfo(message: String) {
         logList.value = logList.value?.plus(newLogMessage(message, "INFO"))
-    }
-
-    fun logWarning(message: String) {
-        logList.value = logList.value?.plus(newLogMessage(message, "WARNING"))
-    }
-
-    fun logError(message: String) {
-        logList.value = logList.value?.plus(newLogMessage(message, "ERROR"))
     }
 
     fun clearLog() {

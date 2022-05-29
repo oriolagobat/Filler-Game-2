@@ -30,5 +30,5 @@ class BoardImpl(private val width: Int) : Board {
     override fun hasPosition(position: Position): Boolean =
         isValidCoordinate(position.col) && isValidCoordinate(position.row)
 
-    private fun isValidCoordinate(cord: Int): Boolean =  cord >= 0 && cord < this.getNumCols()
+    private fun isValidCoordinate(cord: Int): Boolean = cord >= 0 && cord < this.getNumCols()
 }

@@ -27,9 +27,9 @@ class GameSummaryListAdapter(
         }
 
         private fun setContent(summary: GameSummary) {
-           setAlias(summary)
-           setOutcome(summary)
-           setDate(summary)
+            setAlias(summary)
+            setOutcome(summary)
+            setDate(summary)
         }
 
         private fun setAlias(summary: GameSummary) {

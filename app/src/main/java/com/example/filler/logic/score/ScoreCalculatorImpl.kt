@@ -24,9 +24,9 @@ class ScoreCalculatorImpl(
         currentArea.totalArea.forEach { position -> board.setColor(position, pickedColor) }
     }
 
-    private fun addValidPositions(pickedColor: GameColor){
+    private fun addValidPositions(pickedColor: GameColor) {
         currentArea.fringe.flatMap { position -> position.getSurroundingPositions() }
-            .filter { position -> isValid(position) && hasSameColor(position, pickedColor)}
+            .filter { position -> isValid(position) && hasSameColor(position, pickedColor) }
             .forEach { position -> currentArea.addPosition(position) }
     }
 
@@ -36,5 +36,7 @@ class ScoreCalculatorImpl(
     private fun isValid(pos: Position) =
         !currentArea.hasPosition(pos) && !enemyArea.hasPosition(pos) && board.hasPosition(pos)
 
-    private fun swapAreas() { currentArea = enemyArea.also { enemyArea = currentArea } }
+    private fun swapAreas() {
+        currentArea = enemyArea.also { enemyArea = currentArea }
+    }
 }

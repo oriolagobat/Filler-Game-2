@@ -5,21 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import com.example.filler.FillerApplication
 import com.example.filler.R
-import com.example.filler.constants.logic.GameState
 import com.example.filler.databinding.FragmentRegBinding
 import com.example.filler.persistence.database.GameSummary
 import com.example.filler.persistence.database.GameSummaryViewModel
-import com.example.filler.persistence.database.GameSummaryViewModelFactory
 
 class RegFrag : Fragment() {
     private var _binding: FragmentRegBinding? = null
     private val binding get() = _binding!!
-    private val gameSummaryViewModel: GameSummaryViewModel by viewModels {
-        GameSummaryViewModelFactory((requireActivity().application as FillerApplication).repository)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +38,6 @@ class RegFrag : Fragment() {
             binding.persistenceTotalTime.text = elapsedTime
             binding.persistenceConqueredCells.text = conqueredAreaPercent.toString().plus("%")
             binding.persistenceSize.text = gridSize.toString()
-//            binding.persistenceOutcome.text = parseOutcome(outcome)
             setOutcome(outcome)
         }
     }
@@ -74,14 +66,5 @@ class RegFrag : Fragment() {
         binding.persistenceOutcomeDraw.text = getString(R.string.detail_draw)
         binding.persistenceOutcomeLose.visibility = View.INVISIBLE
         binding.persistenceOutcomeWin.visibility = View.INVISIBLE
-    }
-
-    private fun parseOutcome(outcome: String): String {
-        return when (outcome) {
-            GameState.P1_WON.name -> getString(R.string.detail_win)
-            GameState.P2_WON.name -> getString(R.string.detail_lose)
-            GameState.DRAW.name -> getString(R.string.detail_draw)
-            else -> getString(R.string.detail_draw)
-        }
     }
 }

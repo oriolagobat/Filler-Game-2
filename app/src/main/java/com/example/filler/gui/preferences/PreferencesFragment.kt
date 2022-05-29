@@ -2,7 +2,9 @@ package com.example.filler.gui.preferences
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.preference.*
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreferenceCompat
 import com.example.filler.R
 import com.example.filler.constants.gui.Music
 import com.example.filler.gui.preferences.image.ImagePopup

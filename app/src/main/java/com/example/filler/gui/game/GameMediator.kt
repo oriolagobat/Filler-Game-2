@@ -2,8 +2,6 @@ package com.example.filler.gui.game
 
 import android.widget.GridView
 import android.widget.TextView
-import androidx.activity.viewModels
-import com.example.filler.FillerApplication
 import com.example.filler.constants.logic.GameColor
 import com.example.filler.constants.logic.GameState
 import com.example.filler.gui.game.adapters.BoardAdapter
@@ -13,8 +11,6 @@ import com.example.filler.logic.game.Game
 import com.example.filler.logic.game.GameFactoryImpl
 import com.example.filler.logic.game.GameResponse
 import com.example.filler.logic.game.GameSettings
-import com.example.filler.persistence.database.GameSummaryViewModel
-import com.example.filler.persistence.database.GameSummaryViewModelFactory
 import com.example.filler.timer.TimerFactoryImpl
 
 class GameMediator(

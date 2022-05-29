@@ -3,7 +3,7 @@ package com.example.filler.logic.colors
 import com.example.filler.constants.logic.GameColor
 
 interface ColorSelector {
-    fun select(selectedColor : GameColor)
+    fun select(selectedColor: GameColor)
     fun getAvailableColors(): List<GameColor>
     fun getSelectedColors(): List<GameColor>
     fun toArray(): Array<Pair<GameColor, Boolean>>

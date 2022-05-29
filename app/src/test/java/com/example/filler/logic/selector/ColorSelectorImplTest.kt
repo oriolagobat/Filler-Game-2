@@ -1,13 +1,10 @@
 package com.example.filler.logic.selector
 
 import com.example.filler.constants.logic.GameColor
-import com.example.filler.logic.colors.ColorSelectorImpl
 import com.example.filler.logic.colors.ColorSelector
+import com.example.filler.logic.colors.ColorSelectorImpl
 import org.junit.Assert.*
 import org.junit.Test
-import java.lang.Thread.sleep
-import java.text.SimpleDateFormat
-import java.util.*
 
 class ColorSelectorImplTest {
     private val inputColors = listOf(GameColor.YELLOW, GameColor.PURPLE, GameColor.GREEN)

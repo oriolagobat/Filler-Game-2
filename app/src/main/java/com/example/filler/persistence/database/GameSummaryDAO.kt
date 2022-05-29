@@ -1,7 +1,6 @@
 package com.example.filler.persistence.database
 
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface GameSummaryDAO {

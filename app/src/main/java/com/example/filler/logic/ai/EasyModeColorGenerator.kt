@@ -4,8 +4,7 @@ import com.example.filler.constants.logic.GameColor
 import com.example.filler.logic.colors.Generator
 
 class EasyModeColorGenerator(settings: AIGeneratorSettings) :
-    ColorGenerator(settings), Generator
-{
+    ColorGenerator(settings), Generator {
     override fun generate(): GameColor {
         val colorsByGoodness = getColorsByGoodness()
         val nUsefulChoices = getUsefulChoices(colorsByGoodness)

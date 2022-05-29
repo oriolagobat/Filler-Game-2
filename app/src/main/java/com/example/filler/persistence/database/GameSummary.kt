@@ -7,7 +7,7 @@ import java.io.Serializable
 
 @Entity
 data class GameSummary(
-    @PrimaryKey (autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "endTime") val endTime: String,
     @ColumnInfo(name = "elapsedTime") val elapsedTime: String,
     @ColumnInfo(name = "alias") val alias: String,

@@ -7,7 +7,8 @@ class StubBoardInitializer(private val board: BoardImpl) {
     val boardColors = listOf(
         GameColor.ORANGE, GameColor.YELLOW, GameColor.GREEN,
         GameColor.PURPLE, GameColor.ORANGE, GameColor.YELLOW,
-        GameColor.ORANGE, GameColor.GREEN, GameColor.PURPLE)
+        GameColor.ORANGE, GameColor.GREEN, GameColor.PURPLE
+    )
 
     fun initBoard() {
         for ((index, color) in boardColors.withIndex())
