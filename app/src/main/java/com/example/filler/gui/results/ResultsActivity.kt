@@ -43,7 +43,6 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideNavBar(this)
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -146,6 +145,11 @@ class ResultsActivity : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        hideNavBar(this)
     }
 
     override fun onBackPressed() {

@@ -29,9 +29,6 @@ class HomepageActivity : AppCompatActivity(), View.OnClickListener {
         // Set the dynamic colors
         DynamicColors.applyToActivitiesIfAvailable(application)
 
-        // Hide the navbar
-        hideNavBar(this)
-
         // Splash screen
         installSplashScreen()
 
@@ -89,5 +86,10 @@ class HomepageActivity : AppCompatActivity(), View.OnClickListener {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA,
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        hideNavBar(this)
     }
 }
