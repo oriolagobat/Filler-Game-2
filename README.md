@@ -6,8 +6,8 @@ Filler Game 🎮
 
 ## What's new?
 ### Features:
-- Game summaries.
-- Persistence of game summaries, user can check the history of games.
+- Game statistics persisted as summaries.
+- History of game summaries.
 - Queries regarding the summaries to be shown on the history.
 - Spanish translation added to current ones (Catalan and English)
 - Preferences are now stored, so there's no need to reset them each game.
@@ -40,8 +40,8 @@ Filler Game 🎮
 
 ## Game features 🕹️
 
-- Number of colors is customizable (default: 3)
-- Board size is customizable (default: 3x3)
+- Number of colors is customizable (default: 6)
+- Board size is customizable (default: 8x8)
 - User can choose between 3 difficulties:
     - Easy (AI will choose a random color between the best 3 options it has)
     - Medium (AI will choose a random color between the best 2 options it has)
