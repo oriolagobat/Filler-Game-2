@@ -10,10 +10,10 @@ interface GameSummaryDAO {
     @Query("SELECT * FROM gamesummary WHERE alias = :alias")
     fun getSummariesWithAlias(alias: String): List<GameSummary>
 
-    @Query("SELECT * FROM gamesummary ORDER BY conqueredArea DESC")
+    @Query("SELECT * FROM gamesummary ORDER BY conqueredArea ASC")
     fun getAllSummariesOrderedByConqueredAreaDesc(): List<GameSummary>
 
-    @Query("SELECT * FROM gamesummary ORDER BY conqueredArea ASC")
+    @Query("SELECT * FROM gamesummary ORDER BY conqueredArea DESC")
     fun getAllSummariesOrderedByConqueredAreaAsc(): List<GameSummary>
 
     @Query("SELECT * FROM gamesummary WHERE outcome LIKE :outcome")

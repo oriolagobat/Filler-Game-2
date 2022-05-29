@@ -16,3 +16,7 @@ const val RESULT_OUTCOME_MESSAGE_INTRO_DRAW = "Draw. P1: "
 const val RESULT_OUTCOME_MESSAGE_FIN = " - P2: "
 const val RESULT_NEW_MAIL = "New mail saved: "
 const val RESULT_SEND_MAIL = "Sending log by mail..."
+
+const val OUTCOME_WIN = "Victory"
+const val OUTCOME_LOSE = "Defeat"
+const val OUTCOME_DRAW = "Draw"

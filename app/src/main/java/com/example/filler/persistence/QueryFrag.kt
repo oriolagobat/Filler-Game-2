@@ -10,6 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filler.FillerApplication
 import com.example.filler.R
+import com.example.filler.constants.gui.OUTCOME_DRAW
+import com.example.filler.constants.gui.OUTCOME_LOSE
+import com.example.filler.constants.gui.OUTCOME_WIN
 import com.example.filler.databinding.FragmentQueryBinding
 import com.example.filler.persistence.database.GameSummary
 import com.example.filler.persistence.database.GameSummaryViewModel
@@ -51,15 +54,15 @@ class QueryFrag : Fragment() {
                     true
                 }
                 R.id.victories -> {
-                    gameSummaryViewModel.filterByOutcome("Victory")
+                    gameSummaryViewModel.filterByOutcome(OUTCOME_WIN)
                     true
                 }
                 R.id.loses -> {
-                    gameSummaryViewModel.filterByOutcome("Defeat")
+                    gameSummaryViewModel.filterByOutcome(OUTCOME_LOSE)
                     true
                 }
                 R.id.draws -> {
-                    gameSummaryViewModel.filterByOutcome("Draw")
+                    gameSummaryViewModel.filterByOutcome(OUTCOME_DRAW)
                     true
                 }
                 else -> false

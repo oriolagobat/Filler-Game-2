@@ -5,6 +5,9 @@ import com.example.filler.constants.logic.LOGGER_DATE_FORMAT
 import java.text.SimpleDateFormat
 import java.util.*
 
+const val DEBUG_TAG = "DEBUG"
+const val INFO_TAG = "INFO"
+
 object Logger {
     val logList = MutableLiveData<List<String>>()
 
@@ -15,11 +18,11 @@ object Logger {
     }
 
     fun logDebug(message: String) {
-        logList.value = logList.value?.plus(newLogMessage(message, "DEBUG"))
+        logList.value = logList.value?.plus(newLogMessage(message, DEBUG_TAG))
     }
 
     fun logInfo(message: String) {
-        logList.value = logList.value?.plus(newLogMessage(message, "INFO"))
+        logList.value = logList.value?.plus(newLogMessage(message, INFO_TAG))
     }
 
     fun clearLog() {

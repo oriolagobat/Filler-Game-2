@@ -6,6 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.filler.R
+import com.example.filler.constants.gui.OUTCOME_DRAW
+import com.example.filler.constants.gui.OUTCOME_LOSE
+import com.example.filler.constants.gui.OUTCOME_WIN
+import com.example.filler.constants.logic.GameState
 import com.example.filler.databinding.FragmentRegBinding
 import com.example.filler.persistence.database.GameSummary
 import com.example.filler.persistence.database.GameSummaryViewModel
@@ -44,9 +48,9 @@ class RegFrag : Fragment() {
 
     private fun setOutcome(outcome: String) {
         when (outcome) {
-            "Victory" -> setWinOutcome()
-            "Defeat" -> setLoseOutcome()
-            "Draw" -> setDrawOutcome()
+            OUTCOME_WIN -> setWinOutcome()
+            OUTCOME_LOSE -> setLoseOutcome()
+            OUTCOME_DRAW -> setDrawOutcome()
         }
     }
 
