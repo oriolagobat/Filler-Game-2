@@ -11,16 +11,15 @@
     tools:context=".persistence.RegFrag">
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:id="@+id/persistence_params"
         android:layout_width="wrap_content"
-        android:layout_marginEnd="5dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@id/persistence_outcome"
-        app:layout_constraintEnd_toStartOf="@+id/persistence_outcome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/persistence_outcome">
+        app:layout_constraintTop_toBottomOf="@id/persistence_outcome"
+        app:layout_constraintBottom_toTopOf="@id/persistence_config_details"
+        app:layout_constraintStart_toStartOf="@id/persistence_config_details"
+        app:layout_constraintEnd_toEndOf="@id/persistence_config_details">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:text="Config"
+                android:text="@string/detail_config"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -55,16 +54,15 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:id="@+id/persistence_stats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="5dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@id/persistence_outcome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/persistence_outcome"
-        app:layout_constraintTop_toTopOf="@id/persistence_outcome">
+        app:layout_constraintTop_toBottomOf="@id/persistence_outcome"
+        app:layout_constraintBottom_toTopOf="@id/persistence_stats_details"
+        app:layout_constraintStart_toStartOf="@id/persistence_stats_details"
+        app:layout_constraintEnd_toEndOf="@id/persistence_stats_details">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -76,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:text="Stats"
+                android:text="@string/detail_stats"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -101,29 +99,28 @@
         style="@style/TextAppearance.Material3.HeadlineLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#B9F6CA"
         android:background="@drawable/detail_heading_background"
+        android:backgroundTint="#B9F6CA"
         android:fontFamily="sans-serif-condensed"
         android:padding="5dp"
-        android:text="VICTORY"
+        android:text="@string/detail_win"
         android:textColor="#00C853"
-        android:textScaleX="1.15"
-        app:layout_constraintEnd_toStartOf="@id/persistence_stats"
-        app:layout_constraintStart_toEndOf="@id/persistence_params"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textScaleX="1.15" />
 
     <LinearLayout
-        android:layout_marginTop="14dp"
         android:id="@+id/persistence_config_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/persistence_detail_background"
         android:orientation="vertical"
+        android:padding="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/persistence_stats_details"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/persistence_outcome"
-        android:padding="4dp">
+        app:layout_constraintEnd_toStartOf="@id/persistence_stats_details"
+        app:layout_constraintTop_toBottomOf="@id/persistence_params"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -135,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:text="Colors"
+                android:text="@string/detail_colors"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
@@ -147,6 +144,7 @@
                 app:srcCompat="@drawable/persistence_arrow" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/persistence_colors"
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,7 +165,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:text="Grid size"
+                android:text="@string/detail_size"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
@@ -181,6 +179,7 @@
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="wrap_content"
+                android:id="@+id/persistence_size"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:text=" 9 x 9"
@@ -200,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:text="Name"
+                android:text="@string/detail_alias"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
@@ -214,6 +213,7 @@
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="wrap_content"
+                android:id="@+id/persistence_alias"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:text="FerranFerranA"
@@ -224,15 +224,14 @@
 
     <LinearLayout
         android:id="@+id/persistence_stats_details"
-        android:layout_marginTop="14dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/persistence_detail_background"
         android:orientation="vertical"
         android:padding="4dp"
         app:layout_constraintStart_toEndOf="@id/persistence_config_details"
+        app:layout_constraintTop_toBottomOf="@id/persistence_stats"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/persistence_outcome"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
@@ -245,7 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:text="End"
+                android:text="@string/detail_end"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
@@ -261,6 +260,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:id="@+id/persistence_end_date"
                 android:text="27/02/2020 12:00"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
@@ -277,7 +277,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:text="Total time"
+                android:text="@string/detail_elapsed"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
@@ -293,6 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:id="@+id/persistence_total_time"
                 android:text=" 9 x 9"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
@@ -310,7 +311,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:text="Conquered cells"
+                android:text="@string/detail_conquered"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
@@ -326,6 +327,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:id="@+id/persistence_conquered_cells"
                 android:text="54%"
                 android:textColor="@color/white"
                 android:textSize="13sp" />

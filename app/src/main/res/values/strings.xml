@@ -17,4 +17,17 @@
     <string name="pref_music_key" translatable="false">MUSIC</string>
     <string name="pref_game_summary">Customize game parameters</string>
     <string name="pref_general_summary">Customize app features</string>
+
+
+    <string name="detail_config">Configuration</string>
+    <string name="detail_stats">Statistics</string>
+    <string name="detail_win">VICTORY</string>
+    <string name="detail_lose">DEFEAT</string>
+    <string name="detail_draw">DRAW</string>
+    <string name="detail_alias">Name</string>
+    <string name="detail_size">Grid size</string>
+    <string name="detail_colors">Colors</string>
+    <string name="detail_end">End</string>
+    <string name="detail_elapsed">Total time</string>
+    <string name="detail_conquered">Conquered cells</string>
 </resources>

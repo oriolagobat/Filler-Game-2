@@ -58,6 +58,19 @@
     <string name="pref_general_summary">Personalizar caraterísticas de la app</string>
     <string name="results_mail_error">No se ha introducido ningún correo electrónico, se usará el por defecto</string>
     <string name="results_mail_text_error">Por favor introduce un correo válido</string>
+
+
+    <string name="detail_config">Configuración</string>
+    <string name="detail_stats">Estadísticas</string>
+    <string name="detail_win">VICTORIA</string>
+    <string name="detail_lose">DERROTA</string>
+    <string name="detail_draw">DRAW</string>
+    <string name="detail_alias">Nombre</string>
+    <string name="detail_size">Tamaño</string>
+    <string name="detail_colors">Colores</string>
+    <string name="detail_end">Fin</string>
+    <string name="detail_elapsed">Tiempo total</string>
+    <string name="detail_conquered">Casillas totales</string>
     <string name="game_background_desc">Imagen de fondo para la pantalla del juego</string>
     <string name="results_background_desc">Imagen de fondo para la pantalla de resultados</string>
 </resources>

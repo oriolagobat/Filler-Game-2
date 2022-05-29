@@ -26,6 +26,19 @@
     <string name="pref_general_summary">Personalitzar característiques de l\'app</string>
     <string name="results_mail_error">No s\'ha introduit correu electrònic, s\'usarà el per defecte</string>
     <string name="results_mail_text_error">Siusplau introdueix un correu vàlid</string>
+
+
+    <string name="detail_config">Configruació</string>
+    <string name="detail_stats">Estadístiques</string>
+    <string name="detail_win">VICTORIA</string>
+    <string name="detail_lose">DERROTA</string>
+    <string name="detail_draw">EMPAT</string>
+    <string name="detail_alias">Nom</string>
+    <string name="detail_size">Mida</string>
+    <string name="detail_colors">Colors</string>
+    <string name="detail_end">Fi</string>
+    <string name="detail_elapsed">Temps total</string>
+    <string name="detail_conquered">Caselles totals</string>
     <string name="game_background_desc">Imatge de fons per la pantalla del joc</string>
     <string name="results_background_desc">Imatge de fons per la pantalla de resultats</string>
 </resources>
